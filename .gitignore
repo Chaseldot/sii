@@ -1,0 +1,10 @@
+# 忽略数据文件夹
+data/
+
+# 忽略评测输出结果（也会产生大量小文件）
+# outputs/
+
+# 忽略 Python 缓存和系统临时文件
+__pycache__/
+*.pyc
+.DS_Store
