@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772536940",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 4,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 23.01930832862854,
+  "response": "```python\nimport heapq\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:N+1]))\n    \n    # Max heap implementation (we use negative values to simulate max heap)\n    max_heap = []\n    for i in range(N):\n        heapq.heappush(max_heap, (-P[i], i))\n    \n    rank = [0] * N\n    r = 1\n    determined = [False] * N\n    \n    while max_heap:\n        # Get the maximum score and index\n        neg_score, idx = heapq.heappop(max_heap)\n        score = -neg_score\n        \n        # Check if the person has already been determined\n        if determined[idx]:\n            continue\n        \n        # Collect all indices with the same score that are undetermined\n        current_score_indices = []\n        while max_heap and -max_heap[0][0] == score:\n            neg_next_score, next_idx = heapq.heappop(max_heap)\n            if not determined[next_idx]:\n                current_score_indices.append(next_idx)\n            else:\n                # Push back if already determined\n                heapq.heappush(max_heap, (neg_next_score, next_idx))\n        \n        # Add the initial index if it wasn't processed\n        if not determined[idx]:\n            current_score_indices.append(idx)\n        \n        # Assign ranks\n        for i in current_score_indices:\n            rank[i] = r\n            determined[i] = True\n        \n        # Update the rank\n        r += len(current_score_indices)\n    \n    # Print the result\n    for i in range(N):\n        print(rank[i])\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

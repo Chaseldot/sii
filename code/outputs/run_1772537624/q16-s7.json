@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772537624",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 7,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 9.115257978439331,
+  "response": "To solve this problem, we need to determine a positive integer `B` such that the product of `A` (number of rows) and `B` (number of columns) is exactly 400. This means we are looking for a divisor of 400 that is greater than or equal to 1.\n\n### Steps:\n1. **Understand the Problem**: We are given an integer `A`, and we need to find an integer `B` such that `A * B = 400`. This means `B` must be a divisor of 400.\n2. **Constraints**: The value of `A` ranges from 1 to 400. If no such `B` exists, print `-1`.\n3. **Find Divisors**: Since `A * B = 400`, `B` must be `400 / A`. However, `400 / A` must be an integer.\n4. **Edge Cases**:\n   - If `A` is 0, it's not valid since the input specifies that `A` is a positive integer.\n   - If `400 % A != 0`, then `B` is not an integer, so print `-1`.\n\n### Time Complexity:\n- The solution runs in constant time $O(1)$, as it involves only a few arithmetic operations.\n\nHere is the complete Python code:\n\n```python\n# Read input\nA = int(input())\n\n# Check if A divides 400 evenly\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```"
+}

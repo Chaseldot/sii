@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772536155",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 1,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 8.110191583633423,
+  "response": "我将仔细分析问题，并提供正确、高效的代码。\n\n### 问题分析\n\n我们需要判断给定的整数序列中是否存在某个位置，使得该位置的元素及其后两个相邻元素完全相同（即连续出现三次或更多次）。\n\n#### 输入格式\n- 第一行是整数 $ N $ 表示序列长度。\n- 第二行是 $ N $ 个整数，表示序列 $ A $。\n\n#### 输出格式\n- 如果存在这样的位置，输出 \"Yes\"。\n- 否则，输出 \"No\"。\n\n#### 约束条件\n- $ 3 \\leq N \\leq 100 $\n- $ 1 \\leq A_i \\leq 100 $\n\n### 算法设计\n\n我们可以遍历数组 $ A $，检查每个元素是否和它下一个以及下下个元素相等。只要发现一个这样的三元组，就可以直接返回 \"Yes\"。如果没有找到，就返回 \"No\"。\n\n### 代码实现\n\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three consecutive equal elements\nfound = False\nfor i in range(len(A) - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        found = True\n        break\n\n# Output the result\nprint(\"Yes\" if found else \"No\")\n```"
+}

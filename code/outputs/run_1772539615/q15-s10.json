@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772539615",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 10,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 22.538028717041016,
+  "response": "```python\nimport heapq\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:N+1]))\n    \n    result = [0] * N\n    max_heap = []\n    \n    # Create a max heap by pushing negative values\n    for i in range(N):\n        heapq.heappush(max_heap, (-P[i], i))  # Use negative to simulate max heap\n    \n    r = 1\n    processed_scores = set()\n    \n    while max_heap:\n        score_neg, index = heapq.heappop(max_heap)\n        score = -score_neg\n        \n        if score in processed_scores:\n            continue\n        \n        count = 0\n        # Count how many people have this score and haven't been processed yet\n        temp_heap = []\n        while max_heap and -max_heap[0][0] == score:\n            temp_heap.append(heapq.heappop(max_heap))\n        \n        # Assign the rank to all these people\n        for i in range(len(temp_heap)):\n            _, idx = temp_heap[i]\n            result[idx] = r\n        \n        r += len(temp_heap)\n        processed_scores.add(score)\n        \n        # Put back the remaining elements\n        while temp_heap:\n            heapq.heappush(max_heap, temp_heap.pop())\n    \n    for rank in result:\n        print(rank)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

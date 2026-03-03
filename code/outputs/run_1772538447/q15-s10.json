@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772538447",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 10,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 7.794801950454712,
+  "response": "### **STEP 1 - Problem Analysis**\n\n#### **Type of Problem**\nThis is a **simulation problem** with a specific ranking algorithm. The goal is to simulate the process of assigning ranks based on scores following a given rule.\n\n#### **Key Algorithm/Method**\n- We need to repeatedly find the maximum score among undetermined people.\n- Assign the current rank `r` to all people with this maximum score.\n- Increment `r` by the number of people who have the maximum score in each step.\n- Repeat until all people are assigned ranks.\n\n#### **Edge Cases**\n- All people have the same score (e.g., sample input 3).\n- Only one person (N=1), where rank will be 1.\n- Multiple people with the same score, which needs to be handled carefully in grouping and updating ranks.\n\n---\n\n### **STEP 2 - Write Code**\n\n```python\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:]))\n    \n    # Initialize rank array with 0s (meaning undetermined)\n    rank = [0] * N\n    # Keep track of which people have been determined\n    determined = [False] * N\n    \n    r = 1  # Starting rank\n    \n    while sum(determined) < N:\n        # Find the maximum score among undetermined people\n        max_score = -1\n        for i in range(N):\n            if not determined[i] and P[i] > max_score:\n                max_score = P[i]\n        \n        # Determine how many people have this max score\n        count = 0\n        for i in range(N):\n            if not determined[i] and P[i] == max_score:\n                count += 1\n        \n        # Assign rank to those people\n        for i in range(N):\n            if not determined[i] and P[i] == max_score:\n                rank[i] = r\n                determined[i] = True\n        \n        # Update r\n        r += count\n    \n    # Output the results\n    for r_i in rank:\n        print(r_i)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

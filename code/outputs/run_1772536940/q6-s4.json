@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772536940",
+  "question_index": 6,
+  "question_id": "17",
+  "split": "train",
+  "sample_id": 4,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 7.545941352844238,
+  "response": "To solve this problem, we need to repeatedly replace the leftmost occurrence of the substring \"WA\" with \"AC\" until there are no more such substrings in the string.\n\n### Key Observations:\n- We must always replace the **leftmost** occurrence of \"WA\" in each iteration.\n- This can be efficiently handled using a `while` loop that continues as long as \"WA\" exists in the string.\n- The operations will stop when the string no longer contains \"WA\".\n\n### Approach:\n1. Use a loop that checks if \"WA\" is present in the string.\n2. In every iteration, find the first occurrence of \"WA\" and replace it with \"AC\".\n3. Repeat until \"WA\" is no longer found in the string.\n\nThis approach ensures that at each step, the leftmost occurrence is replaced, which aligns with the problem's requirements.\n\n### Time Complexity:\nEach replacement operation reduces the number of characters in the string by 1 (replacing two characters with two new ones). Since the maximum number of replacements is bounded by the length of the string, the time complexity is $O(n)$, where $n$ is the length of the string.\n\nNow, I'll provide the full implementation:\n\n```python\ndef main():\n    import sys\n    S = sys.stdin.readline().strip()\n\n    while 'WA' in S:\n        S = S.replace('WA', 'AC', 1)  # Replace the leftmost occurrence\n\n    print(S)\n\nif __name__ == \"__main__\":\n    main()\n```\n\n### Explanation:\n- `S.replace('WA', 'AC', 1)` replaces the first (leftmost) occurrence of \"WA\" with \"AC\" in the string.\n- The loop continues until \"WA\" is no longer found in the string.\n- The input is read using `sys.stdin.readline()` for efficiency, especially with large strings.\n\nThis code handles all edge cases and satisfies the constraints."
+}

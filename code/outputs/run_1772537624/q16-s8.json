@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772537624",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 8,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 11.799227714538574,
+  "response": "To solve this problem, we need to determine if a given integer $ A $ can be used as the number of rows in a rectangular formation such that the total number of people (400) is arranged without any gaps. This means that:\n\n$$\nA \\times B = 400\n$$\n\nWhere:\n- $ A $ is the given number of rows.\n- $ B $ is the number of columns.\n- We must find a positive integer $ B $ such that the equation above holds.\n\n### Key Observations:\n- If $ A $ divides 400 evenly, then there exists a valid $ B = 400 / A $. Otherwise, no such $ B $ exists.\n- Therefore, the solution involves checking whether 400 is divisible by $ A $. If so, return $ B = 400 // A $. Otherwise, return -1.\n\n### Edge Cases:\n- If $ A = 0 $: Not possible because $ A $ is between 1 and 400.\n- If $ A > 400 $: Not allowed by constraints.\n- For $ A = 400 $, the only possible $ B $ is 1.\n- For $ A = 1 $, the only possible $ B $ is 400.\n\n### Time Complexity:\n- The algorithm runs in constant time $ O(1) $ since it performs a single division check and returns the result.\n\nNow, I'll write the complete Python code:\n\n```python\n# Read input from standard input\nA = int(input())\n\n# Check if A divides 400 evenly\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```"
+}

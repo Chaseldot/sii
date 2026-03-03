@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772536155",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 8,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 8.005205154418945,
+  "response": "我将按照您的要求逐步分析问题并给出解决方案。\n\n### 步骤 1：理解题目\n我们需要找出一个正整数B，使得A行B列的矩形可以容纳400人（即 A × B = 400）。如果不存在这样的B，则输出-1。\n\n### 步骤 2：思考与设计算法\n我们要找到所有可能的因数对(A, B)满足A × B = 400。对于给定的A值，我们只需要检查是否400能被A整除。如果可以，则B = 400 / A；否则输出-1。\n\n### 步骤 3：代码实现\n我们将读取一个整数A，然后检查是否有对应的B值满足条件。\n\n```python\n# Read input\nA = int(input())\n\n# Check if there exists a positive integer B such that A * B = 400\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```"
+}

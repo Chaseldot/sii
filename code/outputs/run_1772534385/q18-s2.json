@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772534385",
+  "question_index": 18,
+  "question_id": "64",
+  "split": "train",
+  "sample_id": 2,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 42.73392915725708,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    A = list(map(int, data[1:N+1]))\n    \n    if all(x == 1 for x in A):\n        print(\"Yes\")\n        return\n    \n    # Check for each position whether it's possible to cover the zero using operations\n    # We use a greedy approach to mark positions that can be flipped\n    # Since each operation affects two adjacent elements, we need to find a way to cover all zeros\n    \n    # We try to find a valid string S such that applying the operations turns all 0s into 1s\n    # By simulating the process, we check if all 0s can be flipped\n    \n    # Mark which indices are flipped (from 0 to 1)\n    flipped = [False] * N\n    \n    # For each index, see if it or its neighbors can be used to flip a zero\n    # We'll go through each position and apply the operations as needed\n    \n    for i in range(N):\n        # Check if current index is not already flipped and has a 0\n        if not flipped[i] and A[i] == 0:\n            # Try both possible patterns\n            # Pattern 1: i, i+1, i+2\n            j = (i + 1) % N\n            k = (i + 2) % N\n            if not flipped[j] and not flipped[k]:\n                # Apply operation 1\n                flipped[i] = True\n                flipped[j] = True\n                flipped[k] = True\n                A[i] = 1\n                A[j] = 1\n                A[k] = 1\n                \n            # Try pattern 2: i-2, i-1, i\n            j = (i - 1) % N\n            k = (i - 2) % N\n            if not flipped[j] and not flipped[k]:\n                # Apply operation 2\n                flipped[i] = True\n                flipped[j] = True\n                flipped[k] = True\n                A[i] = 1\n                A[j] = 1\n                A[k] = 1\n                \n    if all(x == 1 for x in A):\n        print(\"Yes\")\n    else:\n        print(\"No\")\n\nmain()\n```"
+}

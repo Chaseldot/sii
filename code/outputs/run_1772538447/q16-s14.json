@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772538447",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 14,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 5.166221618652344,
+  "response": "### STEP 1 - Problem Analysis:\n\n**Problem Type:**  \nThis is a **mathematical problem** involving factorization. We are given the number of rows $ A $, and we need to find the number of columns $ B $ such that:\n\n$$\nA \\times B = 400\n$$\n\nSo the task reduces to finding a factor $ B $ of 400 such that $ A \\times B = 400 $. If no such $ B $ exists (i.e., 400 is not divisible by $ A $), then we should print `-1`.\n\n**Key Algorithm:**  \nWe can iterate over all possible divisors of 400 and check if $ A $ divides 400. If it does, then $ B = \\frac{400}{A} $, and this is a valid solution.\n\n**Edge Cases:**\n- If $ A = 400 $, then $ B = 1 $\n- If $ A = 1 $, then $ B = 400 $\n- For values of $ A $ where 400 is not divisible by $ A $, return `-1`\n\n---\n\n### STEP 2 - Write Code:\n\n```python\n# Read input\nA = int(input())\n\n# Check if A divides 400 evenly\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```"
+}

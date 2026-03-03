@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772536155",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 9,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 13.204495906829834,
+  "response": "### 思路分析\n\n根据题意，我们需要为每个参与者的成绩分配排名。题目给出的排名规则是：\n\n- 先找出当前未确定排名的人中最高分，然后给所有得此最高分的人分配当前的排名 r\n- 然后将 r 加上这些人的数量，继续处理剩下的未确定排名的人。\n\n要实现此逻辑，可以按照以下步骤思考：\n\n1. **输入解析**：读取参与者人数 $ N $ 和他们的成绩数组 $ P $。\n2. **处理逻辑**：\n   - 使用一个优先队列（堆）来维护尚未决定排名的选手及其分数。\n   - 从最大值开始逐个处理。\n   - 当前排名 $ r $ 初始化为 1。\n   - 每次处理时：\n     - 找出当前的最高分（可以通过堆结构获取）。\n     - 将所有等于该最高分的选手提取出来，并记录它们的原始位置。\n     - 给这些选手分配当前的排名 $ r $，并更新 $ r $。\n3. **输出结果**：最后输出每个人的排名。\n\n---\n\n### Python代码实现\n\n```python\nimport heapq\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:]))\n    \n    # 使用一个堆结构，保存 (score, original index)\n    heap = [(-P[i], i) for i in range(N)]\n    heapq.heapify(heap)\n    \n    rank = [0] * N\n    current_rank = 1\n    \n    while heap:\n        # 取出当前最大分\n        score_neg, idx = heapq.heappop(heap)\n        max_score = -score_neg\n        \n        # 找出所有与当前最大分相同的选手\n        temp = []\n        while heap and -heap[0][0] == max_score:\n            score_neg2, idx2 = heapq.heappop(heap)\n            temp.append(idx2)\n        \n        # 将剩下的相同分数也加入到临时列表\n        temp.append(idx)\n        \n        # 分配当前排名\n        for i in temp:\n            rank[i] = current_rank\n        \n        # 更新排名\n        current_rank += len(temp)\n    \n    for r in rank:\n        print(r)\n\nif __name__ == \"__main__\":\n    main()\n``` \n\n---\n\n### 解释\n\n- 通过 `-score` 的方式构建最小堆，从而实现最大堆的效果。\n- 每次弹出最大分数，并遍历所有具有相同最大分数的选手，确保我们正确识别出所有得最高分的人。\n- 将他们的排名设为 `current_rank` 之后，将 `current_rank` 更新为下一个可用的排名。\n- 最终按顺序输出每个人的排名。\n\n这段代码满足所有约束条件，可在 1 秒内处理最多 100 名考生的数据。"
+}

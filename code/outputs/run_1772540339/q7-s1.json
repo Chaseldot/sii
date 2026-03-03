@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772540339",
+  "question_index": 7,
+  "question_id": "20",
+  "split": "train",
+  "sample_id": 1,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 7.690425157546997,
+  "response": "To solve this problem, we need to remove all characters from the given string `S` that are not `'2'`, and then concatenate the remaining characters in their original order to form a new string.\n\n### Key Steps:\n1. **Input:** Read the input string `S`.\n2. **Filtering:** Iterate through each character of `S` and keep only those characters which are equal to `'2'`.\n3. **Concatenation:** Join these filtered characters to form the resulting string.\n4. **Output:** Print the resulting string.\n\n### Edge Cases Considered:\n- The string contains at least one `'2'` (as guaranteed by the constraints).\n- The string may contain other digits besides `'2'`, but they will be removed.\n- The resulting string may be empty if no `'2'` is present, but the constraint ensures there is at least one `'2'`.\n\n### Time and Space Complexity:\n- **Time Complexity:** O(n), where n is the length of the string `S`. We iterate through the string once.\n- **Space Complexity:** O(n) in the worst case, where all characters are `'2'` and we store them in a new string.\n\nHere's the complete solution:\n\n```python\n# Read the input string\nS = input().strip()\n\n# Filter the string to keep only '2's\nresult = ''.join([char for char in S if char == '2'])\n\n# Output the result\nprint(result)\n```"
+}

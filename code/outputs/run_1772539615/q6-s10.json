@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772539615",
+  "question_index": 6,
+  "question_id": "17",
+  "split": "train",
+  "sample_id": 10,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 12.143858194351196,
+  "response": "### 思路分析\n\n我们需要对输入字符串 $ S $ 重复操作：找到所有 **WA** 的连续子串，每次替换 **最左边的 WA** 为 **AC**。重复这个过程，直到原字符串中不含 **WA**。\n\n- 简单的想法是，逐个检查字符串中的字符，寻找“WA”，并替换为“AC”。\n- 但由于每次替换可能影响后面的匹配（例如，“WACWA”中替换第一个“WA”后，“ACWA”中可能产生新的“WA”），直接用字符串的 `replace` 方法无法满足题意中“只替换最左边的WA”的要求。\n- 更高效的做法是：\n  - 遍历字符串，寻找所有“WA”的起始位置；\n  - 每次将最左边的“WA”替换成“AC”，然后从替换位置重新开始扫描（避免跳过新生成的“WA”）。\n  - 直到没有更多“WA”可以替换为止。\n\n### 关键点\n- **最左匹配优先**：每次替换最左边的 “WA”。\n- **重复替换直到无匹配**：操作最多执行 $ O(n) $ 次（如“WWA”需要两次操作）。\n- **时间复杂度**：每次匹配与替换的时间是线性的，整体时间复杂度为 $ O(n^2) $ 在最坏情况下，但在实际中由于替换后“WA”会被拆分或消除，因此实际运行时间应远低于 $ O(n^2) $。\n\n---\n\n### Python 实现代码\n\n```python\ndef main():\n    import sys\n    input = sys.stdin.read().strip()\n    s = list(input)\n    i = 0\n    n = len(s)\n    \n    while i < n - 1:\n        if s[i] == 'W' and s[i+1] == 'A':\n            # Replace 'WA' with 'AC'\n            s[i] = 'A'\n            s[i+1] = 'C'\n            # After replacing, we need to start scanning again from i\n            # because the previous characters may form new 'WA' with current character\n            i = max(0, i - 1)\n        else:\n            i += 1\n    \n    print(''.join(s))\n\nif __name__ == \"__main__\":\n    main()\n```\n\n---\n\n### 示例验证\n\n#### Sample Input 1\n```\nWACWA\n```\n**Output:**  \n```\nACCAC\n```\n\n#### Sample Input 2\n```\nWWA\n```\n**Output:**  \n```\nACC\n```\n\n#### Sample Input 3\n```\nWWWWW\n```\n**Output:**  \n```\nWWWWW\n```\n\n---\n\n以上代码在时间限制和空间限制下是可运行且正确的，符合题目要求。"
+}

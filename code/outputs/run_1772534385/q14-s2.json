@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772534385",
+  "question_index": 14,
+  "question_id": "53",
+  "split": "train",
+  "sample_id": 2,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 38.35606622695923,
+  "response": "```python\nimport sys\nfrom collections import defaultdict\n\nMOD = 998244353\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    K = int(data[1])\n    A = list(map(int, data[2:2+N]))\n    \n    prefix_sum = [0] * (N + 1)\n    for i in range(N):\n        prefix_sum[i+1] = (prefix_sum[i] + A[i]) % MOD\n    \n    freq = defaultdict(int)\n    current_sum = 0\n    total = 0\n    \n    for r in range(N):\n        current_sum = (current_sum + A[r]) % MOD\n        freq[current_sum] += 1\n        \n        # Calculate the contribution of current_sum^K\n        power = pow(current_sum, K, MOD)\n        total = (total + power) % MOD\n        \n        # Update the frequency map with previous sums\n        for i in range(r):\n            prev_sum = (prefix_sum[r+1] - prefix_sum[i]) % MOD\n            freq[prev_sum] += 1\n            power = pow(prev_sum, K, MOD)\n            total = (total + power) % MOD\n    \n    print(total % MOD)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

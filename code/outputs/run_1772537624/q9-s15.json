@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772537624",
+  "question_index": 9,
+  "question_id": "27",
+  "split": "train",
+  "sample_id": 15,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 8.211722612380981,
+  "response": "I will solve the problem by checking if the sequence is strictly increasing. A sequence is strictly increasing if each element is less than the next one.\n\n### Steps:\n1. Read the input: first read `N`, then read the list of integers.\n2. Iterate through the list and check if every element is less than the next one.\n3. If all elements satisfy this condition, print \"Yes\"; otherwise, print \"No\".\n\nThe time complexity is O(N), which is efficient for the given constraints (N ≤ 100).\n\nHere is the complete code:\n\n```python\n# Read input from standard input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check if the sequence is strictly increasing\nis_strictly_increasing = True\nfor i in range(N - 1):\n    if A[i] >= A[i + 1]:\n        is_strictly_increasing = False\n        break\n\n# Print the result\nprint(\"Yes\" if is_strictly_increasing else \"No\")\n```"
+}

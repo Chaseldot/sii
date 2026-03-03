@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772540339",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 14,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 5.316382884979248,
+  "response": "To solve this problem, we need to determine if there exists a positive integer $ B $ such that the product of $ A $ and $ B $ equals 400. This is because the rectangular formation must contain exactly 400 people with $ A $ rows and $ B $ columns.\n\n### Key Observations:\n- $ A \\times B = 400 $\n- We are given a value for $ A $ and we need to check if there's an integer $ B > 0 $ such that $ B = 400 / A $ is also an integer.\n- If $ 400 \\% A == 0 $, then $ B = 400 // A $ is valid.\n- Otherwise, no such $ B $ exists, and we should print -1.\n\n### Approach:\n1. Read the input value $ A $.\n2. Check if $ A $ divides 400 evenly.\n3. If it does, compute $ B = 400 // A $ and print it.\n4. If not, print -1.\n\n### Edge Cases:\n- $ A = 1 $: Then $ B = 400 $\n- $ A = 400 $: Then $ B = 1 $\n- $ A = 2 $: $ B = 200 $, etc.\n- $ A = 11 $: Since 400 is not divisible by 11, output is -1\n\n### Time Complexity:\n- The solution runs in constant time $ O(1) $, as it involves only basic arithmetic operations.\n\nHere is the complete Python code:\n\n```python\n# Read input\nA = int(input())\n\n# Check if 400 is divisible by A\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```"
+}

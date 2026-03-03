@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772540339",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 11,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 5.2453672885894775,
+  "response": "To solve this problem, we need to find a positive integer `B` such that the product of `A` and `B` equals 400. This is because we are arranging 400 people in a rectangular formation with A rows and B columns, so `A * B = 400`.\n\n### Steps:\n1. We iterate over all possible factors of 400.\n2. For each factor `B`, we check if `A * B == 400`. If yes, then we return `B`.\n3. If no such `B` exists, we return `-1`.\n\nWe can optimize this by iterating from 1 to the square root of 400 (i.e., 20), since we’re only interested in divisors of 400.\n\n### Edge Cases:\n- If `A == 400`, then the only valid value for `B` is 1.\n- If `A` is a prime number that doesn’t divide evenly into 400, then there's no valid `B`, and the output would be `-1`.\n\nHere is the complete Python solution:\n\n```python\nimport sys\nimport math\n\ndef main():\n    A = int(sys.stdin.readline())\n    \n    # Since A * B = 400, B = 400 / A\n    if 400 % A == 0:\n        print(400 // A)\n    else:\n        print(-1)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772536155",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 0,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 12.700242042541504,
+  "response": "### 思路分析：\n\n此题要求我们为每个参赛者分配一个排名，其规则是：\n- 每次找出当前未确定排名的人中最高分的群体。\n- 这些人的排名设为当前的 `r`，并更新 `r = r + k`（k 是该分数对应的选手数）。\n- 重复直到所有人都有排名。\n\n我们将使用以下步骤：\n1. **读取输入**：读取人数N和他们的得分P数组。\n2. **初始化排名数组**：创建一个与输入大小相同的数组用于保存每个人的排名，初始值为0。\n3. **处理得分排序**：使用最大堆来快速找到当前最大的分数，并管理哪些人还未确定排名。\n4. **确定排名**：\n   - 找出当前最高分及其出现次数。\n   - 将这些人的排名设置为当前的 `r`。\n   - 更新 `r` 值，以便下一次计算时使用。\n\n### 实现细节：\n\n- 使用一个优先队列（最大堆），但我们需要处理相同分数的情况。\n- 使用一个集合（或字典）来记录哪些人的排名还尚未确定。\n- 逐个处理最高分群组，更新它们的排名。\n\n---\n```python\nimport heapq\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:N+1]))\n    \n    rank = [0] * N\n    \n    # Max heap to retrieve maximum score\n    max_heap = [(-P[i], i) for i in range(N)]\n    heapq.heapify(max_heap)\n    \n    # Set to keep track of undetermined ranks\n    undetermined = set(range(N))\n    r = 1  # current rank\n\n    while undetermined:\n        # Get the highest score and its index\n        score, idx = heapq.heappop(max_heap)\n        score = -score\n        \n        # Find all people with the same score that are still undetermined\n        current_group = []\n        while max_heap and -max_heap[0][0] == score:\n            current_score, current_idx = heapq.heappop(max_heap)\n            current_score = -current_score\n            if current_idx in undetermined:\n                current_group.append(current_idx)\n        \n        # Add the initial index back if it was not in the group\n        if idx not in current_group:\n            current_group.append(idx)\n        \n        # Assign rank to these people\n        for person in current_group:\n            rank[person] = r\n            undetermined.remove(person)\n        \n        # Update r\n        r += len(current_group)\n    \n    # Print the result\n    for i in range(N):\n        print(rank[i])\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

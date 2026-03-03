@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772540339",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 4,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 5.63908314704895,
+  "response": "I will solve the problem step by step.\n\n### Problem Analysis:\nWe need to determine if there is a subsequence of three or more consecutive equal elements in the given array `A`.\n\n### Key Observations:\n- We are allowed to check for 3 consecutive equal elements.\n- The input size is small (maximum 100 elements), so even a brute-force approach will work efficiently.\n\n### Approach:\n- Iterate through the array from the start to the third last element.\n- For each element, check if it is equal to the next two elements.\n- If such a sequence is found, return \"Yes\".\n- If no such sequence is found after checking all possibilities, return \"No\".\n\n### Edge Cases:\n- Array with exactly 3 elements: Check if all are the same.\n- Array where only the end elements have 3 consecutive ones (e.g., `...x x x`).\n- All elements are distinct, or only 2 consecutive elements are the same.\n\n### Time Complexity:\n- O(N), since we loop through the array once.\n\nNow, I'll write the complete Python code:\n\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three or more consecutive equal elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        found = True\n        break\n\n# Output the result\nprint(\"Yes\" if found else \"No\")\n```"
+}

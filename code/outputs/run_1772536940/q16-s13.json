@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772536940",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 13,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.605099439620972,
+  "response": "To solve this problem, we need to check if there exists a positive integer $ B $ such that:\n\n$$\nA \\times B = 400\n$$\n\nThis means $ B $ must be a divisor of 400. If $ A $ is a divisor of 400, then the corresponding $ B $ would be $ B = \\frac{400}{A} $. However, if $ A $ does not divide 400 evenly, then there is no such $ B $ and we should output -1.\n\n### Steps:\n1. Check if $ A $ divides 400.\n2. If it does, compute $ B = \\frac{400}{A} $.\n3. If it does not, print -1.\n\n### Edge Cases:\n- If $ A = 400 $, then $ B = 1 $.\n- If $ A = 1 $, then $ B = 400 $.\n- For $ A $ values not dividing 400 (e.g., 11), print -1.\n- $ A $ is always in the range [1, 400].\n\n### Time Complexity:\n- Since 400 is fixed (small number), our solution will run in $ O(1) $ time.\n\nHere is the complete Python code for the solution:\n\n```python\n# Read input from standard input\nA = int(input())\n\n# Check if A divides 400\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```"
+}

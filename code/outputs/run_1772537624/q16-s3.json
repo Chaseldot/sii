@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772537624",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 3,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 11.703352451324463,
+  "response": "To solve this problem, we need to find a positive integer B such that the product of A and B equals 400. In other words, B must be a divisor of 400, and both A and B must be positive integers.\n\n### Steps:\n\n1. **Understand the Problem:**  \n   We are given A and need to check if there exists a B (positive integer), such that `A * B = 400`. This implies that B = 400 / A, which means A must be a divisor of 400.\n   \n2. **Constraints:**  \n   - A is between 1 and 400, inclusive.\n   - If A is not a divisor of 400, then no valid B exists, and we print `-1`.\n   - Otherwise, B = 400 // A.\n\n3. **Edge Case Checks:**  \n   - For A = 400, B = 1.\n   - For A = 1, B = 400.\n   - For primes or non-divisors of 400, like A = 11, output will be -1.\n\n4. **Time Complexity:**  \n   Since A can be at most 400, checking if it is a divisor of 400 is O(1)—simple division.\n\nHere is the complete Python code that implements this logic:\n\n```python\n# Read input\nA = int(input())\n\n# Check if A is a divisor of 400\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```"
+}

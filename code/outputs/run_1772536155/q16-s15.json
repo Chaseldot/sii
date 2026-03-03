@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772536155",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 15,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 7.620047092437744,
+  "response": "### 思路分析\n\n1. **问题理解**:\n   - 目标是将400人排成A行B列的矩形阵列，其中A是给定输入，B是一个正整数。\n   - 如果能找到这样的B，则输出它；否则输出-1。\n\n2. **核心逻辑**:\n   - 由于总人数为400，所以必须满足 $ A \\times B = 400 $。\n   - 所以我们需要找到一个正整数B，使得 $ B = \\frac{400}{A} $。只有当400能被A整除时才存在这样的B，否则输出-1。\n\n3. **边界情况**:\n   - 输入范围为1到400（闭区间）。\n   - 若A=400，则B=1。\n   - 若A=1，则B=400。\n   - 若A不能整除400（如A=11），则输出-1。\n\n4. **时间/空间复杂度**:\n   - 时间复杂度为O(1)，因为只进行简单的除法判断。\n   - 空间复杂度为O(1)，无需额外存储结构。\n\n---\n\n### Python代码实现\n\n```python\n# Read input\nA = int(input())\n\n# Check if 400 is divisible by A\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```"
+}

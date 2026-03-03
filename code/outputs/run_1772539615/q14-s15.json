@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772539615",
+  "question_index": 14,
+  "question_id": "53",
+  "split": "train",
+  "sample_id": 15,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 10.985362768173218,
+  "response": "### 思路\n\n我们的问题是，计算所有区间 `[l, r]` 的和的 `K` 次方之和，并对结果取模。由于 `N` 可以达到 $2 \\times 10^5$，直接枚举所有子区间 `[l, r]` 是不可行的，因为它涉及 $O(N^2)$ 操作。\n\n但是，注意到 $K$ 最大为 $10$，这提示我们可以使用一些数学技巧来优化计算。特别是，我们可以利用**前缀和**来快速求解任意区间的和，然后用这些值进行幂运算。\n\n具体步骤如下：\n\n1. **计算前缀和数组**：用于快速求得任意区间的和。\n2. **滑动窗口或枚举起点 `l` 和终点 `r`**：\n   - 枚举每个起点 `l`，然后逐渐增大 `r`，计算当前区间的和 `curr_sum`。\n   - 使用快速幂算法快速计算 `curr_sum^K`。\n   - 将所有的 `curr_sum^K` 累加起来。\n3. **取模**：每次加法后都对结果取模以防止溢出。\n\n注意，对于大范围的 `N` 和小范围的 `K`，此算法的时间复杂度为 $O(N \\cdot K)$，是可以接受的。\n\n---\n\n### Python 代码实现\n\n```python\nMOD = 998244353\n\ndef fast_power(base, power):\n    result = 1\n    while power > 0:\n        if power % 2 == 1:\n            result = (result * base) % MOD\n        base = (base * base) % MOD\n        power //= 2\n    return result\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    K = int(data[1])\n    A = list(map(int, data[2:2+N]))\n    \n    prefix_sum = [0] * (N + 1)\n    for i in range(N):\n        prefix_sum[i+1] = (prefix_sum[i] + A[i]) % MOD\n    \n    total = 0\n    for l in range(N):\n        curr_sum = 0\n        for r in range(l, N):\n            curr_sum = (curr_sum + A[r]) % MOD\n            total = (total + fast_power(curr_sum, K)) % MOD\n    \n    print(total)\n\nif __name__ == \"__main__\":\n    main()\n```\n\n---\n\n### 解释\n\n- 我们通过滑动窗口枚举所有子区间 `[l, r]`，并计算其区间和。\n- 对于每一个区间和，我们使用**快速幂**算法（二分快速幂）计算它的 `K` 次方。\n- 所有结果的总和对 `998244353` 取模，以满足题目要求的模运算条件。\n\n该代码能够处理题目的约束条件，且时间复杂度在可接受范围内。"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772534385",
+  "question_index": 17,
+  "question_id": "62",
+  "split": "train",
+  "sample_id": 7,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 19.643584966659546,
+  "response": "```python\nn = int(input())\na = list(map(int, input().split()))\ncount = sum(1 for x in a if x > 0)\nprint(\"Fennec\" if count % 2 == 1 else \"Snuke\")\n```"
+}

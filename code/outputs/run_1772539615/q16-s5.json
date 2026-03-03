@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772539615",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 5,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 5.210904598236084,
+  "response": "我将仔细解决问题，并提供一个高效的 Python 程序。\n\n### 步骤 1：理解问题\n\n- 输入是一个整数 `A`，表示行数。\n- 我们需要找到一个正整数 `B`，使得 `A * B = 400`（因为总共有 400 人）。\n- 如果没有这样的 `B`，输出 `-1`。\n\n### 步骤 2：分析问题\n\n- 总人数是固定的（400），因此我们要找的是满足条件 `A * B = 400` 的整数 `B`。\n- 这意味着我们只需要检查是否存在一个整数 `B`，使得 `400 % A == 0`。若存在，则 `B = 400 // A`；否则输出 `-1`。\n\n### 步骤 3：编写代码\n\n```python\n# Read the input\nA = int(input())\n\n# Check if there exists a B such that A * B = 400\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```\n\n### 解释\n\n- 输入是一个整数 `A`。\n- 检查 `400` 是否能被 `A` 整除，如果是，计算对应的列数 `B`。\n- 否则，输出 `-1` 表示无法安排。\n\n此代码在时间内复杂度为 `O(1)`，即常数时间，适用于所有约束条件。"
+}

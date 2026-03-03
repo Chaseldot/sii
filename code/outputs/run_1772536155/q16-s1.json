@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772536155",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 1,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 5.806013107299805,
+  "response": "我将按照步骤分析问题并提供解决方案。\n\n### 1. 分析问题\n\n- 我们需要找出一个正整数 B，使得 A × B = 400。换句话说，B 必须是 400 的因数，并且 B > 0。\n- 如果没有这样的 B，则返回 -1。\n- 输入是一个正整数 A，范围是 1 到 400。\n- 输出是满足条件的 B 或者 -1。\n\n### 2. 解法思路\n\n- 检查 A 是否可以整除 400，即 400 % A == 0。\n  - 如果是，那么 B 就是 400 // A。\n  - 否则，输出 -1。\n\n### 3. 编写代码\n\n```python\n# Read input\nA = int(input())\n\n# Calculate B\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```"
+}

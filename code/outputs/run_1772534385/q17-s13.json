@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772534385",
+  "question_index": 17,
+  "question_id": "62",
+  "split": "train",
+  "sample_id": 13,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 28.507683277130127,
+  "response": "```python\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    A = list(map(int, data[1:N+1]))\n    total = sum(A)\n    print(\"Fennec\" if total % 2 == 1 else \"Snuke\")\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

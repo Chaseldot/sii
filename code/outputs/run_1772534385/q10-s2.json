@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772534385",
+  "question_index": 10,
+  "question_id": "28",
+  "split": "train",
+  "sample_id": 2,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 31.63887071609497,
+  "response": "```python\nimport sys\nimport heapq\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    M = int(data[1])\n    X = int(data[2])\n    \n    forward = [[] for _ in range(N + 1)]\n    reversed_edges = [[] for _ in range(N + 1)]\n    \n    index = 3\n    for _ in range(M):\n        u = int(data[index])\n        v = int(data[index + 1])\n        index += 2\n        forward[u].append(v)\n        reversed_edges[v].append(u)\n    \n    INF = float('inf')\n    dist = [[INF] * 2 for _ in range(N + 1)]\n    dist[1][0] = 0\n    \n    heap = []\n    heapq.heappush(heap, (0, 1, 0))\n    \n    while heap:\n        cost, node, state = heapq.heappop(heap)\n        \n        if node == N:\n            break\n        \n        if cost > dist[node][state]:\n            continue\n        \n        # Move along original edges\n        if state == 0:\n            for neighbor in forward[node]:\n                if dist[neighbor][0] > cost + 1:\n                    dist[neighbor][0] = cost + 1\n                    heapq.heappush(heap, (dist[neighbor][0], neighbor, 0))\n        \n        # Move along reversed edges\n        if state == 1:\n            for neighbor in reversed_edges[node]:\n                if dist[neighbor][1] > cost + 1:\n                    dist[neighbor][1] = cost + 1\n                    heapq.heappush(heap, (dist[neighbor][1], neighbor, 1))\n        \n        # Reverse all edges\n        if state == 0:\n            if dist[node][1] > cost + X:\n                dist[node][1] = cost + X\n                heapq.heappush(heap, (dist[node][1], node, 1))\n        else:\n            if dist[node][0] > cost + X:\n                dist[node][0] = cost + X\n                heapq.heappush(heap, (dist[node][0], node, 0))\n    \n    print(min(dist[N][0], dist[N][1]))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

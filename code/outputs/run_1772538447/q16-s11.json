@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772538447",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 11,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 5.077570199966431,
+  "response": "### STEP 1 - Problem Analysis:\n\n**Problem Type**: This is a **math** problem involving divisors.\n\n**Key Algorithm/Method**: \nWe need to find a positive integer `B` such that the product of two integers, `A` (given) and `B`, equals 400. Since we are arranging 400 people in a rectangle of `A` rows and `B` columns, we are essentially looking for an integer `B` such that:\n$$\nA \\times B = 400\n\\Rightarrow B = \\frac{400}{A}\n$$\n\nHowever, this value of `B` must be a **positive integer**, meaning that `A` must be a **divisor** of 400. If it is not, then there's no valid value for `B`.\n\n**Edge Cases**:\n- If `A = 400`, then `B = 1`.\n- If `A = 1`, then `B = 400`.\n- If `A` is not a divisor of 400, return `-1`.\n\n---\n\n### STEP 2 - Write Code:\n\n```python\n# Read input from standard input\nA = int(input())\n\n# Check if A divides 400 evenly\nif 400 % A == 0:\n    print(400 // A)\nelse:\n    print(-1)\n```"
+}

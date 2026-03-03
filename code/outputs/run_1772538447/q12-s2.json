@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772538447",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 2,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 11.008265495300293,
+  "response": "### STEP 1 - Problem Analysis:\n\n**Problem Type:**  \nThis is a simple **array traversal** problem. The task is to check whether there exists any triplet of consecutive elements in the array that are all equal.\n\n**Key Algorithm/Method:**  \nWe can iterate through the array (from index 0 to N-3), and for each triplet `(A[i], A[i+1], A[i+2])`, we check if all three are equal. If any such triplet is found, we return \"Yes\", otherwise \"No\".\n\n**Edge Cases:**\n- When N is exactly 3: We just need to check the full array.\n- When all elements are the same (e.g., `[1, 1, 1, ..., 1]`): It will definitely have triplets.\n- When all consecutive triplets are not equal (e.g., `[1, 2, 3, 4, 5, ...]`): Output is \"No\".\n\n**Time Complexity:**  \nO(N) since we traverse the array once.\n\n---\n\n### STEP 2 - Write Code:\n\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three consecutive equal elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        found = True\n        break\n\n# Output result\nprint(\"Yes\" if found else \"No\")\n```"
+}

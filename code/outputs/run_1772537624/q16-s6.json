@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772537624",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 6,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 10.096734523773193,
+  "response": "To solve this problem, we need to determine if there exists a positive integer `B` such that `A * B = 400`, where `A` is the number of rows provided as input.\n\n### Key Points:\n\n- The product of `A` (rows) and `B` (columns) must be exactly 400.\n- We are looking for integer values of `B` such that `B = 400 / A` and `B` is a positive integer.\n- If `A` does not divide 400 evenly, then there is no valid integer value for `B`, and we should print `-1`.\n\n### Approach:\n\n1. Check if `A` divides 400 exactly.\n2. If it does, calculate `B = 400 // A`.\n3. Otherwise, return `-1`.\n\nThis solution has constant time complexity $O(1)$ since the only computation is a division, and it’s very efficient even for large constraints.\n\n---\n\nHere is the complete Python code:\n\n```python\n# Read input\nA = int(input())\n\n# Check if A divides 400 exactly\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```"
+}

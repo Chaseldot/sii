@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772537624",
+  "question_index": 7,
+  "question_id": "20",
+  "split": "train",
+  "sample_id": 13,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 3.4597482681274414,
+  "response": "I'll solve this problem step-by-step:\n\n1. **Input/Output Format**:  \n   - Input: A string `S` consisting of digits  \n   - Output: A new string containing only the digit '2' from the original string, in their original order  \n\n2. **Constraints and Edge Cases**:  \n   - The input string has length between 1 and 100  \n   - The string contains at least one '2' (so we don't need to handle empty output)  \n\n3. **Approach**:  \n   - Iterate through each character in the input string  \n   - If the character is '2', keep it  \n   - Concatenate all such characters to form the final output\n\nHere is the complete code:\n\n```python\n# Read input from standard input\nS = input().strip()\n\n# Filter out all characters except '2'\nresult = ''.join([char for char in S if char == '2'])\n\n# Print the result\nprint(result)\n```"
+}

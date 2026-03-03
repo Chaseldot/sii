@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772540339",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 5,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 7.014627933502197,
+  "response": "To solve this problem, let's first understand the requirements:\n\n### Problem Analysis:\n- We are given a positive integer `A` representing the number of rows.\n- We need to find a **positive integer B** (number of columns) such that:\n  $$\n  A \\times B = 400\n  $$\n  This implies that **B must be a divisor of 400**, and both A and B must be **positive integers** greater than or equal to 1.\n- If there is no such `B` that satisfies these conditions, we print `-1`.\n\n### Steps to Solve:\n1. Iterate through all possible divisors of 400 (i.e., check values of B from 1 to 400).\n2. For each B, check if `A * B == 400`.\n3. If found, print `B`. Otherwise, after checking all possibilities, print `-1`.\n\n### Edge Cases:\n- If A > 400: No valid B exists since it would result in more than 400 people.\n- If A is not a factor of 400: Then B may still be a factor, but we must find one. So no need to reject A based on that alone.\n\n### Time and Space Complexity:\n- Time complexity: O($\\sqrt{400}$) ≈ O(1), as for any fixed A, we only need to iterate up to $\\sqrt{400}$ to find valid B.\n- Space complexity: O(1), constant space used.\n\n---\n\nHere is the complete Python solution:\n\n```python\n# Read input\nA = int(input())\n\n# Check if A is greater than 400 (no valid B)\nif A > 400:\n    print(-1)\nelse:\n    # Find if there is a B such that A*B = 400\n    B = 400 // A\n    if A * B == 400:\n        print(B)\n    else:\n        print(-1)\n```"
+}

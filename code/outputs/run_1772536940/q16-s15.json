@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772536940",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 15,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 7.001047134399414,
+  "response": "To solve this problem, we need to find a positive integer $ B $ such that the total number of people, 400, can be arranged in $ A $ rows and $ B $ columns without any gaps. This means that the product $ A \\times B = 400 $. \n\n### Key Steps:\n1. **Understand the Constraint**: We are given an integer $ A $ (between 1 and 400), and we need to find if there exists a positive integer $ B $ such that $ A \\times B = 400 $. If such a $ B $ exists, print it. Otherwise, print -1.\n2. **Mathematical Insight**: $ B = \\frac{400}{A} $. We only need to check whether 400 is divisible by $ A $.\n3. **Edge Cases**:\n   - If $ A = 0 $: Not valid because $ A $ is always between 1 and 400.\n   - If $ A > 400 $: Not valid due to constraints.\n   - If $ 400 \\mod A \\neq 0 $: No integer value of $ B $ satisfies the condition.\n\n### Approach:\n- For a given $ A $, check if $ 400 \\mod A = 0 $. If it does, then $ B = \\frac{400}{A} $ is a valid solution.\n- If not, return -1.\n\n### Time Complexity:\n- The algorithm runs in constant time $ O(1) $, as it involves only a few arithmetic operations.\n\n### Final Code:\n```python\n# Read input from standard input\nA = int(input())\n\n# Check if A divides 400 exactly\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```"
+}

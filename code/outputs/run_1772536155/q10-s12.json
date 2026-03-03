@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772536155",
+  "question_index": 10,
+  "question_id": "28",
+  "split": "train",
+  "sample_id": 12,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 35.482500076293945,
+  "response": "```python\nimport sys\nimport heapq\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    M = int(data[1])\n    X = int(data[2])\n    \n    graph = [[] for _ in range(N + 1)]\n    reversed_graph = [[] for _ in range(N + 1)]\n    \n    index = 3\n    for _ in range(M):\n        u = int(data[index])\n        v = int(data[index + 1])\n        graph[u].append(v)\n        reversed_graph[v].append(u)\n        index += 2\n    \n    INF = float('inf')\n    dist = [[INF] * 2 for _ in range(N + 1)]  # dist[node][state] where state is 0 or 1\n    dist[1][0] = 0\n    \n    heap = [(0, 1, 0)]  # (cost, node, state)\n    \n    while heap:\n        cost, node, state = heapq.heappop(heap)\n        \n        if node == N:\n            break\n        \n        if cost > dist[node][state]:\n            continue\n        \n        # Move along edges (original or reversed)\n        if state == 0:\n            for neighbor in graph[node]:\n                new_cost = cost + 1\n                if new_cost < dist[neighbor][state]:\n                    dist[neighbor][state] = new_cost\n                    heapq.heappush(heap, (new_cost, neighbor, state))\n        else:\n            for neighbor in reversed_graph[node]:\n                new_cost = cost + 1\n                if new_cost < dist[neighbor][state]:\n                    dist[neighbor][state] = new_cost\n                    heapq.heappush(heap, (new_cost, neighbor, state))\n        \n        # Reverse all edges (switch state)\n        new_state = 1 - state\n        new_cost = cost + X\n        if new_cost < dist[node][new_state]:\n            dist[node][new_state] = new_cost\n            heapq.heappush(heap, (new_cost, node, new_state))\n    \n    print(min(dist[N][0], dist[N][1]))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

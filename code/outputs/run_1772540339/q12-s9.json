@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772540339",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 9,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 3.963268995285034,
+  "response": "I'll solve the problem step-by-step.\n\n### Problem Analysis:\nWe need to check if there exists a subsequence of three or more consecutive equal elements in the array `A`.\n\n### Key Points:\n- We iterate through the array from index 0 to `N-3`.\n- For each element at index `i`, we check if `A[i] == A[i+1] == A[i+2]`.\n- If such a trio is found, we print \"Yes\" and terminate.\n- If no such trio is found after checking all possible positions, we print \"No\".\n\n### Edge Cases:\n- Input size `N` is exactly 3 (minimum value of N).\n- All elements are same (e.g., `[1, 1, 1, 1]`).\n- No three consecutive elements are same.\n\n### Time Complexity:\n- The time complexity is O(N), where N is the length of the array.\n\nNow, here is the complete solution:\n\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three consecutive equal elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        found = True\n        break\n\n# Output result\nprint(\"Yes\" if found else \"No\")\n```"
+}

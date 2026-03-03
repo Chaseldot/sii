@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772539615",
+  "question_index": 11,
+  "question_id": "29",
+  "split": "train",
+  "sample_id": 8,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 42.30341029167175,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    H = int(data[0])\n    W = int(data[1])\n    grid = []\n    idx = 2\n    for _ in range(H):\n        row = list(map(int, list(data[idx])))\n        grid.append(row)\n        idx += 1\n    \n    min_total = float('inf')\n    \n    # Precompute the number of 1s in each row (after column flips)\n    for col_mask in range(1 << W):\n        # Calculate the row_ones more efficiently using bitwise operations and precomputed values\n        row_ones = []\n        for i in range(H):\n            cnt = 0\n            for j in range(W):\n                if (col_mask >> j) & 1:\n                    cnt += 1 - grid[i][j]\n                else:\n                    cnt += grid[i][j]\n            row_ones.append(cnt)\n        \n        total_sum = 0\n        for ones in row_ones:\n            total_sum += min(ones, H - ones)\n        \n        if total_sum < min_total:\n            min_total = total_sum\n    \n    print(min_total)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

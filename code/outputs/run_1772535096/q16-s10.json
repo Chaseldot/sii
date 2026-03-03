@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772535096",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 10,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 8.137508869171143,
+  "response": "1. **KEY INSIGHTS**:\n   - The problem is to find a positive integer `B` such that the product of `A` and `B` equals 400 (since there are 400 people). This means `A * B = 400`.\n   - If `A` does not divide 400 evenly, then there is no valid `B`, so we should return `-1`.\n   - We can optimize by checking for divisors of 400 up to `sqrt(400)` and see if `A` divides 400.\n   - Edge Cases: \n     - When `A = 1`: Then `B = 400`\n     - When `A = 400`: Then `B = 1`\n     - When `A` is a divisor of 400: valid `B` exists\n     - Otherwise: return `-1`\n\n2. **CODE**:\n```python\nimport sys\n\ndef main():\n    A = int(sys.stdin.readline())\n    if A == 0:\n        print(-1)\n        return\n    if 400 % A == 0:\n        B = 400 // A\n        print(B)\n    else:\n        print(-1)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

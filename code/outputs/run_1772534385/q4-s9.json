@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772534385",
+  "question_index": 4,
+  "question_id": "11",
+  "split": "train",
+  "sample_id": 9,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 18.96333074569702,
+  "response": "```python\ndef main():\n    import sys\n    input = sys.stdin.read().split()\n    idx = 0\n    N = int(input[idx])\n    idx += 1\n    \n    P = list(map(int, input[idx:idx+N]))\n    idx += N\n    \n    Q = list(map(int, input[idx:idx+N]))\n    \n    # Create a mapping from bib number to person index (1-based)\n    bib_to_person = [0] * (N + 1)\n    for i in range(N):\n        bib_to_person[Q[i]] = i + 1  # Person indices are 1-based\n    \n    # Compute the result for each bib number\n    result = [0] * N\n    for i in range(1, N + 1):\n        person_idx = bib_to_person[i]\n        target_person = P[person_idx - 1]\n        result[i - 1] = Q[target_person - 1]\n    \n    print(' '.join(map(str, result)))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772538447",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 2,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 5.589546203613281,
+  "response": "### STEP 1 - Problem Analysis\n\n**Problem Type**: Number Theory (Divisors)\n\n**Key Insight**:\n- We are asked to find a positive integer $ B $ such that the total number of people, which is $ A \\times B = 400 $, is satisfied.\n- Therefore, for a valid arrangement, $ A \\times B = 400 $ must hold true. This means $ B = \\frac{400}{A} $.\n- For $ B $ to be a positive integer, $ A $ must be a divisor of 400.\n\n**Edge Cases**:\n1. If $ A = 0 $: Not possible since $ A $ is always a positive integer between 1 and 400.\n2. If $ A $ does not divide 400 evenly: Then $ B $ is not an integer, so output `-1`.\n3. If $ A = 400 $: Then $ B = 1 $ is the only valid solution.\n\n### STEP 2 - Write Code\n\nBased on the analysis, we can solve this problem by checking whether $ A $ is a divisor of 400. If it is, then $ B = \\frac{400}{A} $. If not, print `-1`.\n\n```python\n# Read input\nA = int(input())\n\n# Check if A divides 400 evenly\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```"
+}

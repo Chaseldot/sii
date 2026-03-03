@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772539615",
+  "question_index": 3,
+  "question_id": "6",
+  "split": "train",
+  "sample_id": 8,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.1199445724487305,
+  "response": "要解决这个问题，我们需要检查三个整数的所有排列，判断是否存在一种排列满足 $ B_1 \\times B_2 = B_3 $。\n\n### 思路分析：\n\n- 我们有三个整数 $ A_1, A_2, A_3 $。\n- 所有排列（共 6 种）可以枚举出来。\n- 对于每一种排列 $ (B_1, B_2, B_3) $，只需检查是否满足 $ B_1 \\times B_2 = B_3 $。\n\n### 如何枚举所有排列？\n\n我们可以利用 Python 的 `itertools.permutations` 来生成所有可能的排列，然后逐个计算是否满足条件。\n\n### 时间和空间复杂度分析：\n\n- 共有 $ 3! = 6 $ 种排列，因此时间复杂度为常量 $ O(1) $。\n- 空间复杂度也是常量 $ O(1) $。\n\n### 边界情况处理：\n\n- 输入值范围是 1 到 100，没有负数或零，因此无需考虑零乘和负数的情况。\n- 枚举所有排列即可覆盖所有情况。\n\n下面是最完整的 Python 代码实现：\n\n```python\nimport sys\nfrom itertools import permutations\n\ndef main():\n    # 读取输入\n    A = list(map(int, sys.stdin.readline().split()))\n    \n    # 枚举所有排列\n    for perm in permutations(A):\n        b1, b2, b3 = perm\n        if b1 * b2 == b3:\n            print(\"Yes\")\n            return\n    # 如果没有满足条件的排列\n    print(\"No\")\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

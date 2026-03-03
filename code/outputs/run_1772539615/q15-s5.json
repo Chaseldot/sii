@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772539615",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 5,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 9.814964294433594,
+  "response": "我将按照步骤解题。\n\n### 1. 题目分析\n- **输入**：整数 N 和一个长度为 N 的整数数组 P。\n- **输出**：对于每个人 i，输出其排名。\n- **规则**：\n  - 初始变量 r = 1。\n  - 每次找出当前未确定排名的所有人中最大分数 x，记下分数为 x 的人数 k。\n  - 将这些人设置为排名 r，并将 r 增加 k。\n  - 重复这一过程直到所有人的排名都确定。\n\n---\n\n### 2. 算法设计\n- 使用一个数组 `ranks` 来记录每个人的排名，初始化为 `None`。\n- 用一个集合来跟踪哪些人的排名尚未确定。\n- 在每次迭代中，找到当前未确定所有人中的最大分值和人数。\n- 更新这些人的排名，并从集合中移除。\n- 继续这个过程直到所有人的排名都被确定。\n\n---\n\n### 3. 实现代码\n\n```python\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:N+1]))\n    \n    ranks = [None] * N  # 存储每个人的排名\n    undetermined = set(range(N))  # 当前未确定排名的人的索引\n    r = 1  # 初始排名\n    \n    while undetermined:\n        # 找出当前所有未确定人中最大的分数\n        max_score = -1\n        for i in undetermined:\n            if P[i] > max_score:\n                max_score = P[i]\n        \n        # 查找所有分数等于 max_score 的人，注意是索引\n        candidates = [i for i in undetermined if P[i] == max_score]\n        k = len(candidates)\n        \n        # 设置他们的排名\n        for i in candidates:\n            ranks[i] = r\n        \n        # 更新 r\n        r += k\n        \n        # 移除这些人的索引\n        undetermined.difference_update(candidates)\n    \n    for rank in ranks:\n        print(rank)\n\nif __name__ == \"__main__\":\n    main()\n```\n\n---\n\n该程序处理了所有边界情况，包括相同分数的情况（例如样例3），并确保排名按规则计算。时间复杂度为 $O(N^2)$，由于 $N$ 最大为 100，这在 1 秒的时间限制内是可以接受的。"
+}

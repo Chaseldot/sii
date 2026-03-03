@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772534385",
+  "question_index": 17,
+  "question_id": "62",
+  "split": "train",
+  "sample_id": 2,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 15.009092569351196,
+  "response": "```python\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    A = list(map(int, data[1:N+1]))\n    total_moves = sum(A)\n    if total_moves % 2 == 1:\n        print(\"Fennec\")\n    else:\n        print(\"Snuke\")\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

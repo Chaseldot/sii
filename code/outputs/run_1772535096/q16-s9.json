@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772535096",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 9,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 5.10423469543457,
+  "response": "1. **KEY INSIGHTS**:\n   - We need to find a positive integer B such that A × B = 400. This means B must be a divisor of 400.\n   - The problem requires that both A and B are positive integers.\n   - If there is no such B for the given A, we should print `-1`.\n   - The time complexity is O(√400) because we need to check all possible divisors of 400 up to √400.\n\n2. **CODE**:\n```python\nimport math\n\ndef find_b(A):\n    # Check if A divides 400 evenly\n    if 400 % A == 0:\n        return 400 // A\n    else:\n        return -1\n\n# Read input\nA = int(input())\n# Compute and print result\nprint(find_b(A))\n```"
+}

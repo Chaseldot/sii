@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772534385",
+  "question_index": 2,
+  "question_id": "4",
+  "split": "train",
+  "sample_id": 6,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 38.335925817489624,
+  "response": "```python\nMOD = 998244353\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    M = int(data[1])\n    S = data[2]\n    \n    # dp[i][j][l] represents the number of strings of length i, considering first j characters of S,\n    # with LCS length l.\n    dp = [[[0] * (N + 1) for _ in range(N + 1)] for __ in range(M + 1)]\n    \n    # Base case: empty string has LCS 0\n    dp[0][0][0] = 1\n    \n    for i in range(M):\n        for j in range(N + 1):\n            for l in range(N + 1):\n                if dp[i][j][l] == 0:\n                    continue\n                # Add a new character to the string\n                # Case 1: choose a character not equal to S[j] (if j < N)\n                if j < N:\n                    # Choose any character except S[j]\n                    count = 25\n                    for new_l in range(l, N + 1):\n                        dp[i + 1][j][new_l] = (dp[i + 1][j][new_l] + dp[i][j][l] * count) % MOD\n                # Case 2: choose a character equal to S[j]\n                # This increases LCS length by 1, but only if current LCS is less than j + 1\n                if j < N:\n                    new_l = l + 1\n                    if new_l <= N:\n                        dp[i + 1][j + 1][new_l] = (dp[i + 1][j + 1][new_l] + dp[i][j][l]) % MOD\n                # Case 3: choose a character that doesn't affect LCS (when j == N)\n                if j == N:\n                    # Can choose any character, which doesn't change LCS\n                    dp[i + 1][j][l] = (dp[i + 1][j][l] + dp[i][j][l] * 26) % MOD\n    \n    # Collect the results for each k from 0 to N\n    ans = [0] * (N + 1)\n    for k in range(N + 1):\n        ans[k] = dp[M][N][k]\n    \n    print(' '.join(map(str, ans)))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

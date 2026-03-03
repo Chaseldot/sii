@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772535096",
+  "question_index": 8,
+  "question_id": "25",
+  "split": "train",
+  "sample_id": 14,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 50.20838928222656,
+  "response": "1. **KEY INSIGHTS**:\n   - The problem requires finding a common value `H` such that `U_i + D_i = H` for all `i`, and the upper teeth must satisfy the adjacency constraint `|U_i - U_{i+1}| ≤ X`.\n   - We need to consider not only the initial values of `U_i + D_i` as possible candidates for `H`, but also values derived from adjusting the teeth, which may not be in the original set.\n   - A naive approach of checking only the existing `U_i + D_i` values as possible `H` is insufficient because the optimal choice of `H` might differ from these values.\n   - The correct approach is to iterate over all possible values of `H` in a range determined by the minimal and maximal adjustments needed to meet the constraints.\n\n2. **CODE**:\n```python\nimport sys\n\ndef main():\n    data = sys.stdin.read().split()\n    N = int(data[0])\n    X = int(data[1])\n    U = list(map(int, data[2::2]))\n    D = list(map(int, data[3::2]))\n\n    # Find the minimum and maximum possible values for H\n    min_H = 0\n    max_H = 0\n    for u, d in zip(U, D):\n        min_H = min(min_H, u + d)\n        max_H = max(max_H, u + d)\n\n    min_cost = float('inf')\n\n    for H_candidate in range(min_H, max_H + 1):\n        cost = 0\n        current_u = H_candidate - D[0]\n        valid = True\n\n        # Adjust the upper teeth to satisfy |U_i - U_{i+1}| ≤ X\n        for i in range(1, N):\n            next_u = H_candidate - D[i]\n            if abs(current_u - next_u) > X:\n                valid = False\n                break\n            cost += abs(current_u - U[i-1])  # Cost to adjust U[i-1]\n            current_u = next_u\n\n        if valid:\n            # Add cost for the last U[N-1]\n            cost += abs(current_u - U[-1])\n            min_cost = min(min_cost, cost)\n\n    print(min_cost)\n\nmain()\n```"
+}

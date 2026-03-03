@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772536940",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 5,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 7.119751930236816,
+  "response": "To solve this problem, we need to find a positive integer $ B $ such that the product of $ A $ and $ B $ equals 400 (since we are arranging 400 people in a rectangular formation of $ A $ rows and $ B $ columns). If no such $ B $ exists, we print `-1`.\n\n### Steps to solve the problem:\n1. **Understand the mathematical condition:** We want $ A \\times B = 400 $. Since $ A $ is given, we can compute $ B $ as $ 400 / A $.\n2. **Check if $ B $ is an integer:** If $ 400 \\% A == 0 $, then $ B $ is an integer and valid; otherwise, there's no valid $ B $.\n3. **Handle edge cases:** \n   - If $ A = 400 $, then $ B = 1 $.\n   - If $ A > 400 $, it's invalid since $ B $ must be a positive integer less than or equal to 400.\n\n### Time/space complexity:\n- **Time Complexity:** O(1) — constant time operations.\n- **Space Complexity:** O(1) — no extra space used except for input/output.\n\nNow, here is the complete Python code:\n\n```python\n# Read input\nA = int(input())\n\n# Check if A divides 400 exactly\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```"
+}

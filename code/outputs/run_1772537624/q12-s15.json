@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772537624",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 15,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 7.49633002281189,
+  "response": "To solve this problem, we need to determine whether there exists a place in the integer sequence where the same element appears three or more times consecutively.  \n\n### Key Observations:\n- We only need to check for three consecutive equal elements.\n- We can iterate through the sequence and compare each element with the next two.\n- If such a trio is found, we print \"Yes\". Else, we print \"No\".\n\n### Time Complexity:\n- The time complexity is $O(N)$ since we scan the list once.\n- Given that $N \\leq 100$, this solution will work efficiently within the problem constraints.\n\nNow, I’ll provide the complete code:\n\n```python\n# Read input\nn = int(input())\na = list(map(int, input().split()))\n\n# Check for three consecutive equal elements\nfound = False\nfor i in range(n - 2):\n    if a[i] == a[i + 1] == a[i + 2]:\n        found = True\n        break\n\n# Print result\nprint(\"Yes\" if found else \"No\")\n```"
+}

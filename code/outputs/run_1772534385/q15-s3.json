@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772534385",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 3,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 22.89897608757019,
+  "response": "```python\n# Read input\nN = int(input())\nP = list(map(int, input().split()))\n\n# Initialize the result list and a boolean array to track determined ranks\nrank = [0] * N\ndetermined = [False] * N\ncurrent_rank = 1\n\nwhile True:\n    # Find the maximum score among undetermined participants\n    max_score = -1\n    for i in range(N):\n        if not determined[i] and P[i] > max_score:\n            max_score = P[i]\n    \n    # If no undetermined participants, break\n    if max_score == -1:\n        break\n    \n    # Count how many participants have this max score\n    count = 0\n    for i in range(N):\n        if not determined[i] and P[i] == max_score:\n            count += 1\n    \n    # Assign the current rank to all these participants\n    for i in range(N):\n        if not determined[i] and P[i] == max_score:\n            rank[i] = current_rank\n            determined[i] = True\n    \n    # Update the current rank\n    current_rank += count\n\n# Print the rank for each participant\nfor r in rank:\n    print(r)\n```"
+}

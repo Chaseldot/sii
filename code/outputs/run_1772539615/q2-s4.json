@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772539615",
+  "question_index": 2,
+  "question_id": "4",
+  "split": "train",
+  "sample_id": 4,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 34.39587450027466,
+  "response": "```python\nimport sys\nMOD = 998244353\n\ndef main():\n    input = sys.stdin.read().split()\n    N = int(input[0])\n    M = int(input[1])\n    S = input[2]\n    \n    # Precompute all possible characters\n    chars = [chr(ord('a') + i) for i in range(26)]\n    \n    # DP table where dp[i][j][k] represents the number of strings of length j \n    # with LCS at most k with the first i characters of S\n    dp = [[[0] * (N + 2) for _ in range(M + 1)] for __ in range(N + 1)]\n    \n    # Base case: for no characters in S (i=0), LCS is always 0\n    for m in range(M + 1):\n        dp[0][m][0] = pow(26, m, MOD)\n    \n    # Fill DP table\n    for i in range(1, N + 1):\n        for m in range(1, M + 1):\n            # For each position in S (i) and string length (m)\n            # We calculate the number of strings with LCS <= k for all k\n            for k in range(N + 1):\n                # LCS does not increase if we add a character different from S[i-1]\n                if k >= 0:\n                    dp[i][m][k] = (dp[i][m][k] + dp[i][m - 1][k]) % MOD\n                # LCS increases by 1 if we add S[i-1]\n                if k >= 1:\n                    dp[i][m][k] = (dp[i][m][k] + dp[i - 1][m - 1][k - 1]) % MOD\n    \n    # Compute the final answer using inclusion-exclusion\n    ans = [0] * (N + 1)\n    for k in range(N + 1):\n        ans[k] = (dp[N][M][k] - dp[N][M][k - 1]) % MOD\n    \n    print(' '.join(map(str, ans)))\n\nif __name__ == '__main__':\n    main()\n```"
+}

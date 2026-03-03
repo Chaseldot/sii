@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772535096",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 14,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 8.818634033203125,
+  "response": "### 1. KEY INSIGHTS:\n- **Algorithm**: We need to assign ranks based on scores in descending order, handling ties by assigning the same rank and incrementing the next rank accordingly.\n- **Edge Cases**:\n  - If all people have the same score, they all get rank 1.\n  - A single person will always get rank 1.\n  - Handle the case where multiple people share the maximum score.\n- **Time Complexity**: Sorting the scores is O(N log N), which is efficient for N up to 100.\n\n---\n\n### 2. CODE:\n```python\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:N+1]))\n    \n    # Create a list of tuples (score, index)\n    score_index = [(P[i], i+1) for i in range(N)]\n    \n    # Sort the list in descending order of scores\n    score_index.sort(reverse=True)\n    \n    # Initialize rank variable\n    r = 1\n    \n    # Dictionary to store the ranks\n    rank = [0] * (N + 1)  # 1-based indexing\n    \n    # Process each score group\n    i = 0\n    while i < N:\n        current_score = score_index[i][0]\n        count = 0\n        # Count how many people have the same score\n        while i < N and score_index[i][0] == current_score:\n            count += 1\n            i += 1\n        # Assign rank to all people with the same score\n        for j in range(i - count, i):\n            rank[score_index[j][1]] = r\n        # Increment rank for the next group\n        r += count\n    \n    # Print the ranks\n    for i in range(1, N+1):\n        print(rank[i])\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772540339",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 6,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 5.60149073600769,
+  "response": "To solve this problem, we need to find a positive integer B such that the product of A (rows) and B (columns) equals 400. This is because we are arranging exactly 400 people in A rows and B columns.\n\n### Key Steps:\n- The total number of people is fixed at 400.\n- We need to find if there exists a positive integer B such that `A * B = 400`.\n- If such a B exists, we output it; otherwise, we output -1.\n\n### Approach:\n- Iterate through all possible divisors of 400 up to `sqrt(400)` to check if A is a divisor of 400.\n- If A is a divisor of 400, compute B as `400 // A` and print it.\n- Otherwise, print -1.\n\nThis approach ensures we efficiently find B in constant time or minimal iterations.\n\n### Full Python Code:\n```python\nimport math\n\n# Read input\nA = int(input())\n\n# Check if A divides 400 evenly\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```\n\n### Explanation:\n- For `A = 10`, 400 divided by 10 is 40 → Output: 40\n- For `A = 11`, 400 is not divisible by 11 → Output: -1\n- For `A = 400`, 400 divided by 400 is 1 → Output: 1\n\nThis code handles all edge cases within the given constraints."
+}

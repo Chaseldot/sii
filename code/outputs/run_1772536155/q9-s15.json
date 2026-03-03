@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772536155",
+  "question_index": 9,
+  "question_id": "27",
+  "split": "train",
+  "sample_id": 15,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 10.40137505531311,
+  "response": "### 问题分析：\n我们需要判断给定的数组 A 是否是**严格递增**的。也就是说，数组中每个元素都必须小于它后面的元素。\n\n#### 输入格式：\n- 第一行输入一个整数 N，表示数组长度\n- 第二行输入 N 个正整数，组成数组 A\n\n#### 输出格式：\n- 如果数组 A 是严格递增的，输出 \"Yes\"\n- 否则，输出 \"No\"\n\n#### 约束条件：\n- 2 ≤ N ≤ 100\n- 1 ≤ A_i ≤ 1000\n\n### 解题思路：\n我们只需遍历数组 A 的每一个相邻元素，检查是否满足 A[i] < A[i+1]。只要有一个不满足，即可立刻返回 \"No\"。如果所有相邻元素都满足，则返回 \"Yes\"。\n\n### 代码实现：\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check if the array is strictly increasing\nis_increasing = True\nfor i in range(N - 1):\n    if A[i] >= A[i + 1]:\n        is_increasing = False\n        break\n\n# Output result\nprint(\"Yes\" if is_increasing else \"No\")\n```\n\n### 说明：\n- 时间复杂度为 O(N)，完全符合题目要求的时间限制。\n- 处理了所有边界条件和异常情况。\n- 使用简洁的 Python 语法和逻辑，确保程序的可读性和效率。"
+}

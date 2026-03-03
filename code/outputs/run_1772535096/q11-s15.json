@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772535096",
+  "question_index": 11,
+  "question_id": "29",
+  "split": "train",
+  "sample_id": 15,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 44.11061978340149,
+  "response": "1. **KEY INSIGHTS**:  \n   - The error occurred because the `bin` function was not imported or defined in the scope of the code. In Python, the built-in `bin()` function is available, but it must be used correctly.\n   - The main performance bottleneck remains the enumeration of $ 2^W $ column flip patterns, which is acceptable for $ W \\leq 18 $. However, we can further optimize the row processing using bitwise operations and precomputed data.\n   - We fix the `NameError` by using `bin()` directly, as it is part of Python’s standard library.\n\n---\n\n2. **CODE**:\n```python\nimport sys\nfrom itertools import product\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    \n    H = int(data[0])\n    W = int(data[1])\n    grid = data[2:H+2]\n\n    # Convert each row into an integer (bitmask)\n    row_masks = []\n    for row in grid:\n        mask = 0\n        for ch in row:\n            mask = (mask << 1) | int(ch)\n        row_masks.append(mask)\n    \n    min_sum = float('inf')\n\n    # Try all possible combinations of column flips (2^W)\n    for bit_mask in product([0, 1], repeat=W):\n        # Build a bitmask representing which columns to flip\n        col_flip_mask = 0\n        for i in range(W):\n            if bit_mask[i]:\n                col_flip_mask |= (1 << i)\n\n        # Compute the minimum sum for this column flip configuration\n        current_sum = 0\n        for row_mask in row_masks:\n            # Apply column flip\n            flipped_row_mask = row_mask ^ col_flip_mask\n            # Count number of 1s\n            count_ones = bin(flipped_row_mask).count('1')\n            # Decide whether to flip the row\n            if count_ones > (W - count_ones):\n                current_sum += (W - count_ones)\n            else:\n                current_sum += count_ones\n\n        min_sum = min(min_sum, current_sum)\n\n    print(min_sum)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

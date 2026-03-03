@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772539615",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 8,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 27.93855929374695,
+  "response": "我重新审阅了代码逻辑和测试用例，发现问题出在 **同一个分数组的处理方式** 上。在之前的实现中，我们只记录了一个 `index`（即第一次弹出的那个人），然后给所有人赋值为 `r`，但是没有将这些人的索引全部记录下来，导致后续无法正确设置他们的排名。\n\n---\n\n### 正确思路：\n\n1. **每次从堆中弹出一个最大分数**。\n2. **统计所有与它具有相同分数的人**。\n3. **将这些人加入同一个列表**。\n4. **统一给这些人的排名设置当前的 r**，然后更新 r = r + count。\n\n这样就能确保每个人都能获得正确的排名。\n\n---\n\n### 修正后的完整代码如下：\n\n```python\nimport heapq\n\ndef main():\n    import sys\n    input = sys.stdin.read().split()\n    \n    N = int(input[0])\n    P = list(map(int, input[1:N+1]))\n    \n    people = [(-P[i], i) for i in range(N)]\n    heapq.heapify(people)\n    \n    rank = [0] * N\n    r = 1\n    \n    while people:\n        # 第一个人分数\n        current_score_neg, first_index = heapq.heappop(people)\n        current_score = -current_score_neg\n        \n        # 收集所有具有相同分数的用户索引\n        same_scores = [first_index]\n        \n        # 继续查找相同分数\n        while people and (-people[0][0] == current_score):\n            score_neg, idx = heapq.heappop(people)\n            same_scores.append(idx)\n        \n        # 设置这组人的排名为当前的 r\n        for idx in same_scores:\n            rank[idx] = r\n        \n        # 更新 r 为 r + k（k 是这一组人数）\n        r += len(same_scores)\n    \n    # 输出结果\n    for i in range(N):\n        print(rank[i])\n\nif __name__ == \"__main__\":\n    main()\n```\n\n---\n\n### 说明：\n- 使用最大堆按降序处理每个分数。\n- 每次找到最大分数后，收集该分数的所有人。\n- 将这些人的排名设为 `r`，并把 `r` 增加人数。\n- 每个分数组都会被正确处理。\n- 这样就能正确通过测试用例，包括输入全是相同分数的情况（如 Test Case 36）。\n\n这个算法的时间复杂度是 $O(N \\log N)$，适用于题目给出的约束 (N ≤ 100)，非常高效。"
+}

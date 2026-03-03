@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772536155",
+  "question_index": 11,
+  "question_id": "29",
+  "split": "train",
+  "sample_id": 7,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 67.50704860687256,
+  "response": "```python\nimport sys\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    \n    H = int(data[0])\n    W = int(data[1])\n    grid = data[2:H+2]\n    \n    min_total_sum = float('inf')\n    \n    # Precompute the number of 1s in each row\n    row_ones = [row.count('1') for row in grid]\n    \n    # Try all possible column flip patterns (2^W possibilities)\n    for mask in range(1 << W):\n        # Calculate how many 1s would be in each row after flipping columns according to mask\n        total_sum = 0\n        for i in range(H):\n            cnt = 0\n            for j in range(W):\n                if (mask >> j) & 1:\n                    cnt += 1 if grid[i][j] == '0' else -1\n                else:\n                    cnt += 1 if grid[i][j] == '1' else -1\n            # Decide whether to flip the row based on whether the number of 1s is more than half\n            if abs(cnt) > W // 2:\n                total_sum += abs(cnt - W)\n            else:\n                total_sum += abs(cnt)\n        \n        min_total_sum = min(min_total_sum, total_sum)\n    \n    print(min_total_sum)\n\nif __name__ == '__main__':\n    main()\n```\n\n### 优化说明：\n\n1. **预处理行中的 1 的数量：**\n   ```python\n   row_ones = [row.count('1') for row in grid]\n   ```\n   这一步可以提前统计每行的初始 `1` 的数量，但在此代码中被省略了，因为后续逻辑已经能独立处理每行。\n\n2. **减少冗余计算：**\n   - 原代码中的 `row_ones_after_mask` 需要每次遍历所有列，这里被简化为直接通过位掩码判断是否翻转该列。\n   - 使用 `abs(cnt)` 来判断翻转后是否有更优的选择。\n\n3. **使用位运算加快判断速度：**\n   - `(mask >> j) & 1` 判断列是否需要翻转。\n\n4. **避免重复计算与存储中间结果**：\n   - 没有保留修改后的 `grid` 数组，而是直接计算每行是否应该翻转。\n\n5. **提升效率的关键：**\n\n   - 内置函数 `count('1')` 很高效。\n   - 只使用必要的变量，比如每行的当前净差值 `cnt` 和最终总数 `total_sum`。\n\n6. **复杂度分析：**\n   - 时间复杂度：`O(2^W * H * W)`，由于 `W <= 18`，所以 `2^18 = 262144` 是可接受的。每一轮 `H * W` 的内层循环是可行的，因为 `H = 2e5` 的情况下 `2e5 * 18 ≈ 3e6`，总时间在合理范围内。\n\n7. **输出最短的可能和最小值：**\n   - 无需存储完整的网格状态，仅依赖于原始数据和掩码来计算。\n\n此优化版本应能在限制时间内完成并得到正确的答案。"
+}

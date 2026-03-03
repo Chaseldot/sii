@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772536940",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 11,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 7.4027369022369385,
+  "response": "To solve this problem, we need to find a positive integer $ B $ such that the product of $ A $ and $ B $ equals 400. This means we are looking for divisors of 400 that are greater than or equal to 1.\n\n### Steps:\n1. Iterate through all possible values of $ B $ (from 1 to 400).\n2. Check if $ A \\times B = 400 $. If so, return $ B $.\n3. If no such $ B $ exists, return -1.\n\n### Edge Cases:\n- If $ A = 1 $, then $ B = 400 $.\n- If $ A = 400 $, then $ B = 1 $.\n- If $ A $ is a prime number that does not divide 400, return -1.\n\n### Time Complexity:\n- The maximum number of iterations for $ B $ is 400, which is efficient and fits within the 1-second time limit.\n\nHere is the complete solution:\n\n```python\n# Read input\nA = int(input())\n\n# Compute B such that A * B = 400\nB = 400 // A\n\n# Check if B is a valid positive integer\nif A * B == 400 and B > 0:\n    print(B)\nelse:\n    print(-1)\n```"
+}

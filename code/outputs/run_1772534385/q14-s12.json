@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772534385",
+  "question_index": 14,
+  "question_id": "53",
+  "split": "train",
+  "sample_id": 12,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 24.00152564048767,
+  "response": "```python\nMOD = 998244353\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    K = int(data[1])\n    A = list(map(int, data[2:2+N]))\n    \n    prefix_sum = 0\n    result = 0\n    dp = {0: 1}  # Initialize with prefix_sum[0] = 0\n    \n    for i in range(N):\n        prefix_sum += A[i]\n        current_sum = prefix_sum\n        \n        # Calculate the contribution of the current prefix sum to the result\n        # We need (current_sum)^K, but since we have multiple previous prefix sums,\n        # we can use a helper function to compute x^K mod MOD efficiently\n        def pow_mod(x, power):\n            res = 1\n            x = x % MOD\n            while power > 0:\n                if power % 2 == 1:\n                    res = res * x % MOD\n                x = x * x % MOD\n                power //= 2\n            return res\n        \n        # For each previous prefix sum value, compute (current_sum - prev_sum)^K\n        # and accumulate the result\n        for prev_sum, count in dp.items():\n            diff = (current_sum - prev_sum) % MOD\n            contrib = pow_mod(diff, K)\n            result = (result + contrib * count) % MOD\n        \n        # Add the current prefix_sum to the dp map for future subarrays\n        dp[current_sum] = (dp.get(current_sum, 0) + 1) % MOD\n    \n    print(result % MOD)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

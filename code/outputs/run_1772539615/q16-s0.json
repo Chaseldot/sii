@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772539615",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 0,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 4.60945725440979,
+  "response": "我将按照步骤解题：\n\n1. **阅读题目并明确要求**：\n   - 输入：一个正整数 A。\n   - 输出：找到一个正整数 B，使得 A × B = 400。如果不存在这样的 B，输出 -1。\n   - 约束条件：A 是 1 到 400 之间的整数。\n\n2. **分析和设计算法**：\n   - 我们需要找到一个正整数 B，使得 A × B = 400。\n   - 如果 400 能被 A 整除（即 400 % A == 0），则 B = 400 // A。\n   - 否则，没有满足条件的 B，返回 -1。\n\n3. **编写代码**：\n   - 接收输入 A。\n   - 检查 400 是否能被 A 整除。\n   - 若可以，则计算并打印 B；否则打印 -1。\n\n以下是完整的 Python 代码：\n\n```python\n# Read input\nA = int(input())\n\n# Check if 400 is divisible by A\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```"
+}

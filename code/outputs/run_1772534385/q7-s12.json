@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772534385",
+  "question_index": 7,
+  "question_id": "20",
+  "split": "train",
+  "sample_id": 12,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 8.231011390686035,
+  "response": "```python\n# Read the input string\nS = input().strip()\n\n# Filter out all characters that are not '2'\nresult = ''.join([char for char in S if char == '2'])\n\n# Print the resulting string\nprint(result)\n```"
+}

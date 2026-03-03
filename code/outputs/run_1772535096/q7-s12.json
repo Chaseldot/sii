@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772535096",
+  "question_index": 7,
+  "question_id": "20",
+  "split": "train",
+  "sample_id": 12,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 2.84098744392395,
+  "response": "1. KEY INSIGHTS:\n   - The task is to filter out all characters from the string except for '2' and then concatenate the remaining characters in their original order.\n   - We need to handle edge cases such as when the input contains only one '2', or when there are multiple '2's.\n   - The time complexity of the solution is O(n), where n is the length of the input string, which is acceptable for the given constraints.\n\n2. CODE:\n```python\n# Read input from standard input\nS = input().strip()\n\n# Filter out all characters except '2'\nresult = ''.join([char for char in S if char == '2'])\n\n# Print the result\nprint(result)\n```"
+}

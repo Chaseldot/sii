@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772535096",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 5,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 5.301281929016113,
+  "response": "1. KEY INSIGHTS:  \n   - The problem requires finding a positive integer B such that A * B = 400 (since there are 400 people). So, B must be a divisor of 400 and greater than 0.  \n   - If A is not a divisor of 400, there is no valid B, and the answer is -1.  \n   - For A = 400, the only possible value of B is 1.  \n   - Edge cases: when A is 1, B = 400; when A is 400, B = 1.  \n   - Time complexity can be optimized to O(1) as we can directly check if A divides 400, and if so, return 400 // A.  \n\n2. CODE:  \n```python\nA = int(input())\nif 400 % A == 0:\n    print(400 // A)\nelse:\n    print(-1)\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772536155",
+  "question_index": 7,
+  "question_id": "20",
+  "split": "train",
+  "sample_id": 15,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 1.4598400592803955,
+  "response": "```python\n# Read the input from standard input\nS = input().strip()\n\n# Filter out all characters except '2' and concatenate the remaining ones\nresult = ''.join([char for char in S if char == '2'])\n\n# Print the result\nprint(result)\n```"
+}

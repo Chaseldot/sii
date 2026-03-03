@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772540339",
+  "question_index": 3,
+  "question_id": "6",
+  "split": "train",
+  "sample_id": 15,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.6859681606292725,
+  "response": "To solve this problem, we need to determine whether there exists a permutation of the given sequence $ A = (A_1, A_2, A_3) $ such that for some permutation $ B = (B_1, B_2, B_3) $, the condition $ B_1 \\times B_2 = B_3 $ is satisfied.\n\n### Key Observations:\n\n- Since we are dealing with just 3 elements, we can generate all possible permutations of the array.\n- For each permutation, check if the product of the first two elements equals the third.\n- If at least one permutation satisfies this condition, we output **Yes**, otherwise **No**.\n\nThis approach is feasible because the total number of permutations of 3 elements is only $ 3! = 6 $, which is computationally inexpensive even for large values within the constraints.\n\n### Steps:\n1. Read the input as a list of integers.\n2. Generate all permutations of the list.\n3. For each permutation, check whether the product of the first two elements equals the third.\n4. If any permutation satisfies this condition, print \"Yes\"; otherwise, print \"No\".\n\n### Python Code:\n```python\nimport itertools\n\n# Read the input values\nA = list(map(int, input().split()))\n\n# Generate all permutations of length 3\npermutations = itertools.permutations(A)\n\n# Check if any permutation satisfies B1 * B2 == B3\nfound = False\nfor perm in permutations:\n    if perm[0] * perm[1] == perm[2]:\n        found = True\n        break\n\n# Print the result\nprint(\"Yes\" if found else \"No\")\n```\n\n### Example Test Cases:\n- **Sample Input 1:** `3 15 5`\n  - Permutation: `(3, 5, 15)` → $ 3 \\times 5 = 15 $ → Output **Yes**\n- **Sample Input 2:** `5 3 2`\n  - None of the permutations satisfy the condition → Output **No**\n\nThis code efficiently handles all constraints and edge cases within the specified limits."
+}

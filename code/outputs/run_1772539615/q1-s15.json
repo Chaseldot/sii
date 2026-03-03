@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772539615",
+  "question_index": 1,
+  "question_id": "3",
+  "split": "train",
+  "sample_id": 15,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 34.7953782081604,
+  "response": "```python\nimport sys\nsys.setrecursionlimit(10000)  # 增加递归深度限制\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    A = data[1]\n    \n    length = 3 ** N\n    \n    from functools import lru_cache\n\n    def solve(target):\n        @lru_cache(maxsize=None)\n        def dfs(level, idx, current):\n            if level == 0:\n                return 0 if current == target else 1\n            \n            start = idx * 3\n            if start + 2 >= len(A):\n                return float('inf')\n            \n            triplet = [A[start], A[start + 1], A[start + 2]]\n            triplet = [int(c) for c in triplet]\n            count = sum(triplet)\n            majority = 1 if count >= 2 else 0\n            minority = 0 if majority == 1 else 1\n            \n            min_flips = float('inf')\n            # 尝试不翻转第一个元素\n            next_current = majority\n            flips = 0\n            if triplet[0] != minority:\n                flips = 1\n            res = dfs(level - 1, idx, next_current)\n            min_flips = min(min_flips, flips + res)\n            \n            # 尝试翻转第一个元素\n            new_triplet = triplet.copy()\n            new_triplet[0] = minority\n            if new_triplet[0] != minority:\n                flips = 1\n            next_current = minority\n            res = dfs(level - 1, idx, next_current)\n            min_flips = min(min_flips, flips + res)\n            \n            return min_flips\n        \n        return dfs(N, 0, 0)\n\n    # 找出最小翻转次数，使最终结果变为 0 或 1\n    min_flips = min(solve(0), solve(1))\n    print(min_flips)\n\nmain()\n```"
+}

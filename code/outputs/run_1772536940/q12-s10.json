@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772536940",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 10,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 9.60636854171753,
+  "response": "I'll solve this problem step by step.\n\n### Problem Analysis\nWe are given an integer sequence of length N, and we need to determine whether there exists a triplet of consecutive elements that are the same. This means we need to check if there is any position i (with 1 ≤ i ≤ N-2) such that:\n- A[i] = A[i+1] = A[i+2]\n\n### Approach\n- Iterate through the array from index 0 to N-3.\n- For each index i, check if A[i], A[i+1], and A[i+2] are all equal.\n- If such a triplet is found, print \"Yes\" and terminate.\n- If no such triplet is found after checking all possibilities, print \"No\".\n\n### Time/Space Complexity\n- **Time Complexity**: O(N), as we scan the array once.\n- **Space Complexity**: O(1), as we only use a constant amount of extra space.\n\n### Edge Cases Considered\n- The minimum possible value of N is 3, so there's always enough elements to form a triplet.\n- All elements being the same (e.g., in sample input 5).\n- No triplet found even though some pairs exist (e.g., sample input 2).\n\n### Final Code\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three consecutive equal elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        found = True\n        break\n\n# Output result\nprint(\"Yes\" if found else \"No\")\n```"
+}

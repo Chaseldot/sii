@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772534385",
+  "question_index": 13,
+  "question_id": "43",
+  "split": "train",
+  "sample_id": 8,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 25.418556213378906,
+  "response": "```python\ndef shortest_palindrome(s):\n    if not s:\n        return \"\"\n    \n    # Create the string to compute Z-array: s + '#' + reversed(s)\n    combined = s + '#' + s[::-1]\n    n = len(combined)\n    z = [0] * n\n    l, r = 0, 0\n\n    for i in range(1, n):\n        if i <= r:\n            z[i] = min(r - i + 1, z[i - l])\n        while i + z[i] < n and combined[z[i]] == combined[i + z[i]]:\n            z[i] += 1\n        if i + z[i] - 1 > r:\n            l = i\n            r = i + z[i] - 1\n\n    # Find the maximum length of the palindrome suffix\n    max_len = z[len(s) + 1]\n    return s + s[:len(s) - max_len][::-1]\n\n# Read input\nimport sys\ns = sys.stdin.readline().strip()\n# Compute and print the result\nprint(shortest_palindrome(s))\n```"
+}

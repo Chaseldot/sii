@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772536155",
+  "question_index": 18,
+  "question_id": "64",
+  "split": "train",
+  "sample_id": 2,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 48.2490611076355,
+  "response": "```python\nimport sys\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    A = list(map(int, data[1:N+1]))\n    \n    # If all elements in A are already 1, then any string is good\n    if all(a == 1 for a in A):\n        print(\"Yes\")\n        return\n    \n    # For each position i, check two possible patterns:\n    # 1. Pattern: S_i = A, S_{i+1} = R, S_{i+2} = C (A followed by R and C)\n    #   This allows us to turn A[i] and A[i+1] into 1\n    # 2. Pattern: S_{i+2} = A, S_{i+1} = R, S_i = C (C followed by R and A)\n    #   This also allows us to turn A[i] and A[i+1] into 1\n    \n    # We will keep track of which positions have been covered by operations\n    covered = [False] * N\n    count = 0\n    \n    for i in range(N):\n        # Check the first pattern: A-R-C (positions i, i+1, i+2)\n        j = (i + 1) % N\n        k = (i + 2) % N\n        \n        # Check if both i and i+1 are not yet covered and there's at least one zero\n        if not covered[i] and not covered[j]:\n            if A[i] == 0 or A[j] == 0:\n                count += 1\n                covered[i] = True\n                covered[j] = True\n        \n        # Check the second pattern: C-R-A (positions i, i+1, i+2)\n        # This pattern means S_{i+2}=A, S_{i+1}=R, S_i=C\n        # So we are checking the same positions as before, but using a different logic\n        # Again, check if both positions are not covered, and at least one is 0\n        if not covered[i] and not covered[j]:\n            if A[i] == 0 or A[j] == 0:\n                count += 1\n                covered[i] = True\n                covered[j] = True\n    \n    # Each operation can fix at most two zeros\n    total_zeros = sum(1 for x in A if x == 0)\n    \n    # Since every operation can cover up to two zeros, we need to see if the count of operations covers the number of zeros\n    if count * 2 >= total_zeros:\n        print(\"Yes\")\n    else:\n        print(\"No\")\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

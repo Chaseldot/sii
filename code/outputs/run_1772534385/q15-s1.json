@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772534385",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 1,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 28.908373832702637,
+  "response": "```python\nimport heapq\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:N+1]))\n    \n    ranked = [False] * N\n    result = [0] * N\n    r = 1\n    \n    # Create a max heap by negating the scores\n    max_heap = []\n    for i in range(N):\n        heapq.heappush(max_heap, (-P[i], i))\n    \n    while max_heap:\n        current_score_neg, idx = heapq.heappop(max_heap)\n        current_score = -current_score_neg\n        \n        # Find all participants with the same score and not yet ranked\n        count = 0\n        temp = []\n        # We need to check if the current score is still the max\n        while max_heap and -max_heap[0][0] == current_score:\n            score_neg, i = heapq.heappop(max_heap)\n            if not ranked[i]:\n                temp.append(i)\n            count += 1\n        \n        # Add the current popped participant if not ranked\n        if not ranked[idx]:\n            temp.append(idx)\n        \n        # Assign rank to all these participants\n        for i in temp:\n            result[i] = r\n            ranked[i] = True\n        \n        # Update rank\n        r += count\n    \n    for res in result:\n        print(res)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

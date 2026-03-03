@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772538447",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 3,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.137491941452026,
+  "response": "### STEP 1 - Problem Analysis\n\n**What type of problem is this?**  \nThis is a **mathematics and divisors** problem. The task is to determine a positive integer `B` such that the product of `A` and `B` equals 400, i.e., $ A \\times B = 400 $. This means we are looking for valid divisors of 400.\n\n**What is the key algorithm/method?**  \nThe key idea is to find all divisors of 400 and check which ones satisfy the condition $ A \\times B = 400 $. Since $ B $ must be a positive integer, it must also be a divisor of 400.\n\n**What are the edge cases?**  \n- If `A` is greater than 400, then no such `B` exists because $ A \\times B = 400 $ would require $ B < 1 $.\n- If `A` is exactly 400, then $ B = 1 $ is the only possible solution.\n- For `A` values that do not divide 400 evenly, there is no valid `B`.\n\n---\n\n### STEP 2 - Write Code\n\n```python\n# Read input\nA = int(input())\n\n# Check if A is greater than 400 or not a divisor of 400\nif A > 400 or 400 % A != 0:\n    print(-1)\nelse:\n    # Calculate B as the corresponding divisor\n    B = 400 // A\n    print(B)\n```"
+}

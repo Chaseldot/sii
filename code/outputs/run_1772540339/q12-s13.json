@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772540339",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 13,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 5.58588981628418,
+  "response": "I'll solve the problem step-by-step.\n\n### Problem Analysis:\nWe need to check if there are **three or more identical elements in a row** in the given sequence. This means we have to look for any triplet (or longer) of consecutive equal elements.\n\n### Approach:\n- Iterate through the array and compare each element with the next two elements.\n- If any three consecutive elements are equal, print \"Yes\" and terminate.\n- If no such triplet is found after checking all possible positions, print \"No\".\n\n### Code Implementation:\nThe code will read input values, process the sequence, and check for the condition.\n\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three consecutive equal elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        found = True\n        break\n\n# Print the result\nprint(\"Yes\" if found else \"No\")\n```\n\n### Explanation:\n- We read the input values and store them in a list `A`.\n- Using a loop from index `0` to `N-3`, we check if the current element is equal to the next two elements.\n- If such a triplet is found, we set `found = True` and break out of the loop early.\n- Finally, depending on whether we found such a triplet, we print \"Yes\" or \"No\".\n\nThis solution runs in **O(N)** time and uses **O(1)** extra space, which is efficient for the constraints given."
+}

@@ -1,0 +1,3354 @@
+{
+  "run_name": "run_1772534884",
+  "jsonl_path": "data/dev.jsonl",
+  "max_turns": 3,
+  "num_questions": 20,
+  "samples_per_question": 16,
+  "total_samples": 320,
+  "total_passed": 0,
+  "total_errors": 320,
+  "avg_pass_at_1": 0.0,
+  "elapsed_seconds": 12.040689706802368,
+  "per_question": [
+    {
+      "question_index": 0,
+      "question_id": "unknown",
+      "pass_at_1": 0.0,
+      "samples": [
+        {
+          "question_index": 0,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 0,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 0,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 1,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 0,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 2,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 0,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 3,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 0,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 4,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 0,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 5,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 0,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 6,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 0,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 7,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 0,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 8,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 0,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 9,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 0,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 10,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 0,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 11,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 0,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 12,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 0,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 13,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 0,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 14,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 0,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 15,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        }
+      ]
+    },
+    {
+      "question_index": 1,
+      "question_id": "unknown",
+      "pass_at_1": 0.0,
+      "samples": [
+        {
+          "question_index": 1,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 0,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 1,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 1,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 1,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 2,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 1,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 3,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 1,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 4,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 1,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 5,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 1,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 6,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 1,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 7,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 1,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 8,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 1,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 9,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 1,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 10,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 1,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 11,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 1,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 12,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 1,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 13,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 1,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 14,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 1,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 15,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        }
+      ]
+    },
+    {
+      "question_index": 2,
+      "question_id": "unknown",
+      "pass_at_1": 0.0,
+      "samples": [
+        {
+          "question_index": 2,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 0,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 2,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 1,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 2,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 2,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 2,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 3,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 2,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 4,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 2,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 5,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 2,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 6,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 2,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 7,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 2,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 8,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 2,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 9,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 2,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 10,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 2,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 11,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 2,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 12,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 2,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 13,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 2,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 14,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 2,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 15,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        }
+      ]
+    },
+    {
+      "question_index": 3,
+      "question_id": "unknown",
+      "pass_at_1": 0.0,
+      "samples": [
+        {
+          "question_index": 3,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 0,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 3,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 1,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 3,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 2,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 3,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 3,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 3,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 4,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 3,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 5,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 3,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 6,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 3,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 7,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 3,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 8,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 3,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 9,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 3,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 10,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 3,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 11,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 3,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 12,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 3,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 13,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 3,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 14,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 3,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 15,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        }
+      ]
+    },
+    {
+      "question_index": 4,
+      "question_id": "unknown",
+      "pass_at_1": 0.0,
+      "samples": [
+        {
+          "question_index": 4,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 0,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 4,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 1,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 4,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 2,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 4,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 3,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 4,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 4,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 4,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 5,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 4,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 6,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 4,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 7,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 4,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 8,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 4,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 9,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 4,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 10,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 4,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 11,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 4,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 12,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 4,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 13,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 4,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 14,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 4,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 15,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        }
+      ]
+    },
+    {
+      "question_index": 5,
+      "question_id": "unknown",
+      "pass_at_1": 0.0,
+      "samples": [
+        {
+          "question_index": 5,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 0,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 5,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 1,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 5,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 2,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 5,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 3,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 5,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 4,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 5,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 5,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 5,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 6,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 5,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 7,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 5,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 8,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 5,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 9,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 5,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 10,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 5,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 11,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 5,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 12,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 5,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 13,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 5,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 14,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 5,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 15,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        }
+      ]
+    },
+    {
+      "question_index": 6,
+      "question_id": "unknown",
+      "pass_at_1": 0.0,
+      "samples": [
+        {
+          "question_index": 6,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 0,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 6,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 1,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 6,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 2,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 6,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 3,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 6,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 4,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 6,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 5,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 6,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 6,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 6,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 7,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 6,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 8,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 6,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 9,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 6,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 10,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 6,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 11,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 6,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 12,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 6,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 13,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 6,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 14,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 6,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 15,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        }
+      ]
+    },
+    {
+      "question_index": 7,
+      "question_id": "unknown",
+      "pass_at_1": 0.0,
+      "samples": [
+        {
+          "question_index": 7,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 0,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 7,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 1,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 7,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 2,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 7,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 3,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 7,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 4,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 7,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 5,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 7,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 6,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 7,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 7,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 7,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 8,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 7,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 9,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 7,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 10,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 7,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 11,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 7,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 12,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 7,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 13,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 7,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 14,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 7,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 15,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        }
+      ]
+    },
+    {
+      "question_index": 8,
+      "question_id": "unknown",
+      "pass_at_1": 0.0,
+      "samples": [
+        {
+          "question_index": 8,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 0,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 8,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 1,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 8,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 2,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 8,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 3,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 8,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 4,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 8,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 5,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 8,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 6,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 8,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 7,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 8,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 8,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 8,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 9,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 8,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 10,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 8,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 11,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 8,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 12,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 8,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 13,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 8,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 14,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 8,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 15,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        }
+      ]
+    },
+    {
+      "question_index": 9,
+      "question_id": "unknown",
+      "pass_at_1": 0.0,
+      "samples": [
+        {
+          "question_index": 9,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 0,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 9,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 1,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 9,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 2,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 9,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 3,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 9,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 4,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 9,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 5,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 9,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 6,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 9,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 7,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 9,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 8,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 9,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 9,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 9,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 10,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 9,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 11,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 9,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 12,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 9,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 13,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 9,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 14,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 9,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 15,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        }
+      ]
+    },
+    {
+      "question_index": 10,
+      "question_id": "unknown",
+      "pass_at_1": 0.0,
+      "samples": [
+        {
+          "question_index": 10,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 0,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 10,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 1,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 10,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 2,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 10,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 3,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 10,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 4,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 10,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 5,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 10,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 6,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 10,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 7,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 10,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 8,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 10,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 9,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 10,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 10,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 10,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 11,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 10,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 12,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 10,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 13,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 10,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 14,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 10,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 15,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        }
+      ]
+    },
+    {
+      "question_index": 11,
+      "question_id": "unknown",
+      "pass_at_1": 0.0,
+      "samples": [
+        {
+          "question_index": 11,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 0,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 11,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 1,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 11,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 2,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 11,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 3,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 11,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 4,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 11,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 5,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 11,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 6,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 11,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 7,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 11,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 8,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 11,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 9,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 11,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 10,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 11,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 11,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 11,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 12,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 11,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 13,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 11,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 14,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 11,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 15,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        }
+      ]
+    },
+    {
+      "question_index": 12,
+      "question_id": "unknown",
+      "pass_at_1": 0.0,
+      "samples": [
+        {
+          "question_index": 12,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 0,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 12,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 1,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 12,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 2,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 12,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 3,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 12,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 4,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 12,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 5,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 12,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 6,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 12,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 7,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 12,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 8,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 12,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 9,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 12,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 10,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 12,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 11,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 12,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 12,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 12,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 13,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 12,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 14,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 12,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 15,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        }
+      ]
+    },
+    {
+      "question_index": 13,
+      "question_id": "unknown",
+      "pass_at_1": 0.0,
+      "samples": [
+        {
+          "question_index": 13,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 0,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 13,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 1,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 13,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 2,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 13,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 3,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 13,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 4,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 13,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 5,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 13,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 6,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 13,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 7,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 13,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 8,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 13,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 9,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 13,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 10,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 13,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 11,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 13,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 12,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 13,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 13,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 13,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 14,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 13,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 15,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        }
+      ]
+    },
+    {
+      "question_index": 14,
+      "question_id": "unknown",
+      "pass_at_1": 0.0,
+      "samples": [
+        {
+          "question_index": 14,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 0,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 14,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 1,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 14,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 2,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 14,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 3,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 14,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 4,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 14,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 5,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 14,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 6,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 14,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 7,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 14,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 8,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 14,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 9,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 14,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 10,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 14,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 11,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 14,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 12,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 14,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 13,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 14,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 14,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 14,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 15,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        }
+      ]
+    },
+    {
+      "question_index": 15,
+      "question_id": "unknown",
+      "pass_at_1": 0.0,
+      "samples": [
+        {
+          "question_index": 15,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 0,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 15,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 1,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 15,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 2,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 15,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 3,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 15,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 4,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 15,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 5,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 15,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 6,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 15,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 7,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 15,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 8,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 15,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 9,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 15,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 10,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 15,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 11,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 15,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 12,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 15,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 13,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 15,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 14,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 15,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 15,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        }
+      ]
+    },
+    {
+      "question_index": 16,
+      "question_id": "unknown",
+      "pass_at_1": 0.0,
+      "samples": [
+        {
+          "question_index": 16,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 0,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 16,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 1,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 16,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 2,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 16,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 3,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 16,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 4,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 16,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 5,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 16,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 6,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 16,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 7,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 16,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 8,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 16,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 9,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 16,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 10,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 16,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 11,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 16,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 12,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 16,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 13,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 16,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 14,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 16,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 15,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        }
+      ]
+    },
+    {
+      "question_index": 17,
+      "question_id": "unknown",
+      "pass_at_1": 0.0,
+      "samples": [
+        {
+          "question_index": 17,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 0,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 17,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 1,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 17,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 2,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 17,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 3,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 17,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 4,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 17,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 5,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 17,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 6,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 17,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 7,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 17,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 8,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 17,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 9,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 17,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 10,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 17,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 11,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 17,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 12,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 17,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 13,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 17,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 14,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 17,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 15,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        }
+      ]
+    },
+    {
+      "question_index": 18,
+      "question_id": "unknown",
+      "pass_at_1": 0.0,
+      "samples": [
+        {
+          "question_index": 18,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 0,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 18,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 1,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 18,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 2,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 18,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 3,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 18,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 4,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 18,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 5,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 18,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 6,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 18,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 7,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 18,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 8,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 18,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 9,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 18,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 10,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 18,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 11,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 18,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 12,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 18,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 13,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 18,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 14,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 18,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 15,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        }
+      ]
+    },
+    {
+      "question_index": 19,
+      "question_id": "unknown",
+      "pass_at_1": 0.0,
+      "samples": [
+        {
+          "question_index": 19,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 0,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 19,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 1,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 19,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 2,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 19,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 3,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 19,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 4,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 19,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 5,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 19,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 6,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 19,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 7,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 19,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 8,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 19,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 9,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 19,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 10,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 19,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 11,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 19,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 12,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 19,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 13,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 19,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 14,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        },
+        {
+          "question_index": 19,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 15,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "closing parenthesis ']' does not match opening parenthesis '{' on line 75 (solution.py, line 80)"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772537624",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 0,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 12.004214525222778,
+  "response": "To solve this problem, we need to determine whether there exists a positive integer $ B $ such that the product of $ A $ and $ B $ equals 400. This is because we are arranging 400 people in a rectangular formation with $ A $ rows and $ B $ columns.\n\n### Key Observations:\n1. The problem can be restated as finding a divisor $ B $ of 400 such that $ A \\times B = 400 $.\n2. So for a given $ A $, we check if $ 400 \\mod A == 0 $. If yes, then $ B = \\frac{400}{A} $ is a valid solution.\n3. Otherwise, no such $ B $ exists, and we should output `-1`.\n\n### Edge Cases:\n- If $ A = 400 $, the only valid $ B $ is 1.\n- If $ A = 1 $, the only valid $ B $ is 400.\n- For any $ A $ where the remainder $ 400 \\% A \\neq 0 $, print `-1`.\n\n### Time Complexity:\n- The algorithm runs in constant time $ O(1) $, as we perform a simple modular operation and a division.\n\n### Solution Code:\n```python\n# Read input\nA = int(input())\n\n# Check if A divides 400 evenly\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```\n\n### Explanation:\n- We first read the integer $ A $ from the input.\n- Using modulo arithmetic, we check if $ A $ is a divisor of 400. If it is, then compute $ B = \\frac{400}{A} $ and print it.\n- Otherwise, print `-1` indicating no valid $ B $ exists.\n\nThis approach ensures optimal performance and correctness for all valid inputs within the constraints."
+}

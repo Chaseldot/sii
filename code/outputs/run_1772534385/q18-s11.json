@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772534385",
+  "question_index": 18,
+  "question_id": "64",
+  "split": "train",
+  "sample_id": 11,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 22.165594339370728,
+  "response": "```python\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    A = list(map(int, data[1:N+1]))\n    \n    zero_count = A.count(0)\n    \n    if zero_count == 0:\n        print(\"Yes\")\n    elif zero_count % 2 == 0:\n        print(\"Yes\")\n    else:\n        print(\"No\")\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

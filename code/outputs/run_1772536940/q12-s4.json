@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772536940",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 4,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 9.301066398620605,
+  "response": "I'll solve this problem by checking if there are three or more consecutive equal elements in the given sequence. Here's my thought process:\n\n### Problem Analysis:\nWe need to determine whether there exists a subsequence of at least 3 equal elements in a row.\n\n### Approach:\n- Iterate through the array and check for 3 consecutive equal elements.\n- We can compare each element with the next two elements.\n- If we find any such triplet, we immediately return \"Yes\". Otherwise, after checking all possibilities, we return \"No\".\n\n### Edge Cases:\n- The minimum length of the sequence is 3, so we don't have to handle cases with shorter sequences.\n- All elements can be the same (e.g., a sequence of 100 ones), which should result in \"Yes\".\n- No three consecutive elements are the same (e.g., alternating values), which should result in \"No\".\n\n### Time/Space Complexity:\n- Time Complexity: O(N) - We iterate through the list once.\n- Space Complexity: O(1) - We use only a constant amount of extra space.\n\nNow, here is the complete Python solution:\n\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three consecutive equal elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        found = True\n        break\n\n# Output the result\nprint(\"Yes\" if found else \"No\")\n```"
+}

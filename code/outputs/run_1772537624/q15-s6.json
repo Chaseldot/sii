@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772537624",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 6,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 12.51344084739685,
+  "response": "To solve this problem, we need to determine the rank of each person based on their scores. The ranking process is such that people with the highest score are given the lowest rank (starting from 1), and if multiple people have the same score, they all receive the same rank, and the next rank is updated accordingly.\n\n### Key Steps:\n1. Read the number of people `N` and their scores.\n2. Keep track of which people have been assigned ranks.\n3. Repeatedly find the maximum score among those who haven't been ranked yet.\n4. Assign the current rank `r` to all people with this score.\n5. Increment `r` by the count of these people.\n6. Repeat until all people are ranked.\n\nNow, here's the complete code:\n\n```python\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:N+1]))\n    \n    # Initialize the rank array with 0s\n    rank = [0] * N\n    # Track which people have been ranked\n    determined = [False] * N\n    r = 1\n    \n    while sum(determined) < N:\n        # Find the maximum score among undetermined people\n        max_score = -1\n        for i in range(N):\n            if not determined[i] and P[i] > max_score:\n                max_score = P[i]\n        \n        # Count how many people have this max score\n        count = 0\n        for i in range(N):\n            if not determined[i] and P[i] == max_score:\n                count += 1\n        \n        # Assign the current rank to these people\n        for i in range(N):\n            if not determined[i] and P[i] == max_score:\n                rank[i] = r\n                determined[i] = True\n        \n        # Update the rank\n        r += count\n    \n    # Print the rank of each person\n    for i in range(N):\n        print(rank[i])\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

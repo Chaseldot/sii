@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772538447",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 2,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 7.121211051940918,
+  "response": "### Step 1 - Problem Analysis\n\n**Problem Type:**  \nThis is a **simulation-based problem** involving ranking based on scores with specific rules.\n\n**Key Algorithm/Method:**  \n- We need to simulate the process of determining ranks:\n  - Maintain a variable `r` (initially 1) for the current rank.\n  - Track which people have been assigned a rank.\n  - In each iteration, find the maximum score among people whose ranks are undetermined.\n  - Assign the current rank `r` to all people who have this maximum score.\n  - Increment `r` by the number of people with this maximum score.\n\n**Edge Cases:**\n- All people have the same score (e.g., Sample Input 3): Everyone gets the same rank.\n- Only one person has the maximum score in each step.\n- Multiple people with the same score in the same step.\n\n**Time and Space Complexity:**\n- Since N ≤ 100 and we perform operations in O(N) per iteration, the algorithm runs efficiently and well within the time limit (1 second).\n- Space complexity is O(N).\n\n---\n\n### Step 2 - Write Code\n\n```python\n# Read input\nN = int(input())\nP = list(map(int, input().split()))\n\n# Initialize rank array and track whether a person's rank has been determined\nrank = [0] * N\ndetermined = [False] * N\nr = 1  # Current rank\n\n# Continue until all ranks are determined\nwhile sum(determined) < N:\n    # Find all undetermined people and their scores\n    max_score = -1\n    candidates = []\n    for i in range(N):\n        if not determined[i]:\n            if P[i] > max_score:\n                max_score = P[i]\n                candidates = [i]\n            elif P[i] == max_score:\n                candidates.append(i)\n    \n    # Assign current rank r to these candidates\n    for i in candidates:\n        rank[i] = r\n        determined[i] = True\n    \n    # Update r\n    r += len(candidates)\n\n# Print the result\nfor i in range(N):\n    print(rank[i])\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772537624",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 1,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 11.092551708221436,
+  "response": "To solve this problem, we need to find a pair of positive integers (A, B) such that:\n\n- A × B = 400  \n- The number of rows is given as A\n- We need to print the corresponding value of B if it exists, otherwise return -1\n\n### Key Observations:\n- Since A × B = 400 and both A and B are positive integers, B must be a divisor of 400.\n- Given A, we check whether it divides 400 evenly. If so, then B = 400 / A is the required value.\n- If A does not divide 400 evenly, or if A is zero (which is not in our case), then no such B exists.\n\n### Approach:\n1. Input: take A from standard input.\n2. Check if A divides 400 evenly.\n3. If it does, compute B = 400 // A and print B.\n4. Otherwise, print -1.\n\nThis solution has constant time complexity O(1) as it only performs a few arithmetic operations regardless of the input.\n\nHere’s the complete code:\n\n```python\n# Read input\nA = int(input())\n\n# Check if A divides 400 evenly\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```"
+}

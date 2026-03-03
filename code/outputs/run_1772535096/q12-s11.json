@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772535096",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 11,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.80182409286499,
+  "response": "1. **KEY INSIGHTS**:\n   - The problem requires checking whether there is a subsequence of three or more identical consecutive elements in the list.\n   - We can loop through the list and compare each element with its next two neighbors to check for such a condition.\n   - Time complexity is O(N), which is efficient for the given constraint (N ≤ 100).\n   - Edge cases include when N is exactly 3, or all elements are the same.\n\n2. **CODE**:\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three consecutive equal elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        found = True\n        break\n\n# Output result\nprint(\"Yes\" if found else \"No\")\n```"
+}

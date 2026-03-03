@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772540339",
+  "question_index": 3,
+  "question_id": "6",
+  "split": "train",
+  "sample_id": 13,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.15523624420166,
+  "response": "To solve this problem, we need to determine whether any permutation of the given sequence of integers $ A = (A_1, A_2, A_3) $ can satisfy the condition:  \n$ B_1 \\times B_2 = B_3 $, where $ B $ is a permutation of $ A $.\n\n---\n\n### Step-by-step Approach:\n\n1. **Input**: The input consists of 3 integers, which form the list $ A $.  \n2. **Permutations**: Since there are only 3 elements, there are $ 3! = 6 $ permutations in total.\n3. **Check Condition**: For each permutation, check whether $ B_1 \\times B_2 = B_3 $.\n4. **Output**: If any permutation satisfies the condition, print \"Yes\"; otherwise, print \"No\".\n\n---\n\n### Edge Cases:\n- All elements are positive (since the constraints say $ 1 \\leq A_i \\leq 100 $).\n- Multiplication results might be larger than individual elements, but since all values are small ($ \\leq 100 $), brute-force is feasible.\n\n---\n\n### Time and Space Complexity:\n- **Time complexity**: $ O(1) $, as the number of permutations is constant (6).\n- **Space complexity**: $ O(1) $, as no extra data structures are required other than the list itself.\n\n---\n\n### Python Code\n\n```python\n# Read the input\nA = list(map(int, input().split()))\n\n# Generate all permutations of A\nfrom itertools import permutations\n\n# Check if any permutation satisfies B_1 * B_2 == B_3\nfound = False\nfor perm in permutations(A):\n    if perm[0] * perm[1] == perm[2]:\n        found = True\n        break\n\n# Print the result\nprint(\"Yes\" if found else \"No\")\n```"
+}

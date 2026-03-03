@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772534385",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 8,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 21.884254455566406,
+  "response": "```python\n# Read input\nN = int(input())\nP = list(map(int, input().split()))\n\n# Create a dictionary to map scores to the list of indices (1-based)\nscore_to_people = {}\nfor idx, score in enumerate(P):\n    if score not in score_to_people:\n        score_to_people[score] = []\n    score_to_people[score].append(idx + 1)  # Store 1-based index\n\n# Sort the scores in descending order\nsorted_scores = sorted(score_to_people.keys(), reverse=True)\n\n# Initialize the rank\nrank = 1\n\n# Prepare an array to store the ranks of each person\nresult = [0] * N\n\n# Assign ranks based on the sorted scores\nfor score in sorted_scores:\n    people_with_score = score_to_people[score]\n    for person in people_with_score:\n        result[person - 1] = rank  # Convert to 0-based index for result\n    rank += len(people_with_score)\n\n# Print the result\nfor r in result:\n    print(r)\n```"
+}

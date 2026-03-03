@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772536940",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 2,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 23.304584980010986,
+  "response": "I've identified the issue in the previous solution. The algorithm uses a heap incorrectly and doesn't track which people have already been processed. Let's implement a correct approach.\n\n### Correct Approach:\n1. Process the scores in descending order.\n2. For each unique score, determine how many people have that score.\n3. Assign the current rank `r` to all people with that score.\n4. Update the rank variable `r` by adding the count of people with the same score.\n\n### Full Corrected Code:\n```python\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:N+1]))\n    \n    # Create a dictionary to count occurrences of each score\n    score_count = {}\n    for i in range(N):\n        score = P[i]\n        if score in score_count:\n            score_count[score].append(i)\n        else:\n            score_count[score] = [i]\n    \n    # Sort the scores in descending order\n    sorted_scores = sorted(score_count.keys(), reverse=True)\n    \n    # Initialize rank and current rank\n    rank = [0] * N\n    current_rank = 1\n    \n    # Process each score in descending order\n    for score in sorted_scores:\n        indices = score_count[score]\n        # Assign current_rank to all these people\n        for idx in indices:\n            rank[idx] = current_rank\n        # Update current_rank by adding the number of people with this score\n        current_rank += len(indices)\n    \n    for r in rank:\n        print(r)\n\nif __name__ == \"__main__\":\n    main()\n```\n\n### Explanation:\n- We first count the occurrences of each score using a dictionary.\n- Then we sort the scores in descending order.\n- For each score, we assign the current rank `current_rank` to all people with that score.\n- After processing each score, we update `current_rank` by adding the number of people with that score.\n\nThis logic correctly handles all cases, including when all scores are the same (like in Test Case 36), and ensures the ranks are assigned properly according to the specified rules."
+}

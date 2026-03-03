@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772534385",
+  "question_index": 2,
+  "question_id": "4",
+  "split": "train",
+  "sample_id": 15,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 36.547852754592896,
+  "response": "```python\nimport sys\ninput = sys.stdin.read\n\nMOD = 998244353\n\ndef main():\n    data = input().split()\n    N = int(data[0])\n    M = int(data[1])\n    S = data[2]\n    \n    # Precompute powers of 26 mod MOD up to M\n    power_26 = [1] * (M + 1)\n    for i in range(1, M + 1):\n        power_26[i] = (power_26[i - 1] * 26) % MOD\n    \n    # DP table: dp[i][lcs_len][pos] = number of ways\n    dp = [[[0] * (N + 1) for _ in range(N + 1)] for __ in range(M + 1)]\n    dp[0][0][0] = 1  # Starting with empty string, LCS length 0, at position 0 in S\n    \n    for i in range(M):\n        for lcs_len in range(N + 1):\n            for pos in range(N + 1):\n                if dp[i][lcs_len][pos] == 0:\n                    continue\n                # Try all possible characters for the next position\n                for c in range(26):\n                    char = chr(ord('a') + c)\n                    if pos < N and S[pos] == char:\n                        # Matched character, move to next position in S and increase LCS\n                        dp[i + 1][lcs_len + 1][pos + 1] = (dp[i + 1][lcs_len + 1][pos + 1] + dp[i][lcs_len][pos]) % MOD\n                    else:\n                        # No match, stay at current position in S\n                        dp[i + 1][lcs_len][pos] = (dp[i + 1][lcs_len][pos] + dp[i][lcs_len][pos]) % MOD\n    \n    # Calculate the answer for each k from 0 to N\n    ans = [0] * (N + 1)\n    for k in range(N + 1):\n        total = 0\n        for pos in range(N + 1):\n            total = (total + dp[M][k][pos]) % MOD\n        ans[k] = total\n    \n    print(' '.join(map(str, ans)))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

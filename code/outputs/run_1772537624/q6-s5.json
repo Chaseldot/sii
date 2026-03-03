@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772537624",
+  "question_index": 6,
+  "question_id": "17",
+  "split": "train",
+  "sample_id": 5,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 7.574965476989746,
+  "response": "To solve this problem, we need to repeatedly replace the **leftmost** occurrence of `\"WA\"` with `\"AC\"` in the given string `S` until no more occurrences of `\"WA\"` remain. \n\n### Key Observations:\n- The operation must always replace the **leftmost** occurrence of `\"WA\"` each time.\n- We can simulate this process directly using a loop and string manipulation.\n- Since the input size can be up to $3 \\times 10^5$, we must ensure that our algorithm is efficient enough to handle it within the 1-second time limit. Using Python's built-in string methods and a while loop should suffice.\n\n### Strategy:\n1. Use a `while` loop to keep checking if `\"WA\"` exists in the string.\n2. Within the loop, find the index of the first occurrence of `\"WA\"`.\n3. Replace this occurrence with `\"AC\"`.\n4. Repeat this process until no more `\"WA\"` substrings are found.\n\nThis greedy approach will always find and replace the leftmost `\"WA\"` in each iteration, as required by the problem statement.\n\n### Final Code:\n\n```python\ndef main():\n    import sys\n    S = sys.stdin.readline().strip()\n    \n    while True:\n        idx = S.find(\"WA\")\n        if idx == -1:\n            break\n        S = S[:idx] + \"AC\" + S[idx + 2:]\n    \n    print(S)\n\nif __name__ == \"__main__\":\n    main()\n```\n\n### Explanation:\n- `S.find(\"WA\")` returns the lowest index of the substring `\"WA\"` in `S`, or `-1` if not found.\n- If `\"WA\"` is found, we replace the substring at the position `idx` with `\"AC\"` and update `S`.\n- The loop continues until there are no more instances of `\"WA\"`.\n\nThis solution runs efficiently and will work correctly for all given constraints."
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772538447",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 15,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 8.854994773864746,
+  "response": "### Step 1 - Problem Analysis\n\nThis is a **ranking problem** that requires determining the rank of each participant based on their scores. The rank assignment is done in a specific order with certain rules:  \n- The highest score determines the rank.\n- If multiple people have the same maximum score, they get the same rank.\n- After assigning ranks to those people, the rank value increases by the number of people who received the same rank.\n\n#### Key Observations:\n- We need to process all participants in the order of descending scores.\n- For people with equal scores, they receive the same rank and this impacts the next rank value.\n- This suggests we should:\n  1. Sort the participants in descending order of scores.\n  2. Group participants with the same scores.\n  3. Assign ranks starting from 1 for the highest group.\n  4. For each group of equal scores, assign the current rank, then increment the rank value by the size of the group.\n\n#### Edge Cases:\n- All scores are the same (e.g., `N = 4` and all `P_i = 100`). In this case, everyone gets rank `1`.\n- Only one person (e.g., `N = 1`) — rank is always `1`.\n- A mix of unique and repeated scores (e.g., `N = 4`, scores `3, 12, 9, 9`) — handled using grouping and sorting.\n\n---\n\n### Step 2 - Write Code\n\n```python\n# Read input\nN = int(input())\nP = list(map(int, input().split()))\n\n# Create a list of tuples (score, index)\nparticipants = [(P[i], i+1) for i in range(N)]\n\n# Sort participants in descending order of score\nparticipants.sort(reverse=True, key=lambda x: x[0])\n\n# Initialize rank variable\nrank = 1\nresult = [0] * N\n\n# Process the sorted participants\ni = 0\nwhile i < N:\n    current_score = participants[i][0]\n    count = 0\n    \n    # Count how many people have the same score\n    while i < N and participants[i][0] == current_score:\n        count += 1\n        i += 1\n    \n    # Assign the current rank to all these people\n    for j in range(i - count, i):\n        result[participants[j][1] - 1] = rank\n    \n    # Update the rank\n    rank += count\n\n# Print the results\nfor r in result:\n    print(r)\n```"
+}

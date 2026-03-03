@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772538447",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 8,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.240813970565796,
+  "response": "### STEP 1 - Problem Analysis\n\n**Problem Type:**  \nThis is a **math** problem.\n\n**Key Insight:**  \nThe problem asks for a positive integer `B` such that the total number of people (which is fixed at 400) can be arranged in a rectangular formation of `A` rows and `B` columns. This means that:  \n$$ A \\times B = 400 $$\n\nSo, given a value of `A`, we need to find if there exists a corresponding integer `B` such that this equation is satisfied. If such a `B` exists, we print it; otherwise, we print `-1`.\n\n**Approach:**  \n- Check if `A` divides 400 evenly.\n- If it does, then $ B = \\frac{400}{A} $ is a valid solution.\n- Otherwise, there's no such `B` and we return `-1`.\n\n**Edge Cases:**  \n- `A = 1`: Then $ B = 400 $.  \n- `A = 400`: Then $ B = 1 $.  \n- `A = 2`: Then $ B = 200 $.  \n- If `A` is not a divisor of 400 (like 11), then output `-1`.  \n\n**Time Complexity:**  \n- Constant time $ O(1) $, since all operations involve simple arithmetic and checks.\n\n---\n\n### STEP 2 - Write Code\n\n```python\n# Read input from standard input\nA = int(input())\n\n# Check if A divides 400 evenly\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772535096",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 15,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.705655574798584,
+  "response": "1. **KEY INSIGHTS**:  \n   - We need to check if any three consecutive elements in the array are the same.  \n   - The algorithm can be done in a single pass through the array, comparing each triplet of elements.  \n   - Time Complexity: O(N), where N is the length of the array. This is efficient given the constraints (N ≤ 100).  \n   - Edge Cases:\n     - When N = 3 and all three elements are the same.\n     - When N > 3 but no triplet is the same.\n     - When the sequence has more than three identical elements in a row (e.g., four or more).\n\n2. **CODE**:\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three consecutive equal elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i+1] == A[i+2]:\n        found = True\n        break\n\n# Output the result\nprint(\"Yes\" if found else \"No\")\n```"
+}

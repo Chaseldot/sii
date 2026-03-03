@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772534385",
+  "question_index": 10,
+  "question_id": "28",
+  "split": "train",
+  "sample_id": 13,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 30.45447087287903,
+  "response": "```python\nimport sys\nimport heapq\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    M = int(data[1])\n    X = int(data[2])\n    \n    adj_original = [[] for _ in range(N + 1)]\n    adj_reversed = [[] for _ in range(N + 1)]\n    \n    index = 3\n    for _ in range(M):\n        u = int(data[index])\n        v = int(data[index + 1])\n        adj_original[u].append(v)\n        adj_reversed[v].append(u)\n        index += 2\n    \n    INF = float('inf')\n    dist = [INF] * (2 * (N + 1))\n    dist[0] = 0  # Starting at node 1 in original mode (index 0)\n    \n    pq = []\n    heapq.heappush(pq, (0, 0))  # (distance, state)\n    \n    while pq:\n        current_dist, state = heapq.heappop(pq)\n        \n        if current_dist > dist[state]:\n            continue\n        \n        node = (state // 2) + 1\n        mode = state % 2\n        \n        if node == N:\n            print(current_dist)\n            return\n        \n        # Move along an edge\n        if mode == 0:\n            for neighbor in adj_original[node]:\n                new_state = 2 * (neighbor - 1) + 0\n                if dist[new_state] > current_dist + 1:\n                    dist[new_state] = current_dist + 1\n                    heapq.heappush(pq, (dist[new_state], new_state))\n        else:\n            for neighbor in adj_reversed[node]:\n                new_state = 2 * (neighbor - 1) + 1\n                if dist[new_state] > current_dist + 1:\n                    dist[new_state] = current_dist + 1\n                    heapq.heappush(pq, (dist[new_state], new_state))\n        \n        # Reverse the edges\n        new_state = 2 * (node - 1) + (1 - mode)\n        if dist[new_state] > current_dist + X:\n            dist[new_state] = current_dist + X\n            heapq.heappush(pq, (dist[new_state], new_state))\n    \n    print(-1)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

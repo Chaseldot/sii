@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772534385",
+  "question_index": 18,
+  "question_id": "64",
+  "split": "train",
+  "sample_id": 10,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 31.002540349960327,
+  "response": "```python\nimport sys\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    A = list(map(int, data[1:N+1]))\n    \n    if 0 not in A:\n        print(\"Yes\")\n        return\n    \n    # Create a copy of A to modify\n    B = A.copy()\n    \n    i = 0\n    while i < N:\n        if B[i] == 0:\n            # Check for possible operation patterns\n            # Operation 1: S_i='A', S_{i+1}='R', S_{i+2}='C' => affects A[i] and A[i+1]\n            # Operation 2: S_{i+2}='A', S_{i+1}='R', S_i='C' => affects A[i] and A[i+1]\n            # To simulate these, we can assume that the pattern is always possible as long as we have 0 in positions i and i+1\n            # We apply the operation whenever possible to convert A[i] and A[i+1] to 1\n            if i + 1 < N:\n                # Apply operation 1 or 2 if possible\n                # For simplicity, just convert A[i] and A[i+1] to 1\n                B[i] = 1\n                B[i+1] = 1\n                # Skip next index because it's already processed\n                i += 2\n            else:\n                # Only one element left, can't perform any operation\n                i += 1\n        else:\n            i += 1\n    \n    if 0 not in B:\n        print(\"Yes\")\n    else:\n        print(\"No\")\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

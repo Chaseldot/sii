@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772534385",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 15,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 24.97269916534424,
+  "response": "```python\nimport heapq\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:]))\n    \n    # Create a max heap by pushing negative values\n    max_heap = []\n    for i in range(N):\n        heapq.heappush(max_heap, (-P[i], i))\n    \n    ranks = [0] * N\n    assigned = [False] * N\n    r = 1\n    \n    while max_heap:\n        score_neg, index = heapq.heappop(max_heap)\n        score = -score_neg\n        \n        # Find all unassigned participants with the same score\n        count = 0\n        current_index = index\n        while current_index < N and not assigned[current_index] and P[current_index] == score:\n            count += 1\n            current_index += 1\n        \n        # Assign rank to these participants\n        for i in range(index, index + count):\n            if not assigned[i]:\n                ranks[i] = r\n                assigned[i] = True\n        \n        # Update rank counter\n        r += count\n    \n    for rank in ranks:\n        print(rank)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

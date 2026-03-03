@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772537624",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 5,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 8.480564832687378,
+  "response": "I'll solve this problem step-by-step:\n\n### Analysis:\nWe need to check if there are three or more identical consecutive elements in the array. For each position `i` (from 0 to N-3), we check if `A[i] == A[i+1] == A[i+2]`. If such a sequence is found, we print \"Yes\", otherwise \"No\".\n\n### Constraints:\n- N is between 3 and 100, so we can afford a simple linear scan.\n- Values of A are between 1 and 100.\n\n### Algorithm:\n- Iterate through the array up to index N-3.\n- For each index, check if the current element and the next two elements are equal.\n- If any such occurrence is found, return \"Yes\".\n- If the loop completes without finding any such occurrence, return \"No\".\n\n### Complete Code:\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three consecutive equal elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        found = True\n        break\n\n# Output result\nprint(\"Yes\" if found else \"No\")\n```"
+}

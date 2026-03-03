@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772539615",
+  "question_index": 11,
+  "question_id": "29",
+  "split": "train",
+  "sample_id": 1,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 33.64086580276489,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    H = int(data[0])\n    W = int(data[1])\n    grid = data[2:H+2]\n    \n    # Preprocess: Convert grid into list of lists of integers\n    mat = []\n    for i in range(H):\n        row = grid[i]\n        mat.append([int(c) for c in row])\n    \n    min_sum = float('inf')\n    \n    # Try all subsets of columns (each bit represents inclusion in flip)\n    for col_mask in range(1 << W):\n        # Calculate effective state of the matrix after column flips\n        row_counts = [0] * H\n        for r in range(H):\n            cnt = 0\n            for c in range(W):\n                if (col_mask >> c) & 1:\n                    cnt += 1 - mat[r][c]\n                else:\n                    cnt += mat[r][c]\n            row_counts[r] = cnt\n    \n        # Now decide for each row to flip or not to minimize the total\n        current_sum = 0\n        for r in range(H):\n            # Number of flipped columns in this row\n            cnt_flips = bin(col_mask).count('1')\n            if (cnt_flips % 2 == 0):\n                # No flip, just take row_counts[r]\n                current_sum += row_counts[r]\n            else:\n                # Flip the row: total 1s becomes W - row_counts[r]\n                current_sum += (W - row_counts[r])\n        min_sum = min(min_sum, current_sum)\n\n    print(min_sum)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

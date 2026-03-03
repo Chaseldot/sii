@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772534385",
+  "question_index": 2,
+  "question_id": "4",
+  "split": "train",
+  "sample_id": 1,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 38.76303434371948,
+  "response": "```python\nMOD = 998244353\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    M = int(data[1])\n    S = data[2]\n    \n    # dp[m][n][l] = number of strings of length m that have LCS length l with first n characters of S\n    dp = [[[0] * (N + 1) for _ in range(N + 1)] for _ in range(M + 1)]\n    dp[0][0][0] = 1\n    \n    for m in range(M):\n        for n in range(N + 1):\n            for l in range(N + 1):\n                if dp[m][n][l] == 0:\n                    continue\n                # Try adding a new character to the string\n                # Case 1: Add a character not matching S[n] (if n < N)\n                count = 26\n                if n < N:\n                    count -= 1  # subtract 1 if the current character in S is matched\n                for i in range(N + 1):\n                    dp[m + 1][n][l] = (dp[m + 1][n][l] + dp[m][n][l] * count) % MOD\n                # Case 2: Add a character that matches S[n], if possible\n                if n < N:\n                    dp[m + 1][n + 1][l + 1] = (dp[m + 1][n + 1][l + 1] + dp[m][n][l]) % MOD\n    \n    # For each k, compute the total number of strings of length M with LCS exactly k\n    ans = [0] * (N + 1)\n    for n in range(N + 1):\n        for l in range(N + 1):\n            ans[l] = (ans[l] + dp[M][n][l]) % MOD\n    \n    print(' '.join(map(str, ans)))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

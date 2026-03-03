@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772537624",
+  "question_index": 3,
+  "question_id": "6",
+  "split": "train",
+  "sample_id": 10,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 11.318562507629395,
+  "response": "The error you're seeing is due to the `sys.exit()` call, which is not allowed in some online judges or environments (like certain coding platforms). Instead of using `sys.exit()`, we can simply break out of the loop once a valid permutation is found and print \"Yes\" directly.\n\nHere's the corrected and complete code:\n\n```python\nfrom itertools import permutations\n\n# Read input from standard input\nA = list(map(int, input().split()))\n\n# Generate all permutations of the list A\nfor perm in permutations(A):\n    b1, b2, b3 = perm\n    if b1 * b2 == b3:\n        print(\"Yes\")\n        break\nelse:\n    # If no permutation satisfies the condition\n    print(\"No\")\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772536940",
+  "question_index": 7,
+  "question_id": "20",
+  "split": "train",
+  "sample_id": 14,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 4.825786113739014,
+  "response": "To solve this problem, we need to process a string of digits and filter out all characters except for the digit '2'. Then we concatenate the remaining characters in their original order to form the result.\n\n### Key Steps:\n1. **Input Handling**: Read the input string from standard input.\n2. **Filtering**: Iterate through each character in the input string and keep only the characters that are equal to `'2'`.\n3. **Concatenation**: Join the filtered characters to form the final output string.\n4. **Output**: Print the resulting string.\n\n### Considerations:\n- The string can range in length from 1 to 100.\n- It is guaranteed that there's at least one `'2'` in the string.\n- We must read the input correctly and produce the correct output format.\n\n### Time and Space Complexity:\n- **Time complexity**: O(n), where n is the length of the string. We iterate through the string once.\n- **Space complexity**: O(n) in the worst case (if all characters are `'2'`).\n\n### Final Python Code:\n\n```python\n# Read the input string\nS = input().strip()\n\n# Filter characters to include only '2's\nresult = ''.join([char for char in S if char == '2'])\n\n# Print the resulting string\nprint(result)\n```"
+}

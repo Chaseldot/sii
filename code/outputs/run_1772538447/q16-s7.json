@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772538447",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 7,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 7.513351202011108,
+  "response": "### Step 1 - Problem Analysis:\n\nThis problem involves finding a valid integer `B` such that the product of two integers `A` and `B` equals 400, given `A`. If no such positive integer `B` exists, we print `-1`.\n\n#### Key Observations:\n- We are given `A`, and need to find if there exists an integer `B` such that:  \n  $ A \\times B = 400 $\n- Rearranging, this means `B = 400 / A`\n- So, the only way for this to work is if `A` divides 400 evenly, i.e., 400 % A == 0. In this case, `B = 400 // A`\n- If 400 is not divisible by `A`, then it is impossible to form a rectangular formation, and we should output `-1`\n\n#### Edge Cases:\n- If `A = 400`, then `B = 1`\n- If `A = 1`, then `B = 400`\n- If `A = 2`, then `B = 200`\n- For prime factors of 400 (like 11, 13, etc.), since they do not divide 400 evenly, the result will be `-1`\n\n#### Algorithm:\n1. Check if `400 % A == 0`\n   - If yes, compute `B = 400 // A` and return it\n   - If no, return `-1`\n\nThis approach has constant time complexity $O(1)$ as it involves only arithmetic operations and condition checks.\n\n---\n\n### Step 2 - Write Code:\n\n```python\n# Read input\nA = int(input())\n\n# Check if 400 is divisible by A\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```"
+}

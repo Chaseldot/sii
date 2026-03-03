@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772535096",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 9,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 7.203874826431274,
+  "response": "1. **KEY INSIGHTS**:  \n   - The problem requires checking if any three consecutive elements in the sequence are the same.  \n   - We can iterate through the list and compare each triplet of elements (i, i+1, i+2).  \n   - Edge cases include sequences with exactly 3 elements (e.g., [1, 1, 1]) or sequences where the triple occurs at the end (e.g., [1, 1, 1, 2]).  \n   - Time complexity is O(N), which is optimal for the given constraints (N ≤ 100).\n\n2. **CODE**:\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three consecutive equal elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        found = True\n        break\n\n# Output result\nprint(\"Yes\" if found else \"No\")\n```"
+}

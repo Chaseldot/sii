@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772540339",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 6,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 4.042363882064819,
+  "response": "I'll solve this problem step-by-step.\n\n### Problem Analysis:\nWe need to check if there is a sequence of **three or more** identical elements in a row in the given list `A`.\n\n### Approach:\n- We can iterate through the list and compare each element with the next two elements.\n- If at any point three consecutive elements are equal, we immediately return \"Yes\".\n- If the loop completes without finding such a triplet, we return \"No\".\n\n### Edge Cases:\n- The input has exactly 3 elements: Check if all are the same.\n- The input has more than 3 elements but no triplet of the same number in a row.\n- All elements are the same (e.g., a list of 100 ones).\n\n### Complexity:\n- Time complexity: O(N) - We scan the list once.\n- Space complexity: O(1) - No additional space is used.\n\nNow, here's the complete Python code:\n\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three consecutive equal elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        found = True\n        break\n\n# Output result\nprint(\"Yes\" if found else \"No\")\n```"
+}

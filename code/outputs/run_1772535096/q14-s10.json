@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772535096",
+  "question_index": 14,
+  "question_id": "53",
+  "split": "train",
+  "sample_id": 10,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 32.06199073791504,
+  "response": "1. **KEY INSIGHTS**:  \n   - The core problem is to compute the sum of $(\\text{sum of subarray})^K$ for all possible subarrays, modulo $998244353$.  \n   - Since K is small (≤ 10), we can use dynamic programming to track how each power contributes to total sum.  \n   - A critical mistake in the previous solution was not correctly handling the powers: the DP state should track how many subarrays ending at each position contribute to each exponent up to $K$.  \n   - The correct approach is to iterate over the array and for each position, keep a dynamic programming array where `dp[k]` represents the number of subarrays ending here such that their sum raised to the k-th power contributes to the final result.  \n   - We must compute this efficiently using modular arithmetic to ensure correctness even for very large values.  \n\n2. **CODE**:\n```python\nimport sys\ninput = sys.stdin.read\n\nMOD = 998244353\n\ndef main():\n    data = input().split()\n    N = int(data[0])\n    K = int(data[1])\n    A = list(map(int, data[2:2+N]))\n\n    # dp[k] represents the sum of (sum of subarray ending at current index)^k\n    dp = [0] * (K + 1)\n    total = 0\n\n    for i in range(N):\n        curr = A[i]\n        new_dp = [0] * (K + 1)\n\n        # Start a new subarray with current element\n        new_dp[0] = 1  # There's one subarray with just the current element\n        new_dp[1] = curr % MOD  # Power 1: sum is just the current element\n\n        for k in range(1, K + 1):\n            # Extend existing subarrays by including the current element\n            new_dp[k] = (new_dp[k] + dp[k] * curr) % MOD\n            # Add new subarray with the current element (starting from it)\n            if k >= 1:\n                new_dp[k] = (new_dp[k] + dp[k - 1] * curr) % MOD\n\n        dp = new_dp\n        # Add the contribution of all subarrays ending at current index\n        total = (total + dp[K]) % MOD\n\n    print(total)\n\nmain()\n```"
+}

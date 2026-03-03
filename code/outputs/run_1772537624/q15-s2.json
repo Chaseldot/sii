@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772537624",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 2,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 13.208499908447266,
+  "response": "To solve this problem, we need to determine the ranks of people based on their scores following a specific ranking procedure. The key insight is that we should process the people in decreasing order of their scores and assign ranks accordingly, grouping people with the same score.\n\n### Steps:\n1. **Sort** the people by their scores in descending order.\n2. **Group** people with the same score together.\n3. For each group of people with the same score, assign them the same rank.\n4. Update the rank variable after processing each group.\n\nThis approach ensures that we follow the given procedure efficiently, which is suitable for the given constraints (N ≤ 100).\n\nLet’s implement the solution:\n\n```python\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:N+1]))\n    \n    # Create a list of tuples: (score, index)\n    people = [(P[i], i+1) for i in range(N)]\n    \n    # Sort the people in descending order of score\n    people.sort(reverse=True, key=lambda x: x[0])\n    \n    # Initialize rank\n    rank = 1\n    \n    # To keep track of assigned ranks\n    result = [0] * (N + 1)  # Using 1-based indexing\n    \n    i = 0\n    while i < N:\n        current_score = people[i][0]\n        # Count how many people have the same score\n        count = 0\n        while i < N and people[i][0] == current_score:\n            count += 1\n            i += 1\n        \n        # Assign the current rank to all people with the same score\n        for j in range(i - count, i):\n            result[people[j][1]] = rank\n        \n        # Update rank\n        rank += count\n    \n    # Print the result\n    for i in range(1, N+1):\n        print(result[i])\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

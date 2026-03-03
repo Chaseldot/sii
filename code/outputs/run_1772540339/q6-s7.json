@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772540339",
+  "question_index": 6,
+  "question_id": "17",
+  "split": "train",
+  "sample_id": 7,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 5.331140518188477,
+  "response": "To solve this problem, we need to repeatedly replace the leftmost occurrence of \"WA\" with \"AC\" in a given string until no more such occurrences exist. \n\n### Observations:\n- The key is to always process the **leftmost** occurrence.\n- We can't simply replace all \"WA\" substrings because replacing one might create a new \"WA\" to the left (e.g., in cases like \"WWA\").\n- A naive approach that scans the string from left to right and replaces \"WA\" on every iteration may be inefficient for large strings.\n\nHowever, the most efficient way to do this in Python involves using the `replace` method in a loop, since it will keep finding and replacing the leftmost match each time.\n\n### Solution Strategy:\n1. Keep replacing \"WA\" with \"AC\" as long as the string contains \"WA\".\n2. Use the built-in `str.replace()` function which by default replaces the leftmost occurrence.\n\nThis approach works efficiently even for large inputs up to the constraint limits.\n\n### Code:\n\n```python\n# Read input\nS = input().strip()\n\n# Loop until no \"WA\" is found\nwhile \"WA\" in S:\n    S = S.replace(\"WA\", \"AC\", 1)  # Replace only the leftmost occurrence\n\n# Output the resulting string\nprint(S)\n```\n\n### Explanation:\n- The `replace` function with a third argument of `1` ensures that only the leftmost occurrence is replaced.\n- This loop continues until the string no longer contains \"WA\", which meets the problem's requirement.\n\nThis solution is efficient and straightforward for the problem constraints."
+}

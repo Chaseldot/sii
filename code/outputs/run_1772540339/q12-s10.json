@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772540339",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 10,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 7.087422847747803,
+  "response": "I'll solve this problem step by step.\n\n### Understanding the Problem:\nWe are given an integer sequence of length N. We need to check if there exists any position `i` such that `A_i = A_{i+1} = A_{i+2}`. In other words, we're looking for three or more identical consecutive elements in the array.\n\n### Approach:\n1. Iterate through the array from index 0 to N-3 (since we need to compare triplets).\n2. For each index `i`, check if `A[i] == A[i+1] == A[i+2]`.\n3. If such a triplet is found, print \"Yes\" and terminate.\n4. If no such triplet is found by the end of the loop, print \"No\".\n\n### Edge Cases:\n- When N is exactly 3 (minimum allowed value).\n- When all elements are the same (e.g., N=13 as in Sample Input 5).\n- When there are multiple triplets (we only need to find one to output \"Yes\").\n\n### Time and Space Complexity:\n- Time complexity: O(N) - we traverse the list once.\n- Space complexity: O(1) - no extra space is used aside from variables.\n\nNow I'll implement the solution:\n\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three consecutive equal elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i+1] == A[i+2]:\n        found = True\n        break\n\n# Output the result\nprint(\"Yes\" if found else \"No\")\n```"
+}

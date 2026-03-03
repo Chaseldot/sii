@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772540339",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 9,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.218801021575928,
+  "response": "To solve this problem, we need to find a positive integer $ B $ such that the product $ A \\times B = 400 $. If no such $ B $ exists, we should output `-1`.\n\n---\n\n### Key Observations:\n- Since $ A \\times B = 400 $, $ B = \\frac{400}{A} $\n- For $ B $ to be a **positive integer**, $ A $ must be a **divisor of 400**\n- So the algorithm is straightforward:\n  1. Check if $ A $ divides 400 evenly\n  2. If it does, return $ B = \\frac{400}{A} $\n  3. If not, return `-1`\n\n---\n\n### Edge Cases:\n- If $ A = 400 $, then $ B = 1 $\n- If $ A = 1 $, then $ B = 400 $\n- Any value of $ A $ that does not divide 400 (e.g., $ A = 11 $) will yield `-1`\n\n---\n\n### Time Complexity:\n- The solution runs in **O(1)** time since it involves only basic arithmetic.\n\n---\n\nHere is the complete Python code:\n\n```python\n# Read input\nA = int(input())\n\n# Calculate B such that A * B = 400\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```"
+}

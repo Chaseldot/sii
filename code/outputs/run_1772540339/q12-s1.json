@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772540339",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 1,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 14.485639333724976,
+  "response": "The error is due to using `exit()` which is not available in standard Python environments like online judges. Instead, we should use a flag or break out of the loop and print the result at the end.\n\nHere's the **corrected and complete code**:\n\n```python\n# Read input from standard input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check if there are three or more consecutive identical elements\ncurrent = A[0]\ncount = 1\nfound = False\n\nfor i in range(1, N):\n    if A[i] == current:\n        count += 1\n        if count >= 3:\n            found = True\n            break\n    else:\n        current = A[i]\n        count = 1\n\n# Print the result\nprint(\"Yes\" if found else \"No\")\n```"
+}

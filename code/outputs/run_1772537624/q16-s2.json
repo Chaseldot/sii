@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772537624",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 2,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 13.399805545806885,
+  "response": "To solve this problem, we need to determine a positive integer **B** such that the product of **A** (rows) and **B** (columns) equals 400. If no such **B** exists, we should print **-1**.\n\n### Step-by-step Explanation:\n\n1. **Input**: We are given an integer **A** between 1 and 400.\n2. **Objective**: Find a positive integer **B** such that **A * B = 400**.\n3. **Approach**:\n   - Calculate **B** as **400 // A**.\n   - To ensure **B** is a valid solution, it must be a **positive integer**, and **A * B** must equal exactly **400**.\n   - Check if **400 % A == 0**. If true, then **B = 400 // A** is valid; otherwise, no valid **B** exists.\n4. **Edge Cases**:\n   - If **A = 400**, then **B = 1**.\n   - If **A = 1**, then **B = 400**.\n   - If **A = 2**, then **B = 200**.\n   - If **A = 5**, then **B = 80**.\n   - If **A = 11**, then no valid **B** exists since **400 % 11 != 0**.\n5. **Time and Space Complexity**:\n   - Time complexity: **O(1)**, since no loops or iterations are used.\n   - Space complexity: **O(1)**, since we only use a few variables.\n\nNow, here is the complete Python code for the solution:\n\n```python\n# Read input from user\nA = int(input())\n\n# Check if 400 is divisible by A\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```"
+}

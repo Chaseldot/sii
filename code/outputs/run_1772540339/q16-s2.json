@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772540339",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 2,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 5.092092752456665,
+  "response": "To solve this problem, we need to find a positive integer `B` such that when combined with the given number of rows `A`, the product `A * B` equals 400. In other words, `B = 400 / A`, and we need to ensure that `B` is a positive integer.\n\n### Step-by-step Analysis:\n1. We are given a single integer `A`.\n2. We need to check if 400 is divisible by `A`, i.e., whether `400 % A == 0`.\n3. If it is divisible, then `B = 400 // A` will be a positive integer.\n4. If it is not divisible, then it's impossible to arrange people in a rectangular formation with `A` rows and an integer number of columns, so we return `-1`.\n\n### Time Complexity:\n- The algorithm runs in constant time O(1) because we only perform a division and a modulo operation, which are both constant-time operations.\n\n### Edge Cases:\n- If `A` is 1, then `B = 400`.\n- If `A` is 400, then `B = 1`.\n- If `A` is a divisor of 400 (e.g., 2, 4, 5, etc.), then a valid `B` exists.\n- If `A` is not a divisor of 400 (e.g., 11), then no valid `B` exists.\n\n### Solution Code:\n\n```python\n# Read input from standard input\nA = int(input())\n\n# Check if A divides 400 exactly\nif 400 % A == 0:\n    print(400 // A)\nelse:\n    print(-1)\n```"
+}

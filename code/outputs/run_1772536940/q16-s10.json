@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772536940",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 10,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 5.253173351287842,
+  "response": "To solve this problem, we need to find a positive integer $ B $ such that the product of $ A $ and $ B $ equals 400. This can be approached by checking if 400 is divisible by $ A $. If it is, then $ B = \\frac{400}{A} $; otherwise, there is no valid $ B $, and we should return -1.\n\n### Key Points:\n- The input is a single integer $ A $.\n- We are to determine if there exists a positive integer $ B $ such that $ A \\times B = 400 $.\n- If such a $ B $ exists, we print it; otherwise, we print -1.\n\n### Steps:\n1. Read the input $ A $.\n2. Check if 400 is divisible by $ A $.\n3. If it is, compute $ B = \\frac{400}{A} $ and print it.\n4. If not, print -1.\n\nHere's the Python code implementing the above logic:\n\n```python\n# Read input\nA = int(input())\n\n# Check if A divides 400 evenly and compute B\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```"
+}

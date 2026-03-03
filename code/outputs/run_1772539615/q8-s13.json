@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772539615",
+  "question_index": 8,
+  "question_id": "25",
+  "split": "train",
+  "sample_id": 13,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 106.52898097038269,
+  "response": "```python\nimport sys\ninput = sys.stdin.read\n\ndef main():\n    data = input().split()\n    idx = 0\n    N = int(data[idx])\n    idx += 1\n    X = int(data[idx])\n    idx += 1\n\n    U = []\n    D = []\n    for _ in range(N):\n        u = int(data[idx])\n        d = int(data[idx + 1])\n        U.append(u)\n        D.append(d)\n        idx += 2\n\n    candidates = set(U[i] + D[i] for i in range(N))\n    \n    min_cost = float('inf')\n\n    for H in candidates:\n        adjusted_U = [H - D[i] for i in range(N)]\n        total_cost = sum(abs(u - adj_u) for u, adj_u in zip(U, adjusted_U))\n\n        # Now ensure the sequence of adjusted_U satisfies |U[i] - U[i+1]| <= X\n        # We will use a sliding window to adjust adjusted_U and track the valid range\n\n        # Initialize the valid range for adjusted_U[0]\n        left = adjusted_U[0]\n        right = adjusted_U[0]\n\n        for i in range(1, N):\n            new_left = max(left - X, 0)\n            new_right = min(right + X, 10**18)\n\n            val = adjusted_U[i]\n            if val < new_left:\n                diff = new_left - val\n                total_cost += diff\n                val = new_left\n            elif val > new_right:\n                diff = val - new_right\n                total_cost += diff\n                val = new_right\n\n            left = val\n            right = val\n\n        min_cost = min(min_cost, total_cost)\n\n    print(min_cost)\n\nif __name__ == '__main__':\n    main()\n```"
+}

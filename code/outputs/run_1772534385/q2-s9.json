@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772534385",
+  "question_index": 2,
+  "question_id": "4",
+  "split": "train",
+  "sample_id": 9,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 29.717992782592773,
+  "response": "```python\nMOD = 998244353\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    M = int(data[1])\n    S = data[2]\n    \n    # Initialize DP table: dp[i][j] represents the number of strings of length j with LCS length i\n    dp = [[0] * (M + 1) for _ in range(N + 1)]\n    dp[0][0] = 1\n    \n    for length in range(M):\n        for lcs_len in range(N + 1):\n            if dp[lcs_len][length] == 0:\n                continue\n            # Try adding each character from 'a' to 'z'\n            for c in 'abcdefghijklmnopqrstuvwxyz':\n                # Check if this character can contribute to LCS\n                pos = -1\n                for i in range(N):\n                    if S[i] == c:\n                        pos = i\n                        break\n                if pos != -1:\n                    # If this character is part of S, we may extend the LCS\n                    # We check all possible positions where it could fit\n                    # Here, we assume that this character could potentially increase the LCS by 1\n                    new_lcs_len = lcs_len + 1\n                else:\n                    new_lcs_len = lcs_len\n                \n                dp[new_lcs_len][length + 1] = (dp[new_lcs_len][length + 1] + dp[lcs_len][length]) % MOD\n    \n    # The answer for k is dp[k][M]\n    print(' '.join(str(dp[k][M]) for k in range(N + 1)))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

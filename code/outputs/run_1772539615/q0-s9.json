@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772539615",
+  "question_index": 0,
+  "question_id": "0",
+  "split": "train",
+  "sample_id": 9,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 56.094640016555786,
+  "response": "```python\nimport sys\nfrom bisect import bisect_left, bisect_right\nfrom collections import defaultdict\n\ndef main():\n    input = sys.stdin.read().split()\n    idx = 0\n    N = int(input[idx])\n    W = int(input[idx+1])\n    idx += 2\n\n    # Store initial positions of blocks\n    xiyi = []\n    for _ in range(N):\n        x = int(input[idx])\n        y = int(input[idx+1])\n        xiyi.append((x, y))\n        idx += 2\n\n    Q = int(input[idx])\n    idx += 1\n\n    queries = []\n    for _ in range(Q):\n        T = int(input[idx])\n        A = int(input[idx+1]) - 1  # Convert to 0-indexed\n        queries.append((T, A))\n        idx += 2\n\n    # Group columns and sort rows for each column\n    column_data = defaultdict(list)\n    for i in range(N):\n        x, y = xiyi[i]\n        column_data[x].append(y)\n\n    for x in column_data:\n        column_data[x].sort()\n\n    # Track the number of blocks per row across all columns\n    row_count = defaultdict(int)\n    for x in column_data:\n        for y in column_data[x]:\n            row_count[y] += 1\n\n    # Precompute how many steps each block can fall before it disappears\n    fall_steps = [0] * N\n\n    for i in range(N):\n        x, y = xiyi[i]\n        col_list = column_data[x]\n        pos = bisect_left(col_list, y)  # Find insertion point of y in the sorted column list\n\n        current_row = y\n        steps = 0\n\n        while True:\n            if current_row == 1 or row_count[current_row] >= W:\n                break\n            steps += 1\n            current_row -= 1\n\n        fall_steps[i] = steps\n\n    # Process queries\n    results = []\n    for T, A in queries:\n        if fall_steps[A] > T:\n            results.append(\"Yes\")\n        else:\n            results.append(\"No\")\n\n    print(\"\\n\".join(results))\n\nif __name__ == '__main__':\n    main()\n```"
+}

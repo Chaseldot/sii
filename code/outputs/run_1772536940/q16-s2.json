@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772536940",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 2,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 4.916098117828369,
+  "response": "To solve this problem, we need to determine a positive integer $ B $ such that the total number of people (400) can be arranged in a rectangular formation with $ A $ rows and $ B $ columns. This is equivalent to checking whether 400 is divisible by $ A $. If it is, then $ B = \\frac{400}{A} $; otherwise, we print -1.\n\n### Key Points:\n- **Input:** Integer $ A $\n- **Output:** Positive integer $ B $ if valid, else -1\n- **Constraints:** $ 1 \\leq A \\leq 400 $\n\n### Algorithm:\n1. Check if $ 400 \\% A == 0 $\n2. If true, compute $ B = \\frac{400}{A} $\n3. Otherwise, return -1\n\nNow, here is the complete Python code:\n\n```python\n# Read the input value for A\nA = int(input())\n\n# Check if 400 is divisible by A\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```"
+}

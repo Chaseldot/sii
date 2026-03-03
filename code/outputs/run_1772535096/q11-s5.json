@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772535096",
+  "question_index": 11,
+  "question_id": "29",
+  "split": "train",
+  "sample_id": 5,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 51.888336181640625,
+  "response": "1. **KEY INSIGHTS**:\n   - The time complexity is dominated by the `product([0, 1], repeat=W)` loop, which for $ W = 18 $ results in $ 2^{18} = 262,144 $ iterations.\n   - For each column flip combination, iterating through all $ H $ rows and $ W $ columns is expensive when $ H $ is large (e.g., $ H = 2 \\times 10^5 $).\n   - Instead of explicitly applying column flips to every row, we can use bitwise representation to represent each row as an integer and compute the effect of flipping columns efficiently using bitmask operations.\n\n2. **CODE**:\n```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    H = int(data[0])\n    W = int(data[1])\n    grid = data[2:H + 2]\n    \n    # Convert each row into an integer (bitmask)\n    row_masks = []\n    for row in grid:\n        mask = 0\n        for ch in row:\n            mask = (mask << 1) | int(ch)\n        row_masks.append(mask)\n    \n    min_sum = float('inf')\n    \n    # Try all possible combinations for column flips\n    from itertools import product\n    \n    for col_flip_mask in product([0, 1], repeat=W):\n        # Compute the effect of column flips on each row\n        # Each bit in the row mask represents a cell\n        # Flip columns where col_flip_mask[j] == 1\n        current_sum = 0\n        \n        for i in range(H):\n            row = row_masks[i]\n            flipped_row = row\n            for j in range(W):\n                if col_flip_mask[j]:\n                    flipped_row ^= (1 << (W - 1 - j))\n            # Count the number of 1s in the flipped row\n            ones = bin(flipped_row).count('1')\n            # If keeping the row as is gives more 1s, flip it\n            if ones > (W // 2 + (W % 2 != 0)):\n                current_sum += (W - ones)\n            else:\n                current_sum += ones\n        \n        min_sum = min(min_sum, current_sum)\n    \n    print(min_sum)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

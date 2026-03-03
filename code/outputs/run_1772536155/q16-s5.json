@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772536155",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 5,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 8.217057704925537,
+  "response": "我将按照您的要求逐步解题：\n\n1. **理解问题**：\n   - 输入一个整数 A，我们需要找到一个正整数 B，使得 A * B = 400。\n   - 如果没有这样的 B，输出 -1。\n\n2. **分析问题**：\n   - 我们需要找到 B = 400 / A 的正整数解。\n   - 对于每个 A，在 1 到 400 范围内，判断 400 是否能被 A 整除。\n   - 如果可以整除，则 B = 400 // A 是答案；否则输出 -1。\n\n3. **编写代码**：\n   - 我们直接计算 B = 400 // A，然后验证 A * B == 400。\n   - 注意边界情况：当 A=400 时，B=1；当 A=1 时，B=400。\n\n以下是完整代码：\n\n```python\n# Read input\nA = int(input())\n\n# Calculate B such that A * B = 400\nB = 400 // A\n\n# Check if A * B equals 400 and B is positive\nif A * B == 400 and B > 0:\n    print(B)\nelse:\n    print(-1)\n```"
+}

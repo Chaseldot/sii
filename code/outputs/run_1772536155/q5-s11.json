@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772536155",
+  "question_index": 5,
+  "question_id": "13",
+  "split": "train",
+  "sample_id": 11,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 57.70726299285889,
+  "response": "```python\nimport sys\nimport bisect\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    idx = 0\n    N = int(data[idx])\n    idx += 1\n    Q = int(data[idx])\n    idx += 1\n    \n    A = list(map(int, data[idx:idx+N]))\n    idx += N\n    \n    queries = []\n    for _ in range(Q):\n        R = int(data[idx])\n        X = int(data[idx+1])\n        queries.append((R, X))\n        idx += 2\n    \n    # 预处理：对于每个位置i，维护一个列表，其中每个元素是（值, 当前为止最长递增子序列长度）\n    dp = [[] for _ in range(N)]\n    \n    for i in range(N):\n        num = A[i]\n        if i == 0:\n            dp[i] = [(num, 1)]\n        else:\n            # 查找所有比当前数小的值对应的长度，并取最大值\n            max_len = 1\n            for val, length in dp[i-1]:\n                if val < num:\n                    max_len = max(max_len, length + 1)\n            dp[i] = [(num, max_len)]\n    \n    # 对每个位置i的dp[i]按照数值排序（用于后续快速查询）\n    for i in range(N):\n        dp[i].sort()\n    \n    # 处理查询\n    results = []\n    for R, X in queries:\n        # 获取前R个数的数据（注意R是1-based）\n        prefix_dp = dp[R-1]\n        \n        # 使用bisect_right找到最大的value <= X的位置\n        leftmost = bisect.bisect_right(prefix_dp, (X, float('inf')))  # 跳过所有 > X 的条目\n        \n        if leftmost == 0:\n            results.append(0)\n        else:\n            # 取前面所有项中的最大长度\n            max_len = max(x for val, x in prefix_dp[:leftmost])\n            results.append(max_len)\n    \n    for res in results:\n        print(res)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

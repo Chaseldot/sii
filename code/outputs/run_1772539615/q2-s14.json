@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772539615",
+  "question_index": 2,
+  "question_id": "4",
+  "split": "train",
+  "sample_id": 14,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 27.105583667755127,
+  "response": "```python\nimport sys\nfrom collections import defaultdict\n\nMOD = 998244353\n\ndef main():\n    N, M = map(int, sys.stdin.readline().split())\n    S = sys.stdin.readline().strip()\n\n    # DP[i][j] 表示当前处理到 S 的前 i 个字符，且在 T 中已经使用了 j 个字符的情况下，\n    # 能获得 LCS 长度为 k 的情况数。这里用字典来存储，因为可能的 k 值比较稀疏。\n    dp = [defaultdict(int) for _ in range(N + 1)]\n    dp[0][0] = 1  # 初始状态：没有处理任何字符，LCS 长度为 0\n\n    for i in range(1, N + 1):\n        current_char = S[i - 1]\n        for j in range(M + 1):  # j 表示当前 T 中选了多少个字符\n            # 不选择当前字符 S[i-1]\n            for k in dp[i - 1]:\n                dp[i][k] = (dp[i][k] + dp[i - 1][k]) % MOD\n\n            # 选择当前字符 S[i-1]\n            if j > 0:\n                # 遍历前面所有位置 pos 来寻找匹配的 LCS 值\n                for pos in range(i):\n                    prev_k = dp[pos][j - 1]\n                    if prev_k == 0:\n                        continue\n                    new_k = prev_k + 1\n                    dp[i][new_k] = (dp[i][new_k] + prev_k) % MOD\n\n    # 统计答案\n    result = [0] * (N + 1)\n    for i in range(N + 1):\n        for k in dp[i]:\n            result[k] = (result[k] + dp[i][k]) % MOD\n\n    print(' '.join(map(str, result)))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

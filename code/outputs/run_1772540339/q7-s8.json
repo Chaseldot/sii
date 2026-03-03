@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772540339",
+  "question_index": 7,
+  "question_id": "20",
+  "split": "train",
+  "sample_id": 8,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 3.491024971008301,
+  "response": "To solve this problem, we need to process a given string of digits and form a new string by keeping only the characters that are equal to '2'. The rest of the characters should be removed. Then, we concatenate these remaining '2's in their original order.\n\n### Steps:\n1. Read the input string `S`.\n2. Iterate through each character in the string.\n3. Check if the character is '2'.\n4. If it is, keep it; otherwise, skip it.\n5. Concatenate all the kept characters to form the resulting string.\n6. Print the resulting string.\n\n### Time and Space Complexity:\n- **Time Complexity**: O(n), where n is the length of the input string. We traverse the string once.\n- **Space Complexity**: O(n), as we construct a new string from the filtered characters.\n\nNow, here is the complete solution in Python:\n\n```python\n# Read the input string\nS = input().strip()\n\n# Initialize an empty string to store the result\nresult = ''\n\n# Iterate over each character in the input string\nfor char in S:\n    if char == '2':\n        result += char\n\n# Print the final result\nprint(result)\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772534385",
+  "question_index": 13,
+  "question_id": "43",
+  "split": "train",
+  "sample_id": 5,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 34.80362415313721,
+  "response": "```python\ndef main():\n    import sys\n    S = sys.stdin.readline().strip()\n    if not S:\n        print(\"\")\n        return\n\n    # Create a new string to apply KMP's failure function\n    temp = S + '#' + S[::-1]\n    n = len(temp)\n    fail = [0] * n\n\n    for i in range(1, n):\n        j = fail[i - 1]\n        while j > 0 and temp[i] != temp[j]:\n            j = fail[j - 1]\n        if temp[i] == temp[j]:\n            j += 1\n        fail[i] = j\n\n    # The value of the last element in fail gives the length of the longest palindromic suffix\n    lps = fail[-1]\n    # Characters to prepend are those before the palindromic suffix\n    prepend = S[:len(S) - lps][::-1]\n\n    print(prepend + S)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

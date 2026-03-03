@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772534385",
+  "question_index": 18,
+  "question_id": "64",
+  "split": "train",
+  "sample_id": 1,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 38.0110023021698,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    A = list(map(int, data[1:N+1]))\n    \n    if all(a == 1 for a in A):\n        print(\"Yes\")\n        return\n    \n    zero_count = sum(1 for a in A if a == 0)\n    \n    # We need to cover every zero with at least one operation (either type 1 or type 2)\n    # Each operation can affect two positions in A\n    # So the number of zeros must be even, or we need to find an overlapping way to cover them\n    \n    # Use a boolean array to track processed positions\n    processed = [False] * N\n    zero_positions = [i for i in range(N) if A[i] == 0]\n    \n    # Try to greedily apply operations\n    for i in zero_positions:\n        if processed[i]:\n            continue\n        found = False\n        \n        # Check for operation type 1: A-R-C pattern around i\n        j = (i + 1) % N\n        k = (i + 2) % N\n        if not processed[j] and not processed[k]:\n            processed[i] = True\n            processed[j] = True\n            processed[k] = True\n            found = True\n        \n        # Check for operation type 2: C-R-A pattern around i\n        if not found:\n            j = (i - 1) % N\n            k = (i - 2) % N\n            if not processed[j] and not processed[k]:\n                processed[i] = True\n                processed[j] = True\n                processed[k] = True\n                found = True\n        \n        if not found:\n            print(\"No\")\n            return\n    \n    print(\"Yes\")\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772538447",
+  "question_index": 7,
+  "question_id": "20",
+  "split": "train",
+  "sample_id": 6,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.104475498199463,
+  "response": "### STEP 1 - Problem Analysis\n\n**Type of Problem**: String Manipulation  \nThis problem is a simple string processing task where we need to filter out all characters that are not '2' from the input string and then concatenate the remaining characters in their original order.\n\n**Key Algorithm/Method**:  \n- Iterate through the input string.\n- Check each character to see if it is equal to '2'.\n- If it is, keep it; otherwise, skip it.\n- Finally, form a new string using only the kept characters.\n\n**Edge Cases**:  \n1. The input string consists solely of '2's.  \n   - Example: \"2222\" → Output: \"2222\"  \n2. The input string has only one '2'.  \n   - Example: \"2\" → Output: \"2\"  \n3. The input contains other digits but at least one '2' (as required by the constraints).  \n   - Example: \"20250222\" → Output: \"22222\"\n\n---\n\n### STEP 2 - Write Code\n\n```python\n# Read input from standard input\nS = input().strip()\n\n# Filter out all characters that are not '2'\nresult = ''.join([ch for ch in S if ch == '2'])\n\n# Print the result\nprint(result)\n```"
+}

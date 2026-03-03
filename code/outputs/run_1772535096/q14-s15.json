@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772535096",
+  "question_index": 14,
+  "question_id": "53",
+  "split": "train",
+  "sample_id": 15,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 11.60342025756836,
+  "response": "1. **KEY INSIGHTS**:\n   - The problem involves summing up the $ K $-th power of the sum of every subarray of a given array.\n   - Directly iterating over all possible subarrays and computing their sum and raising it to the $ K $-th power will be computationally infeasible for large $ N $ (up to $ 2 \\times 10^5 $).\n   - We need an efficient approach, ideally with time complexity better than $ O(N^2) $. However, since $ K $ is small ($ \\leq 10 $), we can consider using dynamic programming or combinatorial techniques to optimize computation.\n   - The constraint $ A_i < 998244353 $ suggests that computations should be done under modulo arithmetic.\n   - Edge cases include when $ N = 1 $, or $ K = 0 $, etc., but the constraints ensure that $ K \\geq 1 $.\n\n2. **CODE**:\n```python\nMOD = 998244353\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    K = int(data[1])\n    A = list(map(int, data[2:2+N]))\n    \n    # Precompute prefix sums\n    prefix = [0] * (N + 1)\n    for i in range(N):\n        prefix[i+1] = (prefix[i] + A[i]) % MOD\n    \n    result = 0\n    for r in range(1, N+1):\n        current_sum = 0\n        for l in range(r, 0, -1):\n            current_sum = (current_sum + A[l-1]) % MOD\n            # Compute current_sum^K modulo MOD\n            power = pow(current_sum, K, MOD)\n            result = (result + power) % MOD\n    \n    print(result)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

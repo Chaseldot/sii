@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772534385",
+  "question_index": 8,
+  "question_id": "25",
+  "split": "train",
+  "sample_id": 4,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 46.34264159202576,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    X = int(data[1])\n    U = []\n    D = []\n    S = []\n    for i in range(N):\n        u = int(data[2 + 2*i])\n        d = int(data[3 + 2*i])\n        U.append(u)\n        D.append(d)\n        S.append(u + d)\n    \n    # To handle cases where H could be less than the minimal S_i, we consider min_S and max_S\n    min_S = min(S)\n    max_S = max(S)\n    unique_S = sorted(list(set(S)))\n    \n    min_cost = float('inf')\n    \n    # Try all possible H values in a sorted list of unique S\n    for h_candidate in unique_S:\n        cost = 0\n        adjusted_upper = []\n        for i in range(N):\n            new_u = h_candidate - D[i]\n            if new_u > U[i]:\n                new_u = U[i]\n            adjusted_upper.append(new_u)\n            cost += U[i] - new_u\n        \n        # Check the difference between consecutive upper teeth\n        valid = True\n        for i in range(N-1):\n            if abs(adjusted_upper[i] - adjusted_upper[i+1]) > X:\n                valid = False\n                break\n        if valid:\n            min_cost = min(min_cost, cost)\n    \n    print(min_cost)\n\nmain()\n```"
+}

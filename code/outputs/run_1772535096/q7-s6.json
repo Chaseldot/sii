@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772535096",
+  "question_index": 7,
+  "question_id": "20",
+  "split": "train",
+  "sample_id": 6,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 4.721159219741821,
+  "response": "1. **KEY INSIGHTS**:\n   - The task is to filter the string `S` and retain only characters that are equal to `'2'`.\n   - We need to process the input string and construct a new string by including only the `'2'` characters.\n   - Time complexity should be optimized to O(n), where n is the length of the input string, since we need to process each character exactly once.\n   - Edge cases like a single-digit string with `'2'`, or strings with no other digits except `'2'`, should be handled smoothly.\n\n2. **CODE**:\n```python\n# Read input from standard input\nS = input().strip()\n\n# Filter the string to include only '2's\nresult = ''.join([char for char in S if char == '2'])\n\n# Print the result\nprint(result)\n```"
+}

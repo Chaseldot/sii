@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772536155",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 5,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 22.603132724761963,
+  "response": "```python\n# Read input from standard input\ndata = list(map(int, input().split()))\nif len(data) < 2:\n    print(\"No\")\nelse:\n    N = data[0]\n    A = data[1:]\n    \n    # Check for three consecutive equal elements\n    found = False\n    for i in range(N - 2):\n        if A[i] == A[i + 1] == A[i + 2]:\n            found = True\n            break\n    \n    # Output the result\n    print(\"Yes\" if found else \"No\")\n```"
+}

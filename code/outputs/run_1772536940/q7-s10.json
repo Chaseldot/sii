@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772536940",
+  "question_index": 7,
+  "question_id": "20",
+  "split": "train",
+  "sample_id": 10,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 5.247609376907349,
+  "response": "I'll solve this problem step-by-step.\n\n### Problem Analysis:\n- We are given a string S consisting of digits.\n- We need to remove all characters from S that are **not** '2'.\n- The remaining '2's should be concatenated in their original order to form the final string.\n- The input will be read from standard input, and the output should be printed to standard output.\n\n### Approach:\n1. Read the input string `S`.\n2. Iterate through each character in the string.\n3. Keep only those characters that are equal to '2'.\n4. Concatenate these characters to form the result string.\n5. Print the resulting string.\n\n### Edge Cases Considered:\n- Input contains only '2's (e.g. \"222\").\n- Input contains other digits but at least one '2' (as per the constraint).\n- Input length is at most 100 (maximum allowed).\n\n### Time/Space Complexity:\n- Time complexity: O(n) where n is the length of the input string `S`.\n- Space complexity: O(n) for storing the result string.\n\nHere is the complete solution in Python:\n\n```python\n# Read input from standard input\nS = input().strip()\n\n# Filter out all characters that are not '2'\nresult = ''.join([char for char in S if char == '2'])\n\n# Print the result\nprint(result)\n```"
+}

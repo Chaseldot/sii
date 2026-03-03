@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772534385",
+  "question_index": 17,
+  "question_id": "62",
+  "split": "train",
+  "sample_id": 5,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 25.865602254867554,
+  "response": "```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# The number of moves required to add all indices to S is exactly N\n# Since each index can be added to S once, and the game ends when all are added\n\n# The winner depends on whether N is odd or even\nif N % 2 == 1:\n    print(\"Fennec\")\nelse:\n    print(\"Snuke\")\n```"
+}

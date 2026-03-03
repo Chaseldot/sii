@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772536155",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 4,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 8.400999307632446,
+  "response": "我将按照步骤解决这个问题：\n\n1. **理解问题**:\n   - 输入: 一个正整数 A。\n   - 输出: 找到一个正整数 B，使得 A * B = 400。\n   - 如果没有这样的 B，则输出 -1。\n\n2. **分析问题**:\n   - 问题本质上是要找到 400 的因数对 (A, B)，其中 A 是输入值，B 是我们要求的值。\n   - 我们只需要检查是否存在一个正整数 B，使得 A * B = 400。如果存在，则输出 B，否则输出 -1。\n   - 因为 A 的范围是 1 到 400，我们可以遍历所有可能的因数对来寻找答案。\n\n3. **编写代码**:\n   - 遍历从 1 到 400 中的所有可能的因数。\n   - 检查是否存在满足条件的因数对。\n   - 直接计算 B = 400 // A，并检查是否正好整除。\n\n下面是完整的代码实现：\n\n```python\n# Read input\nA = int(input())\n\n# Check if A is a divisor of 400\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```"
+}

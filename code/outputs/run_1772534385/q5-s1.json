@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772534385",
+  "question_index": 5,
+  "question_id": "13",
+  "split": "train",
+  "sample_id": 1,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 43.837242126464844,
+  "response": "```python\nimport sys\nimport bisect\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    idx = 0\n    N = int(data[idx])\n    idx += 1\n    Q = int(data[idx])\n    idx += 1\n    \n    A = list(map(int, data[idx:idx+N]))\n    idx += N\n    \n    queries = []\n    for _ in range(Q):\n        R = int(data[idx])\n        X = int(data[idx+1])\n        queries.append((R, X))\n        idx += 2\n    \n    # Coordinate compression\n    sorted_unique = sorted(set(A))\n    compress = {v: i+1 for i, v in enumerate(sorted_unique)}\n    max_val = len(sorted_unique)\n    \n    # Precompute for each prefix the best LIS length for each value\n    # dp[i] will store the best LIS length for values up to A[i]\n    # Use a list of dictionaries for efficiency\n    dp = [{} for _ in range(N)]\n    for i in range(N):\n        val = A[i]\n        # Copy the previous state\n        if i > 0:\n            dp[i] = dp[i-1].copy()\n        else:\n            dp[i] = {}\n        # Find the maximum length of LIS ending with a value less than current\n        # Use binary search on the keys of dp[i-1]\n        key_list = list(dp[i-1].keys()) if i > 0 else []\n        pos = bisect.bisect_left(key_list, val)\n        if pos > 0:\n            prev_len = dp[i-1][key_list[pos-1]]\n            dp[i][val] = prev_len + 1\n        else:\n            dp[i][val] = 1\n    \n    # Now answer the queries\n    for R, X in queries:\n        max_length = 0\n        # Get all unique values in A[0..R-1] that are <= X\n        unique_vals = set(A[:R])\n        filtered_vals = [v for v in unique_vals if v <= X]\n        # Sort the filtered_vals\n        filtered_vals.sort()\n        # Now, find the LIS length using the precomputed dp\n        # For each value in filtered_vals, we check the dp[R-1] entry\n        # Keep track of the maximum length\n        max_len = 0\n        for v in filtered_vals:\n            if v in dp[R-1]:\n                max_len = max(max_len, dp[R-1][v])\n        print(max_len)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

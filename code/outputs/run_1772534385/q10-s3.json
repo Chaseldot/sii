@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772534385",
+  "question_index": 10,
+  "question_id": "28",
+  "split": "train",
+  "sample_id": 3,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 30.53223204612732,
+  "response": "```python\nimport sys\nimport heapq\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    M = int(data[1])\n    X = int(data[2])\n    \n    original_graph = [[] for _ in range(N + 1)]\n    reversed_graph = [[] for _ in range(N + 1)]\n    \n    index = 3\n    for _ in range(M):\n        u = int(data[index])\n        v = int(data[index + 1])\n        original_graph[u].append(v)\n        reversed_graph[v].append(u)\n        index += 2\n    \n    INF = float('inf')\n    dist = [[INF] * (N + 1) for _ in range(2)]\n    dist[0][1] = 0\n    heap = [(0, 1, 0)]  # (cost, node, state)\n    \n    while heap:\n        cost, node, state = heapq.heappop(heap)\n        \n        if node == N:\n            break\n        \n        if cost > dist[state][node]:\n            continue\n        \n        # Move along an edge (original or reversed graph)\n        for neighbor in original_graph[node] if state == 0 else reversed_graph[node]:\n            new_cost = cost + 1\n            if new_cost < dist[0][neighbor] if state == 0 else new_cost < dist[1][neighbor]:\n                dist[0][neighbor] = new_cost if state == 0 else dist[0][neighbor]\n                dist[1][neighbor] = new_cost if state == 1 else dist[1][neighbor]\n                heapq.heappush(heap, (new_cost, neighbor, state))\n        \n        # Reverse all edges (cost X)\n        new_state = 1 - state\n        new_cost = cost + X\n        if new_cost < dist[new_state][node]:\n            dist[new_state][node] = new_cost\n            heapq.heappush(heap, (new_cost, node, new_state))\n    \n    print(min(dist[0][N], dist[1][N]))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

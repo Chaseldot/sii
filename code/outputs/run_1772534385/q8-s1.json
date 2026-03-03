@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772534385",
+  "question_index": 8,
+  "question_id": "25",
+  "split": "train",
+  "sample_id": 1,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 68.45360064506531,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    X = int(data[1])\n    U = []\n    D = []\n    for i in range(N):\n        u = int(data[2 + 2*i])\n        d = int(data[3 + 2*i])\n        U.append(u)\n        D.append(d)\n    \n    # Generate possible H values from initial U_i + D_i\n    possible_H = [U[i] + D[i] for i in range(N)]\n    \n    # Find min and max H to consider\n    min_H = min(possible_H)\n    max_H = max(possible_H)\n    \n    min_cost = float('inf')\n    \n    # Try all H in the range of possible_H\n    for H in possible_H:\n        # Adjust upper teeth to fit with the given H\n        # Start with the first U_1, which can be as low as (H - D_0)\n        # but not less than zero\n        u_prev = max(H - D[0], 0)\n        cost = 0\n        # Check if the first U_1 is valid\n        if u_prev > U[0]:\n            cost += u_prev - U[0]\n        # Set current u_prev to the new value\n        u_prev = u_prev\n        \n        for i in range(1, N):\n            # Calculate the desired u_i based on H and D[i]\n            desired_u = H - D[i]\n            # Ensure that |u_prev - desired_u| <= X\n            # We need to keep u_prev within [desired_u - X, desired_u + X]\n            # Since we can only decrease the tooth length, we can't increase u_prev\n            # So, clamp u_prev to [desired_u - X, min(desired_u + X, u_prev)]\n            lower = desired_u - X\n            upper = desired_u + X\n            new_u = max(lower, min(u_prev, upper))\n            \n            # Update cost\n            cost += max(0, u_prev - new_u)\n            u_prev = new_u\n        \n        # After adjusting all U, we have a valid configuration\n        # Because we constrained u_prev to ensure |u_prev - desired_u| <= X\n        min_cost = min(min_cost, cost)\n    \n    print(min_cost)\n\nif __name__ == '__main__':\n    main()\n```"
+}

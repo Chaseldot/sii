@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772540339",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 4,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 21.568631410598755,
+  "response": "I've identified the problem. The issue is that in the loop where we collect people with the same score, we are using `temp_heap` to store them but then trying to access elements out of bounds when assigning ranks. Let me fix the logic and provide the complete code:\n\n```python\nimport heapq\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:N+1]))\n    \n    # Create a list of tuples: (-score, index)\n    # Using negative scores for max heap simulation\n    scores = [(-P[i], i) for i in range(N)]\n    \n    # Initialize the heap\n    heapq.heapify(scores)\n    \n    rank = 1\n    result = [0] * N\n    \n    while scores:\n        # Extract the person with the maximum score\n        max_score, idx = heapq.heappop(scores)\n        max_score = -max_score\n        \n        # Count how many people have the same score\n        count = 1\n        temp_heap = []\n        \n        # Collect all people with the same score\n        while scores and (-scores[0][0] == max_score):\n            _, idx2 = heapq.heappop(scores)\n            count += 1\n            temp_heap.append((max_score, idx2))\n        \n        # Assign the rank to all these people\n        for i in range(len(temp_heap)):\n            result[temp_heap[i][1]] = rank\n        \n        # Update the rank\n        rank += count\n        \n        # Put back the remaining people into the heap\n        for item in temp_heap:\n            heapq.heappush(scores, item)\n    \n    # Output the results\n    for r in result:\n        print(r)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

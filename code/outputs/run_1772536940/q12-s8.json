@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772536940",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 8,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 9.095413446426392,
+  "response": "I'll solve this problem step-by-step.\n\n### Problem Analysis:\n\nWe are given a sequence of integers A of length N. We need to determine if there's any position in the sequence where the same element appears three or more times consecutively. This means checking for any triplet (A_i, A_{i+1}, A_{i+2}) where all three elements are equal.\n\n### Approach:\n\n- Iterate through the array from index 0 to N-3.\n- At each index i, check if A[i], A[i+1], and A[i+2] are the same.\n- If such a triplet is found, print \"Yes\" and exit.\n- If no such triplet is found after the loop, print \"No\".\n\n### Time and Space Complexity:\n- **Time Complexity:** O(N), where N is the length of the array. We scan the array once.\n- **Space Complexity:** O(1), as we only use a constant amount of extra space.\n\nNow, here's the complete Python code:\n\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three consecutive equal elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        found = True\n        break\n\n# Output result\nprint(\"Yes\" if found else \"No\")\n```"
+}

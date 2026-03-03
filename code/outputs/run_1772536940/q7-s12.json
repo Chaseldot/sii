@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772536940",
+  "question_index": 7,
+  "question_id": "20",
+  "split": "train",
+  "sample_id": 12,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 3.635521650314331,
+  "response": "To solve this problem, we need to:\n\n1. Read the input string `S` which consists of digits.\n2. Remove all characters from `S` that are not '2'.\n3. Concatenate the remaining characters in their original order to form a new string.\n4. Output the resulting string.\n\n### Approach:\n- Iterate through each character in the input string.\n- Check if the character is equal to `'2'`.\n- If it is, include it in the result string.\n- Finally, print the result string.\n\nThis approach has a time complexity of **O(n)** where n is the length of the input string, which is efficient and fits within the given time constraints.\n\nHere is the full Python code:\n\n```python\n# Read input\nS = input().strip()\n\n# Filter out all characters except '2'\nresult = ''.join(char for char in S if char == '2')\n\n# Print the result\nprint(result)\n```"
+}

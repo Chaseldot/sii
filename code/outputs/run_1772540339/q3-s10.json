@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772540339",
+  "question_index": 3,
+  "question_id": "6",
+  "split": "train",
+  "sample_id": 10,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.953002214431763,
+  "response": "To solve this problem, we need to determine whether there exists any permutation of the given sequence of three integers $ A = (A_1, A_2, A_3) $ such that for some permutation $ B = (B_1, B_2, B_3) $, the condition $ B_1 \\times B_2 = B_3 $ is satisfied.\n\n### Step-by-step Plan:\n1. **Understand the Input and Output:**\n   - The input is a sequence of 3 integers.\n   - The output is \"Yes\" if there exists any permutation of these integers where the product of the first two equals the third.\n   - Otherwise, the output is \"No\".\n\n2. **Generate All Permutations:**\n   - Since there are only 3 numbers, it's efficient to generate all permutations of the list.\n   - There are $ 3! = 6 $ permutations of 3 elements.\n\n3. **Check Each Permutation:**\n   - For each permutation, check if the product of the first two elements equals the third.\n\n4. **Return the Result:**\n   - If any permutation satisfies the condition, print \"Yes\".\n   - Otherwise, print \"No\".\n\n### Final Code\n```python\nfrom itertools import permutations\n\n# Read input\nA = list(map(int, input().split()))\n\n# Check all permutations\nfound = False\nfor perm in permutations(A):\n    if perm[0] * perm[1] == perm[2]:\n        found = True\n        break\n\n# Output result\nprint(\"Yes\" if found else \"No\")\n```"
+}

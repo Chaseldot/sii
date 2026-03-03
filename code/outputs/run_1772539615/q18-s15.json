@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772539615",
+  "question_index": 18,
+  "question_id": "64",
+  "split": "train",
+  "sample_id": 15,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 30.77738118171692,
+  "response": "```python\ndef main():\n    import sys\n    input = sys.stdin.read().split()\n    \n    N = int(input[0])\n    A = list(map(int, input[1:N+1]))\n    \n    # Check if A already contains only 1s\n    if all(x == 1 for x in A):\n        print(\"Yes\")\n        return\n    \n    # Make a copy of A to modify\n    current_A = A[:]\n    \n    # Try to eliminate zeros by checking possible operations\n    for i in range(N):\n        if current_A[i] == 0:\n            # Try the first operation: S_i = 'A', S_{i+1} = 'R', S_{i+2} = 'C'\n            # Apply this operation if possible\n            if i + 2 < N:\n                current_A[i] = 1\n                current_A[i + 1] = 1\n            else:\n                # Wrap around: S_{i+2} = S[(i+2) % N]\n                # We assume that there exists some string S such that the pattern is valid\n                # Thus, we apply the operation by setting current_A[i] and current_A[i+1] to 1\n                # But we have to be careful with the wrap-around index\n                current_A[i] = 1\n                current_A[(i + 1) % N] = 1\n    \n    # If after processing all positions, A contains no 0s\n    if all(x == 1 for x in current_A):\n        print(\"Yes\")\n    else:\n        print(\"No\")\n\nmain()\n```"
+}

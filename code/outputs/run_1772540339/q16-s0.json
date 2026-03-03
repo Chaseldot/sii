@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772540339",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 0,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.590906381607056,
+  "response": "To solve this problem, we need to find a positive integer B such that the product of A and B equals 400. This is because the total number of people is fixed at 400 and they need to be arranged in a rectangular formation with A rows and B columns without any gaps.\n\n### Steps to Solve the Problem:\n1. **Understand the Constraint**: The product of A and B should equal 400.\n2. **Check for Valid B**: For a given A, check if there exists a positive integer B such that `A * B = 400`.\n3. **Edge Case Handling**: If no such B exists (i.e., 400 is not divisible by A), print `-1`.\n\n### Key Observations:\n- B must be a divisor of 400.\n- We can iterate through all possible divisors of 400 and check if any of them satisfy `A * B = 400`.\n- Since A ranges from 1 to 400, we only need to consider values of B up to 400 as well.\n\n### Final Implementation:\nWe will loop through all possible B values (from 1 to 400) and check if `A * B == 400`. Once we find such a B, we print it. If no such B is found, we print `-1`.\n\nHere is the full solution:\n\n```python\n# Read input\nA = int(input())\n\n# Initialize B to -1 (default if no valid B is found)\nB = -1\n\n# Iterate through all possible B values\nfor b in range(1, 401):\n    if A * b == 400:\n        B = b\n        break\n\n# Print the result\nprint(B)\n```"
+}

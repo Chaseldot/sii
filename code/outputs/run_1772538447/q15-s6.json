@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772538447",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 6,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 7.79114031791687,
+  "response": "### **Step 1 - Problem Analysis**\n\nThis problem involves determining the rank of each participant in a contest based on specific rules. Let's analyze it carefully:\n\n#### **Type of Problem**\n- This is primarily a **simulation** problem involving sorting and grouping elements by their scores.\n\n#### **Key Algorithm/Method**\n- The goal is to simulate the ranking process:\n  - Start with `r = 1` (the initial rank).\n  - At each step, find the **maximum score among all undetermined participants**.\n  - Identify how many participants have this maximum score.\n  - Assign the current rank `r` to these participants.\n  - Increment `r` by the number of such participants.\n\n#### **Edge Cases**\n- All participants have the same score → everyone gets rank `1`.\n- Only one participant → rank is `1`.\n- Multiple participants with the same score → they are assigned the same rank and `r` is incremented accordingly.\n- When dealing with large N (though in our constraints, N is at most 100, which is manageable).\n\n---\n\n### **Step 2 - Write Code**\n\n```python\n# Read input\nN = int(input())\nP = list(map(int, input().split()))\n\n# Initialize ranks array\nranks = [0] * N\n\n# A boolean array to keep track of determined ranks\ndetermined = [False] * N\n\nr = 1  # Initial rank\n\n# Keep processing until all ranks are determined\nwhile sum(determined) < N:\n    # Find the maximum score among undetermined participants\n    max_score = -1\n    for i in range(N):\n        if not determined[i] and P[i] > max_score:\n            max_score = P[i]\n\n    # Count how many participants have this max score\n    count = 0\n    for i in range(N):\n        if not determined[i] and P[i] == max_score:\n            count += 1\n\n    # Assign rank r to these participants\n    for i in range(N):\n        if not determined[i] and P[i] == max_score:\n            ranks[i] = r\n            determined[i] = True\n\n    # Increment r by the count of participants\n    r += count\n\n# Print the results\nfor rank in ranks:\n    print(rank)\n```"
+}

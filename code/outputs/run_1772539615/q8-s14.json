@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772539615",
+  "question_index": 8,
+  "question_id": "25",
+  "split": "train",
+  "sample_id": 14,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 86.89540481567383,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    X = int(data[1])\n    \n    U = []\n    D = []\n    for i in range(N):\n        u = int(data[2 + 2*i])\n        d = int(data[3 + 2*i])\n        U.append(u)\n        D.append(d)\n    \n    # Calculate the minimal possible H that ensures all D_i >= 0\n    min_H = max(D[i] + U[i] for i in range(N))\n    # Calculate the maximal possible H (we can go up to some large value, like 1e18)\n    max_H = 10**18\n    \n    # Function to calculate the cost given a certain H\n    def calculate_cost(H):\n        adjusted_U = []\n        cost = 0\n        for i in range(N):\n            required_u = H - D[i]\n            if required_u < 0:\n                return float('inf')  # D_i must be positive, so required_u should not be negative\n            adjusted_u = max(U[i], required_u)\n            adjusted_U.append(adjusted_u)\n            cost += U[i] - adjusted_u\n        # Check adjacent differences constraint\n        for i in range(N-1):\n            if abs(adjusted_U[i] - adjusted_U[i+1]) > X:\n                return float('inf')\n        return cost\n    \n    # Try a limited window of H values around min_H to optimize performance\n    # As the optimal H is likely close to min_H, we don't need to check all H from 0 to max_H\n    lower_H = max(min_H - 1000, 0)  # Try H values from lower_H to upper_H\n    upper_H = min(min_H + 1000, max_H)\n    \n    min_total_cost = float('inf')\n    \n    for H in range(lower_H, upper_H + 1):\n        cost = calculate_cost(H)\n        if cost < min_total_cost:\n            min_total_cost = cost\n    \n    print(min_total_cost)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

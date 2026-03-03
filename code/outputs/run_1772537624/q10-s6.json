@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772537624",
+  "question_index": 10,
+  "question_id": "28",
+  "split": "train",
+  "sample_id": 6,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 25.599748134613037,
+  "response": "The error occurred because of incorrect initialization of the `dist` array. Specifically, using a list of floats for `dist` caused issues with item assignment and type mismatches.\n\nTo fix this, we should use integer values (e.g., `INF = 10**18`) instead of float. Here's the corrected complete code:\n\n```python\nimport sys\nfrom collections import deque\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    M = int(data[1])\n    X = int(data[2])\n    \n    adj = [[] for _ in range(N + 1)]  # Original edges\n    rev_adj = [[] for _ in range(N + 1)]  # Reversed edges\n    \n    index = 3\n    for _ in range(M):\n        u = int(data[index])\n        v = int(data[index + 1])\n        adj[u].append(v)\n        rev_adj[v].append(u)\n        index += 2\n    \n    INF = 10 ** 18\n    dist = [[INF] * (N + 1) for _ in range(2)]  # [state][node], state: 0 for normal, 1 for reversed\n    \n    # Start at node 1 in both orientations (cost 0)\n    dist[0][1] = 0\n    dist[1][1] = 0\n    \n    dq = deque()\n    dq.append((0, 1))  # state, node\n    dq.append((1, 1))\n    \n    while dq:\n        state, u = dq.popleft()\n        \n        # Move along an edge (cost 1)\n        for v in adj[u]:\n            if dist[state][v] > dist[state][u] + 1:\n                dist[state][v] = dist[state][u] + 1\n                dq.append((state, v))\n        \n        # Reverse edges (cost X)\n        if dist[state ^ 1][u] > dist[state][u] + X:\n            dist[state ^ 1][u] = dist[state][u] + X\n            dq.append((state ^ 1, u))\n    \n    print(min(dist[0][N], dist[1][N]))\n\nif __name__ == \"__main__\":\n    main()\n```\n\nThis code is now correct and will handle the input without any errors."
+}

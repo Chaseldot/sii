@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772538447",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 0,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 13.314645051956177,
+  "response": "### STEP 1 - Problem Analysis\n\n**Problem Type:**  \nThis is a **simple pattern recognition** problem. We are asked to determine if there exists a subsequence of three or more identical elements in a row in the given array.\n\n**Key Algorithm/Method:**  \nWe can solve this by iterating through the array and checking whether any three consecutive elements are the same. This is a **linear scan** approach with O(N) time complexity, which is efficient for the given constraints (N ≤ 100).\n\n**Edge Cases to Consider:**\n- The entire array consists of a single repeated value.\n- Three identical values appear at the end of the array.\n- Only one triplet appears somewhere in the middle.\n- No such triplet exists anywhere in the array (e.g., sample input 4).\n\n**Sample Test Case Insight:**\n- Sample Input 1: `1 4 4 4 2` → `Yes` because there are three 4s in a row.\n- Sample Input 2: `2 4 4 2 2 4` → `No` because no three same elements appear consecutively.\n- Sample Input 3: `1 4 2 5 7 7 7 2` → `Yes` because there are three 7s in a row.\n- Sample Input 4: `1 2 3 4 5 6 7 8 9 10` → `No` because all elements are distinct in sequence.\n- Sample Input 5: All 1's → `Yes`.\n\n---\n\n### STEP 2 - Write Code\n\n```python\n# Read input from standard input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check if there is a triplet of three identical elements in a row\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        found = True\n        break\n\n# Output the result\nprint(\"Yes\" if found else \"No\")\n```"
+}

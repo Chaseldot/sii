@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772540339",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 4,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 4.964077711105347,
+  "response": "To solve this problem, we need to find a positive integer B such that the product of A (rows) and B (columns) equals 400. This is because we are arranging exactly 400 people in a rectangular formation.\n\n### Steps:\n1. We are given an integer `A` (between 1 and 400).\n2. We need to find a positive integer `B` such that `A * B = 400`.\n3. If such a `B` exists, print it; otherwise, print `-1`.\n\n### Key Observations:\n- For a valid `B`, it must be a divisor of 400.\n- So, we can check for all possible divisors of 400 and see if any of them when divided by `A` gives a positive integer `B`.\n\n### Approach:\n1. Iterate through all possible values of `B` (from 1 to 400) and check if `400 % A == 0`.\n2. If yes, then `B = 400 // A`. Ensure `B` is a positive integer.\n3. If no such `B` exists, return `-1`.\n\nNow, I will provide the full Python code for this solution:\n\n```python\n# Read input\nA = int(input())\n\n# Check if there is a valid B such that A * B = 400\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```"
+}

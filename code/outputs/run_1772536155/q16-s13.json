@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772536155",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 13,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 7.117975234985352,
+  "response": "我将遵循您的要求，逐步思考并最终提供一个符合要求的Python程序。\n\n### 分析问题\n\n我们需要找出一个正整数 B，使得 A × B = 400。因为要形成矩形阵列，所以必须满足这个条件。\n\n#### 步骤\n1. 遍历所有可能的 B 的值 (从 1 到 400)。\n2. 对于每个 B，检查 A × B 是否等于 400。\n3. 如果找到，则返回 B；否则，返回 -1。\n\n#### 约束\n- A 是介于 1 和 400 之间的整数。\n- 时间限制是 1 秒，因此我们不需要考虑复杂度极高的算法。\n- 可以直接遍历所有可能的 B 值。\n\n---\n\n### 完整代码\n\n```python\n# Read input\nA = int(input())\n\n# Find B such that A * B = 400\nB = -1\nfor possible_B in range(1, 401):\n    if A * possible_B == 400:\n        B = possible_B\n        break\n\n# Print the result\nprint(B)\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772534385",
+  "question_index": 8,
+  "question_id": "25",
+  "split": "train",
+  "sample_id": 5,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 72.22696042060852,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    X = int(data[1])\n    \n    U = []\n    D = []\n    S = []\n    \n    idx = 2\n    for _ in range(N):\n        u = int(data[idx])\n        d = int(data[idx + 1])\n        U.append(u)\n        D.append(d)\n        S.append(u + d)\n        idx += 2\n    \n    min_cost = float('inf')\n    \n    # Try all distinct S_i as possible H candidates\n    unique_S = list(set(S))\n    \n    for H_candidate in unique_S:\n        cost = 0\n        adjusted = [H_candidate - D[0]]\n        for i in range(1, N):\n            current_u = H_candidate - D[i]\n            prev_u = adjusted[-1]\n            diff = abs(current_u - prev_u)\n            if diff > X:\n                # Need to reduce the current_u or previous_u\n                # To minimize cost, we reduce the larger one\n                if current_u > prev_u:\n                    reduction = current_u - prev_u - X\n                    adjusted.append(prev_u - reduction)\n                else:\n                    reduction = prev_u - current_u - X\n                    adjusted.append(current_u - reduction)\n            else:\n                adjusted.append(current_u)\n        # Calculate cost\n        for i in range(N):\n            cost += U[i] - adjusted[i]\n        min_cost = min(min_cost, cost)\n    \n    print(min_cost)\n\nmain()\n```"
+}

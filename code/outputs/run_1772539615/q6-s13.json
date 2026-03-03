@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772539615",
+  "question_index": 6,
+  "question_id": "17",
+  "split": "train",
+  "sample_id": 13,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.497210502624512,
+  "response": "To solve this problem, we need to repeatedly replace the leftmost occurrence of \"WA\" with \"AC\" in the given string until no more such occurrences exist. \n\n### Key Steps:\n1. **Input:** Read the input string `S`.\n2. **Replace \"WA\" with \"AC\":** We scan the string from left to right and replace occurrences of \"WA\" with \"AC\". This is done in a loop.\n3. **Update the string:** Each time we find an occurrence of \"WA\", we perform the replacement and check the updated string again for further replacements.\n4. **Termination:** The process stops when no more \"WA\" substrings are found in the string.\n\n### Efficient Strategy:\nWe can simulate this using a while-loop and track the index where \"WA\" occurs. Since we must replace the **leftmost** occurrence each time, we can use the `str.find(\"WA\")` method to locate the first occurrence of \"WA\" in the current string. If such an index exists, we replace it with \"AC\" and repeat the process.\n\n### Complexity Analysis:\n- In the worst case, each \"WA\" is replaced once, and each replacement takes O(n) time (for the string operation), which results in O(n^2) time complexity.\n- However, in practice, this approach is efficient enough for the given constraints (string length up to 3×10⁵).\n\n---\n\nHere's the complete code:\n\n```python\n# Read input\nS = input().strip()\n\n# Process until no more \"WA\" is found\nwhile True:\n    idx = S.find(\"WA\")\n    if idx == -1:\n        break\n    # Replace the leftmost \"WA\" with \"AC\"\n    S = S[:idx] + \"AC\" + S[idx+2:]\n\n# Output the final string\nprint(S)\n```"
+}

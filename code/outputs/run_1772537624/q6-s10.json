@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772537624",
+  "question_index": 6,
+  "question_id": "17",
+  "split": "train",
+  "sample_id": 10,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.041321516036987,
+  "response": "To solve the problem, we need to repeatedly replace the leftmost occurrence of \"WA\" in the string with \"AC\" until no more such replacements can be made. This is a straightforward simulation but must be handled efficiently.\n\n### Key Observations:\n- The replacement of \"WA\" with \"AC\" affects future occurrences because it can create new \"WA\" substrings.\n- We need to scan the string and find the **leftmost** occurrence of \"WA\" each time and replace it.\n- We can simulate this process using a loop and `find` method for locating the next occurrence of \"WA\".\n\n### Algorithm:\n1. While \"WA\" is present in the string:\n   - Find the position of the first occurrence of \"WA\".\n   - Replace that substring with \"AC\".\n2. Once no \"WA\" remains, print the result.\n\n### Time Complexity:\n- The worst-case scenario involves multiple iterations, each potentially scanning the entire string.\n- Given the constraints (up to 3×10⁵ characters), this approach is efficient enough since the number of operations is bounded by the length of the string.\n\n---\n\nHere's the complete Python code:\n\n```python\ndef main():\n    import sys\n    S = sys.stdin.readline().strip()\n    \n    while True:\n        index = S.find('WA')\n        if index == -1:\n            break\n        S = S[:index] + 'AC' + S[index+2:]\n    \n    print(S)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

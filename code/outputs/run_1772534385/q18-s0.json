@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772534385",
+  "question_index": 18,
+  "question_id": "64",
+  "split": "train",
+  "sample_id": 0,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 39.3086793422699,
+  "response": "```python\nimport sys\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    A = list(map(int, data[1:N+1]))\n    \n    if all(a == 1 for a in A):\n        print(\"Yes\")\n        return\n    \n    # We need to find if we can cover all 0s using the given operations\n    # Let's attempt a greedy approach\n    \n    i = 0\n    while i < N:\n        if A[i] == 0:\n            # Check operation 1: ARC pattern (A R C) at positions i, i+1, i+2\n            # Check if the next two elements exist and form the pattern\n            if i + 2 < N:\n                if A[i] == 0 and A[i+1] == 1 and A[i+2] == 1:\n                    A[i] = 1\n                    A[i+1] = 1\n                    A[i+2] = 1\n                    i += 1\n                    continue\n            # Check operation 2: CRA pattern (C R A) at positions i-2, i-1, i\n            # Check if the previous two elements exist and form the pattern\n            if i - 2 >= 0:\n                if A[i-2] == 1 and A[i-1] == 1 and A[i] == 0:\n                    A[i-2] = 1\n                    A[i-1] = 1\n                    A[i] = 1\n                    i += 1\n                    continue\n            # If none of the operations apply, try next position\n            i += 1\n        else:\n            i += 1\n    \n    if all(a == 1 for a in A):\n        print(\"Yes\")\n    else:\n        print(\"No\")\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

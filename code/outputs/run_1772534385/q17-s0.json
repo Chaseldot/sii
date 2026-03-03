@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772534385",
+  "question_index": 17,
+  "question_id": "62",
+  "split": "train",
+  "sample_id": 0,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 18.371161222457886,
+  "response": "```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Compute the total number of moves\ntotal_moves = sum(A)\n\n# Determine the winner based on parity\nif total_moves % 2 == 1:\n    print(\"Fennec\")\nelse:\n    print(\"Snuke\")\n```"
+}

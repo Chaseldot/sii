@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772536155",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 6,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.530240297317505,
+  "response": "我将按照步骤分析问题并编写解决方案。\n\n### 1. 问题分析\n- **输入**：整数序列 $ A = (A_1, A_2, \\ldots, A_N) $\n- **输出**：如果存在一个索引 $ i $，使得 $ A_i = A_{i+1} = A_{i+2} $，则输出 `Yes`，否则输出 `No`\n- **约束条件**：\n  - $ 3 \\leq N \\leq 100 $\n  - $ 1 \\leq A_i \\leq 100 $\n\n### 2. 思路\n- 遍历数组的所有连续三个元素。\n- 检查是否存在三个连续相等的元素。\n- 时间复杂度为 $ O(N) $，在允许的范围内。\n\n### 3. 代码实现\n\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three consecutive equal elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        found = True\n        break\n\n# Output result\nprint(\"Yes\" if found else \"No\")\n```"
+}

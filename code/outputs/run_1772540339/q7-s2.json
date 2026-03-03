@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772540339",
+  "question_index": 7,
+  "question_id": "20",
+  "split": "train",
+  "sample_id": 2,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 7.315150022506714,
+  "response": "To solve this problem, we need to process a string consisting of digits and remove all characters that are not '2'. After removing these characters, we should concatenate the remaining '2's in their original order to form a new string. \n\n### Approach\n1. **Input Handling**: Read the input string from standard input.\n2. **Filtering Characters**: Iterate through each character in the string and keep only those that are equal to '2'.\n3. **Concatenation**: Combine the filtered characters into a single string.\n4. **Output**: Print the resulting string.\n\nThis approach ensures that we efficiently filter out non-'2' characters and construct the desired output string in linear time, which is optimal for the given constraints.\n\n### Solution Code\n```python\n# Read input from standard input\nS = input().strip()\n\n# Filter characters to include only '2's\nresult = ''.join([char for char in S if char == '2'])\n\n# Print the result\nprint(result)\n```\n\n### Explanation\n- **Reading Input**: The input string `S` is read and stripped of any leading or trailing whitespace.\n- **Filtering**: A list comprehension iterates over each character of `S`, including only those characters that are '2'.\n- **Joining**: The filtered characters are joined into a single string using `''.join(...)`.\n- **Output**: The resulting string is printed.\n\nThis solution is efficient and runs in O(n) time complexity, where n is the length of the input string, making it suitable for the constraint limits (up to 100 characters)."
+}

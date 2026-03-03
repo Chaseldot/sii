@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772535096",
+  "question_index": 10,
+  "question_id": "28",
+  "split": "train",
+  "sample_id": 0,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 9.585289478302002,
+  "response": "1. **KEY INSIGHTS**:\n   - The problem requires finding the minimum cost to travel from vertex 1 to vertex N in a directed graph, where two operations are allowed: (1) move along an edge with cost 1 or (2) reverse all edges with cost X. \n   - Since reversing edges affects all edges in the graph, we can model this as a modified graph problem with two states: one for normal direction and one for reversed edges. To track both possibilities efficiently, we use BFS or Dijkstra's algorithm with weighted states.\n   - We need to manage the number of nodes by considering each node in a regular and reversed fashion separately. Therefore, the total number of nodes becomes twice the original size (N), with an additional state for reversed edges.\n   - The time complexity is O((N + M) log N), which is acceptable given the constraints.\n\n2. **CODE**:\n```python\nimport sys\nimport heapq\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    M = int(data[1])\n    X = int(data[2])\n    \n    edges = [[] for _ in range(N + 1)]  # Regular edges\n    rev_edges = [[] for _ in range(N + 1)]  # Reversed edges\n    \n    index = 3\n    for _ in range(M):\n        u = int(data[index])\n        v = int(data[index + 1])\n        edges[u].append(v)\n        rev_edges[v].append(u)\n        index += 2\n    \n    # Using Dijkstra's algorithm with a priority queue\n    dist = [float('inf')] * (2 * N + 1)\n    dist[1] = 0\n    heap = [(0, 1)]\n    \n    while heap:\n        cost, node = heapq.heappop(heap)\n        \n        if node == N:\n            break\n        \n        # Move along regular edges\n        for neighbor in edges[node]:\n            if dist[neighbor] > cost + 1:\n                dist[neighbor] = cost + 1\n                heapq.heappush(heap, (dist[neighbor], neighbor))\n        \n        # Reverse the edges (cost X), and proceed with reversed edges\n        if dist[N + node] > cost + X:\n            dist[N + node] = cost + X\n            heapq.heappush(heap, (dist[N + node], N + node))\n    \n    print(dist[N])\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772534385",
+  "question_index": 11,
+  "question_id": "29",
+  "split": "train",
+  "sample_id": 7,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 49.58082580566406,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    H = int(data[0])\n    W = int(data[1])\n    grid = []\n    index = 2\n    for _ in range(H):\n        row = data[index]\n        grid.append([int(c) for c in row])\n        index += 1\n    \n    min_total = float('inf')\n    \n    # Precompute the number of 1s and 0s for each row\n    row_sums = [sum(row) for row in grid]\n    \n    # Try all possible column flip patterns using bitmask\n    for mask in range(1 << W):\n        # For each row, calculate how many 1s would remain after column flips\n        # And determine if flipping the row is beneficial\n        total = 0\n        for i in range(H):\n            row_sum = row_sums[i]\n            # Calculate how many 1s are in this row after column flips\n            ones_after_flipping_columns = 0\n            for j in range(W):\n                if (mask >> j) & 1:\n                    # Column is flipped, so value becomes 1 - grid[i][j]\n                    ones_after_flipping_columns += 1 - grid[i][j]\n                else:\n                    # Column is not flipped\n                    ones_after_flipping_columns += grid[i][j]\n            # Decide whether to flip the row\n            if ones_after_flipping_columns < (W - ones_after_flipping_columns):\n                total += (W - ones_after_flipping_columns)\n            else:\n                total += ones_after_flipping_columns\n        if total < min_total:\n            min_total = total\n    \n    print(min_total)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

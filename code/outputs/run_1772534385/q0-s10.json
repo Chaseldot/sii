@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772534385",
+  "question_index": 0,
+  "question_id": "0",
+  "split": "train",
+  "sample_id": 10,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 70.58721923828125,
+  "response": "```python\nimport sys\nfrom collections import defaultdict\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    idx = 0\n    N = int(data[idx])\n    idx += 1\n    W = int(data[idx])\n    idx += 1\n    \n    blocks = []\n    for _ in range(N):\n        x = int(data[idx])\n        idx += 1\n        y = int(data[idx])\n        idx += 1\n        blocks.append((y, x, _))  # store as (y, x, index)\n    \n    # Sort blocks by their initial Y-coordinate\n    blocks.sort()\n    \n    # Prepare column counts and positions\n    cols = defaultdict(list)\n    for y, x, idx_block in blocks:\n        cols[x].append((y, idx_block))\n    \n    # Precompute for each block the number of blocks below it in the same column\n    fall_count = [0] * N\n    for x in cols:\n        ys = cols[x]\n        # Sort the blocks in the column by their Y coordinate (bottom to top)\n        ys.sort()\n        for i in range(len(ys)):\n            y, idx_block = ys[i]\n            fall_count[idx_block] = i  # number of blocks below\n    \n    # Process queries\n    Q = int(data[idx])\n    idx += 1\n    queries = []\n    for _ in range(Q):\n        T = int(data[idx])\n        idx += 1\n        A = int(data[idx]) - 1\n        idx += 1\n        queries.append((T, A))\n    \n    # Answer queries\n    results = []\n    for T, A in queries:\n        if fall_count[A] >= T:\n            results.append(\"No\")\n        else:\n            results.append(\"Yes\")\n    \n    print(\"\\n\".join(results))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

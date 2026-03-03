@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772536155",
+  "question_index": 0,
+  "question_id": "0",
+  "split": "train",
+  "sample_id": 13,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 46.18177366256714,
+  "response": "```python\nimport sys\nimport bisect\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    idx = 0\n    \n    N = int(data[idx])\n    idx += 1\n    W = int(data[idx])\n    idx += 1\n    \n    # 存储每个块的初始位置 (x, y)\n    positions = []\n    for _ in range(N):\n        x = int(data[idx])\n        idx += 1\n        y = int(data[idx])\n        idx += 1\n        positions.append((x, y))\n    \n    Q = int(data[idx])\n    idx += 1\n    \n    queries = []\n    for _ in range(Q):\n        t = int(data[idx])\n        idx += 1\n        a = int(data[idx]) - 1  # 转为0-based索引\n        idx += 1\n        queries.append((t, a))\n    \n    # 按列存储所有初始y坐标，并排序\n    columns = [[] for _ in range(W)]\n    for i in range(N):\n        x, y = positions[i]\n        columns[x - 1].append(y)\n    \n    # 对每列中的y值进行排序，以便后续二分查找\n    for i in range(W):\n        columns[i].sort()\n    \n    # 处理每个查询\n    results = []\n    for t, a in queries:\n        x, y = positions[a]\n        column_index = x - 1\n        \n        if column_index < 0 or column_index >= W:\n            results.append(\"No\")\n            continue\n        \n        ys = columns[column_index]\n        \n        # 计算块在时间t下落后的目标行号\n        target_y = y + t\n        \n        # 查找该列中有多少块的位置小于等于 target_y - 1（即该块可以到达）\n        # 如果该块下方已经有其他块，那么它无法继续下落\n        count = bisect.bisect_right(ys, target_y - 1)\n        \n        # 如果没有其他块在其下方，则块还会存在\n        if count == len(ys):\n            results.append(\"No\")\n        else:\n            results.append(\"Yes\")\n    \n    for res in results:\n        print(res)\n\nmain()\n```"
+}

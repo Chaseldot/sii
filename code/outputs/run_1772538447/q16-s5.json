@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772538447",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 5,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.279696226119995,
+  "response": "### **STEP 1 - Problem Analysis**\n\n**Problem Type**: This is a factorization problem.  \nThe goal is to find a divisor $ B $ of the number 400, such that $ A \\times B = 400 $. If no such positive integer $ B $ exists (i.e., $ A $ does not divide 400), we should return -1.\n\n**Key Algorithm/Method**:  \nWe need to:\n1. Check if $ A $ is a divisor of 400.\n   - If it is, then $ B = \\frac{400}{A} $.\n   - If it is not, then output -1.\n\n**Edge Cases**:\n- $ A = 1 $: The only valid $ B $ is 400, since $ 1 \\times 400 = 400 $.\n- $ A = 400 $: The only valid $ B $ is 1, since $ 400 \\times 1 = 400 $.\n- $ A = 25 $: A valid solution is $ B = 16 $, because $ 25 \\times 16 = 400 $.\n- $ A = 11 $: No valid $ B $, so output -1.\n\n---\n\n### **STEP 2 - Write Code**\n\n```python\n# Read input\nA = int(input())\n\n# Check if A divides 400\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772534385",
+  "question_index": 3,
+  "question_id": "6",
+  "split": "train",
+  "sample_id": 12,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 10.907791376113892,
+  "response": "```python\nimport itertools\n\n# Read the input\nA = list(map(int, input().split()))\n\n# Generate all permutations of the list A\npermutations = itertools.permutations(A)\n\n# Check each permutation\nfor perm in permutations:\n    if perm[0] * perm[1] == perm[2]:\n        print(\"Yes\")\n        break\nelse:\n    print(\"No\")\n```"
+}

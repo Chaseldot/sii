@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772537624",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 4,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 41.017754793167114,
+  "response": "To optimize the solution and avoid time limit exceeded issues, we need to rethink our approach.\n\n### Key Insight:\nWe can simulate the process using a **max-heap**, but instead of popping all elements with the same score in each step (which causes inefficiencies), we can **group by score** first.\n\n### Efficient Strategy:\n1. Group all scores by their values.\n2. Sort these groups in descending order of scores.\n3. Traverse from the highest score to the lowest, assigning ranks as per the rules.\n\nThis avoids repeated heap operations for the same score and improves performance significantly.\n\nHere's the optimized and complete solution:\n\n```python\nfrom collections import defaultdict\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:N+1]))\n    \n    # Group scores by their value\n    score_groups = defaultdict(list)\n    for i in range(N):\n        score_groups[P[i]].append(i)\n    \n    # Sort the scores in descending order\n    sorted_scores = sorted(score_groups.keys(), reverse=True)\n    \n    rank = 1\n    result = [0] * N\n    \n    # Process scores from highest to lowest\n    for score in sorted_scores:\n        indices = score_groups[score]\n        # Assign current rank to all people with this score\n        for idx in indices:\n            result[idx] = rank\n        # Update rank after processing this group\n        rank += len(indices)\n    \n    for r in result:\n        print(r)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

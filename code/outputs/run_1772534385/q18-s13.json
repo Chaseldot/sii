@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772534385",
+  "question_index": 18,
+  "question_id": "64",
+  "split": "train",
+  "sample_id": 13,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 34.51900887489319,
+  "response": "```python\nimport sys\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    A = list(map(int, data[1:N+1]))\n    \n    if all(a == 1 for a in A):\n        print(\"Yes\")\n        return\n    \n    zero_positions = [i for i in range(N) if A[i] == 0]\n    \n    # We need to flip every 0 using the allowed patterns\n    # Each operation flips two adjacent positions in A\n    # The key is to find a way to cover all zeros through these operations\n    \n    # Create a list to track which positions have been flipped\n    flipped = [False] * N\n    \n    idx = 0\n    while idx < len(zero_positions):\n        i = zero_positions[idx]\n        \n        # Try pattern 1: A R C -> flip A[i] and A[i+1]\n        j = (i + 1) % N\n        k = (i + 2) % N\n        \n        if not flipped[i] and not flipped[j]:\n            # Apply operation\n            flipped[i] = True\n            flipped[j] = True\n            idx += 1\n            continue\n        \n        # Try pattern 2: C R A -> flip A[i] and A[i+1]\n        j = (i + 1) % N\n        k = (i + 2) % N\n        \n        if not flipped[i] and not flipped[j]:\n            # Apply operation\n            flipped[i] = True\n            flipped[j] = True\n            idx += 1\n            continue\n        \n        # If neither pattern can be applied, it's impossible to flip this zero\n        print(\"No\")\n        return\n    \n    # All zeros were successfully flipped\n    print(\"Yes\")\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

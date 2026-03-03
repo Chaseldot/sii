@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772536940",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 2,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 8.907629013061523,
+  "response": "I'll solve the problem step by step:\n\n### Problem Analysis\nWe are given an integer sequence $ A $ of length $ N $. We need to check if there exists any triplet (three consecutive elements) where all three elements are the same.\n\n### Key Points:\n- Input format: First line is $ N $, second line contains $ N $ space-separated integers.\n- Output: \"Yes\" if there's a triplet with the same element, otherwise \"No\".\n- Constraints: $ 3 \\leq N \\leq 100 $, so we can use a simple linear scan.\n\n### Approach\nWe will iterate through the array from index 0 to $ N-3 $ and check if $ A[i] = A[i+1] = A[i+2] $. If such a triplet is found, we print \"Yes\" and terminate. If no such triplet is found by the end, we print \"No\".\n\n### Code\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three consecutive equal elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        found = True\n        break\n\n# Output result\nprint(\"Yes\" if found else \"No\")\n```\n\nThis solution runs in $ O(N) $ time complexity, which is efficient enough for the given constraints."
+}

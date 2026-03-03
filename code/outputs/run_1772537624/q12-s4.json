@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772537624",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 4,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 8.699516773223877,
+  "response": "To solve this problem, we need to determine whether there exists a subsequence of three or more identical consecutive elements in the given list.\n\n### Key Observations:\n- We iterate through the list and check each triplet of consecutive elements.\n- If any triplet is found where all three elements are the same, we immediately return \"Yes\".\n- If no such triplet is found by the end of the list, we return \"No\".\n\n### Time Complexity:\n- **O(N)**: We pass through the list once, checking every triplet of consecutive elements.\n\n### Edge Cases Considered:\n- Input with exactly 3 elements (e.g., [1, 1, 1]).\n- Input where only the last three elements form the triplet (e.g., [1, 2, 3, 3, 3]).\n- Input with no triplets at all (e.g., [1, 2, 3, 4, 5]).\n\n### Complete Python Code:\n\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three or more consecutive equal elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        found = True\n        break\n\n# Print the result\nprint(\"Yes\" if found else \"No\")\n```"
+}

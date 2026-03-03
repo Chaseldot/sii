@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772534385",
+  "question_index": 11,
+  "question_id": "29",
+  "split": "train",
+  "sample_id": 15,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 53.367796182632446,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    H = int(data[0])\n    W = int(data[1])\n    grid = data[2:2+H]\n    \n    # Convert each row to a list of integers\n    rows = []\n    for row in grid:\n        rows.append([int(c) for c in row])\n    \n    # Precompute the number of 1s in each row\n    row_ones = [sum(row) for row in rows]\n    \n    min_total = float('inf')\n    \n    # Try all possible column flip configurations (W <= 18)\n    for mask in range(1 << W):\n        total = 0\n        # For each row, decide whether to flip it\n        for i in range(H):\n            # Calculate the effective value of each column after applying the column flips\n            # Let's compute how many 1s would remain in the row after column flips\n            # and decide whether to flip the row based on that\n            ones_after_column_flips = 0\n            for j in range(W):\n                if (mask >> j) & 1:\n                    # Column is flipped, so value becomes 1 - original\n                    ones_after_column_flips += 1 - rows[i][j]\n                else:\n                    ones_after_column_flips += rows[i][j]\n            \n            # If we flip the row, the count of 1s will be W - ones_after_column_flips\n            total += min(ones_after_column_flips, W - ones_after_column_flips)\n        \n        if total < min_total:\n            min_total = total\n    \n    print(min_total)\n\nif __name__ == '__main__':\n    main()\n```"
+}

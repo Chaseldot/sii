@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772536155",
+  "question_index": 3,
+  "question_id": "6",
+  "split": "train",
+  "sample_id": 10,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 8.916312217712402,
+  "response": "好的，我将按照题目要求来分析和解决这个问题。\n\n### 问题分析\n\n我们有三个整数 $ A = (A_1, A_2, A_3) $。我们需要判断是否存在一种排列 $ B = (B_1, B_2, B_3) $（即一个排列）使得：  \n$$ B_1 \\times B_2 = B_3 $$\n\n### 思路\n\n我们可以考虑所有的六个排列（因为三个元素的全排列共有 $3! = 6$种），并对于每一种排列，检查是否满足 $ B_1 \\times B_2 = B_3 $。\n\n如果存在至少一种满足条件的排列，则输出 \"Yes\"；否则输出 \"No\"。\n\n### 注意事项\n\n- 输入的范围是 $1 \\leq A_i \\leq 100$，所以数值不大。\n- 我们不需要使用复杂的算法，只需要暴力枚举所有排列即可。\n- Python 提供了一个 `itertools.permutations` 函数，可以轻松生成所有排列。\n\n---\n\n### Python 代码实现\n\n```python\nimport sys\nfrom itertools import permutations\n\n# 读取输入\nA = list(map(int, sys.stdin.readline().split()))\n\n# 生成所有可能的排列\nperms = permutations(A)\n\n# 检查是否存在满足条件的排列\nfound = False\nfor perm in perms:\n    b1, b2, b3 = perm\n    if b1 * b2 == b3:\n        found = True\n        break\n\n# 输出结果\nprint(\"Yes\" if found else \"No\")\n```\n\n### 示例验证\n\n**示例 1:**\n输入：\n```\n3 15 5\n```\n输出：\n```\nYes\n```\n解释：排列 `(3, 5, 15)` 满足 $3 \\times 5 = 15$。\n\n**示例 2:**\n输入：\n```\n5 3 2\n```\n输出：\n```\nNo\n```\n说明：没有排列能满足乘积等于第三个元素的值。\n\n---\n\n此代码在时间复杂度上是 $O(6)$ 的（因为只有6种排列），完全符合题目的时间限制（1秒）。"
+}

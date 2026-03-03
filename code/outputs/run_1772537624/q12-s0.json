@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772537624",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 0,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 7.006022214889526,
+  "response": "I will solve this problem step by step.\n\n### Analysis of the Problem:\n\nWe are given an integer sequence of length $ N $, and we need to check whether there exists a subsequence of three or more consecutive equal elements.\n\n#### Key Points:\n- The input format is:\n  - First line: $ N $\n  - Second line: space-separated integers $ A_1, A_2, \\ldots, A_N $\n- Output is \"Yes\" if there's a subsequence of at least three equal elements in a row, otherwise \"No\".\n- Constraints: \n  - $ 3 \\leq N \\leq 100 $\n  - $ 1 \\leq A_i \\leq 100 $\n\n#### Efficient Solution:\nWe can iterate through the list and compare each element with the next two elements. If all three are equal, we immediately return \"Yes\". Otherwise, after checking all possible triplets, we return \"No\".\n\nThe time complexity is $ O(N) $, which is efficient enough for the given constraints.\n\n### Python Code:\n\n```python\n# Read input from standard input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three consecutive equal elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        found = True\n        break\n\n# Output the result\nprint(\"Yes\" if found else \"No\")\n```"
+}

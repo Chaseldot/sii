@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772534385",
+  "question_index": 8,
+  "question_id": "25",
+  "split": "train",
+  "sample_id": 14,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 65.01053094863892,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    X = int(data[1])\n    \n    U = []\n    D = []\n    sums = []\n    \n    idx = 2\n    for _ in range(N):\n        u = int(data[idx])\n        d = int(data[idx+1])\n        U.append(u)\n        D.append(d)\n        sums.append(u + d)\n        idx += 2\n    \n    min_sum = min(sums)\n    \n    # Binary search over possible H (the common sum)\n    low = 0\n    high = min_sum\n    answer = float('inf')\n    \n    def is_valid(H):\n        adjusted_U = []\n        cost = 0\n        for i in range(N):\n            current_u = U[i]\n            current_d = D[i]\n            # We need to ensure that H - current_d <= current_u and H - current_u <= current_d\n            # So the valid adjustment for U_i' is max(0, H - D_i) but it must be <= original U_i\n            adjusted_u = H - D[i]\n            if adjusted_u > U[i]:\n                adjusted_u = U[i]\n            elif adjusted_u < 0:\n                adjusted_u = 0\n            adjusted_U.append(adjusted_u)\n            cost += (U[i] - adjusted_u)\n        \n        # Now check adjacent condition for adjusted_U\n        for i in range(N-1):\n            if abs(adjusted_U[i] - adjusted_U[i+1]) > X:\n                return float('inf')\n        \n        return cost\n    \n    while low <= high:\n        mid = (low + high) // 2\n        cost = is_valid(mid)\n        if cost == float('inf'):\n            # This H is not feasible; try lower H\n            high = mid - 1\n        else:\n            answer = min(answer, cost)\n            # Try higher H to see if we can find a cheaper solution\n            low = mid + 1\n    \n    print(answer)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

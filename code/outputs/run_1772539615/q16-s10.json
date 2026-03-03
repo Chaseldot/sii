@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772539615",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 10,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.7355568408966064,
+  "response": "我将按照题目的要求解决此问题。以下是完整的思考过程和最终的Python代码：\n\n### 思考过程\n\n这个问题要求我们找出一个正整数 B，使得 A 行 B 列的矩形可以容纳 400 人。也就是说，A × B = 400。\n\n1. **输入格式**：\n   - 输入是整数 A。\n\n2. **输出格式**：\n   - 输出满足条件的 B 或者 -1（如果不存在这样的 B）。\n\n3. **约束条件**：\n   - A 是一个 1 到 400 的整数。\n   - B 必须是正整数。\n\n4. **算法设计**：\n   - 我们需要找到 400 的因数 B，使得 A × B = 400。也就是检查 400 是否能被 A 整除。\n   - 如果 400 % A == 0，则 B = 400 // A；否则输出 -1。\n\n5. **边界情况考虑**：\n   - A = 1：B = 400\n   - A = 400：B = 1\n   - 当 A 是 400 的因数时，才能得到正整数 B，否则输出 -1。\n\n6. **复杂度分析**：\n   - 算法时间为 O(1)，因为只涉及简单的数学运算。\n\n### Python代码\n\n```python\n# Read input from standard input\nA = int(input())\n\n# Check if 400 is divisible by A\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```"
+}

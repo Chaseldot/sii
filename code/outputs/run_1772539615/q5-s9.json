@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772539615",
+  "question_index": 5,
+  "question_id": "13",
+  "split": "train",
+  "sample_id": 9,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 39.69904327392578,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    Q = int(data[1])\n    A = list(map(int, data[2:2+N]))\n    queries = []\n    idx = 2 + N\n    for _ in range(Q):\n        R = int(data[idx])\n        X = int(data[idx+1])\n        queries.append((R, X))\n        idx += 2\n\n    # Preprocessing to build for each position the next greater element\n    next_greater = [N] * N  # next_greater[i] is the smallest index > i with A[next_greater[i]] > A[i]\n\n    for i in range(N-1, -1, -1):\n        next_greater[i] = N\n        for j in range(i+1, N):\n            if A[j] > A[i]:\n                next_greater[i] = j\n                break\n\n    # Precompute the longest increasing subsequence ending at each position using next_greater\n    dp = [1] * N\n    for i in range(N-1, -1, -1):\n        if next_greater[i] < N:\n            dp[i] = max(dp[i], dp[next_greater[i]] + 1)\n\n    # Process each query\n    for R, X in queries:\n        subarray = A[:R]\n        unique_values = sorted(set(subarray))\n        max_len = 0\n        prev_val = -1\n        for num in subarray:\n            if num <= X and num > prev_val:\n                max_len += 1\n                prev_val = num\n        print(max_len)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

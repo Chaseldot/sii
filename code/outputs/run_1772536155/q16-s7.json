@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772536155",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 7,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.983456134796143,
+  "response": "我将按照步骤解答这个问题：\n\n1. **理解问题**：\n   - 输入是一个整数A。\n   - 需要找到一个正整数B，使得A * B = 400（即能组成400人的矩形阵列）。\n   - 如果没有这样的B，则输出-1。\n\n2. **思考解决问题的方法**：\n   - A和B必须是400的因数对。\n   - 我们只需检查A是否是400的因数。如果是，则B = 400 // A。\n   - 否则，输出-1。\n\n3. **编写代码**：\n   - 读取输入A。\n   - 检查A是否是400的因数。\n   - 若是，计算并输出B；否则输出-1。\n\n下面是完整的Python代码：\n\n```python\n# Read input\nA = int(input())\n\n# Check if A is a divisor of 400\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```"
+}

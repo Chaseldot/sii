@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772537624",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 0,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 32.10376739501953,
+  "response": "I've identified the error in the logic. The issue is with how we're updating the rank. We need to:\n1. Assign the current rank to all participants with the same score.\n2. Increment the rank **only once** after processing each score group, not for every participant.\n\nHere's the corrected solution:\n\n```python\nn = int(input())\np = list(map(int, input().split()))\nparticipants = [(p[i], i + 1) for i in range(n)]\n\n# Sort participants in descending order of their scores\nparticipants.sort(reverse=True, key=lambda x: x[0])\n\nrank = 1\ncurrent_score = None\nresult = [0] * n\n\nfor score, index in participants:\n    if score != current_score:\n        current_score = score\n        # Assign the current rank to this group\n        rank = rank\n    result[index - 1] = rank\n    # Only increment rank when moving to the next unique score group\n    if score != current_score:\n        rank += 1\n\nfor r in result:\n    print(r)\n```\n\nLet me explain the fix:\n- When we encounter a new score group (i.e., `score != current_score`), we assign the current `rank` to all participants in this group.\n- We only increment the `rank` **once** after processing the entire group, not for each participant. This ensures that participants with the same score receive the same rank, and the rank advances correctly for the next group."
+}

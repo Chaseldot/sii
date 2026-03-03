@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772536155",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 3,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 9.399182796478271,
+  "response": "我将严格按照给定步骤进行分析和编程。\n\n1. **仔细阅读题目，明确要求**：\n   - 输入是整数 A。\n   - 输出是一个正整数 B，使得 A × B = 400（即 400 人形成 A 行 B 列的矩形）。\n   - 如果不存在这样的 B，则输出 -1。\n   - 约束条件：A 是 1~400 的整数。\n\n2. **逐步思考**：\n   - 我们需要找到一个正整数 B，满足 A × B = 400。\n   - 这等价于 B = 400 / A。\n   - 因此，我们需要判断 400 是否能被 A 整除。如果可以，则 B = 400 // A；否则，输出 -1。\n   - 注意：B 必须是一个正整数，因此如果 A = 0 或者 400 % A != 0，则输出 -1。\n   - 此外，输入 A 的范围是 1~400，所以不会出现除零错误。\n\n3. **编写代码**：\n   - 读取输入 A。\n   - 计算 400 % A。\n   - 如果余数为 0，则计算 B = 400 // A 并输出。\n   - 否则，输出 -1。\n\n以下是完整的 Python 代码：\n\n```python\n# Read input\nA = int(input())\n\n# Check if 400 is divisible by A\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```"
+}

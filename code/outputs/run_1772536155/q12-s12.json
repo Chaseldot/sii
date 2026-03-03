@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772536155",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 12,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 15.21523404121399,
+  "response": "我将按照你提供的步骤逐步解决问题。\n\n### 1. 明确要求\n- **输入格式**:\n  - 第一行是整数 N，表示序列的长度。\n  - 第二行是 N 个整数 A_1, A_2, ..., A_N，用空格分隔。\n- **输出格式**:\n  - 如果存在某个 i (1 ≤ i ≤ N−2)，使得 A_i = A_{i+1} = A_{i+2}，则输出 \"Yes\"；否则输出 \"No\"。\n- **约束条件**:\n  - 3 ≤ N ≤ 100\n  - 1 ≤ A_i ≤ 100\n  - 所有输入值都是整数\n\n### 2. 分析与算法\n- 我们需要检查是否有一个连续的三个相同元素的子序列。\n- 简单的方法是遍历数组，并从索引 0 到 N-3（因为我们要检查 i, i+1, i+2），逐个比较这三者是否相等。\n- 时间复杂度为 O(N)，完全满足题目要求。\n\n### 3. 编写代码\n下面是完整的可运行 Python 代码：\n\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three consecutive equal elements\nfound = False\nfor i in range(len(A) - 2):\n    if A[i] == A[i+1] == A[i+2]:\n        found = True\n        break\n\n# Output the result\nprint(\"Yes\" if found else \"No\")\n```\n\n### 4. 检查样例\n- 样例 1: 输入 `5 1 4 4 4 2`，输出是 \"Yes\"\n- 样例 2: 输入 `6 2 4 4 2 2 4`，输出是 \"No\"\n- 样例 3: 输入 `8 1 4 2 5 7 7 7 2`，输出是 \"Yes\"\n- 样例 4: 输入 `10 1 2 3 4 5 6 7 8 9 10`，输出是 \"No\"\n- 样例 5: 输入 `13 1 1 1 1 1 1 1 1 1 1 1 1 1`，输出是 \"Yes\"\n\n该代码可以正确处理所有样例和边界情况。"
+}

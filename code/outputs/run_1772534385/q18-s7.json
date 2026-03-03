@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772534385",
+  "question_index": 18,
+  "question_id": "64",
+  "split": "train",
+  "sample_id": 7,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 32.01183462142944,
+  "response": "```python\nimport sys\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    A = list(map(int, data[1:]))\n    \n    if all(a == 1 for a in A):\n        print(\"Yes\")\n        return\n    \n    # For each position i where A[i] is 0, check if there exists at least one valid pattern around it\n    for i in range(N):\n        if A[i] == 0:\n            # Check if the next two elements are 1 to form \"ARC\" pattern (i, i+1, i+2)\n            if A[(i + 1) % N] == 1 and A[(i + 2) % N] == 1:\n                continue\n            # Check if the previous two elements are 1 to form \"CRA\" pattern (i-2, i-1, i)\n            if A[(i - 1) % N] == 1 and A[(i - 2) % N] == 1:\n                continue\n            # If neither pattern can be formed, no good string exists\n            print(\"No\")\n            return\n    print(\"Yes\")\n\nmain()\n```"
+}

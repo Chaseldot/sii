@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772540339",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 11,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 5.348677158355713,
+  "response": "I'll solve this problem by iterating through the sequence and checking for three consecutive equal elements.\n\n### Thought Process:\n- We need to check if there are three or more identical elements in a row.\n- We can do this by iterating through the list and comparing each element with its next two neighbors.\n- If we find such a triplet, we immediately return \"Yes\"; otherwise, after checking all possibilities, we return \"No\".\n\n### Solution Code:\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three consecutive equal elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        found = True\n        break\n\n# Output result\nprint(\"Yes\" if found else \"No\")\n```\n\n### Explanation:\n- The code reads the input values for `N` (length of the sequence) and the sequence itself.\n- It then iterates through the sequence from the first element up to the third-to-last element.\n- For each position, it checks if the current element and the next two elements are equal.\n- If a triplet is found, it sets a flag (`found`) to `True` and breaks out of the loop.\n- Finally, it prints \"Yes\" if a triplet was found, otherwise it prints \"No\".\n\nThis solution has a time complexity of O(N), which is efficient for the given constraints (N ≤ 100)."
+}

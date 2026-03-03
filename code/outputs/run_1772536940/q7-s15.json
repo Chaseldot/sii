@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772536940",
+  "question_index": 7,
+  "question_id": "20",
+  "split": "train",
+  "sample_id": 15,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 3.3024392127990723,
+  "response": "To solve the problem, we need to:\n\n1. Read a string `S` consisting of digits.\n2. Remove all characters from `S` that are **not** `'2'`.\n3. Concatenate the remaining characters and print the result.\n\n### Key Points:\n- The input is guaranteed to contain at least one `'2'`, so there's no need to handle the case where the output is an empty string.\n- We can efficiently process this by iterating through the string and building a new string from only the `'2'` characters.\n\nThe time complexity is O(n), where n is the length of the input string, which is acceptable for the given constraints (n ≤ 100).\n\nNow, here's the complete solution:\n\n```python\n# Read the input string\nS = input().strip()\n\n# Filter out all characters except '2'\nresult = ''.join([char for char in S if char == '2'])\n\n# Print the result\nprint(result)\n```"
+}

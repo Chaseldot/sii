@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772537624",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 14,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 14.099522113800049,
+  "response": "To solve this problem, we need to determine whether there is a place in an integer sequence where the same element appears **three or more times in a row**.\n\n---\n\n### 📌 **Thought Process:**\n\n1. **Input/Output Format**:\n   - Input:\n     - First line: `N` (length of the sequence)\n     - Second line: `A_1 A_2 ... A_N` (the sequence of integers)\n   - Output:\n     - \"Yes\" if there exists any triplet of consecutive elements with the same value.\n     - \"No\" otherwise.\n\n2. **Constraints**:\n   - The length `N` of the sequence is between 3 and 100.\n   - Each `A_i` is an integer between 1 and 100.\n   - Since the constraints are small (`N <= 100`), we can use a **brute-force approach** without worrying about efficiency.\n\n3. **Approach**:\n   - Iterate through the list from index `0` to `N - 3`.\n   - For each index `i`, check whether `A[i] == A[i + 1] == A[i + 2]`.\n   - If such a triplet is found, return `\"Yes\"`. Otherwise, after checking all possibilities, return `\"No\"`.\n\n4. **Edge Cases**:\n   - When `N = 3`: Just check the only possible triplet.\n   - All elements are distinct: Return `\"No\"`.\n   - All elements are the same (like a list of all 1s): Return `\"Yes\"`.\n\n---\n\n### ✅ **Final Code:**\n\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three consecutive equal elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        found = True\n        break\n\n# Output the result\nprint(\"Yes\" if found else \"No\")\n```\n\n---\n\n### 🔍 **Explanation of Code:**\n- We read the input values for `N` and the list `A`.\n- Loop through the indices up to `N - 3` to ensure that the triplet indices are valid.\n- Compare three consecutive elements using `==` operator.\n- If any matching triplet is found, set `found = True`.\n- Finally, print `\"Yes\"` if `found` is `True`, else print `\"No\"`.\n\nThis solution runs in **O(N)** time and uses **O(1)** space, which is efficient for the given constraints."
+}

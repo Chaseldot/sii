@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772536940",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 1,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 8.589566707611084,
+  "response": "I will solve this problem by checking if there are three or more consecutive identical elements in the given sequence.\n\n### Step-by-step Plan:\n1. Read input values for N and list A.\n2. Iterate through the list from index 0 to N-3.\n3. For each position i, check if A[i] == A[i+1] == A[i+2].\n4. If such a triplet is found, print \"Yes\" and exit.\n5. If no triplet is found after the loop, print \"No\".\n\n### Edge Case Handling:\n- Input size constraint: N ranges from 3 to 100, which ensures that we can always check at least one triplet.\n- All elements are integers between 1 and 100.\n\n### Time Complexity:\n- O(N): We iterate through the list once.\n\nNow, here's the complete Python solution:\n\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three consecutive identical elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        found = True\n        break\n\n# Output the result\nprint(\"Yes\" if found else \"No\")\n```"
+}

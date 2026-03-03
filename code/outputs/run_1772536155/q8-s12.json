@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772536155",
+  "question_index": 8,
+  "question_id": "25",
+  "split": "train",
+  "sample_id": 12,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 49.12131381034851,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    X = int(data[1])\n    U = []\n    D = []\n    for i in range(N):\n        u = int(data[2 + 2*i])\n        d = int(data[2 + 2*i + 1])\n        U.append(u)\n        D.append(d)\n    \n    possible_H = set(U[i] + D[i] for i in range(N))\n    \n    min_cost = float('inf')\n    \n    # Sort the H candidates to optimize checking\n    sorted_H = sorted(possible_H)\n    \n    # Precompute all adjusted_U for H candidates and validate once per H\n    for h_candidate in sorted_H:\n        adjusted_U = [h_candidate - D[i] for i in range(N)]\n        \n        # Cost calculation: sum of absolute differences between original and adjusted\n        cost = sum(abs(u - adjusted_u) for u, adjusted_u in zip(U, adjusted_U))\n        \n        # Check if the adjusted upper teeth satisfy the |U_i - U_{i+1}| <= X condition\n        valid = True\n        for i in range(N-1):\n            if abs(adjusted_U[i] - adjusted_U[i+1]) > X:\n                valid = False\n                break\n        \n        if valid:\n            min_cost = min(min_cost, cost)\n    \n    print(min_cost)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

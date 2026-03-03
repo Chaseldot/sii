@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772535096",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 5,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.911841630935669,
+  "response": "1. **KEY INSIGHTS**:  \n   - The task is to check if there exists a triplet of consecutive equal elements in the array.  \n   - We can iterate through the array and compare each element with the next two elements. If they are equal, we return \"Yes\".  \n   - If we finish the loop without finding such a triplet, we return \"No\".  \n   - Edge cases include when the array has exactly three elements (e.g., [1, 1, 1]) or more than three elements but no triplet of consecutive elements.  \n   - Time complexity is O(N), which is acceptable given the constraints (N <= 100).  \n\n2. **CODE**:\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three consecutive equal elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i+1] == A[i+2]:\n        found = True\n        break\n\n# Output the result\nprint(\"Yes\" if found else \"No\")\n```"
+}

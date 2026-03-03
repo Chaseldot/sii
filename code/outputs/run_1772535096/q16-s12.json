@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772535096",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 12,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 4.4181809425354,
+  "response": "1. KEY INSIGHTS:  \n   - We need to find a positive integer B such that A * B = 400, i.e., B = 400 / A.  \n   - If 400 is not divisible by A, then there is no valid B and we should output -1.  \n   - The time complexity is O(1) since we only need to perform a single division and check.  \n   - Edge cases: If A is 1, B is 400. If A is 400, B is 1. If A is a divisor of 400, return the corresponding B, otherwise return -1.\n\n2. CODE:\n```python\n# Read input\nA = int(input())\n\n# Check if A divides 400 evenly\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```"
+}

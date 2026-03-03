@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772536155",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 11,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 10.907381772994995,
+  "response": "### 思路分析：\n\n1. **问题理解**：\n   - 题目要求判断一个整数序列中是否存在连续的三个或更多相同元素。\n   - 也就是说，我们需要检查是否有 `i` (满足 `1 ≤ i ≤ N-2`)，使得 `A[i] = A[i+1] = A[i+2]`。\n\n2. **输入输出格式**：\n   - 输入包括：整数 $ N $ 表示序列长度，紧接着一行为 $ N $ 个整数组成的序列。\n   - 输出：“Yes” 若存在连续的至少三个相等元素，否则 “No”。\n\n3. **算法设计**：\n   - 我们可以简单地遍历序列，从第0项开始，依次比较当前项、下一项和下下一项是否相等。\n   - 如果发现任何一处三连相等的情况，则直接返回“Yes”。\n   - 否则，遍历结束后返回“No”。\n\n4. **边界情况**：\n   - 当 $ N = 3 $ 时，只需比较整个序列即可。\n   - 对于更大的 $ N $，只需检查所有可能的三元组（最多 $ N-2 $ 次比较）。\n\n5. **时间/空间复杂度**：\n   - 复杂度为 $ O(N) $，即一次线性遍历，满足题目条件（$ N \\leq 100 $），即使在最坏情况下也能轻易处理。\n\n---\n\n### 完整Python代码：\n\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three consecutive equal elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        found = True\n        break\n\n# Output result\nprint(\"Yes\" if found else \"No\")\n```"
+}

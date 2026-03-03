@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772534385",
+  "question_index": 5,
+  "question_id": "13",
+  "split": "train",
+  "sample_id": 15,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 96.17545962333679,
+  "response": "```python\nimport sys\nimport bisect\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    idx = 0\n    N = int(data[idx])\n    idx += 1\n    Q = int(data[idx])\n    idx += 1\n    \n    A = list(map(int, data[idx:idx+N]))\n    idx += N\n    \n    queries = []\n    for _ in range(Q):\n        R = int(data[idx])\n        idx += 1\n        X = int(data[idx])\n        idx += 1\n        queries.append((R, X))\n    \n    # Preprocess sorted lists for each prefix\n    sorted_prefixes = []\n    for i in range(N):\n        sorted_prefixes.append(sorted(A[:i+1]))\n    \n    # For each query, get the first R elements, filter those <= X, sort and compute LIS\n    for R, X in queries:\n        subarray = A[:R]\n        filtered = [x for x in subarray if x <= X]\n        filtered.sort()\n        lis = []\n        for num in filtered:\n            idx = bisect.bisect_left(lis, num)\n            if idx == len(lis):\n                lis.append(num)\n            else:\n                lis[idx] = num\n        print(len(lis))\n\nmain()\n```"
+}

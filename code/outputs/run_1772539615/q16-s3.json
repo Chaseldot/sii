@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772539615",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 3,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 4.380400896072388,
+  "response": "要解决这个问题，我们首先需要理解题意。题目要求我们找到一个正整数 B，使得 A × B = 400（因为总共有 400 人）。换句话说，B 必须是 400 的一个因数，并且必须大于 0。\n\n### 步骤分析：\n1. **输入**：读取一个整数 A。\n2. **计算**：检查是否存在一个正整数 B，使得 A × B = 400。\n   - 这可以通过判断 400 % A == 0 来实现。\n3. **输出**：如果存在这样的 B，则输出 B；否则输出 -1。\n\n### 注意事项：\n- 如果 A 等于 400，则 B 必须等于 1。\n- 如果 A 为 1，则 B 必须等于 400。\n\n现在我们根据上述思路编写代码：\n\n```python\n# Read input\nA = int(input())\n\n# Calculate B such that A * B = 400\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```"
+}

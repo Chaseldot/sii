@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772536155",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 12,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 50.49437475204468,
+  "response": "在之前的实现中，代码虽然使用了堆结构，但在每次处理最大分数时仍对堆进行了多次的操作（弹出和压入），这使得时间复杂度较高。我们可以进一步优化：使用一个优先队列，并记录当前已经处理过的人，避免重复处理。\n\n我们可以通过以下思路来优化：\n1. 将所有选手按分数从大到小排序。\n2. 找出相同的分数组，统一为其分配排名。\n3. 用一个数组 `rank` 存储每个人的最终排名。\n\n这种方式可以将排序时间控制在 O(N log N)，而后续处理是线性的 O(N)，整体时间复杂度为 O(N log N)，适合题目限制中的 `N ≤ 100`。\n\n---\n\n```python\nimport sys\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:N+1]))\n    \n    # 按照分数从高到低排序，同时保留原索引\n    people = sorted([(P[i], i) for i in range(N)], key=lambda x: (-x[0], x[1]))\n    \n    rank = [0] * N\n    current_rank = 1\n    \n    i = 0\n    while i < N:\n        # 当前最高分\n        current_score = people[i][0]\n        count = 1\n        \n        # 统计相同分数的选手数量\n        while i + count < N and people[i + count][0] == current_score:\n            count += 1\n        \n        # 给这些选手分配相同的排名\n        for j in range(i, i + count):\n            rank[people[j][1]] = current_rank\n        \n        # 更新当前排名\n        current_rank += count\n        \n        # 移动指针\n        i += count\n    \n    # 输出结果\n    for r in rank:\n        print(r)\n\nif __name__ == \"__main__\":\n    main()\n```\n\n### 说明：\n- 使用 `sorted` 函数直接对数据进行排序，避免手动维护堆结构，提升效率。\n- 分组处理相同分数的人，一次处理一组，节省了堆中频繁弹入弹出的次数。\n- 时间复杂度为 O(N log N)，适用于所有测试输入。\n\n此版本代码性能更高，能够满足时间限制要求，并且代码逻辑清晰、易于理解。"
+}

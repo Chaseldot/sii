@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772536940",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 15,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 8.096973419189453,
+  "response": "To solve this problem, we need to check if there is a subsequence of three or more identical consecutive elements in the given integer sequence.\n\n### Key Observations:\n- We are allowed to have three or more identical elements in a row.\n- We can iterate through the array and compare each element with the next two to see if they are the same.\n\n### Plan:\n1. Iterate through the array from index 0 to N-3 (since we need to compare with the next two elements).\n2. For each index `i`, check if `A[i] == A[i+1] == A[i+2]`.\n3. If such a triplet is found, print \"Yes\" and terminate.\n4. If no such triplet is found after checking all possibilities, print \"No\".\n\nThis approach has a time complexity of **O(N)**, which is efficient for the given constraints (N ≤ 100).\n\n### Now, here's the complete Python code:\n\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three or more consecutive equal elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        found = True\n        break\n\n# Output result\nprint(\"Yes\" if found else \"No\")\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772540339",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 10,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 8.007476091384888,
+  "response": "To solve this problem, we need to determine the rank of each person based on their scores following a specific procedure. The process involves repeatedly finding the highest score among people who still have undetermined ranks and assigning them ranks accordingly.\n\n### Steps to Solve:\n1. **Input Reading:** Read the number of people and their respective scores.\n2. **Track Undetermined Ranks:** Maintain a list or set to track which people still have undetermined ranks.\n3. **Process Scores:** Use a priority queue (or a max-heap) to efficiently get the maximum score at each step.\n4. **Assign Ranks:** For each maximum score, assign the current rank to all people with that score, then update the rank variable and continue until all ranks are determined.\n\nHere's the complete Python code:\n\n```python\nimport heapq\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:N+1]))\n    \n    # Track which people have undetermined ranks\n    undetermined = set(range(N))\n    # Priority queue: store (-score, index) to simulate max-heap\n    heap = [(-P[i], i) for i in range(N)]\n    heapq.heapify(heap)\n    \n    rank = 1\n    result = [0] * N\n    \n    while undetermined:\n        # Get the maximum score\n        max_score_neg, idx = heapq.heappop(heap)\n        max_score = -max_score_neg\n        \n        # Collect all people with this score\n        temp = []\n        while heap and -heap[0][0] == max_score:\n            score_neg, i = heapq.heappop(heap)\n            temp.append(i)\n        \n        # Add the current index if not already processed\n        if idx not in undetermined:\n            continue\n        temp.append(idx)\n        \n        # Assign rank to all these people\n        for person in temp:\n            result[person] = rank\n            undetermined.discard(person)\n        \n        # Update the rank\n        rank += len(temp)\n    \n    for r in result:\n        print(r)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

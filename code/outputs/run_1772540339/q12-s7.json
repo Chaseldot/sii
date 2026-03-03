@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772540339",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 7,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.542964220046997,
+  "response": "I'll analyze the problem and provide a solution.\n\n### Problem Analysis\nWe need to determine if there exists a triplet of consecutive elements in the array that are equal. This can be checked by iterating through the array and comparing each element with its next two neighbors.\n\n### Key Points\n- Input: An integer N followed by an array of length N.\n- Output: \"Yes\" if there exists any triplet of consecutive equal elements, otherwise \"No\".\n- Constraints: The array size is small (N ≤ 100), so even a brute-force approach would work efficiently.\n\n### Approach\n- Iterate through the array from index 0 to N-3 (inclusive).\n- For each index i, check if A[i] == A[i+1] == A[i+2].\n- If such a triplet is found, print \"Yes\" and exit.\n- If the loop completes without finding such a triplet, print \"No\".\n\n### Solution Code\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three consecutive equal elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        found = True\n        break\n\n# Output result\nprint(\"Yes\" if found else \"No\")\n```\n\n### Explanation\nThe code reads the input values, converts them into a list of integers, and then checks each set of three consecutive elements. If it finds any triplet where all three elements are the same, it sets a flag (`found`) to `True` and breaks out of the loop. Finally, it prints \"Yes\" if the flag is set, otherwise it prints \"No\". This approach ensures we check every possible triplet efficiently."
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772538447",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 7,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 8.069060802459717,
+  "response": "### STEP 1 - Problem Analysis\n\n#### **Problem Type**\nThis is a **simulation problem** with a specific ranking procedure that must be followed. It involves determining the rank of each person based on their score and processing the scores in decreasing order.\n\n#### **Key Algorithm/Method**\n- The ranking process is determined by repeatedly finding the maximum current score among undetermined people, assigning the rank `r` to all people with this score, and then incrementing `r` by the number of such people.\n- This is essentially a **priority queue (max-heap)** or **sorting and grouping** task. Since `N` is small (≤ 100), we can easily simulate this process using sorting.\n\n#### **Edge Cases**\n- **All scores are equal**: All people will have the same rank (e.g., sample input 3).\n- **Only one person**: That person's rank is 1.\n- **Multiple people with the same score but different positions**: They share the same rank.\n\n---\n\n### STEP 2 - Write Code\n\n```python\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:N+1]))\n    \n    # Create a list of tuples (score, index)\n    people = [(P[i], i + 1) for i in range(N)]\n    \n    # Sort the people in descending order of score\n    people.sort(reverse=True, key=lambda x: x[0])\n    \n    ranks = [0] * N\n    \n    r = 1\n    i = 0\n    \n    while i < N:\n        max_score = people[i][0]\n        count = 0\n        \n        # Count how many people have the same max score\n        while i < N and people[i][0] == max_score:\n            count += 1\n            i += 1\n        \n        # Assign rank r to all these people\n        for j in range(i - count, i):\n            ranks[people[j][1] - 1] = r\n        \n        r += count\n    \n    for rank in ranks:\n        print(rank)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772537624",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 12,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 9.615823984146118,
+  "response": "I will solve this problem step-by-step:\n\n**Problem Analysis:**\nWe need to check if there is any occurrence of the same element appearing three or more times consecutively in the given sequence.\n\n**Approach:**\n- Iterate through the array from index 0 to N-3.\n- For each position, compare the current element with the next two elements.\n- If all three are the same, return \"Yes\".\n- If no such triplet is found after checking the entire array, return \"No\".\n\nThis approach has a time complexity of O(N), which is efficient for the given constraints (N ≤ 100).\n\n**Edge Cases:**\n- All elements are the same (e.g., [1,1,1,1]) → Output: Yes\n- Exactly two consecutive elements are same but not three → Output: No\n- Less than 3 elements → Not possible since the constraint says N ≥ 3\n\nNow, here is the complete Python solution:\n\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three consecutive equal elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        found = True\n        break\n\n# Output result\nprint(\"Yes\" if found else \"No\")\n```"
+}

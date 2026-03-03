@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772534385",
+  "question_index": 0,
+  "question_id": "0",
+  "split": "train",
+  "sample_id": 3,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 32.80546689033508,
+  "response": "```python\nimport sys\nimport bisect\nfrom collections import defaultdict\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    \n    idx = 0\n    N = int(data[idx])\n    idx += 1\n    W = int(data[idx])\n    idx += 1\n    \n    blocks = []\n    for i in range(N):\n        x = int(data[idx])\n        idx += 1\n        y = int(data[idx])\n        idx += 1\n        blocks.append((x, y, i))\n    \n    col_dict = defaultdict(list)\n    for x, y, idx_block in blocks:\n        col_dict[x].append(y)\n    \n    # Sort each column's Y values\n    for x in col_dict:\n        col_dict[x].sort()\n    \n    Q = int(data[idx])\n    idx += 1\n    \n    queries = []\n    for q in range(Q):\n        T = int(data[idx])\n        idx += 1\n        A = int(data[idx]) - 1  # 0-based index\n        idx += 1\n        queries.append((T, A))\n    \n    # Precompute for each block the position after T steps\n    results = []\n    for T, A in queries:\n        x, y, idx_block = blocks[A]\n        if x not in col_dict:\n            results.append(\"No\")\n            continue\n        \n        ys = col_dict[x]\n        # Find how many blocks are at or below y\n        pos = bisect.bisect_right(ys, y)  # number of blocks at or below y\n        cnt = pos\n        \n        if cnt <= T:\n            # Block is removed\n            results.append(\"No\")\n        else:\n            # Position is original_y - (T + 1) (block moves down T times)\n            new_y = y - T - 1\n            if new_y >= 1:\n                results.append(\"Yes\")\n            else:\n                results.append(\"No\")\n    \n    print(\"\\n\".join(results))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

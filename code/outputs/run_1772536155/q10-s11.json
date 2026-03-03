@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772536155",
+  "question_index": 10,
+  "question_id": "28",
+  "split": "train",
+  "sample_id": 11,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 46.20460844039917,
+  "response": "在之前代码中，`dist[N + cur]` 导致了索引越界的问题。由于 $ N $ 的值最大可以是 $ 2 \\times 10^5 $，而 `cur` 也是最多到 $ N $，因此 `N + cur` 可能达到 $ 4 \\times 10^5 $，这远远超过了我们初始化的 `dist` 数组（长度为 $ 2 \\times N + 1 $）。\n\n### 问题分析：\n- `dist = [INF] * (2 * N + 1)`：这个数组仅能容纳 $ 0 $ 到 $ 2N $ 的索引，但此时 `N + cur` 的最大可能是 $ N + N = 2N $，所以边界是正好够用的。\n- 然而，在实际处理时，可能访问的是 `N + cur` 中的 `cur` 值大于 `N`，从而导致索引超出范围。\n\n### 解决方案：\n我们需要将状态分为两个部分：\n1. `cur` 表示当前是在原始方向下，从节点 `cur` 出发。\n2. `cur + N` 表示当前在反转方向下，从节点 `cur` 出发。\n\n为了确保不会越界，我们将 `dist` 的大小设置为 `2 * N + 1`，因为最大的有效索引是 `N + N = 2N`。\n\n### 正确修正后的完整代码如下：\n\n```python\nimport sys\nimport heapq\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    M = int(data[1])\n    X = int(data[2])\n    \n    original_adj = [[] for _ in range(N + 1)]\n    reversed_adj = [[] for _ in range(N + 1)]\n    \n    index = 3\n    for _ in range(M):\n        u = int(data[index])\n        v = int(data[index + 1])\n        original_adj[u].append(v)\n        reversed_adj[v].append(u)\n        index += 2\n    \n    INF = float('inf')\n    dist = [INF] * (2 * N + 1)  # To handle both original and reversed states\n    dist[1] = 0  # Start at vertex 1 with original direction\n    \n    heap = [(0, 1)]  # (cost, vertex)\n    \n    while heap:\n        cost, cur = heapq.heappop(heap)\n        \n        # Skip if already processed with lower cost\n        if cost > dist[cur]:\n            continue\n        \n        # Move along original edges\n        for neighbor in original_adj[cur]:\n            if dist[neighbor] > cost + 1:\n                dist[neighbor] = cost + 1\n                heapq.heappush(heap, (dist[neighbor], neighbor))\n        \n        # Reverse all edges (simulate by moving from neighbors to current node in reversed graph)\n        for neighbor in reversed_adj[cur]:\n            if dist[N + cur] > cost + X:\n                dist[N + cur] = cost + X\n                heapq.heappush(heap, (dist[N + cur], N + cur))\n    \n    print(min(dist[N], dist[N + 1]))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

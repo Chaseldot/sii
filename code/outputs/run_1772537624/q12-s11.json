@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772537624",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 11,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 14.504700422286987,
+  "response": "To solve this problem, we need to check whether there exists a subsequence of three or more consecutive equal elements in the given integer sequence. Since the constraints are small (up to N = 100), we can use a straightforward approach by iterating through the array and comparing each element with its next two neighbors.\n\n### Steps:\n1. Read the input values.\n2. Loop through the array from index 0 to N-3 (inclusive).\n3. For each position `i`, check if `A[i] == A[i+1] == A[i+2]`.\n4. If such an instance is found, print \"Yes\" and terminate.\n5. If the loop completes without finding any such instance, print \"No\".\n\nThis solution is efficient for the given constraints and runs in O(N) time complexity.\n\nHere's the complete Python code:\n\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three or more consecutive equal elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        found = True\n        break\n\n# Output result\nprint(\"Yes\" if found else \"No\")\n```"
+}

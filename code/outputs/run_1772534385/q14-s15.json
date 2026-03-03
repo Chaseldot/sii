@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772534385",
+  "question_index": 14,
+  "question_id": "53",
+  "split": "train",
+  "sample_id": 15,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 32.93564772605896,
+  "response": "```python\nMOD = 998244353\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    K = int(data[1])\n    A = list(map(int, data[2:2+N]))\n    \n    prefix_sum = [0] * (N + 1)\n    for i in range(1, N+1):\n        prefix_sum[i] = (prefix_sum[i-1] + A[i-1]) % MOD\n    \n    # dp[k][m] represents the count of prefix sums raised to the k-th power equal to m\n    dp = [[0] * MOD for _ in range(K+1)]\n    result = 0\n    \n    for s in prefix_sum:\n        # Compute all powers of s up to K\n        powers = [1] * K\n        current = s\n        for k in range(1, K+1):\n            current = (current * s) % MOD\n            powers[k-1] = current\n        \n        # Update the result by summing dp[k][s^k] for each k\n        for k in range(K):\n            result = (result + dp[k+1][powers[k]]) % MOD\n        \n        # Update the dp table for the next iteration\n        for k in range(K):\n            dp[k+1][powers[k]] = (dp[k+1][powers[k]] + 1) % MOD\n    \n    print(result % MOD)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

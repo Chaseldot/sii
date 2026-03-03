@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772540339",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 12,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 9.996089458465576,
+  "response": "I will solve this problem step-by-step.\n\n### 1. Problem Understanding\nWe are given an integer sequence `A` of length `N`. We need to check whether there exists any position `i` such that:\n- `A_i = A_{i+1} = A_{i+2}`\n\nThis means we're looking for a **triple** of the same value in a row.\n\n### 2. Approach\nWe can iterate through the list from the start to the third last element (since we need to check a triplet). For each position `i`, we simply compare `A[i]`, `A[i+1]`, and `A[i+2]`. If all three are equal, we immediately return \"Yes\". If we finish checking all positions without finding such a triplet, we return \"No\".\n\n### 3. Edge Cases\n- The minimum possible value of `N` is 3, so we always have at least one possible triplet to check.\n- The elements can range from 1 to 100.\n- There may be multiple triplets in the list — we just need one to print \"Yes\".\n\n### 4. Time Complexity\n- The time complexity is **O(N)** since we loop once through the list.\n- The constraints (`N ≤ 100`) allow even a simple implementation to work within 1 second.\n\n### 5. Code Implementation\n\nHere's the complete and correct solution:\n\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three consecutive equal elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        found = True\n        break\n\n# Print result\nprint(\"Yes\" if found else \"No\")\n```\n\n### 6. Sample Test Cases\n- **Sample Input 1:** `5` and `[1, 4, 4, 4, 2]` → Output: `Yes`\n- **Sample Input 2:** `6` and `[2, 4, 4, 2, 2, 4]` → Output: `No`\n- **Sample Input 3:** `8` and `[1, 4, 2, 5, 7, 7, 7, 2]` → Output: `Yes`\n- **Sample Input 4:** `10` and `[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]` → Output: `No`\n- **Sample Input 5:** `13` and `[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]` → Output: `Yes`\n\nThe code works correctly for all these cases and handles the constraints efficiently."
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772534385",
+  "question_index": 8,
+  "question_id": "25",
+  "split": "train",
+  "sample_id": 3,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 53.49391055107117,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    X = int(data[1])\n    \n    U = []\n    D = []\n    S = []\n    \n    index = 2\n    for _ in range(N):\n        u = int(data[index])\n        d = int(data[index + 1])\n        U.append(u)\n        D.append(d)\n        S.append(u + d)\n        index += 2\n    \n    # Possible H must lie between min(S) and max(S)\n    min_H = min(S)\n    max_H = max(S)\n    \n    # For each candidate H, compute the minimal cost\n    # We will use DP to check if the upper row can be adjusted with adjacency <= X\n    \n    def compute_cost(H):\n        # Adjusted U values\n        adjusted_U = []\n        # Cost to adjust U and D to make U[i] + D[i] = H\n        total_cost = 0\n        \n        for i in range(N):\n            current_S = U[i] + D[i]\n            delta = current_S - H\n            if delta < 0:\n                return float('inf')  # Can't decrease sum below H\n            total_cost += delta  # This is the cost to adjust D[i] or U[i]\n        \n        # Now, we need to adjust the upper row such that |U[i] - U[i+1]| <= X\n        # We can choose any values for U[i], but they must satisfy U[i] + D[i] = H => U[i] = H - D[i]\n        \n        # Check if the adjusted U meets the condition\n        for i in range(N - 1):\n            u1 = H - D[i]\n            u2 = H - D[i + 1]\n            if abs(u1 - u2) > X:\n                return float('inf')\n        \n        return total_cost\n    \n    # Since the constraints are tight, we can try all possible H's in the range [min_S, max_S]\n    # But since N is large, we need to use a more efficient method\n    \n    # To optimize, we consider all unique S values and some nearby candidates\n    unique_S = sorted(set(S))\n    \n    min_total_cost = float('inf')\n    \n    for h in unique_S:\n        cost = compute_cost(h)\n        if cost < min_total_cost:\n            min_total_cost = cost\n    \n    print(min_total_cost)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772537624",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 9,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 10.796961307525635,
+  "response": "To solve this problem, we need to determine if a positive integer `B` exists such that the product of `A` (number of rows) and `B` (number of columns) equals 400. This is because the total number of people is fixed at 400, and they must be arranged without gaps in a rectangular formation.\n\n### Key Observations:\n1. We are given an integer `A` between 1 and 400.\n2. We need to find a positive integer `B` such that `A * B = 400`.\n3. If such `B` does not exist (i.e., 400 is not divisible by `A`), we should return `-1`.\n\n### Approach:\n- Check if 400 is divisible by `A`. If it is, then `B = 400 // A`.\n- If it is not divisible, return `-1`.\n\nThis is straightforward and efficient with time complexity **O(1)**, as it involves only a single division and check.\n\n### Python Code:\n```python\n# Read input from standard input\nA = int(input())\n\n# Check if A divides 400 exactly\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```"
+}

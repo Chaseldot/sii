@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772534385",
+  "question_index": 10,
+  "question_id": "28",
+  "split": "train",
+  "sample_id": 10,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 26.697023391723633,
+  "response": "```python\nimport sys\nimport heapq\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    M = int(data[1])\n    X = int(data[2])\n    \n    edges = []\n    for i in range(M):\n        u = int(data[3 + 2*i])\n        v = int(data[3 + 2*i + 1])\n        edges.append((u, v))\n    \n    # Build adjacency list for the new graph (with 2N nodes)\n    adj = [[] for _ in range(2 * N)]\n    \n    # Original edges: (u -> v) in original state (0) and (v -> u) in reversed state (1)\n    for u, v in edges:\n        adj[2 * u - 2].append((2 * v - 2, 1))  # move along original edge\n        adj[2 * v - 1].append((2 * u - 1, 1))  # move along reversed edge\n    \n    # Reversing cost from state 0 to 1 and vice versa\n    for i in range(N):\n        adj[2 * i].append((2 * i + 1, X))\n        adj[2 * i + 1].append((2 * i, X))\n    \n    # Dijkstra's algorithm\n    INF = float('inf')\n    dist = [INF] * (2 * N)\n    dist[0] = 0\n    heap = [(0, 0)]  # (cost, node)\n    \n    while heap:\n        cost, node = heapq.heappop(heap)\n        if cost > dist[node]:\n            continue\n        if node == 2 * N - 1 or node == 2 * N - 2:\n            break\n        for neighbor, weight in adj[node]:\n            if dist[neighbor] > dist[node] + weight:\n                dist[neighbor] = dist[node] + weight\n                heapq.heappush(heap, (dist[neighbor], neighbor))\n    \n    print(min(dist[2 * N - 2], dist[2 * N - 1]))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

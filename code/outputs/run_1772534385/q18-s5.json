@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772534385",
+  "question_index": 18,
+  "question_id": "64",
+  "split": "train",
+  "sample_id": 5,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 30.431452989578247,
+  "response": "```python\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    A = list(map(int, data[1:]))\n    \n    # If there are no zeros, output is Yes\n    if all(a == 1 for a in A):\n        print(\"Yes\")\n        return\n\n    # We simulate a greedy approach to remove zeros\n    # We will iterate through the array and attempt to apply operations\n    # to eliminate zeros whenever possible\n\n    # Make a copy to avoid modifying the original A\n    A = A.copy()\n    i = 0\n    while i < N:\n        if A[i] == 0:\n            # Try to apply operation 1: S_i = A, S_{i+1} = R, S_{i+2} = C\n            # Check if we can form this pattern\n            if i + 2 < N:\n                # Simulate applying the operation\n                A[i] = 1\n                A[i + 1] = 1\n                i += 1\n            elif i + 1 < N:\n                # Try operation 2: S_{i+2} = A, S_{i+1} = R, S_i = C\n                # Simulate applying the operation\n                A[i] = 1\n                A[i + 1] = 1\n                i += 1\n            else:\n                # Not enough elements to apply any operation\n                print(\"No\")\n                return\n        else:\n            i += 1\n\n    # After processing, check if all elements are 1\n    if all(a == 1 for a in A):\n        print(\"Yes\")\n    else:\n        print(\"No\")\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

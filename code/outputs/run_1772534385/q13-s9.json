@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772534385",
+  "question_index": 13,
+  "question_id": "43",
+  "split": "train",
+  "sample_id": 9,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 23.10541343688965,
+  "response": "```python\ndef shortest_palindrome():\n    import sys\n    S = sys.stdin.readline().strip()\n    if not S:\n        print(\"\")\n        return\n    \n    reversed_S = S[::-1]\n    combined = S + '#' + reversed_S\n    lps = [0] * len(combined)\n    \n    for i in range(1, len(combined)):\n        j = lps[i - 1]\n        while j > 0 and combined[i] != combined[j]:\n            j = lps[j - 1]\n        if combined[i] == combined[j]:\n            j += 1\n        lps[i] = j\n    \n    longest_palindromic_suffix_length = lps[-1]\n    chars_to_add = S[:len(S) - longest_palindromic_suffix_length][::-1]\n    print(S + chars_to_add)\n\nshortest_palindrome()\n```"
+}

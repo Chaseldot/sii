@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772534385",
+  "question_index": 0,
+  "question_id": "0",
+  "split": "train",
+  "sample_id": 2,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 54.18778371810913,
+  "response": "```python\nimport sys\nimport bisect\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    idx = 0\n    N = int(data[idx])\n    idx += 1\n    W = int(data[idx])\n    idx += 1\n    \n    blocks_by_column = [[] for _ in range(W + 1)]  # 1-based indexing for columns\n    for i in range(N):\n        X = int(data[idx])\n        idx += 1\n        Y = int(data[idx])\n        idx += 1\n        blocks_by_column[X].append((Y, i))  # store (original Y, original index)\n    \n    # Sort each column's blocks by Y (row)\n    for x in range(1, W + 1):\n        blocks_by_column[x].sort()\n    \n    Q = int(data[idx])\n    idx += 1\n    \n    queries = []\n    for _ in range(Q):\n        T = int(data[idx])\n        idx += 1\n        A = int(data[idx]) - 1  # Convert to 0-based index\n        idx += 1\n        queries.append((T, A))\n    \n    # Store the original positions of all blocks\n    block_originals = []\n    for i in range(N):\n        X = int(data[idx])\n        idx += 1\n        Y = int(data[idx])\n        idx += 1\n        block_originals.append((X, Y, i))\n    \n    # Process queries\n    results = []\n    for T, A in queries:\n        original_X, original_Y, original_index = block_originals[A]\n        col = blocks_by_column[original_X]\n        \n        # Find the position of this block in the sorted list of its column\n        pos = bisect.bisect_left(col, (original_Y, original_index))\n        if pos >= len(col) or col[pos][0] != original_Y:\n            results.append(\"No\")\n            continue\n        \n        n = len(col)\n        i = pos  # number of blocks above (including itself)\n        max_fall = (original_Y - 1) - (n - i - 1)\n        if max_fall < 0:\n            max_fall = 0\n        if T <= max_fall:\n            results.append(\"Yes\")\n        else:\n            results.append(\"No\")\n    \n    for res in results:\n        print(res)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

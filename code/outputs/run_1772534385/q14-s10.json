@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772534385",
+  "question_index": 14,
+  "question_id": "53",
+  "split": "train",
+  "sample_id": 10,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 56.61588478088379,
+  "response": "```python\nMOD = 998244353\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    K = int(data[1])\n    A = list(map(int, data[2:2+N]))\n    \n    # dp[k][i] represents the sum of (sum of subarrays ending at i)^k\n    dp = [[0] * (N + 1) for _ in range(K + 1)]\n    \n    prefix = [0] * (N + 1)\n    for i in range(N):\n        prefix[i + 1] = (prefix[i] + A[i]) % MOD\n    \n    for i in range(1, N + 1):\n        current_sum = prefix[i] - prefix[i - 1]\n        for k in range(K + 1):\n            if k == 0:\n                dp[k][i] = 1\n            else:\n                # Use binomial expansion to calculate the power\n                # (a + b)^k = sum_{m=0}^k C(k, m) * a^m * b^{k-m}\n                # Here, a = previous sum, b = current element\n                # We compute (current_sum)^k using previous results\n                # The recurrence is based on the fact that (sum + new_element)^k can be expanded\n                # But we use the following formula:\n                # dp[k][i] = dp[k][i-1] * current_sum + dp[k-1][i-1] * current_sum\n                # This is derived from the identity: (s + x)^k = s^k + k*s^{k-1}*x\n                # However, in our case, the current_sum is added incrementally as we move from i-1 to i\n                # So we use the recurrence: dp[k][i] = dp[k][i-1] * current_sum + dp[k-1][i-1] * current_sum\n                dp[k][i] = (dp[k][i - 1] * current_sum + dp[k - 1][i - 1] * current_sum) % MOD\n    \n    result = sum(dp[K][i] for i in range(1, N + 1)) % MOD\n    print(result)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

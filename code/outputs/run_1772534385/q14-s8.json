@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772534385",
+  "question_index": 14,
+  "question_id": "53",
+  "split": "train",
+  "sample_id": 8,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 27.602981567382812,
+  "response": "```python\nimport sys\nfrom collections import defaultdict\n\nMOD = 998244353\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    K = int(data[1])\n    A = list(map(int, data[2:2+N]))\n    \n    prefix_sum = 0\n    count = defaultdict(int)\n    count[0] = 1\n    result = 0\n    \n    for a in A:\n        prefix_sum += a\n        # For each previous prefix sum, calculate the subarray sum (current - previous)\n        # and add its contribution\n        for s in count:\n            diff = prefix_sum - s\n            result = (result + pow(diff, K, MOD) * count[s]) % MOD\n        # Update the count of current prefix_sum\n        count[prefix_sum] += 1\n    \n    print(result % MOD)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

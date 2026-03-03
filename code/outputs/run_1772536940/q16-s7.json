@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772536940",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 7,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 8.914602994918823,
+  "response": "To solve this problem, we need to determine a positive integer $ B $ such that the product of $ A $ and $ B $ equals 400. This is because the total number of people is fixed at 400, and they must be arranged in a rectangular formation of $ A $ rows and $ B $ columns.\n\n### Key Observations:\n1. We are given a value of $ A $.\n2. The valid value of $ B $ must satisfy the equation:  \n   $$\n   A \\times B = 400\n   $$\n3. So, $ B = \\frac{400}{A} $. However, $ B $ must also be a **positive integer**, which means $ A $ must be a **divisor of 400**.\n4. If $ A $ is not a divisor of 400, then there is **no** valid $ B $, and we should output `-1`.\n\n### Approach:\n- Check if $ A $ divides 400 evenly.\n- If yes, compute $ B = \\frac{400}{A} $.\n- If no, return `-1`.\n\n### Time and Space Complexity:\n- **Time complexity**: $ O(1) $, since all operations are constant time.\n- **Space complexity**: $ O(1) $, as we use only a few variables.\n\n### Sample Cases:\n- Input: `10`, Output: `40` → $ 10 \\times 40 = 400 $\n- Input: `11`, Output: `-1` → 11 does not divide 400 evenly\n- Input: `400`, Output: `1` → $ 400 \\times 1 = 400 $\n\nNow, here is the complete Python code:\n\n```python\n# Read input\nA = int(input())\n\n# Calculate B\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```"
+}

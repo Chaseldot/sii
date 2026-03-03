@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772536155",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 10,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 9.612680912017822,
+  "response": "### 思路分析\n\n我们需要找出一个正整数 $ B $，使得 $ A \\times B = 400 $（因为总共有 400 人）。换句话说，我们需要找到 400 的一个因数（除了 1 和 400 以外）。\n\n**具体步骤：**\n1. 遍历从 1 到 400 的所有整数，寻找能够整除 400 的数。\n2. 找到一个合适的 $ B $（即满足条件的因数）。例如，如果 $ A = 10 $，则 $ B = 40 $ 是解。\n3. 如果没有符合条件的 $ B $，返回 -1。\n\n**优化：**\n- 只需要遍历 $ 1 $ 到 $ \\sqrt{400} $ 的范围，这可以大大减少时间复杂度。\n\n---\n\n下面是完整的 Python 程序：\n\n```python\nimport sys\nimport math\n\ndef find_B(A):\n    target = 400\n    for b in range(1, int(math.sqrt(target)) + 1):\n        if target % b == 0:\n            if b == A:\n                return target // b\n            if (target // b) == A:\n                return b\n    return -1\n\ndef main():\n    A = int(sys.stdin.readline())\n    print(find_B(A))\n\nif __name__ == \"__main__\":\n    main()\n``` \n\n### 测试示例\n\n- 输入：`10` → 输出：`40`\n- 输入：`11` → 输出：`-1`\n- 输入：`400` → 输出：`1`\n\n这段代码是高效的，并且在给定的时间限制（1 秒）内可以处理最大值 $ A = 400 $。"
+}

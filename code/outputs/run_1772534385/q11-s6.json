@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772534385",
+  "question_index": 11,
+  "question_id": "29",
+  "split": "train",
+  "sample_id": 6,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 50.288063049316406,
+  "response": "```python\nimport sys\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    \n    H = int(data[0])\n    W = int(data[1])\n    grid = data[2:H+2]\n    \n    min_total = float('inf')\n    \n    # Precompute row representations as integers\n    rows = []\n    for row in grid:\n        val = 0\n        for c in row:\n            val = (val << 1) | int(c)\n        rows.append(val)\n    \n    # Enumerate all possible column flip combinations (2^W)\n    for mask in range(1 << W):\n        total = 0\n        for row in rows:\n            # Apply column flips\n            flipped_row = row ^ mask\n            # Count 1s in the row after flipping\n            count_ones = bin(flipped_row).count('1')\n            # Decide whether to flip the row\n            if count_ones > (W - count_ones):\n                total += (W - count_ones)\n            else:\n                total += count_ones\n        min_total = min(min_total, total)\n    \n    print(min_total)\n\nmain()\n```"
+}

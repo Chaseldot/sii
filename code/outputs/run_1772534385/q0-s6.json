@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772534385",
+  "question_index": 0,
+  "question_id": "0",
+  "split": "train",
+  "sample_id": 6,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 32.50247645378113,
+  "response": "```python\nimport sys\nimport bisect\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    idx = 0\n    N = int(data[idx])\n    idx += 1\n    W = int(data[idx])\n    idx += 1\n    \n    blocks = []\n    for i in range(N):\n        X = int(data[idx])\n        idx += 1\n        Y = int(data[idx])\n        idx += 1\n        blocks.append((Y, X, i))\n    \n    # Sort blocks by Y (initial row), then by X (column)\n    blocks.sort()\n    \n    # Prepare a list of columns with sorted Y values\n    column_data = [[] for _ in range(W)]\n    for Y, X, idx_block in blocks:\n        column_data[X - 1].append(Y)\n    \n    # Process each column to compute fall times\n    fall_time = [0] * N\n    final_row = [0] * N\n    \n    for col_idx in range(W):\n        ys = column_data[col_idx]\n        if not ys:\n            continue\n        # For each Y in sorted order, determine how many steps it takes to settle\n        # We'll process from bottom to top\n        ys_sorted = sorted(ys)\n        prev = 0\n        for y in ys_sorted:\n            # The number of blocks below is the number of elements before this one\n            count_below = bisect.bisect_left(ys_sorted, y)  # Since sorted, it's the index\n            time_to_settle = y - count_below\n            # Time taken to fall to its current position\n            fall_time[idx_block] = time_to_settle\n            final_row[idx_block] = y + time_to_settle  # Final row after settling\n    \n    Q = int(data[idx])\n    idx += 1\n    queries = []\n    for _ in range(Q):\n        T = int(data[idx])\n        idx += 1\n        A = int(data[idx]) - 1  # Convert to 0-based index\n        idx += 1\n        queries.append((T, A))\n    \n    # Process queries\n    results = []\n    for T, A in queries:\n        if fall_time[A] <= T:\n            results.append(\"Yes\")\n        else:\n            results.append(\"No\")\n    \n    print('\\n'.join(results))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

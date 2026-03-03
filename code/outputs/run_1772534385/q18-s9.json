@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772534385",
+  "question_index": 18,
+  "question_id": "64",
+  "split": "train",
+  "sample_id": 9,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 40.02880239486694,
+  "response": "```python\nimport sys\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    A = list(map(int, data[1:]))\n    \n    # If there are no zeros, output Yes\n    if all(a == 1 for a in A):\n        print(\"Yes\")\n        return\n    \n    zero_positions = [i for i in range(N) if A[i] == 0]\n    zero_count = len(zero_positions)\n    \n    # If the number of zeros is odd, it's impossible to clear them with operations that affect two zeros at a time\n    if zero_count % 2 != 0:\n        print(\"No\")\n        return\n    \n    # We can try to greedily apply the operations\n    # Use a while loop to process zeros until none are left or we can't proceed\n    processed = set()\n    \n    while zero_count > 0:\n        found = False\n        for i in range(N):\n            if i in processed:\n                continue\n            # Check if current and next position are zero (circular)\n            j = (i + 1) % N\n            if A[i] == 0 and A[j] == 0:\n                # Apply one of the operations which affects these two zeros\n                A[i] = 1\n                A[j] = 1\n                zero_count -= 2\n                processed.add(i)\n                processed.add(j)\n                found = True\n                break\n        if not found:\n            # No more pairs of zeros to process\n            print(\"No\")\n            return\n    \n    print(\"Yes\")\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

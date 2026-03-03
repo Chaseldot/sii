@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772537624",
+  "question_index": 6,
+  "question_id": "17",
+  "split": "train",
+  "sample_id": 3,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 9.983265399932861,
+  "response": "To solve this problem, we need to replace all occurrences of the substring \"WA\" in a given string with \"AC\", but with an important condition — we must always replace the **leftmost** occurrence first. This means that every time we find and replace a \"WA\", the replacement may create new \"WA\"s further left due to the shift in characters, so we can't process the string once and be done.\n\n### Key Observations:\n1. We need to process the string from **left to right**, checking for \"WA\" as we go.\n2. Every time we find a \"WA\", we replace it with \"AC\".\n3. After such a replacement, we need to check again from the beginning of the string (or the updated position) because replacing \"WA\" might cause a new \"WA\" to appear earlier in the string.\n4. The process stops when no more \"WA\" appears in the string.\n\n### Efficient Implementation:\nWe'll simulate the process using a `while` loop that continues until no more \"WA\" is found. At each iteration, we scan the string from left to right, look for \"WA\", and replace it immediately. We will use string slicing for efficient replacement on each iteration.\n\nLet's proceed with the code:\n\n```python\ndef main():\n    import sys\n    S = sys.stdin.readline().strip()\n    \n    while True:\n        pos = S.find(\"WA\")\n        if pos == -1:  # No more \"WA\" found\n            break\n        # Replace \"WA\" at position pos with \"AC\"\n        S = S[:pos] + \"AC\" + S[pos+2:]\n    \n    print(S)\n\nif __name__ == \"__main__\":\n    main()\n```\n\nThis approach ensures that we always replace the leftmost occurrence first and continue until no more replacements are possible. It runs efficiently within the given constraints.\n\n### Time Complexity:\nThe worst-case complexity is $ O(n^2) $ in the case of multiple replacements, which is acceptable for $ n \\leq 3 \\times 10^5 $."
+}

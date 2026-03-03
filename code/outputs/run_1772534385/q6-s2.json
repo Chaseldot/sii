@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772534385",
+  "question_index": 6,
+  "question_id": "17",
+  "split": "train",
+  "sample_id": 2,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 15.113102674484253,
+  "response": "```python\ndef main():\n    import sys\n    input = sys.stdin.read\n    S = input().strip()\n    stack = []\n    for char in S:\n        stack.append(char)\n        while len(stack) >= 2 and stack[-2] == 'W' and stack[-1] == 'A':\n            # Replace \"WA\" with \"AC\"\n            stack.pop()\n            stack.pop()\n            stack.append('A')\n            stack.append('C')\n    print(''.join(stack))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

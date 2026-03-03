@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772539615",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 0,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 11.13500165939331,
+  "response": "### 思路分析\n\n1. **问题理解**: 我们需要为每个人分配一个排名。这个排名的计算方式是，每次找出当前尚未确定排名的人中最高分，并将所有与该最高分相等的人都赋予当前的排名 `r`，然后 `r` 加上这些人的数量。\n   \n2. **处理顺序**: 为了找出每一轮的最高分并分配排名，我们需要不断地从剩余未确定排名的人中选出最大值。\n\n3. **数据结构选择**:\n   - 使用一个列表保存每个人的分数和其原始位置。\n   - 使用一个集合来记录哪些人尚未确定排名。\n   - 每次循环时，找出当前剩余人的最大分数，然后计算这些人的数量，并分配相同排名。\n\n4. **边界条件**:\n   - 如果所有人都有相同的分数，他们都会被分配为 `r = 1`。\n   - 如果所有人的分数都不同，每个人的排名都为 `1, 2, 3,...`。\n\n5. **时间复杂度**:\n   - 对于每个元素，我们最多遍历一次，总共有 $O(N)$ 次操作。\n   - 使用一个堆（优先队列）可以帮助更高效地找到当前的最大得分，但这在 $N \\leq 100$ 的限制下不是必须的。\n\n---\n\n### Python代码实现\n\n```python\n# Read input\nN = int(input())\nP = list(map(int, input().split()))\n\n# Create a list of tuples (score, original index)\npeople = [(P[i], i + 1) for i in range(N)]\n\n# A set to keep track of people whose rank is not yet determined\nundetermined = set(range(1, N + 1))\n\n# A list to store the rank for each person\nrank = [0] * (N + 1)  # indices from 1 to N\n\nr = 1  # current rank\n\nwhile undetermined:\n    # Find the maximum score among determined people\n    max_score = -1\n    for person in undetermined:\n        if P[person - 1] > max_score:\n            max_score = P[person - 1]\n    \n    # Find all people with this max_score\n    current_people = []\n    for person in undetermined:\n        if P[person - 1] == max_score:\n            current_people.append(person)\n    \n    # Assign the rank r to these people\n    for person in current_people:\n        rank[person] = r\n    \n    # Update r\n    r += len(current_people)\n    \n    # Remove these people from undetermined\n    for person in current_people:\n        undetermined.remove(person)\n\n# Output the ranks\nfor i in range(1, N + 1):\n    print(rank[i])\n```"
+}

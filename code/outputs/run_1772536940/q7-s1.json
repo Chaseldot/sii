@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772536940",
+  "question_index": 7,
+  "question_id": "20",
+  "split": "train",
+  "sample_id": 1,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 4.948296308517456,
+  "response": "To solve this problem, we need to filter a given string of digits and retain only the characters that are '2'. After filtering, we concatenate the remaining characters in their original order to form the final output string.\n\n### Step-by-step Breakdown:\n1. **Input**: Read the input string `S`.\n2. **Filtering**: Iterate through each character in `S` and collect only those characters that are equal to `'2'`.\n3. **Concatenation**: Join the filtered characters into a single string.\n4. **Output**: Print the resulting string.\n\nThis approach is efficient with time complexity **O(n)**, where `n` is the length of the input string, since we only traverse the string once and perform constant-time operations for each character.\n\n### Edge Cases Considered:\n- The input may contain no other characters except '2', e.g., `\"2\"`.\n- The input could be up to 100 characters long, as per constraints.\n- The input guarantees at least one occurrence of `'2'`, so we don't have to handle empty outputs.\n\n### Code Implementation:\n\n```python\n# Read input from standard input\nS = input().strip()\n\n# Filter out all characters except '2'\nfiltered = [char for char in S if char == '2']\n\n# Concatenate the filtered characters into a single string\nresult = ''.join(filtered)\n\n# Print the result\nprint(result)\n```"
+}

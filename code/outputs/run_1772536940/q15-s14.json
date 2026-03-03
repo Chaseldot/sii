@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772536940",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 14,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 9.601868152618408,
+  "response": "To solve this problem, we need to determine the rank of each participant based on their scores according to a specific ranking procedure. The key idea is:\n\n- We repeatedly find the highest score among those who haven't been assigned a rank yet.\n- All people with that highest score get the current rank `r`.\n- Then, we update `r` by adding the number of people who received this rank.\n\n### Steps:\n1. Read the input values.\n2. Sort the scores along with their original indices.\n3. Process each group of people with the same score in descending order of scores.\n4. Assign ranks accordingly.\n\nHere's the full and correct Python implementation:\n\n```python\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:N+1]))\n    \n    # Create a list of tuples (score, index)\n    participants = [(P[i], i + 1) for i in range(N)]\n    \n    # Sort the participants in descending order of scores\n    participants.sort(reverse=True, key=lambda x: x[0])\n    \n    # Initialize rank variable and a result array\n    r = 1\n    result = [0] * (N + 1)  # Using 1-based indexing\n    \n    i = 0\n    while i < N:\n        current_score = participants[i][0]\n        count = 1\n        # Count how many people have the same score\n        while i + count < N and participants[i + count][0] == current_score:\n            count += 1\n        \n        # Assign rank r to all participants with current_score\n        for j in range(i, i + count):\n            result[participants[j][1]] = r\n        \n        # Update r\n        r += count\n        \n        # Move to the next group of people with different score\n        i += count\n    \n    # Print the results for each person from 1 to N\n    for i in range(1, N + 1):\n        print(result[i])\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

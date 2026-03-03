@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772534385",
+  "question_index": 8,
+  "question_id": "25",
+  "split": "train",
+  "sample_id": 7,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 73.08832907676697,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    X = int(data[1])\n    \n    U = []\n    D = []\n    for i in range(N):\n        U.append(int(data[2 + 2*i]))\n        D.append(int(data[3 + 2*i]))\n    \n    # Compute the minimum and maximum possible H values\n    min_sum = min(U[i] + D[i] for i in range(N))\n    max_sum = max(U[i] + D[i] for i in range(N))\n    \n    # We will try all H in this range to find the one with minimum cost\n    # For each H, we calculate the required adjustments and check smoothness\n    \n    min_cost = float('inf')\n    \n    for H in range(min_sum, max_sum + 1):\n        cost = 0\n        prev_u = None\n        valid = True\n        \n        for i in range(N):\n            u = U[i]\n            d = D[i]\n            new_u = H - d\n            new_d = H - u\n            \n            if new_u < 0 or new_d < 0:\n                valid = False\n                break\n            \n            if prev_u is not None:\n                if abs(prev_u - new_u) > X:\n                    valid = False\n                    break\n            prev_u = new_u\n            \n            cost += (u - new_u) + (d - new_d)\n        \n        if valid:\n            min_cost = min(min_cost, cost)\n    \n    print(min_cost)\n\nif __name__ == '__main__':\n    main()\n```"
+}

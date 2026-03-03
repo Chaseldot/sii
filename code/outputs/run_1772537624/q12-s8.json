@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772537624",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 8,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 12.108088254928589,
+  "response": "To solve this problem, we need to determine if there exists a subsequence of three or more identical elements in a row within the given array.\n\n### Key Observations:\n- The input is an array of integers with length $ N $, where $ 3 \\leq N \\leq 100 $.\n- We must check for **three or more** consecutive equal elements. This can be done by iterating through the array and comparing each element with its next two neighbors.\n- The time complexity is O(N), which is acceptable given the small constraint on $ N $.\n\n### Approach:\n1. Iterate through the array from index 0 to $ N - 3 $.\n2. For each index $ i $, check whether $ A[i] = A[i+1] = A[i+2] $.\n3. If any such occurrence is found, print \"Yes\" and terminate the program.\n4. If no such occurrence is found after the entire iteration, print \"No\".\n\nHere is the full Python code that implements the above logic:\n\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three consecutive equal elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        found = True\n        break\n\n# Print result\nprint(\"Yes\" if found else \"No\")\n```"
+}

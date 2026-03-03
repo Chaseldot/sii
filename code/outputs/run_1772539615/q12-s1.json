@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772539615",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 1,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 5.438138008117676,
+  "response": "我将按照步骤分析该问题并提供解决方案。\n\n### 分析题目\n我们要检查一个长度为 N 的整数序列 A 是否存在三个或更多连续相同的元素。换句话说，我们需要判断是否存在某个 i (1 ≤ i ≤ N−2)，使得 A_i = A_{i+1} = A_{i+2}。\n\n### 约束条件\n- 3 ≤ N ≤ 100\n- 1 ≤ A_i ≤ 100\n- 所有输入值都是整数\n\n### 解题逻辑\n我们可以遍历数组从第 0 个到第 N-3 个元素，并检查是否有连续的三个相等的元素。\n\n### 编写代码\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three consecutive equal elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        found = True\n        break\n\n# Output the result\nprint(\"Yes\" if found else \"No\")\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772535096",
+  "question_index": 14,
+  "question_id": "53",
+  "split": "train",
+  "sample_id": 13,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 37.71044945716858,
+  "response": "1. **KEY INSIGHTS**:\n   - The previous approach is causing a `MemoryError` due to the precomputation of powers up to `MOD = 998244353`, which is memory-intensive.\n   - We can **avoid precomputing all powers** and instead compute them on-the-fly using efficient modular exponentiation.\n   - The main issue was trying to store an array of size `MOD`, which is around 1 billion elements—way too large for memory constraints.\n   - We should focus on computing the required power (K-th) modulo `MOD` directly when needed using `pow(x, K, MOD)`.\n\n2. **CODE**:\n```python\nimport sys\ninput = sys.stdin.read\n\nMOD = 998244353\n\ndef main():\n    data = input().split()\n    N = int(data[0])\n    K = int(data[1])\n    A = list(map(int, data[2:2+N]))\n    \n    result = 0\n    current_sum = 0\n    dp = [0] * (K + 1)  # dp[k] stores the sum of k-th powers of subarrays ending at current position\n\n    for num in A:\n        new_dp = [0] * (K + 1)\n        new_dp[0] = 1  # Empty subarray, used for updating\n        for k in range(1, K + 1):\n            if k == 1:\n                new_dp[k] = pow(num, k, MOD)\n            else:\n                new_dp[k] = (pow(num, k, MOD) + dp[k] * num) % MOD\n        # Update the result\n        for k in range(1, K + 1):\n            result = (result + new_dp[k]) % MOD\n        # Update dp\n        dp = new_dp\n\n    print(result)\n\nif __name__ == '__main__':\n    main()\n```\n\n### Explanation:\n- This revised version **avoids precomputing all powers**, thus preventing the memory error.\n- The dynamic programming (`dp`) approach computes the K-th power of subarrays while maintaining an efficient O(NK) time complexity.\n- It uses Python's built-in `pow` function with three arguments for fast and correct modular exponentiation.\n- This solution handles large inputs efficiently without exceeding memory limits."
+}

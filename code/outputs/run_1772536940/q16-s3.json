@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772536940",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 3,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 7.8178064823150635,
+  "response": "To solve this problem, we need to determine if a given integer A can divide 400 into a rectangular formation of A rows and B columns. This means that B must be such that:\n\n$$\nA \\times B = 400\n$$\n\nWe are looking for a positive integer B such that this equation holds true. If there is no such integer B (i.e., if 400 is not divisible by A), we should return -1.\n\n### Steps:\n1. Iterate through all possible divisors of 400 to find a valid B such that $A \\times B = 400$.\n2. Check if the input value A divides 400 evenly.\n3. If it does, then B is $400 / A$, otherwise, return -1.\n\n### Time and Space Complexity:\n- **Time Complexity:** $O(1)$ since there is a fixed number of integers from 1 to 400.\n- **Space Complexity:** $O(1)$ as we are using only a few variables.\n\n### Edge Cases:\n- If A = 1, B = 400.\n- If A = 400, B = 1.\n- If A is a prime number that does not divide 400 evenly (e.g., A = 11), print -1.\n\n### Final Code:\n\n```python\n# Read input\nA = int(input())\n\n# Calculate B\nB = 400 // A\n\n# Check if A divides 400 evenly\nif A * B == 400:\n    print(B)\nelse:\n    print(-1)\n```"
+}

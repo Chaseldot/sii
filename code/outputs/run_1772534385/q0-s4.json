@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772534385",
+  "question_index": 0,
+  "question_id": "0",
+  "split": "train",
+  "sample_id": 4,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 41.56148409843445,
+  "response": "```python\nimport sys\nimport bisect\nfrom collections import defaultdict\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    \n    idx = 0\n    N = int(data[idx])\n    idx += 1\n    W = int(data[idx])\n    idx += 1\n    \n    blocks = {}\n    column_map = defaultdict(list)\n    \n    for i in range(N):\n        X = int(data[idx])\n        idx += 1\n        Y = int(data[idx])\n        idx += 1\n        blocks[i] = (X, Y)\n        bisect.insort(column_map[X], Y)\n    \n    Q = int(data[idx])\n    idx += 1\n    \n    queries = []\n    for _ in range(Q):\n        T = int(data[idx])\n        idx += 1\n        A = int(data[idx]) - 1  # convert to 0-based index\n        idx += 1\n        queries.append((T, A))\n    \n    results = []\n    \n    for T, A in queries:\n        X, Y = blocks[A]\n        col = column_map[X]\n        \n        # Find the index of Y in the column list\n        pos = bisect.bisect_left(col, Y)\n        \n        # Count how many blocks are below Y (i.e., can block this block from falling)\n        count_below = len(col) - pos - 1\n        \n        # How many steps the block can fall before getting blocked\n        max_fall = min(T, count_below)\n        \n        # New Y after falling max_fall steps\n        new_Y = Y + max_fall\n        \n        # The block exists at time T+0.5 if it is still in the grid\n        if new_Y <= 10**9:\n            results.append(\"Yes\")\n        else:\n            results.append(\"No\")\n    \n    print('\\n'.join(results))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

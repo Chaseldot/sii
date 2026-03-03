@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772534385",
+  "question_index": 18,
+  "question_id": "64",
+  "split": "train",
+  "sample_id": 4,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 38.401909589767456,
+  "response": "```python\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    A = list(map(int, data[1:]))\n    \n    # If there are no zeros, output Yes\n    if all(a == 1 for a in A):\n        print(\"Yes\")\n        return\n    \n    # Convert A to a list for easier manipulation\n    A = [a for a in A]\n    \n    # To keep track of positions that have been processed\n    processed = [False] * N\n    \n    for i in range(N):\n        if not processed[i] and A[i] == 0:\n            # Try Operation 1: S_i = A, S_{i+1} = R, S_{i+2} = C\n            j = (i + 1) % N\n            k = (i + 2) % N\n            # We assume that we can form the string such that these positions match the required pattern\n            # So we mark this zero as processed and consider it fixed\n            # This is just simulation based on the problem's logic\n            \n            # Look for the next unprocessed zero to pair with\n            found = False\n            for j in range(i + 1, i + 3):\n                idx = j % N\n                if not processed[idx] and A[idx] == 0:\n                    # Pair them\n                    processed[i] = True\n                    processed[idx] = True\n                    found = True\n                    break\n            if not found:\n                # Try the other direction\n                for j in range(i - 1, i - 3, -1):\n                    idx = j % N\n                    if not processed[idx] and A[idx] == 0:\n                        # Pair them\n                        processed[i] = True\n                        processed[idx] = True\n                        found = True\n                        break\n            if not found:\n                # No way to pair this zero with another, so it's impossible\n                print(\"No\")\n                return\n    \n    # After processing, check if all zeros are eliminated\n    if all(a == 1 for a in A):\n        print(\"Yes\")\n    else:\n        print(\"No\")\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

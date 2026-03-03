@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772536940",
+  "question_index": 7,
+  "question_id": "20",
+  "split": "train",
+  "sample_id": 5,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.30879282951355,
+  "response": "To solve the given problem, we need to follow these steps:\n\n### Problem Analysis\n- We are given a string `S` consisting of digits.\n- We need to filter out all characters from `S` that are **not** equal to `'2'`.\n- Then, we concatenate the remaining `'2'` characters in their original order to form a new string.\n- The input is guaranteed to contain at least one '2', so there will always be some output.\n\n### Approach\n1. Iterate through each character in the input string `S`.\n2. Check if the character is `'2'`.\n3. Collect all such characters into a new string.\n4. Output the resulting string.\n\nThis approach is straightforward and efficient, with a time complexity of **O(n)**, where `n` is the length of the input string. This is optimal for the given constraints.\n\n### Solution Code\n\n```python\n# Read input from standard input\nS = input().strip()\n\n# Filter out all characters that are not '2'\nresult = ''.join([ch for ch in S if ch == '2'])\n\n# Print the result\nprint(result)\n```\n\n### Explanation\n- `input().strip()` reads the input and removes any leading/trailing whitespace.\n- A list comprehension iterates over each character in `S`, including only those that are `'2'`.\n- `''.join(...)` concatenates these characters into a single string.\n- Finally, `print(result)` outputs the new string containing only the `'2'` characters in their original order.\n\nThis code is clean, efficient, and handles all test cases as specified."
+}

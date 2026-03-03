@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772534385",
+  "question_index": 18,
+  "question_id": "64",
+  "split": "train",
+  "sample_id": 12,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 30.648494958877563,
+  "response": "```python\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    A = list(map(int, data[1:N+1]))\n    \n    zero_positions = [i for i in range(N) if A[i] == 0]\n    \n    if not zero_positions:\n        print(\"Yes\")\n        return\n    \n    i = 0\n    while i < len(zero_positions):\n        pos = zero_positions[i]\n        # Check if we can cover pos and pos+1\n        if pos + 1 < N and A[pos + 1] == 0:\n            i += 1\n        else:\n            # Check if there is a zero at pos + 2 (wrap around)\n            if (pos + 2) % N == zero_positions[i + 1]:\n                i += 2\n            else:\n                print(\"No\")\n                return\n        i += 1\n    \n    print(\"Yes\")\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

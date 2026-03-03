@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772534385",
+  "question_index": 1,
+  "question_id": "3",
+  "split": "train",
+  "sample_id": 15,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 41.479806661605835,
+  "response": "```python\nimport sys\nfrom functools import lru_cache\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    A = data[1]\n\n    @lru_cache(maxsize=None)\n    def min_flips(current_level, target):\n        if current_level == 0:\n            # Base case: single character, check if it matches the target\n            return 0 if A[0] == str(target) else 1\n\n        res = 0\n        for i in range(3 ** (current_level - 1)):\n            group_start = i * 3\n            group_end = group_start + 3\n            group = A[group_start:group_end]\n            count_0 = group.count('0')\n            count_1 = group.count('1')\n\n            if count_0 > count_1:\n                majority = '0'\n            elif count_1 > count_0:\n                majority = '1'\n            else:\n                # Tie: need to change at least 2 bits to flip the majority\n                res += 2\n                continue\n\n            if majority != str(target):\n                # Need to flip majority of this group\n                res += 2\n\n        # Recursively call for next level\n        return min_flips(current_level - 1, target)\n\n    # Determine original final value by simulating the process\n    current_str = A\n    for _ in range(N):\n        new_str = ''\n        for i in range(0, len(current_str), 3):\n            group = current_str[i:i+3]\n            count_0 = group.count('0')\n            count_1 = group.count('1')\n            if count_0 > count_1:\n                new_str += '0'\n            else:\n                new_str += '1'\n        current_str = new_str\n\n    original_final = int(current_str[0])\n\n    if original_final == 1:\n        # Need to flip to 0\n        flips_to_0 = min_flips(N, 0)\n        print(flips_to_0)\n    else:\n        # Need to flip to 1\n        flips_to_1 = min_flips(N, 1)\n        print(flips_to_1)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

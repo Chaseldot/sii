@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772536940",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 5,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 10.709020614624023,
+  "response": "I will analyze and solve this problem step-by-step:\n\n### Step-by-step Analysis\n\n1. **Understanding the Problem**:  \n   We are given an integer sequence of length N, and we need to check whether there exists a triplet of consecutive elements that are the same.\n\n2. **Input/Output Format**:  \n   - Input: Integer N followed by a list of N integers.  \n   - Output: \"Yes\" if three or more identical elements appear consecutively, else \"No\".\n\n3. **Constraints**:  \n   - 3 ≤ N ≤ 100  \n   - 1 ≤ A_i ≤ 100  \n   - All input values are integers.\n\n4. **Approach**:  \n   - Loop through the array from index 0 to N-3.  \n   - For each index `i`, check if `A[i] == A[i+1] == A[i+2]`.  \n   - If found, print \"Yes\" and exit.  \n   - If no such triplet is found after the loop, print \"No\".\n\n5. **Edge Cases**:  \n   - Minimum N (N=3) — only one possible triplet.\n   - Maximum N (N=100) — full scan needed.\n   - All elements the same → should return \"Yes\".\n   - No triplets in the array → should return \"No\".\n\n6. **Time Complexity**:  \n   - O(N) — as we scan the array once.\n\nNow I will write the full Python code for the solution:\n\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three consecutive equal elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        found = True\n        break\n\n# Output result\nprint(\"Yes\" if found else \"No\")\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772534385",
+  "question_index": 11,
+  "question_id": "29",
+  "split": "train",
+  "sample_id": 1,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 63.7082359790802,
+  "response": "```python\nimport sys\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    \n    H = int(data[0])\n    W = int(data[1])\n    grid = data[2:2+H]\n    \n    # Convert each row to a list of integers\n    rows = []\n    for row in grid:\n        rows.append([int(c) for c in row])\n    \n    min_sum = float('inf')\n    \n    # Precompute the number of 1s in each column\n    col_ones = [0] * W\n    for i in range(H):\n        for j in range(W):\n            col_ones[j] += rows[i][j]\n    \n    # Try all possible combinations of column flips (2^W)\n    for mask in range(1 << W):\n        total = 0\n        for j in range(W):\n            if (mask >> j) & 1:\n                # Column is flipped; count number of 0s = H - col_ones[j]\n                total += min(col_ones[j], H - col_ones[j])\n            else:\n                # Column is not flipped; count number of 1s = col_ones[j]\n                total += min(col_ones[j], H - col_ones[j])\n        min_sum = min(min_sum, total)\n    \n    print(min_sum)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

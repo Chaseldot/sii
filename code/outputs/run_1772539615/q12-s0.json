@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772539615",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 0,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 7.061979055404663,
+  "response": "我将仔细分析该问题，并提供一个正确的解决方案。\n\n### 问题分析\n我们需要检查序列中是否存在连续的三个相同元素。换句话说，是否存在索引 `i`（1 <= i <= N-2）使得 `A[i] == A[i+1] == A[i+2]`。\n\n### 解题思路\n1. **输入读取**：从标准输入读取整数序列的长度 `N` 和序列本身。\n2. **遍历检查**：循环遍历序列，对于每个索引 `i`（从 0 到 `N-3`），检查是否 `A[i] == A[i+1] == A[i+2]`。\n3. **输出结果**：如果找到这样的位置，立即输出 \"Yes\" 并结束程序；否则，遍历结束后输出 \"No\"。\n\n### 时间和空间复杂度\n- **时间复杂度**: O(N)，因为我们只进行一次线性遍历。\n- **空间复杂度**: O(1)，除了输入外不需要额外空间。\n\n### 边界情况处理\n- 当 `N = 3` 时，只需检查整个序列。\n- 当序列中有多个三连相同的元素时，只要有一个满足即可。\n\n### 考虑样例\n- **Sample Input 1**: `5 1 4 4 4 2` → 存在三连 `4` → 输出 \"Yes\"\n- **Sample Input 2**: `6 2 4 4 2 2 4` → 没有三连 → 输出 \"No\"\n- **Sample Input 3**: `8 1 4 2 5 7 7 7 2` → 存在三连 `7` → 输出 \"Yes\"\n\n### 完整代码\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three consecutive equal elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        found = True\n        break\n\n# Output the result\nprint(\"Yes\" if found else \"No\")\n```"
+}

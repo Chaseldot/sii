@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772536155",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 6,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 13.608465194702148,
+  "response": "### 思考过程\n\n#### 问题理解\n我们需要为每个人计算其在比赛中的排名，根据以下规则：\n- 初始时，所有人的排名都未确定。\n- 每次操作，找出当前未确定排名中分数最高的 `x`，并统计有多少人分数为 `x`（记为 `k`）。\n- 所有这些人的排名设置为当前变量 `r`，然后将 `r` 增加 `k` 值。\n- 重复这个过程，直到所有人的排名都确定。\n\n该问题的关键在于要维护一个动态的数据结构，可以快速找到当前最高分，并记录哪些人还未分配排名。由于 `N` 最大为 100，使用较慢的算法也是可以接受的。\n\n#### 解法分析\n- 使用一个优先队列（或堆）来维护当前尚未被分配排名的人的分数。\n- 需要保留每个人的原始分数。\n- 使用集合和字典来跟踪哪些人未分配排名，并记录每个分数对应的已分配人数。\n- 在每次循环中，从剩余的人的分数中找到最大值，分配排名并更新相关状态。\n\n#### 算法实现\n1. **读取输入**：读取 `N` 和分数列表 `P`。\n2. **构造数据结构**：创建一个字典 `rank` 来存储每个人的排名。\n3. **主循环**：\n   - 维护一个集合 `undetermined_people` 存储尚未分配排名的人的索引。\n   - 构造一个字典 `score_count` 来追踪当前未分配排名的人的分数以及对应的个数。\n   - 每次找当前最大的分数 `max_score`，分配对应的人当前 `r` 的排名，并更新 `r`。\n4. **输出结果**：按顺序输出每个人的排名。\n\n---\n\n### Python代码\n\n```python\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:N+1]))\n    \n    rank = [0] * N\n    undetermined_people = set(range(N))\n    current_r = 1\n    \n    while undetermined_people:\n        # Step 1: Find the maximum score among undetermined people\n        max_score = max(P[i] for i in undetermined_people)\n        \n        # Step 2: Count how many people have this max score\n        count = sum(1 for i in undetermined_people if P[i] == max_score)\n        \n        # Step 3: Assign rank to these people and update current_r\n        for i in undetermined_people:\n            if P[i] == max_score:\n                rank[i] = current_r\n        current_r += count\n        \n        # Step 4: Remove these people from undetermined_people\n        undetermined_people = set(i for i in undetermined_people if P[i] != max_score)\n    \n    for r in rank:\n        print(r)\n\nif __name__ == \"__main__\":\n    main()\n```\n\n---\n\n### 示例说明\n\n如样本输入 1：\n```\n4\n3 12 9 9\n```\n程序会返回：\n```\n4\n1\n2\n2\n```\n这与预期结果一致。\n\n此解法具有线性时间复杂度（在最坏情况下为 O(N^2)），能够处理题设的所有约束条件。"
+}

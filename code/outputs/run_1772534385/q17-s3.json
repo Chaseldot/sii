@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772534385",
+  "question_index": 17,
+  "question_id": "62",
+  "split": "train",
+  "sample_id": 3,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 20.676064014434814,
+  "response": "```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Find the minimum value in the array\nmin_A = min(A)\n\n# Determine the winner based on the parity of the minimum value\nif min_A % 2 == 1:\n    print(\"Fennec\")\nelse:\n    print(\"Snuke\")\n```"
+}

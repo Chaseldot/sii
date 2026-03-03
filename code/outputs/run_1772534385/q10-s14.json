@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772534385",
+  "question_index": 10,
+  "question_id": "28",
+  "split": "train",
+  "sample_id": 14,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 40.53455901145935,
+  "response": "```python\nimport sys\nimport heapq\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    M = int(data[1])\n    X = int(data[2])\n    \n    original_adj = [[] for _ in range(N + 1)]\n    reversed_adj = [[] for _ in range(N + 1)]\n    \n    index = 3\n    for _ in range(M):\n        u = int(data[index])\n        v = int(data[index + 1])\n        index += 2\n        original_adj[u].append(v)\n        reversed_adj[v].append(u)\n    \n    INF = float('inf')\n    dist = [[INF] * 2 for _ in range(N + 1)]\n    dist[1][0] = 0\n    \n    heap = [(0, 1, 0)]  # (cost, node, mode)\n    \n    while heap:\n        cost, u, mode = heapq.heappop(heap)\n        \n        if dist[u][mode] < cost:\n            continue\n        \n        if u == N:\n            continue\n        \n        # Move along original or reversed edges\n        if mode == 0:\n            for v in original_adj[u]:\n                if dist[v][mode] > cost + 1:\n                    dist[v][mode] = cost + 1\n                    heapq.heappush(heap, (dist[v][mode], v, mode))\n        else:\n            for v in reversed_adj[u]:\n                if dist[v][mode] > cost + 1:\n                    dist[v][mode] = cost + 1\n                    heapq.heappush(heap, (dist[v][mode], v, mode))\n        \n        # Reverse edges\n        new_mode = 1 - mode\n        if dist[u][new_mode] > cost + X:\n            dist[u][new_mode] = cost + X\n            heapq.heappush(heap, (dist[u][new_mode], u, new_mode))\n    \n    result = min(dist[N][0], dist[N][1])\n    print(result)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

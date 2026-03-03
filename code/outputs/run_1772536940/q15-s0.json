@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772536940",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 0,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 29.50441598892212,
+  "response": "I've identified the error in the previous solution. The problem lies in how we handle the group of people with the same score. We should collect all people with the same score first, then assign them the current rank and update the rank counter accordingly.\n\nHere's the corrected code:\n\n```python\nimport heapq\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:N+1]))\n    \n    # Create a list of tuples (-score, index) to simulate a max heap\n    max_heap = [(-P[i], i + 1) for i in range(N)]\n    heapq.heapify(max_heap)\n    \n    rank = 1\n    result = [0] * (N + 1)  # 1-based indexing\n    \n    while max_heap:\n        current_score_neg, idx = heapq.heappop(max_heap)\n        current_score = -current_score_neg\n        \n        # Collect all people with the same score\n        group = []\n        while max_heap and -max_heap[0][0] == current_score:\n            score_neg, idx2 = heapq.heappop(max_heap)\n            group.append(idx2)\n        \n        # Add the current person to the group\n        group.append(idx)\n        \n        # Assign rank to all in group\n        for person in group:\n            result[person] = rank\n        \n        # Update rank\n        rank += len(group)\n    \n    for i in range(1, N+1):\n        print(result[i])\n\nif __name__ == \"__main__\":\n    main()\n```\n\nThis version correctly collects all people with the same score, assigns them the same rank, and updates the rank counter properly. This ensures the ranks are computed according to the given rules."
+}

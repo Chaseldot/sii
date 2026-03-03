@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772538447",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 4,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.6889002323150635,
+  "response": "### **STEP 1 - Problem Analysis**\n\n**Type of Problem:**  \nThis problem is a **mathematics** problem, specifically related to finding factors of a number. We are given the number of rows (A), and we need to find the number of columns (B) such that the total number of people arranged in a rectangular formation is exactly 400.\n\n**Key Insight:**  \nWe want to find a positive integer B such that:  \n$$\nA \\times B = 400\n$$\n\nThus, **B must be a divisor of 400**, and we should check for such a divisor. However, since we're searching for positive integers greater than zero, any divisor of 400 would work as long as it satisfies the equation above.\n\n**Algorithm/Method:**  \n- To solve this, we only need to find all divisors of 400.\n- For each divisor $ B $, check if $ A \\times B = 400 $.\n- If such $ B $ exists, print it. Otherwise, print `-1`.\n\n**Edge Cases:**  \n- If $ A > 400 $, then no possible value of $ B $ exists because $ A \\times B \\geq 401 $, which exceeds the fixed total of 400.\n- If $ A = 0 $, it's invalid due to the constraints. But according to the problem statement, $ A $ is between 1 and 400 inclusive.\n\n---\n\n### **STEP 2 - Write Code**\n\n```python\n# Read input\nA = int(input())\n\n# Check if A is greater than 400\nif A > 400:\n    print(-1)\nelse:\n    # Find the corresponding B such that A * B = 400\n    B = 400 // A\n    # Ensure the product is exactly 400\n    if A * B == 400:\n        print(B)\n    else:\n        print(-1)\n```"
+}

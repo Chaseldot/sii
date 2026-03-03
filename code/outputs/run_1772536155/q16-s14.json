@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772536155",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 14,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 7.004212379455566,
+  "response": "### 思路分析\n\n我们需要找到一个正整数 **B**，使得 **A × B = 400**。这意味着：\n\n- **B** 必须是 400 的因数。\n- 若没有这样的因数（即无法被整除），就要返回 `-1`。\n\n对于给定的 **A** 值，我们只需检查 400 是否能被 **A** 整除。如果可以，则 **B = 400 // A**，否则输出 `-1`。\n\n---\n\n### 边界情况处理\n\n- 如果 **A = 1**, 则 **B = 400**。\n- 如果 **A = 400**, 则 **B = 1**。\n- 如果 **A > 400**，则 **400 % A ≠ 0**，输出 `-1`。\n- 对于 **A = 2**, **400 % A == 0**, 所以 **B = 200**。\n\n---\n\n### 完整代码\n\n```python\n# Read input\nA = int(input())\n\n# Check if A is a divisor of 400\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772534385",
+  "question_index": 2,
+  "question_id": "4",
+  "split": "train",
+  "sample_id": 0,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 36.21685218811035,
+  "response": "```python\nMOD = 998244353\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    M = int(data[1])\n    S = data[2]\n    \n    # Initialize DP table: dp[m][i][l] = number of ways to form a string of length m with LCS l using first i characters of S\n    # Since M can be up to 100 and N is small (<=10), we use a 3D list\n    dp = [[[0] * (N + 1) for _ in range(N + 1)] for _ in range(M + 1)]\n    dp[0][0][0] = 1\n    \n    for m in range(M):\n        for i in range(N + 1):\n            for l in range(N + 1):\n                if dp[m][i][l] == 0:\n                    continue\n                # Try all possible characters (a-z)\n                for ch in range(26):\n                    # Check if this character can extend the LCS\n                    found = False\n                    for j in range(i, N):\n                        if ord(S[j]) - ord('a') == ch:\n                            # This character matches S[j], so the LCS increases by 1\n                            dp[m + 1][j + 1][l + 1] = (dp[m + 1][j + 1][l + 1] + dp[m][i][l]) % MOD\n                            found = True\n                            break\n                    if not found:\n                        # The character does not match any remaining character in S, LCS remains the same\n                        dp[m + 1][i][l] = (dp[m + 1][i][l] + dp[m][i][l]) % MOD\n    \n    # Sum all possibilities for each k\n    ans = [0] * (N + 1)\n    for i in range(N + 1):\n        for l in range(N + 1):\n            ans[l] = (ans[l] + dp[M][i][l]) % MOD\n    \n    print(' '.join(map(str, ans)))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

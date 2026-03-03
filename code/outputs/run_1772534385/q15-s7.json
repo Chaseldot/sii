@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772534385",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 7,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 23.19500732421875,
+  "response": "```python\nimport heapq\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:N+1]))\n    \n    ranks = [0] * N\n    max_heap = [(-P[i], i) for i in range(N)]\n    heapq.heapify(max_heap)\n    \n    r = 1\n    while max_heap:\n        score_neg, idx = heapq.heappop(max_heap)\n        current_score = -score_neg\n        count = 1\n        # Check for other participants with the same score\n        while max_heap and -max_heap[0][0] == current_score:\n            score_neg2, idx2 = heapq.heappop(max_heap)\n            count += 1\n        # Assign rank to all participants with this score\n        for i in range(count):\n            ranks[idx + i] = r\n        r += count\n    \n    for rank in ranks:\n        print(rank)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

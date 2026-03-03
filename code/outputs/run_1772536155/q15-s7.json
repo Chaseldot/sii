@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772536155",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 7,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 32.59812903404236,
+  "response": "我注意到问题出在 **`visited` 数组的使用** 和 **处理相同分数人时的逻辑中漏掉了当前弹出的人**。  \n同时，在每次遍历中，我们还需要将当前弹出的人也加入到 `same_score_people` 列表中，并标记为已访问。\n\n为了修复这些问题，我在代码中做了以下改进：\n\n1. 每当从堆中弹出一个人时，先将其放入 `same_score_people` 并标记为已访问。\n2. 正确记录每个位置的排名。\n3. 在输出时确保每个人的排名都被正确设置。\n\n以下是完整的修正代码：\n\n```python\nimport heapq\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:N+1]))\n    \n    # Initialize the priority queue with people's scores and indices\n    heap = []\n    for i in range(N):\n        heapq.heappush(heap, (-P[i], i))  # Use negative for max-heap behavior\n    \n    rank = [0] * N\n    r = 1\n    visited = [False] * N\n    \n    while heap:\n        current_score_neg, person_index = heapq.heappop(heap)\n        current_score = -current_score_neg\n        \n        # Check if this person has already been processed\n        if visited[person_index]:\n            continue\n        \n        # Find all people with the same score that haven't been processed\n        same_score_people = [person_index]\n        visited[person_index] = True\n        \n        # Add others with the same score (if any)\n        while heap and -heap[0][0] == current_score:\n            score_neg, i = heapq.heappop(heap)\n            if not visited[i]:\n                same_score_people.append(i)\n                visited[i] = True\n        \n        # Assign the same rank to all these people\n        for i in same_score_people:\n            rank[i] = r\n        \n        # Update the rank counter\n        r += len(same_score_people)\n    \n    for i in range(N):\n        print(rank[i])\n\nmain()\n```\n\n### ✅ 测试用例示例：\n#### 输入：\n```\n1\n46\n```\n\n#### 输出：\n```\n1\n```\n\n#### 输入：\n```\n1\n1\n```\n\n#### 输出：\n```\n1\n```\n\n现在代码已能正确处理所有输入并返回预期结果。"
+}

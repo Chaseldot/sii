@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772538447",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 0,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 4.481076240539551,
+  "response": "### **STEP 1 - Problem Analysis**\n\n#### **What type of problem is this?**  \nThis is a **math** problem, particularly involving **divisors**.\n\n#### **What is the key algorithm/method?**  \nWe need to find a positive integer `B` such that the product of `A * B = 400`. In other words, we are looking for a divisor of 400 that satisfies the condition. If no such integer exists (i.e., if 400 is not divisible by `A`), we print `-1`.\n\n#### **What are the edge cases?**  \n- When `A = 1`, the only valid `B` is `400`.  \n- When `A = 400`, the only valid `B` is `1`.  \n- If `A > 400`, then it is impossible for `A * B = 400` with both being positive integers, so output `-1`.  \n- For values of `A` that do not divide `400` evenly, output `-1`.\n\n---\n\n### **STEP 2 - Code**\n\n```python\n# Read the input\nA = int(input())\n\n# Check if A divides 400\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```"
+}

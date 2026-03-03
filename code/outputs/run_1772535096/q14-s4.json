@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772535096",
+  "question_index": 14,
+  "question_id": "53",
+  "split": "train",
+  "sample_id": 4,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 21.90329599380493,
+  "response": "### 1. KEY INSIGHTS:\n- The error is due to incorrect indexing in the `dp` array initialization and usage.\n- The `dp` array is supposed to store powers of the current subarray sum, but it was incorrectly used for general power calculations.\n- The correct approach is to use a dynamic programming technique that builds the $ K $-th powers incrementally based on previous values.\n- We can use prefix sums to compute subarray sums and then calculate their $ K $-th power using fast exponentiation or precomputed powers.\n- Since $ K \\leq 10 $, we can compute powers directly without optimization.\n\n### 2. CODE:\n\n```python\nMOD = 998244353\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    K = int(data[1])\n    A = list(map(int, data[2:2+N]))\n    \n    # Prefix sums\n    prefix = [0] * (N + 1)\n    for i in range(N):\n        prefix[i + 1] = (prefix[i] + A[i]) % MOD\n    \n    result = 0\n    for l in range(N):\n        current_sum = 0\n        for r in range(l, N):\n            current_sum = (current_sum + A[r]) % MOD\n            result = (result + pow(current_sum, K, MOD)) % MOD\n    \n    print(result)\n\nif __name__ == \"__main__\":\n    main()\n```\n\n### Explanation:\n- **Prefix Sums**: Not needed as we are using a sliding window approach.\n- **Sliding Window**: For each start index `l`, we iteratively add elements from `l` to `r` to maintain the sum of the current subarray.\n- **Power Calculation**: The `pow` function with three arguments allows us to compute the $ K $-th power modulo $ 998244353 $ efficiently.\n- This solution runs in $ O(NK) $ time and works correctly within the given constraints."
+}

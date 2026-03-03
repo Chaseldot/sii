@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772538447",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 1,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 8.799612998962402,
+  "response": "### STEP 1 - Problem Analysis:\n\n**Problem Type**: This is a **simple scanning** problem. We need to check if there exists a subsequence of three or more identical consecutive elements in the array.\n\n**Key Algorithm/Method**:  \nWe can solve this problem by iterating through the array and checking for three consecutive elements that are equal. If such a sequence is found, we print \"Yes\"; otherwise, we print \"No\".\n\n**Edge Cases**:\n- The minimum input size is 3 (N = 3), which means we must check for only one possible triplet.\n- All elements are the same (e.g., N = 13 and all A_i = 1).\n- The array has exactly two same values in a row, but not three (e.g., [1, 1, 2, 1, 1]).\n\n**Time Complexity**: O(N) - We scan the array once, making it efficient for the given constraints (N ≤ 100).\n\n---\n\n### STEP 2 - Write Code:\n\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three consecutive equal elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        found = True\n        break\n\n# Output result\nprint(\"Yes\" if found else \"No\")\n```"
+}

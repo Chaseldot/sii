@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772535096",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 4,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 5.40398645401001,
+  "response": "1. KEY INSIGHTS:  \n   - We need to find a positive integer B such that A * B = 400 (since there are 400 people). This ensures that the rectangular formation has no gaps.  \n   - The problem reduces to finding divisors of 400 that are greater than or equal to 1. If A is not a divisor of 400, then there is no valid B and we should return -1.  \n   - The time complexity is O(1) since checking for divisors is constant-time given the limited range of A (up to 400).  \n\n2. CODE:\n```python\n# Read input\nA = int(input())\n\n# Check if A divides 400 evenly\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772537624",
+  "question_index": 3,
+  "question_id": "6",
+  "split": "train",
+  "sample_id": 3,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.600275039672852,
+  "response": "To solve this problem, we need to determine whether there exists any permutation of the given sequence $ A = (A_1, A_2, A_3) $ such that for some rearrangement $ B = (B_1, B_2, B_3) $, the product of the first two elements equals the third element.\n\n---\n\n### Key Observations:\n- There are only 6 possible permutations of a 3-element list.\n- For each permutation, check if $ B_1 \\times B_2 = B_3 $.\n- If this holds for at least one permutation, output **Yes**; otherwise, output **No**.\n\n---\n\n### Plan:\n1. Read the input as a list of three integers.\n2. Generate all permutations of the list.\n3. For each permutation, check if the product of the first two elements equals the third.\n4. If any permutation satisfies this condition, print **Yes**. Otherwise, print **No**.\n\n---\n\n### Python Code Implementation:\n\n```python\nfrom itertools import permutations\n\n# Read input from standard input\nA = list(map(int, input().split()))\n\n# Generate all permutations of A\nperms = permutations(A)\n\n# Check each permutation\nfound = False\nfor p in perms:\n    if p[0] * p[1] == p[2]:\n        found = True\n        break\n\n# Output result\nprint(\"Yes\" if found else \"No\")\n```\n\n---\n\n### Time and Space Complexity:\n- **Time Complexity:** $ O(6) $ — since there are only 6 permutations of 3 elements, which is constant time.\n- **Space Complexity:** $ O(1) $ — fixed amount of data used regardless of input size.\n\n---\n\nThis code efficiently checks all possibilities and ensures correctness within the constraints."
+}

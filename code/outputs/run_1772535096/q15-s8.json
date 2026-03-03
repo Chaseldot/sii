@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772535096",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 8,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 24.73917818069458,
+  "response": "1. KEY INSIGHTS:\n   - The algorithm needs to assign ranks in decreasing order of scores, and for equal scores, assign the same rank.\n   - After assigning a group of people with the same score, the rank should be incremented by the count of that group (not just 1).\n   - The mistake in the previous version was incorrectly incrementing `rank` by 1 instead of adding the number of people with the same score.\n   - To handle this, we can track how many people have the same score and update `rank` accordingly after processing a group.\n   - Edge cases include handling all people with the same score (e.g., Sample Input 3), or when multiple groups share similar scores.\n\n2. CODE:\n```python\nimport heapq\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:N+1]))\n    \n    # Create a max heap using negative values\n    heap = [(-P[i], i) for i in range(N)]\n    heapq.heapify(heap)\n    \n    rank = 1\n    result = [0] * N\n    \n    while heap:\n        # Get the person with the highest score\n        current_score, person = heapq.heappop(heap)\n        current_score = -current_score\n        \n        # Assign rank to this person\n        result[person] = rank\n        \n        # Count how many people have the same score\n        count = 1\n        while heap and (-heap[0][0] == current_score):\n            _, person = heapq.heappop(heap)\n            result[person] = rank\n            count += 1\n        \n        # Update rank for the next group\n        rank += count\n    \n    for r in result:\n        print(r)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

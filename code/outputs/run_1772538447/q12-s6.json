@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772538447",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 6,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 9.40030312538147,
+  "response": "### Step 1 - Problem Analysis\n\n**Problem Type:**  \nThis is a **simple sequence traversal** problem.\n\n**Key Algorithm/Method:**  \nWe need to iterate through the list and check if there exists any triplet of consecutive elements that are equal. This can be done in a single pass with constant time per check, giving an overall time complexity of O(N).\n\n**Edge Cases:**  \n- If N = 3 and all three elements are the same → Output: \"Yes\".\n- If N > 3 but no triplet of consecutive elements are the same → Output: \"No\".\n- All elements are the same (e.g., N=100 and all elements are 1) → Output: \"Yes\".\n\n---\n\n### Step 2 - Write Code\n\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three consecutive equal elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        found = True\n        break\n\n# Print output based on the result\nprint(\"Yes\" if found else \"No\")\n```"
+}

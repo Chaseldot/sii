@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772536155",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 11,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 25.63315439224243,
+  "response": "你之前的代码存在一个关键错误：**在处理重复最大值时，没有正确找出全部具有该最大值的参赛者**。问题在于 `while next_index < N and P[next_index] == score` 这样的语句无法完整遍历所有相等分数的元素（因为它不是从头开始检查，而是从当前位置往后找）。这会导致某些具有相同最高分的人未被正确识别。\n\n我们应使用以下更健壮的方式：\n- 遍历所有未被标记为已确定排名的人员。\n- 找出当前未确定的人员中最大分数，并记录与之相同的分数的所有人员。\n- 然后将这些人员的排名设为当前 `r`，并更新 `r += k`。\n\n### 修正后的算法\n1. 维护一个数组 `rank` 来存储每个人当前的排名。\n2. 维护一个集合 `undetermined` 来跟踪哪些人的排名还未确定。\n3. 每次循环查找当前未确定的人的最大分数。\n4. 找到所有获得该最大分数的人员，并将他们的排名设为当前 `r`。\n5. 更新 `r = r + k`（其中 `k` 是这些人数量）。\n6. 将这些人的编号从 `undetermined` 中移除。\n\n---\n\n### 完整修正代码\n\n```python\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:N+1]))\n    \n    # List to store the rank of each person\n    rank = [0] * N\n    \n    undetermined = set(range(N))  # Set of indices whose rank is not yet determined\n    r = 1  # Current rank to assign\n    \n    while undetermined:\n        # Find maximum score among people in undetermined\n        max_score = -1\n        for i in undetermined:\n            if P[i] > max_score:\n                max_score = P[i]\n        \n        # Collect all indices with max_score in undetermined\n        indices = []\n        for i in undetermined:\n            if P[i] == max_score:\n                indices.append(i)\n        \n        # Assign current rank to these people\n        for i in indices:\n            rank[i] = r\n        \n        # Update r\n        r += len(indices)\n        \n        # Remove these indices from undetermined\n        for i in indices:\n            undetermined.remove(i)\n    \n    # Print the rank of each person\n    for x in rank:\n        print(x)\n\nif __name__ == '__main__':\n    main()\n```\n\n---\n\n### 解释\n- 使用 `set(undetermined)` 来跟踪哪些人尚未分配排名，确保不会重叠或遗漏。\n- 每轮先扫描 `undetermined` 中的所有人，找出最大分数，再找出所有有此分数的人。\n- 将所有这些人赋上当前的 `r`，然后增加 `r` 的值。\n\n这种修改可以确保逻辑正确，适用于所有测试用例，包括像测试用例 36 这类全相同的分数情况。"
+}

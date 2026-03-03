@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772538447",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 12,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 9.1907377243042,
+  "response": "### STEP 1 - Problem Analysis:\n\n**Type of Problem**: This is a simple **traversal** problem.\n\n**Key Algorithm/Method**: We need to check if there exists any triplet of consecutive elements in the array that are the same. This can be done by iterating through the list and comparing each element to the next two.\n\n**Edge Cases**:\n- When `N == 3`, we must check all three elements.\n- When all elements are the same (e.g., sample input 5), the answer is \"Yes\".\n- When the same element repeats exactly twice consecutively, the answer is \"No\" (e.g., sample input 2).\n- When the array size is at least 3 but no triplet of identical consecutive elements exist, the answer is \"No\" (e.g., sample input 4).\n\n**Constraints**: Since the maximum length of the array is 100, it is feasible to solve this using a brute-force approach.\n\n---\n\n### STEP 2 - Write Code:\n\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three or more consecutive equal elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        found = True\n        break\n\n# Output result\nprint(\"Yes\" if found else \"No\")\n```"
+}

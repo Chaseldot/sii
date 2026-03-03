@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772534385",
+  "question_index": 7,
+  "question_id": "20",
+  "split": "train",
+  "sample_id": 7,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 7.028368949890137,
+  "response": "```python\n# Read the input string\nS = input().strip()\n\n# Filter the string to retain only '2's\nresult = ''.join([char for char in S if char == '2'])\n\n# Print the resulting string\nprint(result)\n```"
+}

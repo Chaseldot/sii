@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772540339",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 15,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 4.584642171859741,
+  "response": "To solve this problem, we need to determine a positive integer **B** such that the product of A and B equals 400, representing the rectangular formation of 400 people arranged in **A** rows and **B** columns.\n\n### Key Steps:\n1. We are given an integer **A**.\n2. We must find a positive integer **B** where $ A \\times B = 400 $.\n3. If no such **B** exists (i.e., 400 is not divisible by **A**), we print `-1`.\n\n### Approach:\n- Iterate through all possible values of **B** from 1 to 400.\n- Check if $ 400 \\% A == 0 $. If yes, then $ B = 400 / A $.\n- If no valid **B** is found after checking all possibilities, return `-1`.\n\nThis method ensures a clean and efficient solution with time complexity **O(1)** since we're only performing division and modulus checks.\n\nHere is the complete code:\n\n```python\n# Read input\nA = int(input())\n\n# Find B such that A * B = 400\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```"
+}

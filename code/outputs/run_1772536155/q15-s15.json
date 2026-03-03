@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772536155",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 15,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 13.691645860671997,
+  "response": "我将按照要求逐步分析并解决问题。\n\n### 问题分析\n\n我们需要确定每位选手的排名，这个排序过程遵循特定规则：\n1. 初始时，所有人的排名都是未确定的。\n2. 我们从最大的分数开始处理：找出当前未确定排名的人中最高分，并为这些分值相同的人分配当前的排名r。\n3. 将r增加k（k是具有该最高分的人的数量）。\n4. 重复上述步骤直到所有人的排名都确定。\n\n#### 输入输出格式\n- 输入：第一行是人数N，第二行是N个整数表示每个人的成绩P_i。\n- 输出：每个参赛者的排名，共N行。\n\n#### 约束条件\n- N 的范围是 1 ≤ N ≤ 100 \n- P_i 的范围是 1 ≤ P_i ≤ 100 \n- 所有输入都是整数。\n\n#### 时间/空间复杂度\n由于最大N是100，算法时间非常宽松，可以使用较简单的方法。我们可以使用一个优先队列来跟踪尚未分配排名的人以及他们的分数。\n\n### 思路与实现\n\n1. **建立数据结构**：使用一个列表保存所有人的得分及其原始索引。\n2. **维护一个优先队列**：按得分降序排列的队列，用于快速找到当前最大得分。\n3. **遍历并分配排名**：\n   - 对于当前最大得分的所有人，给出相同的排名。\n   - 更新排名变量r，并去除这些已分配排名的人。\n4. **处理边界情况**：例如，若所有人得分相同，那么他们都会获得相同的排名第一。\n\n下面是完整代码实现：\n\n```python\nimport heapq\n\ndef main():\n    import sys\n    input = sys.stdin.read().split()\n    \n    N = int(input[0])\n    scores = list(map(int, input[1:N+1]))\n    \n    # Create a list of tuples with (score, index)\n    people = [(score, i) for i, score in enumerate(scores, 1)]\n    \n    # Use a max heap but simulate it using negative scores\n    max_heap = [(-score, idx) for (score, idx) in people]\n    heapq.heapify(max_heap)\n    \n    rank = 1\n    results = [0] * (N + 1)  # 1-based indexing\n    \n    while max_heap:\n        # Get the highest score currently available\n        current_score_neg, idx = heapq.heappop(max_heap)\n        current_score = -current_score_neg\n        \n        # Find all people with the same score to assign the same rank\n        temp = []\n        while max_heap and -max_heap[0][0] == current_score:\n            temp.append(heapq.heappop(max_heap))\n        \n        # Add the current one to the group\n        temp.append((current_score_neg, idx))\n        \n        # Assign rank to all people in this group\n        for score_neg, person_idx in temp:\n            results[person_idx] = rank\n        \n        # Update rank after assigning\n        rank += len(temp)\n    \n    for i in range(1, N+1):\n        print(results[i])\n\nif __name__ == \"__main__\":\n    main()\n```\n\n此代码正确实现了题目的要求，可以通过所有测试样例。"
+}

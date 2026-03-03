@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772536155",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 13,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 21.00190806388855,
+  "response": "经过检查，错误原因与输入读取方式有关。我们使用了 `open(0).read().split()` 来读取输入，但在某些情况下（例如在线评测系统）会引发错误。\n\n为了确保代码的兼容性和正确性，我们将采用更标准的方式读取输入，即使用 `input()` 函数来读取第一行和第二行。\n\n以下是完整的修正代码：\n\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three consecutive equal elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        found = True\n        break\n\n# Output the result\nprint(\"Yes\" if found else \"No\")\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772539615",
+  "question_index": 2,
+  "question_id": "4",
+  "split": "train",
+  "sample_id": 8,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 47.91679763793945,
+  "response": "```python\nimport sys\n\nMOD = 998244353\n\ndef main():\n    input_lines = sys.stdin.read().split()\n    N = int(input_lines[0])\n    M = int(input_lines[1])\n    S = input_lines[2]\n\n    # Function to compute LCS of two strings\n    def lcs_length(s1, s2):\n        n, m = len(s1), len(s2)\n        dp = [[0]*(m+1) for _ in range(n+1)]\n        for i in range(1, n+1):\n            for j in range(1, m+1):\n                if s1[i-1] == s2[j-1]:\n                    dp[i][j] = dp[i-1][j-1] + 1\n                else:\n                    dp[i][j] = max(dp[i-1][j], dp[i][j-1])\n        return dp[n][m]\n\n    # Dynamic programming table:\n    # dp[i][k]: number of strings of length i with LCS k with S\n    dp = [defaultdict(int) for _ in range(M + 1)]\n    dp[0][0] = 1  # Base case: empty string has LCS 0\n\n    for pos in range(M):\n        current_dp = dp[pos]\n        next_dp = defaultdict(int)\n        for lcs_val in current_dp:\n            count = current_dp[lcs_val]\n            # Try all possible characters (a-z)\n            for c in 'abcdefghijklmnopqrstuvwxyz':\n                # String is of length pos, append character c\n                new_str = 'a' * pos + c  # this is a placeholder, we don't need to explicitly store the string\n                # Calculate new LCS length with S\n                new_lcs_val = lcs_length(new_str, S)\n                next_dp[new_lcs_val] = (next_dp[new_lcs_val] + count) % MOD\n        dp[pos + 1] = next_dp\n\n    # Prepare answer array\n    ans = [0] * (N + 1)\n    for lcs_val in dp[M]:\n        if lcs_val <= N:\n            ans[lcs_val] = (ans[lcs_val] + dp[M][lcs_val]) % MOD\n\n    print(' '.join(map(str, ans)))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

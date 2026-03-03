@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772534385",
+  "question_index": 10,
+  "question_id": "28",
+  "split": "train",
+  "sample_id": 1,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 30.669504642486572,
+  "response": "```python\nimport sys\nimport heapq\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    M = int(data[1])\n    X = int(data[2])\n    \n    original_edges = [[] for _ in range(N + 1)]\n    reversed_edges = [[] for _ in range(N + 1)]\n    \n    index = 3\n    for _ in range(M):\n        u = int(data[index])\n        v = int(data[index + 1])\n        original_edges[u].append(v)\n        reversed_edges[v].append(u)\n        index += 2\n    \n    INF = float('inf')\n    dist = [[INF] * 2 for _ in range(N + 1)]\n    dist[1][0] = 0\n    \n    heap = []\n    heapq.heappush(heap, (0, 1, 0))\n    \n    while heap:\n        cost, node, reversed_flag = heapq.heappop(heap)\n        \n        if node == N:\n            break\n        \n        if cost > dist[node][reversed_flag]:\n            continue\n        \n        # Move along original edges if not reversed\n        if not reversed_flag:\n            for neighbor in original_edges[node]:\n                if dist[neighbor][reversed_flag] > cost + 1:\n                    dist[neighbor][reversed_flag] = cost + 1\n                    heapq.heappush(heap, (dist[neighbor][reversed_flag], neighbor, reversed_flag))\n        \n        # Move along reversed edges if reversed\n        if reversed_flag:\n            for neighbor in reversed_edges[node]:\n                if dist[neighbor][reversed_flag] > cost + 1:\n                    dist[neighbor][reversed_flag] = cost + 1\n                    heapq.heappush(heap, (dist[neighbor][reversed_flag], neighbor, reversed_flag))\n        \n        # Reverse edges, cost is X\n        if dist[node][1 - reversed_flag] > cost + X:\n            dist[node][1 - reversed_flag] = cost + X\n            heapq.heappush(heap, (dist[node][1 - reversed_flag], node, 1 - reversed_flag))\n    \n    print(min(dist[N][0], dist[N][1]))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}
