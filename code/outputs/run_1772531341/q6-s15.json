@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772531341",
+  "question_index": 6,
+  "question_id": "17",
+  "split": "train",
+  "sample_id": 15,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 13.18718409538269,
+  "response": "```python\ndef main():\n    import sys\n    input = sys.stdin.read\n    S = input().strip()\n    \n    S = list(S)\n    i = 0\n    while i < len(S) - 1:\n        if S[i] == 'W' and S[i+1] == 'A':\n            S[i] = 'A'\n            S[i+1] = 'C'\n            i += 2  # Move two positions after replacement to avoid overlapping\n        else:\n            i += 1\n    \n    print(''.join(S))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

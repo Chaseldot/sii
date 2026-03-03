@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772531341",
+  "question_index": 5,
+  "question_id": "13",
+  "split": "train",
+  "sample_id": 0,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 53.704108238220215,
+  "response": "```python\nimport sys\nimport bisect\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    idx = 0\n    N = int(data[idx])\n    idx += 1\n    Q = int(data[idx])\n    idx += 1\n    \n    A = list(map(int, data[idx:idx+N]))\n    idx += N\n    \n    queries = []\n    for _ in range(Q):\n        R = int(data[idx])\n        idx += 1\n        X = int(data[idx])\n        idx += 1\n        queries.append((R, X))\n    \n    # Preprocess the array to have sorted elements up to each index\n    sorted_prefix = []\n    current_sorted = []\n    for num in A:\n        bisect.insort(current_sorted, num)\n        sorted_prefix.append(current_sorted.copy())\n    \n    results = []\n    for R, X in queries:\n        if R == 0:\n            results.append(\"0\")\n            continue\n        sorted_sub = sorted_prefix[R-1]\n        max_len = 0\n        prev = -1\n        for num in sorted_sub:\n            if num <= X and num > prev:\n                max_len += 1\n                prev = num\n        results.append(str(max_len))\n    \n    print(\"\\n\".join(results))\n\nif __name__ == '__main__':\n    main()\n```"
+}

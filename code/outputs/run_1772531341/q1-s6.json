@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772531341",
+  "question_index": 1,
+  "question_id": "3",
+  "split": "train",
+  "sample_id": 6,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 69.29819583892822,
+  "response": "```python\nimport sys\nfrom collections import deque\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    A = data[1]\n    \n    length = 3 ** N\n    target = '0' if A[0] == '1' else '1'\n    \n    # Function to apply the operation once\n    def apply_operation(s):\n        new_length = len(s) // 3\n        result = []\n        for i in range(new_length):\n            group = s[i*3:(i+1)*3]\n            count_0 = group.count('0')\n            count_1 = group.count('1')\n            if count_0 > count_1:\n                result.append('0')\n            else:\n                result.append('1')\n        return ''.join(result)\n    \n    # Brute force approach (for small N up to 13)\n    # Since 3^13 is 1594323, which is manageable with optimizations\n    # We'll use BFS to find the minimum number of changes\n    initial = A\n    queue = deque()\n    visited = set()\n    queue.append((initial, 0))\n    visited.add(initial)\n    \n    while queue:\n        current_str, changes = queue.popleft()\n        if len(current_str) == 1:\n            if current_str == target:\n                print(changes)\n                return\n            else:\n                continue\n        for i in range(len(current_str)):\n            # Toggle the i-th character\n            new_str = current_str[:i] + ('1' if current_str[i] == '0' else '0') + current_str[i+1:]\n            if new_str not in visited:\n                visited.add(new_str)\n                queue.append((new_str, changes + 1))\n    \n    # If not found (shouldn't happen), return -1\n    print(-1)\n\nmain()\n```"
+}

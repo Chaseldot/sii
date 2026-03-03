@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772531341",
+  "question_index": 2,
+  "question_id": "4",
+  "split": "train",
+  "sample_id": 11,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 34.41428232192993,
+  "response": "```python\nimport sys\nfrom collections import defaultdict\n\nMOD = 998244353\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    M = int(data[1])\n    S = data[2]\n    \n    # Precompute the frequency of each character in S\n    freq = [0] * 26\n    for c in S:\n        freq[ord(c) - ord('a')] += 1\n    \n    # dp[m][l]: number of strings of length m that have LCS length l with S\n    dp = [[0] * (N + 1) for _ in range(M + 1)]\n    dp[0][0] = 1  # Base case: empty string has LCS of length 0\n    \n    for m in range(1, M + 1):\n        new_dp = [0] * (N + 1)\n        for lcs_len in range(N + 1):\n            if dp[m - 1][lcs_len] == 0:\n                continue\n            # Option 1: add a character not present in S\n            non_present_count = 26 - sum(freq)\n            new_dp[lcs_len] = (new_dp[lcs_len] + dp[m - 1][lcs_len] * non_present_count) % MOD\n            \n            # Option 2: add a character that appears in S\n            for c in range(26):\n                if freq[c] == 0:\n                    continue\n                # For a given character c, it can extend LCS by 1 if it's not already in the LCS\n                # We calculate how many ways to improve the LCS by exactly 1\n                new_lcs_len = min(lcs_len + 1, N)\n                new_dp[new_lcs_len] = (new_dp[new_lcs_len] + dp[m - 1][lcs_len] * freq[c]) % MOD\n        dp[m] = new_dp\n    \n    # Output the results for k = 0 to N\n    print(' '.join(map(str, dp[M])))\n\nif __name__ == '__main__':\n    main()\n```"
+}

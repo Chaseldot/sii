@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772531341",
+  "question_index": 10,
+  "question_id": "28",
+  "split": "train",
+  "sample_id": 8,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 11.800538301467896,
+  "response": "```python\nimport sys\nimport heapq\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    M = int(data[1])\n    X = int(data[2])\n    \n    edges = [[] for _ in range(N + 1)]\n    reverse_edges = [[] for _ in range(N + 1)]\n    \n    index = 3\n    for _ in range(M):\n        u = int(data[index])\n        v = int(data[index + 1])\n        edges[u].append(v)\n        reverse_edges[v].append(u)\n        index += 2\n    \n    # Dijkstra's algorithm with state (current node, reversed flag)\n    INF = float('inf')\n    dist = [[INF] * 2 for _ in range(N + 1)]\n    dist[1][0] = 0  # Starting at node 1, not reversed\n    \n    heap = [(0, 1, 0)]  # (cost, node, reversed flag)\n    \n    while heap:\n        cost, node, reversed_flag = heapq.heappop(heap)\n        \n        if node == N:\n            break\n        \n        if cost > dist[node][reversed_flag]:\n            continue\n        \n        # Move along an edge (normal direction)\n        for neighbor in edges[node]:\n            if cost + 1 < dist[neighbor][reversed_flag]:\n                dist[neighbor][reversed_flag] = cost + 1\n                heapq.heappush(heap, (dist[neighbor][reversed_flag], neighbor, reversed_flag))\n        \n        # Reverse all edges (cost X)\n        if cost + X < dist[node][1 - reversed_flag]:\n            dist[node][1 - reversed_flag] = cost + X\n            heapq.heappush(heap, (dist[node][1 - reversed_flag], node, 1 - reversed_flag))\n    \n    print(min(dist[N][0], dist[N][1]))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

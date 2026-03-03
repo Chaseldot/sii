@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772531341",
+  "question_index": 11,
+  "question_id": "29",
+  "split": "train",
+  "sample_id": 13,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 46.69059944152832,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    H = int(data[0])\n    W = int(data[1])\n    grid = data[2:H+2]\n    \n    # Convert each row to a list of integers\n    rows = []\n    for row in grid:\n        rows.append([int(c) for c in row])\n    \n    # Precompute the sum of each row\n    row_sums = [sum(row) for row in rows]\n    \n    # Try all possible combinations of flipping columns (since W ≤ 18)\n    min_total = float('inf')\n    for mask in range(1 << W):\n        total = 0\n        # Calculate the number of rows that would be flipped due to column flips\n        for i in range(H):\n            current_sum = row_sums[i]\n            # For each column, check if it's flipped\n            # Use bitwise operations to calculate the flip impact efficiently\n            flip_count = bin(mask).count('1')\n            current_sum = (current_sum - flip_count * (W - 2 * current_sum)) if flip_count % 2 else current_sum\n            total += current_sum\n        min_total = min(min_total, total)\n    \n    print(min_total)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

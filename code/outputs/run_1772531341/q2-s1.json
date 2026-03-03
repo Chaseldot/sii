@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772531341",
+  "question_index": 2,
+  "question_id": "4",
+  "split": "train",
+  "sample_id": 1,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 38.108296632766724,
+  "response": "```python\nimport sys\n\nMOD = 998244353\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    M = int(data[1])\n    S = data[2]\n\n    # Precompute the positions of each character in S\n    char_pos = {}\n    for i, c in enumerate(S):\n        if c not in char_pos:\n            char_pos[c] = []\n        char_pos[c].append(i)\n\n    # For each position in S, create a list of indices where that character appears\n    pos_list = []\n    for c in 'abcdefghijklmnopqrstuvwxyz':\n        if c in char_pos:\n            pos_list.append(char_pos[c])\n        else:\n            pos_list.append([])\n\n    # Dynamic programming table dp[i][j] represents the number of strings of length j with LCS length i\n    dp = [[0] * (M + 1) for _ in range(N + 1)]\n\n    # Base case: for strings of length 0, LCS length is 0\n    dp[0][0] = 1\n\n    for m in range(1, M + 1):\n        for l in range(N + 1):\n            # The current dp value is carried forward from the previous step\n            dp[l][m] = (dp[l][m - 1] * 25) % MOD\n\n            # Now, check if adding a new character can increase the LCS\n            for c in 'abcdefghijklmnopqrstuvwxyz':\n                # Get all the positions where character c appears in S\n                positions = pos_list[ord(c) - ord('a')]\n                # Check if there's any occurrence of character c in S\n                if len(positions) == 0:\n                    continue\n                # If we add this character, it could potentially increase the LCS length\n                if l > 0:\n                    dp[l][m] = (dp[l][m] + dp[l - 1][m - 1]) % MOD\n                else:\n                    # If the LCS length is 0, the new character must not be present in S to maintain LCS 0\n                    dp[l][m] = (dp[l][m] + dp[l][m - 1]) % MOD\n\n    # Output the answers\n    print(' '.join(map(str, [dp[k][M] % MOD for k in range(N + 1)])))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

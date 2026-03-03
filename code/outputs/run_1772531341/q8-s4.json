@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772531341",
+  "question_index": 8,
+  "question_id": "25",
+  "split": "train",
+  "sample_id": 4,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 61.01605224609375,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    X = int(data[1])\n    \n    U = []\n    D = []\n    \n    index = 2\n    for _ in range(N):\n        u = int(data[index])\n        d = int(data[index + 1])\n        U.append(u)\n        D.append(d)\n        index += 2\n    \n    # Calculate the initial possible H for each pair and find the range of possible H values\n    min_H = min(U[i] + D[i] for i in range(N))\n    max_H = max(U[i] + D[i] for i in range(N))\n    \n    # We need to find the optimal H such that the total cost is minimized\n    min_cost = float('inf')\n    \n    # Optimize by precomputing the required adjustments for upper and lower teeth\n    # Instead of recalculating the same diff for each H, we can compute it once per i\n    # and use it for all H in the range\n    \n    # Precompute the differences for each tooth\n    upper_diffs = [U[i] + D[i] for i in range(N)]\n    lower_diffs = [U[i] + D[i] for i in range(N)]\n    \n    # Try all possible H from min_H to max_H\n    for H in range(min_H, max_H + 1):\n        cost = 0\n        \n        # Adjust upper teeth\n        for i in range(N):\n            diff = upper_diffs[i] - H\n            if diff < 0:\n                cost += -diff\n            else:\n                cost += diff\n        \n        # Adjust lower teeth\n        for i in range(N):\n            diff = lower_diffs[i] - H\n            if diff < 0:\n                cost += -diff\n            else:\n                cost += diff\n        \n        min_cost = min(min_cost, cost)\n    \n    print(min_cost)\n\nif __name__ == '__main__':\n    main()\n```"
+}

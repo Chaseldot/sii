@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772531341",
+  "question_index": 2,
+  "question_id": "4",
+  "split": "train",
+  "sample_id": 13,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 35.087552070617676,
+  "response": "```python\nimport sys\n\nMOD = 998244353\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    M = int(data[1])\n    S = data[2]\n    \n    # dp[i][j] represents the number of ways to build a string of length j with LCS length i\n    dp = [[0] * (M + 1) for _ in range(N + 1)]\n    dp[0][0] = 1\n    \n    # Fill the DP table\n    for i in range(N):\n        for j in range(M + 1):\n            if dp[i][j] == 0:\n                continue\n            # For each character in the alphabet\n            for c in 'abcdefghijklmnopqrstuvwxyz':\n                # Case 1: we do not use this character in our string\n                # The current LCS remains the same, but the length of our string increases by 1\n                dp[i][j] = (dp[i][j] + dp[i][j]) % MOD\n                # Case 2: we use this character in our string\n                # If it matches the current character in S\n                if c == S[i]:\n                    # The LCS can be increased by 1\n                    if j + 1 <= M:\n                        dp[i + 1][j + 1] = (dp[i + 1][j + 1] + dp[i][j]) % MOD\n                else:\n                    # The LCS remains the same, but the length of our string increases by 1\n                    if j + 1 <= M:\n                        dp[i + 1][j] = (dp[i + 1][j] + dp[i][j]) % MOD\n    \n    # Now compute the answers for each k from 0 to N\n    ans = [0] * (N + 1)\n    for k in range(N + 1):\n        total = 0\n        for l in range(k, M + 1):\n            total = (total + dp[N][l]) % MOD\n        ans[k] = total\n    \n    # Output the answers\n    print(' '.join(map(str, ans)))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

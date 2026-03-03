@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772531341",
+  "question_index": 18,
+  "question_id": "64",
+  "split": "train",
+  "sample_id": 6,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 34.8100426197052,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    A = list(map(int, data[1:]))\n    \n    if all(a == 1 for a in A):\n        print(\"Yes\")\n        return\n    \n    # Check if there's a way to make all elements 1 using the operations\n    # Each operation can turn two 0s into 1s\n    # So we need at least two 0s in A\n    count_zero = sum(1 for x in A if x == 0)\n    \n    # For the case when there are less than two zeros, it's not possible\n    if count_zero < 2:\n        print(\"No\")\n        return\n    \n    # The operations allow us to flip positions with specific patterns\n    # Thus, the key is whether we can find positions that can be used to flip the zeros\n    # We can greedily check from left to right\n    \n    # Let's simulate checking the pattern matches and flipping the zeros\n    # Start with the original array\n    A_copy = A[:]\n    \n    i = 0\n    while i < N:\n        # Check if current position and next two can form a pattern\n        j = (i + 2) % N\n        if A_copy[i] == 0 and A_copy[(i + 1) % N] == 1 and A_copy[j] == 0:\n            # First operation: replace A_i and A_{i+1} with 1\n            A_copy[i] = 1\n            A_copy[(i + 1) % N] = 1\n            i += 1\n        else:\n            # Check for the second operation pattern\n            if A_copy[(i + 2) % N] == 0 and A_copy[(i + 1) % N] == 1 and A_copy[i] == 0:\n                # Second operation: replace A_i and A_{i+1} with 1\n                A_copy[i] = 1\n                A_copy[(i + 1) % N] = 1\n                i += 1\n            else:\n                i += 1\n    \n    if all(x == 1 for x in A_copy):\n        print(\"Yes\")\n    else:\n        print(\"No\")\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

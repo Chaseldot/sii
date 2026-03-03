@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772531341",
+  "question_index": 11,
+  "question_id": "29",
+  "split": "train",
+  "sample_id": 4,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 59.200085401535034,
+  "response": "```python\nimport sys\nfrom itertools import product\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    H = int(data[0])\n    W = int(data[1])\n    grid = data[2:H+2]\n    \n    # Convert each row to a list of integers\n    grid = [list(map(int, list(row))) for row in grid]\n    \n    # Precompute the initial sum of the grid\n    total_sum = sum(sum(row) for row in grid)\n    \n    # Since W is small (<= 18), we can try all possible combinations of flipping columns\n    min_total = total_sum\n    for flip_cols in product([0, 1], repeat=W):\n        # Calculate the number of 1s in each row after column flips\n        row_ones = []\n        for row in grid:\n            ones = 0\n            for j in range(W):\n                if flip_cols[j]:\n                    ones += 1 - row[j]\n                else:\n                    ones += row[j]\n            row_ones.append(ones)\n        \n        # For each row, decide whether to flip it or not based on the number of 1s\n        # The optimal choice is to flip rows where the number of 1s is more than half\n        for i in range(H):\n            if row_ones[i] > W // 2:\n                row_ones[i] = W - row_ones[i]\n        \n        # Calculate the total sum after flipping rows\n        current_sum = sum(row_ones)\n        if current_sum < min_total:\n            min_total = current_sum\n    \n    print(min_total)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

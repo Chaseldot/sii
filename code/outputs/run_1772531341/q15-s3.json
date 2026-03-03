@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772531341",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 3,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 8.71539855003357,
+  "response": "```python\nimport sys\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:N+1]))\n    \n    ranks = [0] * N\n    used = [False] * N\n    r = 1\n    \n    while True:\n        max_score = -1\n        count = 0\n        indices = []\n        \n        for i in range(N):\n            if not used[i] and P[i] > max_score:\n                max_score = P[i]\n                count = 1\n                indices = [i]\n            elif not used[i] and P[i] == max_score:\n                count += 1\n                indices.append(i)\n        \n        if not indices:\n            break\n        \n        for i in indices:\n            ranks[i] = r\n            used[i] = True\n        \n        r += count\n    \n    for rank in ranks:\n        print(rank)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

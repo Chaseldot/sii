@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772531341",
+  "question_index": 11,
+  "question_id": "29",
+  "split": "train",
+  "sample_id": 15,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 57.330066442489624,
+  "response": "```python\nimport sys\nfrom itertools import product\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    \n    H = int(data[0])\n    W = int(data[1])\n    grid = data[2:H+2]\n    \n    # Convert grid to binary list of lists\n    grid = [list(map(int, list(row))) for row in grid]\n    \n    # Precompute row sums and column sums\n    row_sums = [sum(row) for row in grid]\n    col_sums = [0] * W\n    for j in range(W):\n        for i in range(H):\n            col_sums[j] += grid[i][j]\n    \n    min_total = float('inf')\n    \n    # Try all possible combinations of flipping columns (since W <= 18)\n    for flip_cols in product([0, 1], repeat=W):\n        # Calculate the new row sums after flipping columns\n        new_row_sums = []\n        for i in range(H):\n            total = 0\n            for j in range(W):\n                if flip_cols[j]:\n                    total += 1 - grid[i][j]\n                else:\n                    total += grid[i][j]\n            new_row_sums.append(total)\n        \n        # For each row, decide whether to flip it or not\n        current_min = 0\n        for i in range(H):\n            # Calculate the cost of flipping the row or not\n            cost_flip = H - new_row_sums[i]\n            cost_no_flip = new_row_sums[i]\n            current_min += min(cost_flip, cost_no_flip)\n        \n        min_total = min(min_total, current_min)\n    \n    print(min_total)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772531341",
+  "question_index": 14,
+  "question_id": "53",
+  "split": "train",
+  "sample_id": 12,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 23.400131225585938,
+  "response": "```python\nimport sys\ninput = sys.stdin.read\n\nMOD = 998244353\n\ndef main():\n    data = input().split()\n    N = int(data[0])\n    K = int(data[1])\n    A = list(map(int, data[2:2+N]))\n    \n    prefix = [0] * (N + 1)\n    for i in range(N):\n        prefix[i+1] = (prefix[i] + A[i]) % MOD\n    \n    result = 0\n    for l in range(N):\n        sum_l = prefix[l+1]\n        for r in range(l, N):\n            current_sum = (prefix[r+1] - prefix[l]) % MOD\n            if K == 1:\n                result = (result + current_sum) % MOD\n            else:\n                pow_val = pow(current_sum, K, MOD)\n                result = (result + pow_val) % MOD\n    print(result)\n\nif __name__ == '__main__':\n    main()\n```"
+}

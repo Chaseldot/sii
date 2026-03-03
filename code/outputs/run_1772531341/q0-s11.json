@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772531341",
+  "question_index": 0,
+  "question_id": "0",
+  "split": "train",
+  "sample_id": 11,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 38.41860318183899,
+  "response": "```python\nimport sys\nimport bisect\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    idx = 0\n    N = int(data[idx])\n    idx += 1\n    W = int(data[idx])\n    idx += 1\n    \n    blocks = []\n    for _ in range(N):\n        X = int(data[idx])\n        idx += 1\n        Y = int(data[idx])\n        idx += 1\n        blocks.append((X, Y))\n    \n    Q = int(data[idx])\n    idx += 1\n    \n    queries = []\n    for _ in range(Q):\n        T = int(data[idx])\n        idx += 1\n        A = int(data[idx]) - 1  # Convert to 0-based index\n        idx += 1\n        queries.append((T, A))\n    \n    # Group blocks by their column and sort the rows\n    from collections import defaultdict\n    columns = defaultdict(list)\n    for x, y in blocks:\n        columns[x].append(y)\n    \n    # Sort each column's row values\n    for x in columns:\n        columns[x].sort()\n    \n    # Process queries\n    results = []\n    for T, A in queries:\n        x, y = blocks[A]\n        if x not in columns:\n            results.append(\"No\")\n            continue\n        \n        ys = columns[x]\n        # Find the number of blocks in the same column that are below this block\n        cnt = bisect.bisect_left(ys, y)\n        fall_time = cnt + y\n        \n        if fall_time <= T + 0.5:\n            results.append(\"No\")\n        else:\n            results.append(\"Yes\")\n    \n    print('\\n'.join(results))\n\nmain()\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772531341",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 3,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 5.803026914596558,
+  "response": "```python\n# Read input\nA = int(input())\n\n# Since the total number of people is 400, we need A * B = 400\n# So B must be 400 divided by A, and it must be an integer\n\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```"
+}

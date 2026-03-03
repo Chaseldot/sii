@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772531341",
+  "question_index": 10,
+  "question_id": "28",
+  "split": "train",
+  "sample_id": 12,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 13.513177871704102,
+  "response": "```python\nimport sys\nimport heapq\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    M = int(data[1])\n    X = int(data[2])\n    \n    edges = [[] for _ in range(N + 1)]\n    original_edges = [[] for _ in range(N + 1)]\n    \n    index = 3\n    for _ in range(M):\n        u = int(data[index])\n        v = int(data[index + 1])\n        edges[u].append(v)\n        original_edges[u].append(v)\n        index += 2\n    \n    # Dijkstra's algorithm with states (node, reverse_state)\n    # reverse_state: 0 means not reversed, 1 means reversed\n    INF = float('inf')\n    dist = [[INF] * 2 for _ in range(N + 1)]\n    dist[1][0] = 0\n    dist[1][1] = 0\n    \n    heap = []\n    heapq.heappush(heap, (0, 1, 0))  # (cost, node, reverse_state)\n    \n    while heap:\n        cost, node, reverse_state = heapq.heappop(heap)\n        \n        if node == N:\n            break\n        \n        if cost > dist[node][reverse_state]:\n            continue\n        \n        # Move along an edge\n        if reverse_state == 0:\n            for neighbor in edges[node]:\n                if dist[neighbor][reverse_state] > cost + 1:\n                    dist[neighbor][reverse_state] = cost + 1\n                    heapq.heappush(heap, (dist[neighbor][reverse_state], neighbor, reverse_state))\n        else:\n            for neighbor in original_edges[node]:\n                if dist[neighbor][reverse_state] > cost + 1:\n                    dist[neighbor][reverse_state] = cost + 1\n                    heapq.heappush(heap, (dist[neighbor][reverse_state], neighbor, reverse_state))\n        \n        # Reverse all edges\n        new_reverse_state = 1 - reverse_state\n        if dist[node][new_reverse_state] > cost + X:\n            dist[node][new_reverse_state] = cost + X\n            heapq.heappush(heap, (dist[node][new_reverse_state], node, new_reverse_state))\n    \n    print(min(dist[N][0], dist[N][1]))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

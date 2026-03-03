@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772531341",
+  "question_index": 6,
+  "question_id": "17",
+  "split": "train",
+  "sample_id": 3,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 4.167277574539185,
+  "response": "```python\ndef main():\n    import sys\n    input = sys.stdin.read\n    S = input().strip()\n    \n    # Convert string to list for easier manipulation\n    s = list(S)\n    n = len(s)\n    \n    i = 0\n    while i <= n - 2:\n        # Check if current position and next form 'WA'\n        if s[i] == 'W' and s[i+1] == 'A':\n            # Replace 'WA' with 'AC'\n            s[i] = 'A'\n            s[i+1] = 'C'\n            # After replacement, the next possible 'WA' might be formed with previous characters\n            # So we need to check from the start again\n            i = 0\n        else:\n            i += 1\n    \n    print(''.join(s))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

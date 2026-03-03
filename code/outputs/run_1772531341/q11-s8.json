@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772531341",
+  "question_index": 11,
+  "question_id": "29",
+  "split": "train",
+  "sample_id": 8,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 50.70431852340698,
+  "response": "```python\nimport sys\nfrom itertools import product\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    H = int(data[0])\n    W = int(data[1])\n    grid = data[2:H+2]\n    \n    # Convert each row to a list of integers\n    grid = [list(map(int, list(row))) for row in grid]\n    \n    # Precompute the number of 1s in each row\n    row_ones = [sum(row) for row in grid]\n    \n    # For each possible combination of flipping columns (since W <= 18)\n    min_sum = float('inf')\n    for flip_cols in product([0, 1], repeat=W):\n        total = 0\n        # Calculate the number of 1s in each row after flipping columns\n        for i in range(H):\n            row_sum = 0\n            for j in range(W):\n                if flip_cols[j]:\n                    row_sum += (1 - grid[i][j])\n                else:\n                    row_sum += grid[i][j]\n            total += row_sum\n        min_sum = min(min_sum, total)\n    \n    print(min_sum)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

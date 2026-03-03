@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772531341",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 0,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 11.697596311569214,
+  "response": "```python\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:N+1]))\n    \n    # Initialize rank array\n    rank = [0] * N\n    determined = [False] * N  # Track if the rank is determined\n    \n    r = 1  # Current rank\n    \n    while True:\n        # Find the maximum score among undetermined people\n        max_score = -1\n        for i in range(N):\n            if not determined[i] and P[i] > max_score:\n                max_score = P[i]\n        \n        # If no undetermined people, break\n        if max_score == -1:\n            break\n        \n        # Find all people with max_score and not determined\n        count = 0\n        indices = []\n        for i in range(N):\n            if not determined[i] and P[i] == max_score:\n                indices.append(i)\n                count += 1\n        \n        # Assign rank to these people\n        for idx in indices:\n            rank[idx] = r\n        \n        # Update r\n        r += count\n        \n        # Mark these people as determined\n        for idx in indices:\n            determined[idx] = True\n    \n    # Print the rank of each person\n    for i in range(N):\n        print(rank[i])\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

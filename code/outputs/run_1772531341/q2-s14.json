@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772531341",
+  "question_index": 2,
+  "question_id": "4",
+  "split": "train",
+  "sample_id": 14,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 25.20237445831299,
+  "response": "```python\nimport sys\nimport math\nfrom collections import defaultdict\n\nMOD = 998244353\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    M = int(data[1])\n    S = data[2]\n    \n    # dp[i][j] represents the number of subsequences of length j in the first i characters of S\n    dp = [[0] * (N + 1) for _ in range(N + 1)]\n    dp[0][0] = 1\n    \n    for i in range(1, N + 1):\n        for j in range(N + 1):\n            dp[i][j] = (dp[i-1][j] + dp[i-1][j-1]) % MOD\n    \n    # len_count[k] represents the number of strings of length M that have LCS length at least k with S\n    len_count = [0] * (N + 1)\n    for k in range(N + 1):\n        total = 0\n        for i in range(k, N + 1):\n            total = (total + dp[N][i]) % MOD\n        len_count[k] = total\n    \n    # ans[k] represents the number of strings of length M with LCS length exactly k\n    ans = [0] * (N + 1)\n    for k in range(N, -1, -1):\n        if k == N:\n            ans[k] = len_count[k]\n        else:\n            ans[k] = (len_count[k] - len_count[k + 1]) % MOD\n    \n    print(' '.join(map(str, ans)))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

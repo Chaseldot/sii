@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772531341",
+  "question_index": 0,
+  "question_id": "0",
+  "split": "train",
+  "sample_id": 1,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 64.22005486488342,
+  "response": "```python\nimport sys\nimport bisect\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    idx = 0\n    N = int(data[idx])\n    idx += 1\n    W = int(data[idx])\n    idx += 1\n    \n    blocks = []\n    for _ in range(N):\n        X = int(data[idx])\n        idx += 1\n        Y = int(data[idx])\n        idx += 1\n        blocks.append((X, Y))\n    \n    Q = int(data[idx])\n    idx += 1\n    \n    queries = []\n    for _ in range(Q):\n        T = int(data[idx])\n        idx += 1\n        A = int(data[idx]) - 1  # convert to 0-based index\n        idx += 1\n        queries.append((T, A))\n    \n    # We need to determine for each block whether it exists at time T+0.5\n    # For that, we track how many blocks are below (including itself) in the same column and how much time it takes to be removed\n    \n    from collections import defaultdict\n    col_y_list = defaultdict(list)\n    for i in range(N):\n        x, y = blocks[i]\n        col_y_list[x].append(y)\n    \n    # Sort the Y-coordinates for each column to perform binary search\n    for x in col_y_list:\n        col_y_list[x].sort()\n    \n    result = []\n    for T, A in queries:\n        x, y = blocks[A]\n        # Count how many blocks are at or below this block in the same column (including itself)\n        count = bisect.bisect_right(col_y_list[x], y)\n        \n        # The block will be removed at step (count - 1), because it is the last one to move\n        remove_time = count - 1\n        \n        # If block is not removed by time T, then it exists at time T+0.5\n        if T < remove_time:\n            result.append(\"Yes\")\n        else:\n            result.append(\"No\")\n    \n    print(\"\\n\".join(result))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

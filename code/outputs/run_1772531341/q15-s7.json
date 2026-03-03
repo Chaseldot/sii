@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772531341",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 7,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.491399049758911,
+  "response": "```python\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:N+1]))\n    \n    # Initialize rank array\n    rank = [0] * N\n    # Track which people have been assigned a rank\n    assigned = [False] * N\n    \n    r = 1  # Current rank\n    \n    while True:\n        # Find the maximum score among unassigned people\n        max_score = -1\n        for i in range(N):\n            if not assigned[i] and P[i] > max_score:\n                max_score = P[i]\n        \n        # If no unassigned people, break\n        if max_score == -1:\n            break\n        \n        # Find all people with this max score\n        count = 0\n        for i in range(N):\n            if not assigned[i] and P[i] == max_score:\n                count += 1\n        \n        # Assign rank to these people\n        for i in range(N):\n            if not assigned[i] and P[i] == max_score:\n                rank[i] = r\n                assigned[i] = True\n        \n        # Update r\n        r += count\n    \n    for i in range(N):\n        print(rank[i])\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

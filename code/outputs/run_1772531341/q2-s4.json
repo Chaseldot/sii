@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772531341",
+  "question_index": 2,
+  "question_id": "4",
+  "split": "train",
+  "sample_id": 4,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 32.70763659477234,
+  "response": "```python\nimport sys\n\nMOD = 998244353\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    M = int(data[1])\n    S = data[2]\n    \n    # dp[i][j]: number of strings of length i with LCS length j with the entire string S\n    dp = [[0] * (N + 1) for _ in range(M + 1)]\n    \n    # Base case: empty string (i=0)\n    dp[0][0] = 1\n    \n    for i in range(1, M + 1):\n        for j in range(N + 1):\n            # Case 1: Add a character not present in S to maintain LCS length\n            dp[i][j] = (dp[i-1][j] * 25) % MOD\n            \n            # Case 2: Add a character that matches some character in S to potentially increase LCS length\n            # For each position k in S, check if the current character can form an LCS of length j+1\n            for k in range(N):\n                # If the character at position k in S matches the current character added\n                if S[k] == chr(ord('a') + (k % 26)):\n                    dp[i][j] = (dp[i][j] + dp[i-1][j] * 1) % MOD\n                # Or if the new character can extend the LCS by one, update dp accordingly\n                if j > 0:\n                    dp[i][j] = (dp[i][j] + dp[i-1][j-1]) % MOD\n    \n    # After filling the DP table, output the results for k=0 to k=N\n    result = [0] * (N + 1)\n    for k in range(N + 1):\n        result[k] = dp[M][k]\n    \n    print(' '.join(map(str, result)))\n\nif __name__ == '__main__':\n    main()\n```"
+}

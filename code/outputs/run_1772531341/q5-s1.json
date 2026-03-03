@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772531341",
+  "question_index": 5,
+  "question_id": "13",
+  "split": "train",
+  "sample_id": 1,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 49.687544107437134,
+  "response": "```python\nimport sys\nimport bisect\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    idx = 0\n    N = int(data[idx])\n    idx += 1\n    Q = int(data[idx])\n    idx += 1\n    \n    A = list(map(int, data[idx:idx+N]))\n    idx += N\n    \n    queries = []\n    for _ in range(Q):\n        R = int(data[idx])\n        idx += 1\n        X = int(data[idx])\n        idx += 1\n        queries.append((R, X))\n    \n    # Preprocess the array to keep track of sorted elements up to each index\n    sorted_prefix = []\n    current_sorted = []\n    for num in A:\n        bisect.insort(current_sorted, num)\n        sorted_prefix.append(current_sorted)\n    \n    results = []\n    for R, X in queries:\n        # Get the sorted list of elements up to R\n        sorted_list = sorted_prefix[R-1]\n        # Find the number of elements <= X using binary search\n        count = bisect.bisect_right(sorted_list, X)\n        results.append(count)\n    \n    print('\\n'.join(map(str, results)))\n\nif __name__ == '__main__':\n    main()\n```"
+}

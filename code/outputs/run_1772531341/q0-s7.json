@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772531341",
+  "question_index": 0,
+  "question_id": "0",
+  "split": "train",
+  "sample_id": 7,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 63.58118677139282,
+  "response": "```python\nimport sys\nfrom collections import defaultdict\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    \n    idx = 0\n    N = int(data[idx])\n    idx += 1\n    W = int(data[idx])\n    idx += 1\n    \n    blocks = []\n    for i in range(N):\n        x = int(data[idx])\n        idx += 1\n        y = int(data[idx])\n        idx += 1\n        blocks.append((x, y, i + 1))  # Store (X, Y, block_id)\n    \n    Q = int(data[idx])\n    idx += 1\n    \n    queries = []\n    for _ in range(Q):\n        T = int(data[idx])\n        idx += 1\n        A = int(data[idx])\n        idx += 1\n        queries.append((T, A))\n    \n    # Group blocks by column\n    col_blocks = defaultdict(list)\n    for x, y, block_id in blocks:\n        col_blocks[x].append((y, block_id))\n    \n    # Sort Y values in each column\n    for x in col_blocks:\n        col_blocks[x].sort()\n    \n    # Precompute removal time for each block\n    block_remove_time = [0] * (N + 1)  # 1-based indexing for block IDs\n    \n    for x in col_blocks:\n        ys = col_blocks[x]\n        for i in range(len(ys)):\n            y, block_id = ys[i]\n            num_blocks_below = len(ys) - i - 1\n            remove_time = y - 1 + num_blocks_below\n            block_remove_time[block_id] = remove_time\n    \n    # Process each query\n    results = []\n    for T, A in queries:\n        if T < block_remove_time[A]:\n            results.append(\"Yes\")\n        else:\n            results.append(\"No\")\n    \n    print(\"\\n\".join(results))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

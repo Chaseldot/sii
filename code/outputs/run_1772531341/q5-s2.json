@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772531341",
+  "question_index": 5,
+  "question_id": "13",
+  "split": "train",
+  "sample_id": 2,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 71.25132417678833,
+  "response": "```python\nimport sys\nimport bisect\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    idx = 0\n    N = int(data[idx])\n    idx += 1\n    Q = int(data[idx])\n    idx += 1\n    \n    A = list(map(int, data[idx:idx+N]))\n    idx += N\n    \n    queries = []\n    for _ in range(Q):\n        R = int(data[idx])\n        idx += 1\n        X = int(data[idx])\n        idx += 1\n        queries.append((R, X))\n    \n    # Preprocess the array to have sorted elements for each prefix\n    # We'll use a list of lists where dp[i] contains the sorted elements up to index i\n    dp = []\n    for i in range(N):\n        if i == 0:\n            dp.append([A[i]])\n        else:\n            new_list = dp[i-1].copy()\n            bisect.insort(new_list, A[i])\n            dp.append(new_list)\n    \n    # Process each query\n    results = []\n    for R, X in queries:\n        # Get the sorted list of elements up to index R-1\n        if R == 0:\n            sorted_list = []\n        else:\n            sorted_list = dp[R-1]\n        # Use binary search to find the maximum length of strictly increasing subsequence <= X\n        # Since the list is sorted, we can iterate through and find the longest increasing subsequence with elements <= X\n        max_len = 0\n        prev = -1\n        for num in sorted_list:\n            if num <= X and num > prev:\n                max_len += 1\n                prev = num\n        results.append(str(max_len))\n    \n    print('\\n'.join(results))\n\nif __name__ == '__main__':\n    main()\n```"
+}

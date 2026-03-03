@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772531341",
+  "question_index": 10,
+  "question_id": "28",
+  "split": "train",
+  "sample_id": 1,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 11.699811935424805,
+  "response": "```python\nimport sys\nimport heapq\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    M = int(data[1])\n    X = int(data[2])\n    \n    edges = [[] for _ in range(N + 1)]\n    reversed_edges = [[] for _ in range(N + 1)]\n    \n    index = 3\n    for _ in range(M):\n        u = int(data[index])\n        v = int(data[index + 1])\n        edges[u].append(v)\n        reversed_edges[v].append(u)\n        index += 2\n    \n    # Dijkstra's algorithm with state (vertex, reverse_state)\n    # reverse_state: 0 means normal direction, 1 means reversed direction\n    dist = [[float('inf')] * 2 for _ in range(N + 1)]\n    dist[1][0] = 0\n    heap = [(0, 1, 0)]  # (cost, vertex, reverse_state)\n    \n    while heap:\n        cost, u, rev = heapq.heappop(heap)\n        if u == N:\n            break\n        if cost > dist[u][rev]:\n            continue\n        \n        # Move along an edge\n        if rev == 0:\n            for v in edges[u]:\n                if dist[v][rev] > cost + 1:\n                    dist[v][rev] = cost + 1\n                    heapq.heappush(heap, (dist[v][rev], v, rev))\n        else:\n            for v in reversed_edges[u]:\n                if dist[v][rev] > cost + 1:\n                    dist[v][rev] = cost + 1\n                    heapq.heappush(heap, (dist[v][rev], v, rev))\n        \n        # Reverse the edges\n        if dist[u][1 - rev] > cost + X:\n            dist[u][1 - rev] = cost + X\n            heapq.heappush(heap, (dist[u][1 - rev], u, 1 - rev))\n    \n    print(min(dist[N][0], dist[N][1]))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

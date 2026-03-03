@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772531341",
+  "question_index": 13,
+  "question_id": "43",
+  "split": "train",
+  "sample_id": 3,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 26.688361406326294,
+  "response": "```python\nimport sys\n\ndef shortest_palindrome(s):\n    if not s:\n        return \"\"\n    \n    n = len(s)\n    l, r = 0, n - 1\n    while l <= r:\n        if s[l] == s[r]:\n            l += 1\n            r -= 1\n        else:\n            break\n    \n    # If the entire string is a palindrome, return it\n    if l >= r:\n        return s\n    \n    # Otherwise, append the reverse of the remaining part\n    return s + s[:l][::-1]\n\ndef main():\n    s = sys.stdin.readline().strip()\n    print(shortest_palindrome(s))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

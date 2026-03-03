@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772531341",
+  "question_index": 18,
+  "question_id": "64",
+  "split": "train",
+  "sample_id": 0,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 31.03432273864746,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    A = list(map(int, data[1:N+1]))\n    \n    if all(a == 1 for a in A):\n        print(\"Yes\")\n        return\n    \n    # We need to find a way to convert all 0s to 1s using the given operations.\n    # The key insight is that we can use any occurrence of \"ARC\" or \"CRA\" patterns \n    # in the string to convert 0s to 1s. So, we need to check for such patterns.\n    \n    # Check for any occurrence of the pattern \"ARC\" or \"CRA\" (mapping to the sequence of 0,1,0 or 0,1,0 in the array)\n    found = False\n    \n    for i in range(N):\n        # Check for the first operation: S_i = A, S_{i+1} = R, S_{i+2} = C\n        # This corresponds to A[i] == 0, A[(i+1) % N] == 1, A[(i+2) % N] == 0\n        if A[i] == 0 and A[(i + 1) % N] == 1 and A[(i + 2) % N] == 0:\n            found = True\n            break\n        # Check for the second operation: S_{i+2} = A, S_{i+1} = R, S_i = C\n        # This corresponds to A[(i + 2) % N] == 0, A[(i + 1) % N] == 1, A[i] == 0\n        if A[(i + 2) % N] == 0 and A[(i + 1) % N] == 1 and A[i] == 0:\n            found = True\n            break\n    \n    print(\"Yes\" if found else \"No\")\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

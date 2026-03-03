@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772531341",
+  "question_index": 18,
+  "question_id": "64",
+  "split": "train",
+  "sample_id": 10,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 28.903055906295776,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    A = list(map(int, data[1:N+1]))\n    \n    if all(a == 1 for a in A):\n        print(\"Yes\")\n        return\n    \n    # Since the operations are to replace two consecutive elements with 1,\n    # we can simulate this by checking for patterns and performing replacements.\n    # We need to iterate through the array and apply the operations greedily.\n    \n    # Create a copy of A to modify during the process\n    A_copy = A[:]\n    \n    # To avoid modifying the array during iteration, we'll use a flag to indicate\n    # whether any changes were made in the current iteration. If no changes occur,\n    # we can terminate early.\n    changed = True\n    while changed:\n        changed = False\n        for i in range(N):\n            # Operation 1: Check if A[i] is 0, A[i+1] is 1, A[i+2] is 1\n            if A_copy[i] == 0 and A_copy[(i+1)%N] == 1 and A_copy[(i+2)%N] == 1:\n                A_copy[i] = 1\n                A_copy[(i+1)%N] = 1\n                changed = True\n            \n            # Operation 2: Check if A[i-2] is 1, A[i-1] is 1, A[i] is 0\n            if A_copy[(i-2)%N] == 1 and A_copy[(i-1)%N] == 1 and A_copy[i] == 0:\n                A_copy[(i-2)%N] = 1\n                A_copy[(i-1)%N] = 1\n                changed = True\n    \n    if all(a == 1 for a in A_copy):\n        print(\"Yes\")\n    else:\n        print(\"No\")\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

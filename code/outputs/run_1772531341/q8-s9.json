@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772531341",
+  "question_index": 8,
+  "question_id": "25",
+  "split": "train",
+  "sample_id": 9,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 60.653324365615845,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    X = int(data[1])\n    U = list(map(int, data[2::2]))\n    D = list(map(int, data[3::2]))\n    \n    # Calculate initial H values (U[i] + D[i])\n    H_values = [U[i] + D[i] for i in range(N)]\n    min_H = min(H_values)\n    max_H = max(H_values)\n    \n    min_cost = float('inf')\n    \n    # Try all possible H values between min_H and max_H\n    for H in range(min_H, max_H + 1):\n        cost = 0\n        prev_u = None\n        valid = True\n        \n        for i in range(N):\n            required_u = H - D[i]\n            if required_u < 0:\n                valid = False\n                break\n            cost += U[i] - required_u\n            \n            # Ensure the difference between consecutive U[i] is <= X\n            if prev_u is not None:\n                if abs(required_u - prev_u) > X:\n                    valid = False\n                    break\n            prev_u = required_u\n        \n        if valid:\n            min_cost = min(min_cost, cost)\n    \n    print(min_cost)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772531341",
+  "question_index": 11,
+  "question_id": "29",
+  "split": "train",
+  "sample_id": 0,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 64.49876403808594,
+  "response": "```python\nimport sys\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    \n    H = int(data[0])\n    W = int(data[1])\n    grid = data[2:H+2]\n    \n    # Convert grid to a list of integers\n    grid = [list(map(int, list(row))) for row in grid]\n    \n    # Precompute the sum for each column\n    col_sums = [sum(grid[i][j] for i in range(H)) for j in range(W)]\n    \n    min_total = float('inf')\n    \n    # Since W is small (<= 18), we can try all possible combinations of column flips\n    for mask in range(1 << W):\n        # Calculate the total sum after applying column flips\n        total = 0\n        for j in range(W):\n            if (mask >> j) & 1:\n                total += H - col_sums[j]\n            else:\n                total += col_sums[j]\n        \n        # Compute the number of 1s in each row after column flips\n        row_ones = []\n        for i in range(H):\n            cnt = 0\n            for j in range(W):\n                val = grid[i][j]\n                if (mask >> j) & 1:\n                    val ^= 1\n                cnt += val\n            row_ones.append(cnt)\n        \n        # Determine optimal row flips\n        # For each row, flipping it reduces the count by 2 * row_ones[i] - H\n        # So we flip rows where 2 * row_ones[i] > H\n        for_flip = [1 if 2 * row_ones[i] > H else 0 for i in range(H)]\n        current_total = total\n        for i in range(H):\n            if for_flip[i]:\n                current_total += H - 2 * row_ones[i]\n        \n        min_total = min(min_total, current_total)\n    \n    print(min_total)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

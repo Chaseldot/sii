@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772531341",
+  "question_index": 11,
+  "question_id": "29",
+  "split": "train",
+  "sample_id": 7,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 65.11363577842712,
+  "response": "```python\nimport sys\nfrom itertools import product\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    \n    H = int(data[0])\n    W = int(data[1])\n    grid = data[2:2+H]\n    \n    # Convert each row to a list of integers\n    grid = [list(map(int, list(row))) for row in grid]\n    \n    # Precompute the sum of each column\n    col_sums = [0] * W\n    for i in range(H):\n        for j in range(W):\n            col_sums[j] += grid[i][j]\n    \n    min_total = float('inf')\n    \n    # Since W is small (<=18), we can try all possible combinations of column flips\n    for bits in product([0, 1], repeat=W):\n        # Calculate the cost after flipping columns\n        total = 0\n        for j in range(W):\n            if bits[j]:\n                total += (H - col_sums[j])\n            else:\n                total += col_sums[j]\n        \n        # For each row, precompute the number of 1s after column flips\n        row_ones = [0] * H\n        for i in range(H):\n            cnt = 0\n            for j in range(W):\n                val = grid[i][j]\n                if bits[j]:\n                    val = 1 - val\n                cnt += val\n            row_ones[i] = cnt\n        \n        # Flip rows to minimize the total\n        flip_row = 0\n        for i in range(H):\n            if row_ones[i] > H - row_ones[i]:\n                flip_row += 2 * row_ones[i] - H\n        \n        total += flip_row\n        min_total = min(min_total, total)\n    \n    print(min_total)\n\nif __name__ == '__main__':\n    main()\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772531341",
+  "question_index": 0,
+  "question_id": "0",
+  "split": "train",
+  "sample_id": 13,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 49.39335060119629,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    idx = 0\n    N = int(data[idx])\n    idx += 1\n    W = int(data[idx])\n    idx += 1\n    \n    initial_positions = []\n    for _ in range(N):\n        x = int(data[idx])\n        idx += 1\n        y = int(data[idx])\n        idx += 1\n        initial_positions.append((x, y))\n    \n    Q = int(data[idx])\n    idx += 1\n    \n    queries = []\n    for _ in range(Q):\n        t = int(data[idx])\n        idx += 1\n        a = int(data[idx]) - 1  # convert to 0-based index\n        idx += 1\n        queries.append((t, a))\n    \n    class FenwickTree:\n        def __init__(self, size):\n            self.N = size\n            self.tree = [0] * (self.N + 2)\n        \n        def update(self, idx, delta):\n            while idx <= self.N:\n                self.tree[idx] += delta\n                idx += idx & -idx\n        \n        def query(self, idx):\n            res = 0\n            while idx > 0:\n                res += self.tree[idx]\n                idx -= idx & -idx\n            return res\n    \n    # Initialize Fenwick Trees for each column\n    ft = [FenwickTree(10**9) for _ in range(W + 1)]  # columns are 1-based\n    \n    # For each block, determine the time when it is removed\n    removal_time = [0] * N\n    for i in range(N):\n        x, y = initial_positions[i]\n        # The block will fall until the bottom row is reached\n        # The number of blocks in the same column below it determines how many steps it will fall\n        cnt = ft[x].query(y)\n        removal_time[i] = cnt\n        ft[x].update(y, 1)\n    \n    # Now, answer each query\n    result = []\n    for t, a in queries:\n        if removal_time[a] <= t:\n            result.append(\"No\")\n        else:\n            result.append(\"Yes\")\n    \n    print(\"\\n\".join(result))\n\nif __name__ == '__main__':\n    main()\n```"
+}

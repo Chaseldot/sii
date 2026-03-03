@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772531341",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 13,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.199576139450073,
+  "response": "```python\n# Read the input\nA = int(input())\n\n# Calculate B such that A * B = 400\nB = 400 // A\n\n# Check if B is a positive integer and A * B equals 400\nif B * A == 400 and B > 0:\n    print(B)\nelse:\n    print(-1)\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772531341",
+  "question_index": 2,
+  "question_id": "4",
+  "split": "train",
+  "sample_id": 7,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 45.913036584854126,
+  "response": "```python\nMOD = 998244353\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    M = int(data[1])\n    S = data[2]\n    \n    # Precompute powers of 26 modulo MOD up to M\n    power_26 = [1] * (M + 1)\n    for i in range(1, M + 1):\n        power_26[i] = (power_26[i - 1] * 26) % MOD\n    \n    # dp[m][lcs_len] represents the number of strings of length m that have a longest common subsequence of length lcs_len with S\n    dp = [[0] * (N + 1) for _ in range(M + 1)]\n    dp[0][0] = 1  # Base case: empty string has LCS 0 with S\n    \n    for m in range(1, M + 1):\n        for lcs_len in range(N + 1):\n            # For each position in S, decide whether to include it or not in the LCS\n            for pos in range(N + 1):\n                if pos > 0 and lcs_len == pos:\n                    # We can add the current character of S to the LCS\n                    dp[m][lcs_len] = (dp[m][lcs_len] + dp[m - 1][pos - 1]) % MOD\n                else:\n                    # We can choose any character that does not contribute to the LCS\n                    # Number of such characters is 25 if we are at a specific position\n                    # We multiply by 25^remaining_positions\n                    remaining_positions = m - 1\n                    if remaining_positions >= 0:\n                        dp[m][lcs_len] = (dp[m][lcs_len] + dp[m - 1][pos] * power_26[remaining_positions]) % MOD\n    \n    # Calculate the final answer by subtracting counts from higher LCS lengths\n    ans = [0] * (N + 1)\n    for k in range(N + 1):\n        ans[k] = dp[M][k]\n    \n    # Print the results\n    print(' '.join(map(str, ans)))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

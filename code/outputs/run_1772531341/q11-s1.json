@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772531341",
+  "question_index": 11,
+  "question_id": "29",
+  "split": "train",
+  "sample_id": 1,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 55.299144983291626,
+  "response": "```python\nimport sys\nfrom itertools import product\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    H = int(data[0])\n    W = int(data[1])\n    grid = data[2:H+2]\n    \n    # Convert each row to a list of integers\n    rows = []\n    for row in grid:\n        rows.append([int(c) for c in row])\n    \n    # Precompute the sum for each row\n    row_sums = [sum(row) for row in rows]\n    \n    # Try all possible combinations of flipping columns (since W <= 18)\n    min_total = float('inf')\n    for bits in product([0, 1], repeat=W):\n        total = 0\n        for i in range(H):\n            current_row_sum = row_sums[i]\n            # Calculate the number of 1s in the row after flipping columns\n            # If the bit is 1, flip the column, so we subtract the count and add (W - count)\n            count = 0\n            for j in range(W):\n                if bits[j] == 1:\n                    count += rows[i][j]\n            total += min(current_row_sum, W - count)\n        min_total = min(min_total, total)\n    \n    print(min_total)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772531341",
+  "question_index": 1,
+  "question_id": "3",
+  "split": "train",
+  "sample_id": 8,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 50.97776985168457,
+  "response": "```python\nimport sys\nfrom collections import deque\n\ndef majority(group):\n    count_0 = group.count('0')\n    count_1 = group.count('1')\n    return '0' if count_0 > count_1 else '1'\n\ndef apply_operation(s):\n    n = len(s)\n    result = []\n    for i in range(0, n, 3):\n        group = s[i:i+3]\n        result.append(majority(group))\n    return ''.join(result)\n\ndef min_changes_to_flip_final_bit(N, A):\n    current = A\n    for _ in range(N):\n        current = apply_operation(current)\n    \n    target = '1' if current[0] == '0' else '0'\n    \n    # BFS approach to find the minimum changes needed\n    queue = deque([(A, 0)])\n    visited = set()\n    visited.add(A)\n    \n    while queue:\n        s, depth = queue.popleft()\n        \n        # Check if the final bit is the target\n        temp = s\n        for _ in range(N):\n            temp = apply_operation(temp)\n        if temp[0] == target:\n            return depth\n        \n        # Try flipping each bit in the string\n        for i in range(len(s)):\n            new_s = s[:i] + ('1' if s[i] == '0' else '0') + s[i+1:]\n            if new_s not in visited:\n                visited.add(new_s)\n                queue.append((new_s, depth + 1))\n    \n    return -1\n\ndef main():\n    input_data = sys.stdin.read().split()\n    N = int(input_data[0])\n    A = input_data[1]\n    print(min_changes_to_flip_final_bit(N, A))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

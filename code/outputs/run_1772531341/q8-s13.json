@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772531341",
+  "question_index": 8,
+  "question_id": "25",
+  "split": "train",
+  "sample_id": 13,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 73.0809440612793,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    X = int(data[1])\n    \n    U = []\n    D = []\n    \n    index = 2\n    for _ in range(N):\n        U.append(int(data[index]))\n        D.append(int(data[index + 1]))\n        index += 2\n    \n    # Calculate the initial sum of U[i] + D[i]\n    min_sum = min(U[i] + D[i] for i in range(N))\n    max_sum = max(U[i] + D[i] for i in range(N))\n    \n    # We need to consider only the possible H values that are within the range \n    # [min_sum - (max(U) - min(U)), max_sum + (max(D) - min(D))]\n    # However, for large N, we need to optimize further.\n    # So, instead of iterating all possible H values, we try all possible H values\n    # that can be achieved by adjusting the U and D arrays such that the second condition is satisfied.\n    # But given time constraints, it's better to use the H values that are achievable from the initial sums.\n\n    # Let's assume that the required H lies within a manageable range around the initial sums\n    # So we try H in the range [min_sum - 10^5, max_sum + 10^5]\n    # This is a heuristic but reduces the computation significantly for most cases.\n\n    min_H = min_sum - 10**5\n    max_H = max_sum + 10**5\n    min_cost = float('inf')\n\n    for H in range(min_H, max_H + 1):\n        cost = 0\n        valid = True\n        \n        for i in range(N):\n            adjusted_U = max(H - D[i], 0)\n            adjusted_D = max(H - U[i], 0)\n            cost += (U[i] - adjusted_U) + (D[i] - adjusted_D)\n\n            if i > 0:\n                current_U = adjusted_U\n                next_U = max(H - D[i + 1], 0)\n                if abs(current_U - next_U) > X:\n                    valid = False\n                    break\n        \n        if valid:\n            min_cost = min(min_cost, cost)\n    \n    print(min_cost)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

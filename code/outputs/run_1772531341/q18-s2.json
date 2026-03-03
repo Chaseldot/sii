@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772531341",
+  "question_index": 18,
+  "question_id": "64",
+  "split": "train",
+  "sample_id": 2,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 36.83772087097168,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    A = list(map(int, data[1:N+1]))\n    \n    if all(a == 1 for a in A):\n        print(\"Yes\")\n        return\n    \n    count_zero = A.count(0)\n    \n    # Each operation affects two zeros (turning them into ones), so the maximum number of operations is ceil(count_zero / 2)\n    # But we also need to ensure that there are enough positions to form the required patterns.\n    # Each pattern uses three consecutive positions. So, at least one occurrence of a valid pattern must exist to perform an operation.\n    \n    # We can check if there exists any position i such that A[i] == 0 and A[i+1] == 0 (for a pattern like \"ARC\" or \"CRA\")\n    # This allows us to flip both zeros with one operation.\n    has_valid_pattern = False\n    for i in range(N):\n        if A[i] == 0 and A[(i + 1) % N] == 0:\n            has_valid_pattern = True\n            break\n    \n    if not has_valid_pattern:\n        print(\"No\")\n        return\n    \n    # If there are enough zero pairs to cover all zeros through operations\n    if count_zero % 2 == 0:\n        print(\"Yes\")\n    else:\n        # Check if there is at least one single zero that can be paired with another via wrap-around\n        has_single_zero = False\n        for i in range(N):\n            if A[i] == 0 and A[(i + 1) % N] == 0 or A[i] == 0 and A[(i - 1) % N] == 0:\n                has_single_zero = True\n                break\n        \n        if has_single_zero:\n            print(\"Yes\")\n        else:\n            print(\"No\")\n\nif __name__ == \"__main__\":\n    main()\n```"
+}
