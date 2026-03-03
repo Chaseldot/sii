@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772541220",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 5,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 8.671713829040527,
+  "response": "To solve this problem, we need to determine the rank of each person based on their scores following a specific procedure:\n\n### Problem Analysis\n\n1. **Input:** We are given `N` (number of people) and a list of `P_i` (scores).\n2. **Output:** For each person, print their rank.\n3. **Ranking Procedure:**\n   - Start with `r = 1`.\n   - At each step, find the maximum score among people with undetermined ranks.\n   - Assign rank `r` to all people with that score.\n   - Increment `r` by the number of such people.\n   - Repeat until all people have been ranked.\n\n### Key Observations\n\n- Instead of simulating the process step-by-step with a priority queue or sorting, we can use a frequency map to group people by their scores.\n- Sort the scores in descending order, then assign ranks starting from 1, adjusting for duplicate scores as we go.\n\n### Strategy\n\n1. Create a list of tuples containing each person's score and their index (to track original positions).\n2. Sort the list in descending order of scores.\n3. Traverse the sorted list and assign ranks:\n   - If the current score is the same as the previous one, increment the rank by 1.\n   - If it's different, set the rank to the current `r`.\n\nThis method ensures we handle all cases optimally and efficiently within the constraints.\n\nHere is the complete code:\n\n```python\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:N+1]))\n    \n    # Create a list of tuples (score, index)\n    people = [(P[i], i) for i in range(N)]\n    \n    # Sort in descending order of scores\n    people.sort(reverse=True, key=lambda x: x[0])\n    \n    # Initialize rank and result list\n    rank = 1\n    result = [0] * N\n    \n    # Process sorted people\n    for i in range(N):\n        if i == 0 or people[i][0] != people[i-1][0]:\n            rank = i + 1  # First occurrence of this score gets rank i+1\n        result[people[i][1]] = rank\n    \n    # Print results\n    for r in result:\n        print(r)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

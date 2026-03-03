@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772541819",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 2,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 5.596316814422607,
+  "response": "### STEP 1 - Problem Analysis:\n\n**Problem Type:**  \nThis is a **mathematics and divisor-based problem**. We need to find a positive integer `B` such that `A * B = 400`, i.e., the product of `A` (rows) and `B` (columns) equals 400.\n\n**Key Algorithm/Method:**  \nWe need to:\n1. Check if `400 % A == 0`.\n2. If it is, then compute `B = 400 // A`.\n3. Else, output `-1`.\n\n**Edge Cases:**\n- When `A > 400`: This will never work since `B` would not be a positive integer.\n- When `A = 1`: Then `B = 400`.\n- When `A = 400`: Then `B = 1`.\n- When `A` is a factor of 400: Valid solution exists.\n- When `A` is not a factor of 400: Output `-1`.\n\n### STEP 2 - Write Code:\n\n```python\n# Read input\nA = int(input())\n\n# Check if 400 is divisible by A\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```"
+}

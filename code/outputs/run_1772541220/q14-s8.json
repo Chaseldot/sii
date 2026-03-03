@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772541220",
+  "question_index": 14,
+  "question_id": "53",
+  "split": "train",
+  "sample_id": 8,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 43.39541029930115,
+  "response": "The error `NameError: name 'defaultdict' is not defined` occurs because the `defaultdict` class from the `collections` module was not imported. Let's fix this by including the necessary import statement.\n\n---\n\n### ✅ **Corrected and Complete Code:**\n\n```python\nimport sys\nfrom collections import defaultdict\n\nMOD = 998244353\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    K = int(data[1])\n    A = list(map(int, data[2:2+N]))\n    \n    # Prefix sum array\n    prefix = [0] * (N + 1)\n    for i in range(N):\n        prefix[i + 1] = (prefix[i] + A[i]) % MOD\n    \n    result = 0\n    freq = defaultdict(int)  # Frequency map for all possible subarray sums up to current index\n\n    for r in range(1, N + 1):\n        current_sum = prefix[r]\n        \n        # Initialize new_freq for this r\n        new_freq = defaultdict(int)\n        \n        # Iterate over all l in [1, ..., r], compute sum_subarray = prefix[r] - prefix[l-1]\n        for l in range(1, r + 1):\n            prev_sum = prefix[l - 1]\n            sum_subarray = (current_sum - prev_sum) % MOD\n            \n            # Ensure non-negative value before raising to power\n            if sum_subarray < 0:\n                sum_subarray += MOD\n            \n            new_freq[sum_subarray] += 1\n\n        # Add contribution for this r's subarrays\n        for s in new_freq:\n            cnt = new_freq[s]\n            pow_s = pow(s, K, MOD)\n            result = (result + pow_s * cnt) % MOD\n\n        # Update the cumulative frequency map\n        freq = new_freq\n\n    print(result % MOD)\n\nif __name__ == \"__main__\":\n    main()\n```\n\n---\n\n### ✅ Summary of Fixes:\n\n- **Import `defaultdict`**: Added `from collections import defaultdict` to resolve the `NameError`.\n- **Ensured correct logic** for computing modular sum and powers.\n- **Handled negative values** using `if sum_subarray < 0: sum_subarray += MOD`.\n\nThis solution should now run without errors and correctly pass all test cases."
+}

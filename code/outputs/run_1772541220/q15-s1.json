@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772541220",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 1,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.8239099979400635,
+  "response": "To solve this problem, we need to determine the rank of each person based on their scores following a specific rule. The key insight is that we repeatedly select the maximum score among undetermined people and assign them the current rank, then update the rank accordingly.\n\n### Step-by-Step Plan:\n1. **Read Input**: Read the number of people $ N $ and their scores.\n2. **Sort by Scores**: We will sort people based on their scores in descending order while keeping track of their original indices.\n3. **Determine Ranks**:\n   - Initialize a variable `current_rank` to 1.\n   - Iterate over the sorted scores.\n   - For each group of people with the same score, assign them the `current_rank`.\n   - Update `current_rank` by adding the count of such people.\n4. **Output the Ranks**: Assign the determined ranks back to their original positions and print them.\n\n### Time Complexity Analysis:\n- Sorting takes $ O(N \\log N) $.\n- Iterating through the sorted list is $ O(N) $.\n\nThis approach ensures efficient performance even for the upper constraint of $ N = 100 $.\n\nHere is the complete Python code:\n\n```python\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:N+1]))\n    \n    # Pair each score with its original index\n    indexed_scores = [(P[i], i) for i in range(N)]\n    \n    # Sort based on scores in descending order\n    indexed_scores.sort(reverse=True)\n    \n    rank = [0] * N\n    current_rank = 1\n    \n    # Process the sorted scores\n    i = 0\n    while i < N:\n        current_score = indexed_scores[i][0]\n        count = 0\n        \n        # Count how many people have this score\n        while i < N and indexed_scores[i][0] == current_score:\n            count += 1\n            i += 1\n        \n        # Assign ranks to these people\n        for j in range(i - count, i):\n            rank[indexed_scores[j][1]] = current_rank\n        \n        current_rank += count\n    \n    # Print the ranks\n    for r in rank:\n        print(r)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

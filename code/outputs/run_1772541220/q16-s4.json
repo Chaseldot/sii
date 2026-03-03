@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772541220",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 4,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.406197547912598,
+  "response": "To solve this problem, we need to determine if there exists a positive integer `B` such that the product of `A` and `B` equals 400. If such a `B` exists, we print it; otherwise, we print `-1`.\n\n### Step-by-step Analysis:\n\n1. **Understanding the Problem:**\n   - We are given an integer `A`, and we need to find a positive integer `B` such that `A * B = 400`.\n   - This means that `B` must be a divisor of `400` and must also be greater than zero.\n\n2. **Key Insight:**\n   - We can check all divisors of 400 up to `sqrt(400)` to see if any of them satisfy the condition `400 % A == 0`. \n   - If such a divisor is found, then the corresponding `B` is `400 // A`.\n\n3. **Edge Cases:**\n   - If `A` is `0`, it's not possible since we're dealing with positive integers.\n   - If `A` is greater than `400`, then no such `B` exists because `B` must be a positive integer, and the only way for `A*B=400` is when `B < A`.\n\n4. **Implementation Strategy:**\n   - Iterate over all possible positive integers from `1` to `400` to check if they divide `400` evenly.\n   - Find the correct `B` by checking `400 % A == 0`.\n\n5. **Time Complexity:**\n   - The time complexity is O(400), which is very efficient and within the constraints of the problem.\n\nHere is the complete code implementation:\n\n```python\n# Read input\nA = int(input())\n\n# Check if there exists a B such that A * B = 400\nif A == 0:\n    print(-1)\nelse:\n    if 400 % A == 0:\n        B = 400 // A\n        print(B)\n    else:\n        print(-1)\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772541220",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 2,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 4.322961807250977,
+  "response": "I will solve this problem by checking each triplet of consecutive elements in the array to see if they are all the same. Since the constraints allow for a maximum of 100 elements, a brute-force approach is feasible.\n\n### Step-by-step Explanation:\n1. Read input values: first the integer `N`, then the list of integers `A`.\n2. Loop from index `0` to `N-3` (inclusive), and check if `A[i] == A[i+1] == A[i+2]`.\n3. If any such triplet is found, print \"Yes\" and exit.\n4. If no such triplet is found after the loop, print \"No\".\n\nHere’s the complete code:\n\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three consecutive equal elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        found = True\n        break\n\n# Output the result\nprint(\"Yes\" if found else \"No\")\n```"
+}

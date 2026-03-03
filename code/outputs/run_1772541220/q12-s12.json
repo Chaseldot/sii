@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772541220",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 12,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 7.1262946128845215,
+  "response": "I'll solve the problem step-by-step and then provide the complete solution.\n\n### Problem Analysis:\n\nWe are given a sequence of integers and need to check if there exists any triplet of consecutive elements that are all equal. This means we're looking for a subarray of length 3 where all elements are the same.\n\n### Approach:\n\n1. Input:\n   - First, read the integer $N$ representing the length of the array.\n   - Then, read the array $A$.\n   \n2. Iterate through the array:\n   - Check every triplet of consecutive elements (from index $i$ to $i+2$) for equality.\n   - If we find even one such triplet, we immediately return \"Yes\".\n   - If we finish checking the array without finding such a triplet, we return \"No\".\n\n### Time and Space Complexity:\n\n- **Time Complexity:** $O(N)$, since we're iterating through the array once.\n- **Space Complexity:** $O(1)$, as no additional data structures are used beyond the input array.\n\n### Edge Cases:\n\n- The array has exactly 3 elements, and they are all the same.\n- The array has more than 3 elements but the only matching triplet is at the end (e.g., indices $N-2$, $N-1$, $N$).\n- All elements are distinct.\n\nNow, I will provide the full code in a Python code block:\n\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three consecutive equal elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        found = True\n        break\n\n# Output the result\nprint(\"Yes\" if found else \"No\")\n```"
+}

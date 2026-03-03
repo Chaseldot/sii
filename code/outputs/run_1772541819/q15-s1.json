@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772541819",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 1,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 7.69728422164917,
+  "response": "### **STEP 1 - Problem Analysis**\n\n#### **Type of Problem:**\nThis is a problem that can be solved using sorting and grouping. The main task is to determine the rank of each person based on their score, with ties handled properly.\n\n#### **Key Algorithm/Method:**\n- Sort the scores in descending order.\n- Group the same scores together.\n- Assign ranks accordingly:\n  - For each group of people with the same score, assign them the current rank `r`.\n  - Increase `r` by the size of the group (since all of them share the same rank).\n- Reconstruct the rankings for the original input order.\n\n#### **Edge Cases:**\n- All scores are the same (e.g., Sample Input 3), in which case everyone gets rank 1.\n- Only one person (N = 1), trivial case.\n- Multiple groups of tied scores (e.g., Sample Input 4).\n\n---\n\n### **STEP 2 - Write Code**\n\n```python\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:N+1]))\n    \n    # Pair each score with its original index\n    indexed_scores = [(score, idx) for idx, score in enumerate(P)]\n    \n    # Sort scores in descending order\n    sorted_scores = sorted(indexed_scores, key=lambda x: (-x[0], x[1]))\n    \n    # Assign ranks\n    ranks = [0] * N\n    r = 1\n    i = 0\n    \n    while i < N:\n        current_score = sorted_scores[i][0]\n        count = 0\n        \n        # Count how many people have this score\n        while i < N and sorted_scores[i][0] == current_score:\n            count += 1\n            i += 1\n        \n        # Assign rank to these people\n        for j in range(i - count, i):\n            ranks[sorted_scores[j][1]] = r\n        \n        # Update rank\n        r += count\n    \n    # Print the result\n    for rank in ranks:\n        print(rank)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

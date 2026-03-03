@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772541220",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 14,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.810126543045044,
+  "response": "To solve this problem, we need to determine the rank of each person based on their scores using a specific ranking procedure.\n\n### Key Observations:\n- The ranking is determined by repeatedly selecting the highest score and assigning ranks to all people with that score.\n- If multiple people have the same highest score, they get the same rank, and the rank value is incremented by the number of such people.\n\n### Steps:\n1. **Read Input:** Read the number of participants $N$ and the list of scores.\n2. **Track Rank:** Use a list `ranks` to store the rank for each participant.\n3. **Sort Scores:** Sort the scores along with their indices to determine how ranks are assigned.\n4. **Assign Ranks:** Iterate through the sorted scores and assign ranks accordingly.\n\n### Code Implementation:\n```python\n# Read input\nN = int(input())\nP = list(map(int, input().split()))\n\n# Create a list of tuples (score, index)\nparticipants = [(P[i], i) for i in range(N)]\n\n# Sort participants by score in descending order\nparticipants.sort(reverse=True, key=lambda x: x[0])\n\n# Initialize variables\nrank = 1\nranks = [0] * N\n\n# Assign ranks\nfor i in range(N):\n    if i == 0 or participants[i][0] != participants[i - 1][0]:\n        rank = i + 1\n    ranks[participants[i][1]] = rank\n\n# Print the ranks\nfor rank in ranks:\n    print(rank)\n```\n\n### Explanation:\n- We first read the input values and create a list of tuples containing scores and their corresponding indices.\n- Sorting the scores in descending order allows us to process scores from the highest to the lowest.\n- As we iterate through the sorted list, we update the rank based on whether the current score is different from the previous one.\n- Finally, we print the rank for each person based on their original index.\n\nThis approach ensures that we correctly assign ranks according to the described ranking procedure efficiently."
+}

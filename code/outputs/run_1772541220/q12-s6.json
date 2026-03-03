@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772541220",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 6,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 5.90192723274231,
+  "response": "I'll solve this problem step by step.\n\n### **Thought Process:**\n\n- **Problem Analysis:** We need to check if there exists a subsequence of three or more identical elements in a row in the given array.\n- **Constraints:** The input size is small (N ≤ 100), so we can afford to iterate through the array and check for triplets directly.\n- **Edge Cases:** \n  - All elements are the same.\n  - Exactly three elements are the same.\n  - No three elements are the same.\n- **Approach:** Traverse the array and check if any triplet (three consecutive elements) are equal. If found, print \"Yes\", otherwise \"No\".\n\n### **Solution Code:**\n\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three consecutive equal elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        found = True\n        break\n\n# Output the result\nprint(\"Yes\" if found else \"No\")\n```\n\n### **Explanation:**\n\n- **Reading Input:** We first read the integer `N` followed by the list of integers `A`.\n- **Checking Triplets:** We loop through the array up to the third last element (`N - 2`) and check if any three consecutive elements are the same.\n- **Output:** If such a triplet is found, we print \"Yes\"; otherwise, we print \"No\".\n\nThis solution runs in O(N) time complexity and uses O(1) extra space (excluding the input storage), making it efficient and suitable for the given constraints."
+}

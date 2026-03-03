@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772541220",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 6,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.829338312149048,
+  "response": "To solve this problem, we need to determine the rank of each person based on their scores according to a specific procedure:\n\n1. Start with `r = 1` and all ranks undetermined.\n2. In each step:\n   - Find the maximum score among those whose ranks are still undetermined.\n   - Count how many people have that maximum score.\n   - Assign the current value of `r` to all of them.\n   - Increment `r` by the number of people who received the rank.\n\n### Key Observations:\n- At each iteration, we process only those people whose ranks are not yet determined.\n- The highest-scoring people are assigned the smallest possible rank first.\n- When there are multiple people with the same score (e.g., multiple people with the maximum score), all receive the same rank.\n\n### Steps:\n1. Read input values: `N` (number of participants) and `P` (scores).\n2. Store the rank for each person.\n3. Maintain a set of indices representing people with undetermined ranks.\n4. While there are undetermined ranks:\n   - Find the maximum score in the remaining group.\n   - Count how many people share that maximum score.\n   - Assign the current rank to all these people.\n   - Update the rank variable accordingly.\n5. Print the ranks.\n\n### Code:\n\n```python\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:N+1]))\n    \n    rank = [0] * N\n    undetermined = set(range(N))\n    current_rank = 1\n    \n    while undetermined:\n        # Get the scores of undetermined people\n        max_score = max(P[i] for i in undetermined)\n        # Find all people with this score\n        candidates = [i for i in undetermined if P[i] == max_score]\n        # Assign the current rank to all these candidates\n        for i in candidates:\n            rank[i] = current_rank\n        # Update the current rank and remove the processed people\n        current_rank += len(candidates)\n        undetermined -= set(candidates)\n    \n    for r in rank:\n        print(r)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

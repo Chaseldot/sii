@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772541819",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 12,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 8.60695505142212,
+  "response": "### **STEP 1 - Problem Analysis**\n\n**Type of Problem**: This is a simulation problem involving ranking people based on their scores according to a specific rule.\n\n**Key Algorithm/Method**:\n- We need to simulate the process where we repeatedly find the maximum score among undetermined people, assign ranks, and update the rank variable.\n- Since the number of participants (N) is small (≤ 100), we can efficiently simulate this process without optimization concerns.\n- The main steps are:\n  1. Track which people have been assigned a rank using a boolean array.\n  2. In each iteration, find the maximum score among unassigned people.\n  3. Find all people with that score and assign them the current rank `r`.\n  4. Increment `r` by the number of people who received the rank in this step.\n  5. Repeat until all people are assigned ranks.\n\n**Edge Cases**:\n- All people have the same score (e.g., sample input 3): All should get rank 1.\n- A single person (e.g., N=1): Rank will be 1.\n- People with multiple ties in scores (e.g., sample input 1).\n\n---\n\n### **STEP 2 - Write Code**\n\n```python\n# Read input\nN = int(input())\nP = list(map(int, input().split()))\n\n# Initialize variables\nrank = [0] * N  # To store the final rank for each person\nundetermined = [True] * N  # To track if a person's rank is undetermined\ncurrent_rank = 1\n\n# Simulate the process\nwhile True:\n    # Find maximum score among undetermined people\n    max_score = -1\n    for i in range(N):\n        if undetermined[i] and P[i] > max_score:\n            max_score = P[i]\n    \n    # If no undetermined people left, break\n    if max_score == -1:\n        break\n\n    # Find all people with max_score and are undetermined\n    count = 0\n    for i in range(N):\n        if undetermined[i] and P[i] == max_score:\n            rank[i] = current_rank\n            count += 1\n            undetermined[i] = False  # Mark as determined\n    \n    # Update current_rank\n    current_rank += count\n\n# Print the result\nfor r in rank:\n    print(r)\n```"
+}

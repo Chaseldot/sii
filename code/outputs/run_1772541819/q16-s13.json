@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772541819",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 13,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.471105575561523,
+  "response": "### STEP 1 - Problem Analysis:\n\n**Problem Type**: This is a **mathematical problem** involving divisors.\n\n**Key Insight**:  \nWe are given a number $ A $, and our goal is to find a positive integer $ B $ such that the product of $ A \\times B = 400 $. This means $ B $ must be a divisor of 400. If there is no such $ B $, we print `-1`.\n\n**Approach**:  \nWe need to check if $ A $ divides 400 exactly (i.e., $ 400 \\% A == 0 $). If it does, then $ B = \\frac{400}{A} $ will be the answer. Otherwise, we return `-1`.\n\n**Edge Cases**:  \n- When $ A = 400 $: $ B = 1 $, which is a valid solution.\n- When $ A = 1 $: $ B = 400 $, which is also valid.\n- When $ A $ is a prime number greater than 20 (e.g., 11), then $ A $ cannot divide 400 evenly, so the output is `-1`.\n- All values of $ A $ in the range [1, 400] are valid inputs.\n\n---\n\n### STEP 2 - Write Code:\n\n```python\n# Read input\nA = int(input())\n\n# Check if A divides 400 evenly\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```"
+}

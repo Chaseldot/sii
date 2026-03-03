@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772541220",
+  "question_index": 3,
+  "question_id": "6",
+  "split": "train",
+  "sample_id": 2,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 4.368693828582764,
+  "response": "I'll solve this problem by considering all permutations of the input array and checking whether any of them satisfies the condition $ B_1 \\times B_2 = B_3 $. Since there are only 3 elements, there are a total of 6 permutations. We can generate all permutations and check each one.\n\n### Steps:\n1. Read the input values.\n2. Generate all permutations of the input list.\n3. For each permutation, check if the product of the first two elements equals the third element.\n4. If any permutation satisfies this condition, print \"Yes\"; otherwise, print \"No\".\n\nHere is the complete code:\n\n```python\nfrom itertools import permutations\n\n# Read input\nA = list(map(int, input().split()))\n\n# Check all permutations\nfound = False\nfor perm in permutations(A):\n    if perm[0] * perm[1] == perm[2]:\n        found = True\n        break\n\n# Print result\nprint(\"Yes\" if found else \"No\")\n```\n\nThis code checks all permutations of the input array to see if any of them satisfy the condition $ B_1 \\times B_2 = B_3 $. It has a time complexity of $ O(3!) = O(1) $, which is efficient for the given constraints."
+}

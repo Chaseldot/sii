@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772541819",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 0,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 5.327314853668213,
+  "response": "### **STEP 1 - Problem Analysis**\n\n#### **Type of Problem**\n- This is a **simple scan** problem. We are to check for a specific pattern in an array.\n\n#### **Key Algorithm/Method**\n- Traverse the array and check if any three consecutive elements are equal.\n- For each index $ i $ (from $ 0 $ to $ N-3 $), check whether $ A[i] == A[i+1] == A[i+2] $.\n- If such an occurrence is found, output \"Yes\"; otherwise, output \"No\".\n\n#### **Edge Cases**\n- **Minimum N**: $ N = 3 $. In this case, check only one triplet.\n- **All elements same**: Like $ [1, 1, 1, ...] $, it will always return \"Yes\".\n- **All elements different**: Like $ [1, 2, 3, 4, ...] $, it will always return \"No\".\n- **Triplets not fully consecutive**: E.g., $ [1, 1, 2, 1, 1] $, the pattern appears at index 3, not at index 0.\n- **Only two consecutive elements**: E.g., $ [1, 1, 2, 3] $, does not trigger \"Yes\".\n\n---\n\n### **STEP 2 - Write Code**\n\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three or more consecutive same elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        found = True\n        break\n\n# Output result\nprint(\"Yes\" if found else \"No\")\n```"
+}

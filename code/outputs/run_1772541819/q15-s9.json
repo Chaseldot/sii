@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772541819",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 9,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 8.309601068496704,
+  "response": "### Step 1 - Problem Analysis\n\n**Problem Type**: This is a **simulation problem**, where we need to simulate a ranking process based on given rules.\n\n**Key Algorithm/Method**:\n- We will maintain a list of people's scores.\n- We simulate the procedure described in the problem statement:\n  1. Find the maximum score among the undetermined ranks.\n  2. Determine the rank of all people with that score (and mark them as determined).\n  3. Update the rank variable `r` by adding the number of people just ranked.\n- We keep track of which people have been ranked and which are still undetermined.\n\n**Edge Cases to Consider**:\n- All people have the same score (e.g., sample input 3).\n- Only one person has the maximum score in a round.\n- Multiple people share the same score, and they are ranked first in a certain round.\n\n**Constraints**:\n- Since $N$ is at most 100, a simulation approach is feasible and efficient without needing optimization for larger constraints.\n\n---\n\n### Step 2 - Write Code\n\n```python\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:N+1]))\n    \n    # Initialize rank array with 0s (0 means undetermined)\n    rank = [0] * N\n    r = 1  # current rank value\n    \n    # Use a set to track undetermined indices\n    undetermined = set(range(N))\n    \n    while undetermined:\n        # Find maximum score among undetermined people\n        max_score = max(P[i] for i in undetermined)\n        \n        # Collect all indices with max_score\n        to_rank = [i for i in undetermined if P[i] == max_score]\n        \n        # Assign rank to these people\n        for idx in to_rank:\n            rank[idx] = r\n        \n        # Update r by adding the number of people just ranked\n        r += len(to_rank)\n        \n        # Remove these people from undetermined set\n        undetermined -= set(to_rank)\n    \n    # Print the result\n    for rnk in rank:\n        print(rnk)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

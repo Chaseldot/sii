@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772541819",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 5,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 5.7766358852386475,
+  "response": "### **Step 1 - Problem Analysis**:\n\n#### **Type of Problem**:\nThis problem is a **mathematical problem** involving **divisors**. The task is to find a divisor of a number (400) that fits within the constraints given by the input.\n\n#### **Key Algorithm/Method**:\n- We are given an integer `A`, and we need to find a positive integer `B` such that:  \n  $ A \\times B = 400 $\n- This implies that `B` must be one of the **divisors of 400**.\n- So, the solution involves checking which divisors of 400 satisfy this equation for a given `A`.\n- If there is no such `B`, we return `-1`.\n\n#### **Edge Cases**:\n1. **If `A` is 0**: Not possible since the input constraint says `A` is a positive integer.\n2. **If `A` > 400**: No possible `B` exists because `A * B = 400` can't hold if `A > 400`.\n3. **If `A` divides 400 evenly**, then `B = 400 // A` is valid.\n4. **If `A` does not divide 400 evenly**, no such `B` exists.\n\n---\n\n### **Step 2 - Write Code**:\n\n```python\n# Read input\nA = int(input())\n\n# Check if A is a divisor of 400\nif 400 % A == 0:\n    print(400 // A)\nelse:\n    print(-1)\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772541220",
+  "question_index": 3,
+  "question_id": "6",
+  "split": "train",
+  "sample_id": 3,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 10.51661729812622,
+  "response": "```python\nfrom itertools import permutations\n\n# Read input\nA = list(map(int, input().split()))\n\n# Check all permutations of A\nfor perm in permutations(A):\n    if perm[0] * perm[1] == perm[2]:\n        print(\"Yes\")\n        break\n\nelse:\n    print(\"No\")\n```\n\n---\n\n### **Explanation of the Fix**\n- The original code used `exit()` which is not available in standard Python scripts (it's part of the `sys` module).\n- Instead, we use a `for-else` loop structure:\n  - The `for` loop iterates over all permutations.\n  - If a valid permutation is found, we print `\"Yes\"` and break out of the loop.\n  - If no valid permutation is found, the `else` block runs, and we print `\"No\"`."
+}

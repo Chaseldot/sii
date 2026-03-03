@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772541220",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 14,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 5.203111410140991,
+  "response": "I'll analyze the problem and write a Python solution.\n\n### Problem Analysis:\nWe need to determine whether there is a subsequence of three or more identical elements in a row in an integer sequence.\n\n- **Input Format**: First line contains `N`, the length of the sequence. Second line contains `N` space-separated integers.\n- **Output Format**: Print \"Yes\" if there are three or more identical consecutive elements, otherwise \"No\".\n- **Constraints**:\n  - $3 \\leq N \\leq 100$\n  - Each element in the sequence is between 1 and 100.\n- **Efficiency**: Since $N$ is at most 100, we can use a simple linear search approach without worrying about time complexity.\n\n### Solution Plan:\n- Iterate through the list from index `0` to `N-3`.\n- For each index, check if the current element is equal to the next two elements.\n- If such a triplet is found, print \"Yes\" and exit.\n- If the loop completes without finding such a triplet, print \"No\".\n\n### Complete Python Code:\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three or more consecutive identical elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        found = True\n        break\n\n# Output the result\nprint(\"Yes\" if found else \"No\")\n```"
+}

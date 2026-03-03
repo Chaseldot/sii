@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772541220",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 15,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 4.844446182250977,
+  "response": "I will solve this problem by checking if there are three or more consecutive identical elements in the sequence.\n\n### Analysis:\n- **Input**: An integer N and a sequence of N integers.\n- **Output**: Print \"Yes\" if there exists a triplet of consecutive equal elements, else print \"No\".\n- **Constraints**: \n  - N is between 3 and 100, so it's feasible to iterate through the sequence directly.\n  - We need to check for any i (from 0 to N-3) whether A[i] == A[i+1] == A[i+2].\n\n### Solution Strategy:\n- Iterate through the sequence from index 0 to N-3.\n- For each index, check if the current element, the next one, and the one after that are all equal.\n- If found, return \"Yes\".\n- If the loop completes without finding such a triplet, return \"No\".\n\nNow, I will provide the complete code:\n\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three consecutive equal elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        found = True\n        break\n\n# Output the result\nprint(\"Yes\" if found else \"No\")\n```"
+}

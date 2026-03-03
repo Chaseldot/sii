@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772541220",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 9,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 3.8358352184295654,
+  "response": "I will solve this problem by checking if there exists a triplet of consecutive elements in the array that are all equal.\n\n### Step-by-Step Plan:\n1. **Read input**: Get the length of the array `N` and the array `A`.\n2. **Iterate through the array**: For each index `i` from 0 to `N-3`, check if `A[i] == A[i+1] == A[i+2]`.\n3. **Check condition**: If such an occurrence is found, print `\"Yes\"` and exit.\n4. **Else**: After checking all positions, print `\"No\"`.\n\n### Code:\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three consecutive equal elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        found = True\n        break\n\n# Output result\nprint(\"Yes\" if found else \"No\")\n```"
+}

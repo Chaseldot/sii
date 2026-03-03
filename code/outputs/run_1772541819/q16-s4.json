@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772541819",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 4,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.045915603637695,
+  "response": "### STEP 1 - Problem Analysis:\n\nThe problem asks us to determine a positive integer B such that the total number of people (400) can be arranged in a rectangular formation with A rows and B columns. Mathematically, this means finding a B where `A * B = 400`.\n\n#### Key Observations:\n- Since A is given and fixed, we need to check if 400 is divisible by A.\n- If 400 is divisible by A, then B is simply `400 // A`.\n- If 400 is not divisible by A, then there is no valid B and we print `-1`.\n- Edge cases:\n  - When A is 1: B = 400.\n  - When A is 400: B = 1.\n  - When A is a factor of 400: valid B exists.\n  - When A is not a factor of 400: print `-1`.\n\n#### Type of Problem:\nThis is a **math** problem involving divisibility checks.\n\n#### Key Algorithm:\nCheck if 400 is divisible by A. If yes, compute B = 400 // A. Otherwise, return -1.\n\n---\n\n### STEP 2 - Write Code:\n\n```python\n# Read input from standard input\nA = int(input())\n\n# Check if 400 is divisible by A\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```"
+}

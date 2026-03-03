@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772541220",
+  "question_index": 14,
+  "question_id": "53",
+  "split": "train",
+  "sample_id": 2,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 7.6741623878479,
+  "response": "To solve the problem, we need to compute the sum of $ \\left(\\sum_{i=l}^r A_i\\right)^K $ for all subarrays $ [l, r] $ of the array $ A $ and take the result modulo 998244353.\n\n---\n\n### Key Observations and Algorithm:\n\n1. **Brute Force Infeasibility:**\n   - The number of subarrays is on the order of $ O(N^2) $, which would be infeasible for $ N = 2 \\times 10^5 $.\n\n2. **Constraints and Optimizations:**\n   - Note that $ K \\leq 10 $, so we can precompute powers efficiently.\n   - We can use prefix sums to calculate $ \\sum_{i=l}^r A_i $ quickly.\n   - For each subarray sum, raise it to the power $ K $ using powmod (modular exponentiation).\n   - Use fast modular exponentiation and prefix sums to achieve an efficient solution.\n\n---\n\n### Implementation Steps:\n\n1. **Prefix Sums:** Compute prefix sums to get the sum of any subarray $ [l..r] $ in $ O(1) $ time.\n\n2. **Subarray Sum Calculation:** Iterate over all possible subarrays and use prefix sums to find their sum.\n\n3. **Modular Exponentiation:** Use Python’s built-in `pow(base, exp, mod)` function for efficient computation of $ (\\text{subarray\\_sum})^K \\mod 998244353 $.\n\n4. **Summation:** Keep a running total of all such computed values.\n\n---\n\n### Final Code\n\n```python\nMOD = 998244353\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    K = int(data[1])\n    A = list(map(int, data[2:2+N]))\n    \n    prefix = [0] * (N + 1)\n    for i in range(N):\n        prefix[i+1] = (prefix[i] + A[i]) % MOD\n    \n    result = 0\n    for l in range(N):\n        current_sum = 0\n        for r in range(l, N):\n            current_sum = (current_sum + A[r]) % MOD\n            result = (result + pow(current_sum, K, MOD)) % MOD\n    \n    print(result)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772541220",
+  "question_index": 7,
+  "question_id": "20",
+  "split": "train",
+  "sample_id": 7,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 3.3666539192199707,
+  "response": "To solve this problem, we need to remove all characters from the input string that are not '2' and then concatenate the remaining characters in their original order. This is a straightforward process that can be implemented efficiently.\n\n### Key Steps:\n1. **Input Reading**: Read the input string `S`.\n2. **Filtering**: Iterate through each character in the string and collect only those that are equal to `'2'`.\n3. **Output**: Print the resulting concatenated string of `'2'` characters.\n\nSince the input length is at most 100 and the operations are linear with respect to the input size, the solution is efficient enough for the given constraints.\n\nHere is the complete Python implementation:\n\n```python\n# Read the input from standard input\nS = input().strip()\n\n# Filter out all characters except '2'\nresult = ''.join([char for char in S if char == '2'])\n\n# Print the result\nprint(result)\n```"
+}

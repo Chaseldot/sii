@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772541819",
+  "question_index": 7,
+  "question_id": "20",
+  "split": "train",
+  "sample_id": 13,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 4.632858991622925,
+  "response": "### **Step 1 - Problem Analysis**\n\n**Problem Type**: String manipulation.\n\n**Key Algorithm/Method**:  \nThe task is to filter the characters of a string and retain only the digit `'2'`. This can be achieved by iterating through the input string, checking each character, and appending it to a result string if it is equal to `'2'`.\n\n**Edge Cases**:  \n- The input string consists entirely of `'2'` (e.g., `\"2222\"`), in which case the output is the same as the input.\n- The input string contains no other digits except `'2'`.\n- The input string has leading or trailing non-'2' characters (e.g., `\"0202\"` → `\"22\"`).\n\n**Constraints**:  \n- Input length is between `1` and `100`, so brute-force iteration is acceptable.\n- At least one `'2'` exists in the string, ensuring that the output is not empty.\n\n---\n\n### **Step 2 - Code Implementation**\n\n```python\n# Read input from standard input\nS = input().strip()\n\n# Filter the string to include only '2's\nresult = ''.join([char for char in S if char == '2'])\n\n# Print the result\nprint(result)\n```"
+}

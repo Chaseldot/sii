@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772541819",
+  "question_index": 3,
+  "question_id": "6",
+  "split": "train",
+  "sample_id": 11,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 5.636738538742065,
+  "response": "### STEP 1 - Problem Analysis:\n\nThis problem asks whether any permutation of the given sequence of integers `A = (A_1, A_2, A_3)` can be rearranged into a sequence `B = (B_1, B_2, B_3)` such that the product of the first two elements is equal to the third, i.e. `B_1 * B_2 == B_3`.\n\n#### Key Observations:\n- The input has exactly three integers.\n- We need to check if **any** of the six possible permutations of these integers satisfies the condition `B_1 * B_2 == B_3`.\n- Since there are only three elements, we are not dealing with performance limitations for large inputs. Simulating all permutations is feasible.\n\n#### Algorithm/Approach:\nWe will generate all permutations of the given array and iterate through them. For each permutation, we will check if the product of the first two elements equals the third. If we find even one such permutation, we print `\"Yes\"`; otherwise, we print `\"No\"`.\n\n#### Edge Cases:\n- All numbers could be zero, but since the constraints state that the input values are between `1` and `100`, this case is not applicable.\n- Some combinations might result in an overflow when computing the product. However, since the constraints are small (all values ≤ `100`), this is not an issue here.\n\n### STEP 2 - Write Code:\n\n```python\nfrom itertools import permutations\n\n# Read the input as a list of integers\nA = list(map(int, input().split()))\n\n# Generate all permutations of the list\nfor perm in permutations(A):\n    b1, b2, b3 = perm\n    if b1 * b2 == b3:\n        print(\"Yes\")\n        break\nelse:\n    print(\"No\")\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772541220",
+  "question_index": 7,
+  "question_id": "20",
+  "split": "train",
+  "sample_id": 4,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 3.71405291557312,
+  "response": "To solve this problem, we need to process a string of digits and remove all characters that are not '2'. The resulting string should be the concatenation of the remaining '2's in their original order.\n\n### Approach:\n1. **Input Handling**: Read the input string `S`.\n2. **Filtering**: Iterate over each character in the string and filter out any character that is not '2'.\n3. **Output**: Concatenate the filtered characters and print the result.\n\nThis approach ensures that we are only keeping the '2's from the original string while maintaining their order. The time complexity is O(n), where n is the length of the string, which is efficient given the constraints.\n\nHere is the complete Python implementation:\n\n```python\n# Read input\nS = input().strip()\n\n# Filter the string to keep only '2's\nresult = ''.join([char for char in S if char == '2'])\n\n# Print the result\nprint(result)\n```"
+}

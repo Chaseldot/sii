@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772541220",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 6,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 3.6742067337036133,
+  "response": "To solve this problem, we need to determine if there exists a positive integer $ B $ such that the product $ A \\times B = 400 $. This is possible only if 400 is divisible by $ A $. If it is, then $ B = \\frac{400}{A} $; otherwise, no such $ B $ exists.\n\n### Steps:\n1. Read the input value $ A $.\n2. Check if $ 400 \\% A == 0 $.\n3. If true, compute $ B = \\frac{400}{A} $ and print it.\n4. If false, print `-1`.\n\n---\n\nHere's the complete solution:\n\n```python\n# Read the input\nA = int(input())\n\n# Check if 400 is divisible by A\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```"
+}

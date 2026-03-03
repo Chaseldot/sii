@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772541819",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 9,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.875178813934326,
+  "response": "### STEP 1 - Problem Analysis\n\n**Problem Type**: Mathematical / Divisibility  \nThe problem involves finding a positive integer `B` such that the product of two integers `A` and `B` equals 400. That is, we need to find an integer `B` where:\n\n$$\nA \\times B = 400\n$$\n\nThis means that `B` must be a divisor of 400. If `A` does **not** divide 400 evenly, then there is no such integer `B`, and we should return `-1`.\n\n**Key Insight**:  \nWe can approach this problem by checking whether `A` is a divisor of 400. If it is, then $ B = \\frac{400}{A} $. Otherwise, we output `-1`.\n\n**Edge Cases**:\n- If `A = 1`, then `B = 400`\n- If `A = 400`, then `B = 1`\n- If `A` is greater than 400 or not a divisor of 400 (e.g., `A = 11`), then `B` does not exist.\n\n---\n\n### STEP 2 - Write Code\n\n```python\n# Read the input\nA = int(input())\n\n# Check if A divides 400 evenly\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```"
+}

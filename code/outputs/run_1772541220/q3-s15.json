@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772541220",
+  "question_index": 3,
+  "question_id": "6",
+  "split": "train",
+  "sample_id": 15,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 11.889977216720581,
+  "response": "The issue is likely due to the `sys.exit()` call, which may not be supported or may be misinterpreted in some environments. Instead of using `sys.exit()`, we can simply break out of the loop once a valid permutation is found and print \"Yes\" directly.\n\nHere's the corrected and complete code:\n\n```python\nfrom itertools import permutations\n\n# Read the input\nA = list(map(int, input().split()))\n\n# Generate all permutations of the list\nfor perm in permutations(A):\n    b1, b2, b3 = perm\n    if b1 * b2 == b3:\n        print(\"Yes\")\n        break\nelse:\n    # If no permutation satisfies the condition\n    print(\"No\")\n```"
+}

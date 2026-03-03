@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772541819",
+  "question_index": 7,
+  "question_id": "20",
+  "split": "train",
+  "sample_id": 12,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 4.484195232391357,
+  "response": "### STEP 1 - Problem Analysis:\n\n**Problem Type**: String Manipulation  \nThis is a straightforward string manipulation problem where the goal is to filter out all characters from a given string except for the digit `'2'`, and return the resulting string.\n\n**Key Algorithm/Method**:\n- Iterate through each character in the input string `S`.\n- Check if the character is equal to `'2'`.\n- Collect all such characters into a result string.\n- Finally, output the collected string.\n\n**Edge Cases**:\n- Input string contains only `'2'` (e.g., `'2'`) → Output is `'2'`.\n- Input string has multiple `'2'`s and other digits (e.g., `'20250222'`) → Only `'2'`s are kept.\n- The problem guarantees that the input string has at least one `'2'`, so we don't need to handle empty results.\n\n---\n\n### STEP 2 - Write Code:\n\n```python\n# Read input from standard input\nS = input().strip()\n\n# Filter out all characters except '2'\nresult = ''.join([c for c in S if c == '2'])\n\n# Print the result\nprint(result)\n```"
+}

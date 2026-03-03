@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772541220",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 11,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 5.351016998291016,
+  "response": "To solve this problem, we need to determine a positive integer $ B $ such that the product of $ A $ (number of rows) and $ B $ (number of columns) equals 400. If no such $ B $ exists, we print -1.\n\n### Key Observations:\n- The product of $ A \\times B = 400 $\n- We are to find a positive integer $ B $ such that $ B = \\frac{400}{A} $\n- For $ B $ to be a positive integer, $ A $ must be a divisor of 400\n- Therefore, the algorithm is:\n  1. Check if $ A $ divides 400 evenly.\n  2. If it does, compute $ B = \\frac{400}{A} $\n  3. If it doesn't, output -1\n\n### Constraints Check:\n- $ A $ ranges from 1 to 400, so we can directly check for all values in this range.\n\n### Time Complexity:\n- Since $ A $ is only up to 400, the time complexity is constant: $ O(1) $\n\n### Final Code:\n\n```python\n# Read the input value A\nA = int(input())\n\n# Calculate B as 400 / A\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```"
+}

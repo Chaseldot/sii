@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772541220",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 14,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 4.097803115844727,
+  "response": "To solve this problem, we need to find a positive integer `B` such that the product of `A` and `B` equals 400. This means we are looking for a divisor of 400 that is greater than or equal to 1, and the corresponding pair of divisors `(A, B)` should satisfy `A * B = 400`.\n\n### Steps to Solve:\n1. Input the value of `A`.\n2. Find all divisors of 400.\n3. Check if there exists a divisor `B` such that `A * B == 400`. If yes, print `B`; otherwise, print `-1`.\n\n### Key Insight:\n- Since `A * B = 400`, we can iterate over all possible values of `B` from 1 to 400 and check whether `400 % A == 0` (i.e., if `A` divides 400).\n- If it does, then `B = 400 // A`.\n- Otherwise, no such `B` exists.\n\nNow, let's provide the full code:\n\n```python\n# Read input\nA = int(input())\n\n# Check if A is a divisor of 400\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```"
+}

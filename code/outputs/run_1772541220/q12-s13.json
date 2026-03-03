@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772541220",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 13,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 4.474600553512573,
+  "response": "To solve this problem, we need to determine if there exists a sequence of three or more identical elements appearing consecutively in the given list. The approach is straightforward and efficient due to the relatively small constraints (with N up to 100).\n\n### Step-by-step Analysis:\n1. Iterate through the list and compare each element with the next two elements.\n2. If any element matches the next two, return \"Yes\".\n3. If no such triplet is found after checking all possibilities, return \"No\".\n\n### Edge Cases to Consider:\n- All elements are the same: e.g., [1, 1, 1] → should return \"Yes\".\n- Only one set of three identical elements at the end: e.g., [1, 2, 3, 3, 3] → should return \"Yes\".\n- No such triplets exist: e.g., [1, 2, 3, 4, 5] → should return \"No\".\n\nHere is the complete Python code that implements this logic:\n\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three consecutive identical elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        found = True\n        break\n\n# Output the result\nprint(\"Yes\" if found else \"No\")\n```"
+}

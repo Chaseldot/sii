@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772541819",
+  "question_index": 7,
+  "question_id": "20",
+  "split": "train",
+  "sample_id": 15,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 5.6144492626190186,
+  "response": "### **STEP 1 - Problem Analysis**\n\n#### **Problem Type:**\nThis is a **string manipulation** problem.\n\n#### **Key Algorithm/Method:**\n- We are given a string `S` consisting of digits.\n- We need to **remove all characters except the digit '2'** from the string.\n- The remaining characters should be **concatenated in their original order** to form the final string.\n\nSo, the key is to:\n1. Iterate through each character in the input string `S`.\n2. Filter out all characters that are not `'2'`.\n3. Concatenate the resulting characters to form the output string.\n\n#### **Edge Cases:**\n- Input string containing only one `'2'`, e.g., `\"2\"` → Output: `\"2\"`.\n- Input string with multiple `'2's` and other digits.\n- Input string with no other digits except `'2'`, e.g., `\"22222\"` → Output: `\"22222\"`.\n\nThe constraints ensure that at least one `'2'` exists in the input string, so we don't have to handle empty results.\n\n---\n\n### **STEP 2 - Write Code**\n\n```python\n# Read the input string\nS = input().strip()\n\n# Filter the string to keep only '2's\nresult = ''.join([ch for ch in S if ch == '2'])\n\n# Print the result\nprint(result)\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772541819",
+  "question_index": 6,
+  "question_id": "17",
+  "split": "train",
+  "sample_id": 12,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 5.815859317779541,
+  "response": "### STEP 1 - Problem Analysis\n\n**Problem Type:**  \nThis is a string manipulation problem involving pattern replacement with specific rules.\n\n**Key Algorithm/Method:**  \nThe key operation involves repeatedly finding and replacing the leftmost occurrence of the substring \"WA\" with \"AC\" until no such occurrences remain. This is a greedy approach: we always process the earliest occurrence first, which may affect the rest of the string and create new occurrences.\n\n**Edge Cases:**\n- The input string contains no \"WA\" — output remains the same.\n- \"WA\" appears multiple times in overlapping or nested ways (e.g., \"WWA\" leads to \"WAC\" → then \"ACC\").\n- Very long inputs (up to $3 \\times 10^5$ characters), so we must avoid inefficient methods like repeatedly scanning the string for \"WA\".\n\n**Approach:**\nWe can use a while loop to keep checking for the leftmost \"WA\" and replace it with \"AC\". Since each operation reduces the number of possible \"WA\" occurrences, this process will terminate in finite steps.\n\n### STEP 2 - Write Code\n\n```python\ndef main():\n    import sys\n    S = sys.stdin.readline().strip()\n    \n    while True:\n        pos = S.find(\"WA\")\n        if pos == -1:\n            break\n        S = S[:pos] + \"AC\" + S[pos+2:]\n    \n    print(S)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

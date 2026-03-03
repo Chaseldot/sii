@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772541220",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 7,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 5.071642160415649,
+  "response": "To solve this problem, we need to find a positive integer B such that the product of A and B equals 400. If no such B exists, we should return -1.\n\n### Step-by-step Analysis:\n- We are given an integer A (between 1 and 400).\n- The total number of people is fixed at 400.\n- So, the condition for a valid B is: `A * B = 400`.\n- Rearranging gives `B = 400 / A`. For B to be a positive integer, A must be a divisor of 400.\n- Therefore, we check if A divides 400 evenly. If it does, then B is `400 // A`; otherwise, print `-1`.\n\n### Edge Cases:\n- If A is 0 or greater than 400 (but according to constraints, A is between 1 and 400), so no need to handle these cases explicitly.\n- If A is not a divisor of 400, output `-1`.\n\n### Time and Space Complexity:\n- Time complexity is O(1) as we only perform a few arithmetic operations.\n- Space complexity is O(1).\n\nHere is the complete code:\n\n```python\n# Read input\nA = int(input())\n\n# Check if A is a divisor of 400\nif 400 % A == 0:\n    print(400 // A)\nelse:\n    print(-1)\n```"
+}

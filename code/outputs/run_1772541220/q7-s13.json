@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772541220",
+  "question_index": 7,
+  "question_id": "20",
+  "split": "train",
+  "sample_id": 13,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 4.1149678230285645,
+  "response": "To solve this problem, we need to process a string of digits and construct a new string by including only the character '2'. The steps involved are as follows:\n\n### Key Insights\n- The input is a string `S` consisting of digits.\n- We are required to filter out all characters except for '2' and form a new string from these characters in their original order.\n- This can be done efficiently by iterating over the string and checking each character.\n- Since the constraints are small (maximum length of 100), an efficient and straightforward approach works.\n\n### Approach\n1. Read the input string `S`.\n2. Iterate through each character in the string.\n3. Check if the character is '2'.\n4. If it is, append it to a result string.\n5. Finally, print the resulting string.\n\nThis approach has a time complexity of O(n), where n is the length of the input string.\n\nNow, here is the complete Python code:\n\n```python\n# Read the input string\nS = input().strip()\n\n# Filter out all characters except '2'\nresult = ''.join([ch for ch in S if ch == '2'])\n\n# Print the resulting string\nprint(result)\n```"
+}

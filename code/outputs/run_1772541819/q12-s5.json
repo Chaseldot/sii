@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772541819",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 5,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 5.132751226425171,
+  "response": "### **Step 1 - Problem Analysis**\n\n**Problem Type**: This is a simple **traversal** problem. The goal is to check if there exists a subsequence of **three or more identical elements in a row**.\n\n**Key Algorithm/Method**: We can iterate through the list and compare each element to its next two neighbors. If we find three equal consecutive elements, we return `\"Yes\"`; otherwise, after checking all possibilities, we return `\"No\"`.\n\n**Edge Cases**:\n- The list contains exactly three elements that are the same (e.g., `[1, 1, 1]`).\n- The list has multiple sequences of three or more equal elements (e.g., `[1, 1, 1, 2, 2, 2]`).\n- All elements are distinct (e.g., `[1, 2, 3, 4]`).\n- The list length is exactly 3 (`N = 3`).\n\n---\n\n### **Step 2 - Write Code**\n\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three or more consecutive equal elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        found = True\n        break\n\n# Output result\nprint(\"Yes\" if found else \"No\")\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772541819",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 4,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 7.859710216522217,
+  "response": "### **Step 1 - Problem Analysis**\n\n#### **What type of problem is this?**\nThis is a **simulation** problem, where we need to determine the rank of each person based on specific rules for assigning ranks. The process relies on repeatedly choosing the highest score and assigning ranks accordingly.\n\n#### **Key Algorithm/Method**\n- We can simulate the process described in the problem:\n  - Keep track of people whose ranks are undetermined.\n  - At each step, find the maximum score among those with undetermined ranks.\n  - Assign the current rank `r` to all people who have that score.\n  - Increment `r` by the number of people who had that score.\n\n#### **Edge Cases**\n- All scores are equal (e.g., 4 people with 100 points).\n- Only one person with the maximum score at each step.\n- Multiple people share the same maximum score.\n\n---\n\n### **Step 2 - Code Implementation**\n\n```python\n# Read input\nN = int(input())\nP = list(map(int, input().split()))\n\n# Initialize result array and set of undetermined people\nrank = [0] * N\nundetermined = set(range(N))\nr = 1\n\nwhile undetermined:\n    # Find the maximum score among undetermined people\n    max_score = max(P[i] for i in undetermined)\n    \n    # Find all indices with that score\n    indices = [i for i in undetermined if P[i] == max_score]\n    \n    # Assign rank r to these people\n    for i in indices:\n        rank[i] = r\n    \n    # Update r: add the number of people with the max score\n    r += len(indices)\n    \n    # Remove these people from undetermined\n    undetermined -= set(indices)\n\n# Print the ranks\nfor i in range(N):\n    print(rank[i])\n```\n\n---\n\n### **Explanation**\nThe code simulates the ranking process:\n- It iteratively finds the highest score among undetermined people.\n- Assigns the current rank value `r` to all participants with that score.\n- Increments `r` by the number of people who received the rank in this step.\n- Repeats until all people have been ranked.\n\nThis implementation runs efficiently within the given constraints (`N ≤ 100`) using simple iteration and sets for tracking undetermined participants."
+}

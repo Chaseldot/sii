@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772541220",
+  "question_index": 3,
+  "question_id": "6",
+  "split": "train",
+  "sample_id": 9,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 5.9752116203308105,
+  "response": "To solve this problem, we need to determine if there exists a permutation of the given sequence of three integers such that the product of the first two elements in the permutation equals the third.\n\n### Key Observations:\n1. Since there are only 3 elements in the input, there are a total of `3! = 6` possible permutations of the sequence.\n2. For each permutation `(B_1, B_2, B_3)`, we check if the condition `B_1 * B_2 == B_3` holds true.\n3. We do not need to generate all permutations explicitly; instead, we can brute-force through all possible combinations of positions for the elements.\n\n### Efficient Approach:\n- Try all 6 permutations directly by permuting the indices `(0, 1, 2)` and checking the condition `A[i] * A[j] == A[k]` for the corresponding indices.\n- If any permutation satisfies the condition, output \"Yes\"; otherwise, output \"No\".\n\nThe time complexity is constant (`O(1)`) because the number of permutations is fixed.\n\nHere's the complete Python code:\n\n```python\n# Read input\nA = list(map(int, input().split()))\n\n# Check all permutations\n# Indices for (B1, B2, B3)\npermutations = [\n    (0, 1, 2), (0, 2, 1), (1, 0, 2), (1, 2, 0), (2, 0, 1), (2, 1, 0)\n]\n\nfound = False\nfor i, j, k in permutations:\n    if A[i] * A[j] == A[k]:\n        found = True\n        break\n\n# Output result\nprint(\"Yes\" if found else \"No\")\n```"
+}

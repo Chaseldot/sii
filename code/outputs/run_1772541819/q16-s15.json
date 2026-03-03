@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772541819",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 15,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.435991287231445,
+  "response": "### STEP 1 - Problem Analysis:\n\n**Problem Type**: This is a **mathematical problem** involving divisors and factor pairs.\n\n**Key Idea**:  \nWe are given a number `A`, and we need to find a positive integer `B` such that the product of `A` and `B` equals `400`.  \nIn other words, we are looking for a pair `(A, B)` such that:\n\n$$\nA \\times B = 400\n$$\n\nSo, for a given `A`, we need to check if `400` is divisible by `A`. If it is, then `B = 400 / A` will be a valid solution. Otherwise, there's no such integer `B`.\n\n**Edge Cases**:\n- If `A = 0`: Invalid since `A` must be a positive integer.\n- If `A > 400`: Then, `B = 400 / A < 1`, which is not valid since `B` must be a positive integer.\n- If `400 % A != 0`: Then, no such `B` exists, so output `-1`.\n- If `A = 400`: Then, `B = 1`, as `400 * 1 = 400`.\n\n### STEP 2 - Write Code:\n\n```python\n# Read input\nA = int(input())\n\n# Check if A divides 400 evenly\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```"
+}

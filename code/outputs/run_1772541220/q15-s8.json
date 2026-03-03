@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772541220",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 8,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 8.070330381393433,
+  "response": "To solve this problem, we aim to determine the ranks of participants based on their scores following a specific rule:\n- The rank is assigned in such a way that all people with the same maximum score receive the same rank.\n- After assigning ranks to people with the same score, the rank value increases by the number of people who received that rank.\n\n### Approach\n1. **Input Reading**:\n   - Read the number of participants `N` and their respective scores `P`.\n\n2. **Sorting and Grouping**:\n   - Sort the scores in descending order along with their indices (to track the original positions).\n   - Use a dictionary to group the indices based on their scores.\n\n3. **Rank Assignment**:\n   - Iterate over the sorted scores.\n   - For each distinct score, assign the current rank `r` to all participants with that score.\n   - Update the rank `r` after processing each group of participants with the same score.\n\n4. **Output**:\n   - Print the rank for each participant in the original input order.\n\nThis approach ensures we efficiently assign ranks while maintaining clarity and correctness.\n\n### Python Code\n\n```python\n# Read input\nimport sys\ninput = sys.stdin.read\ndata = input().split()\nN = int(data[0])\nP = list(map(int, data[1:]))\n\n# Create a list of tuples (score, index)\nparticipants = [(P[i], i) for i in range(N)]\n\n# Sort participants in descending order of scores\nparticipants.sort(reverse=True)\n\n# Dictionary to store the rank for each participant\nrank = [0] * N\n\n# Initialize rank counter\ncurrent_rank = 1\n\n# Process each unique score group\ni = 0\nwhile i < N:\n    current_score = participants[i][0]\n    j = i\n    # Count how many people have the same score\n    while j < N and participants[j][0] == current_score:\n        j += 1\n    # Assign current_rank to all those with the same score\n    for k in range(i, j):\n        rank[participants[k][1]] = current_rank\n    # Update the current_rank\n    current_rank += (j - i)\n    # Move to next different score\n    i = j\n\n# Output the results\nfor r in rank:\n    print(r)\n```"
+}

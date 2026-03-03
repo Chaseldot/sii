@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772541220",
+  "question_index": 3,
+  "question_id": "6",
+  "split": "train",
+  "sample_id": 6,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.675363063812256,
+  "response": "To solve this problem, we need to check whether there exists any permutation of the given sequence $ A = (A_1, A_2, A_3) $ such that the product of two elements equals the third element.\n\n### Step-by-step Analysis:\n\n1. **Understand Permutations**:\n   - Since there are only 3 elements, there are $3! = 6$ possible permutations.\n   - We can generate all permutations and check if any one satisfies the condition: $B_1 \\times B_2 = B_3$.\n\n2. **Efficient Approach**:\n   - Generate all permutations of the list of 3 integers.\n   - For each permutation, check if the first two elements multiply to give the third.\n\n3. **Edge Cases**:\n   - Since the values are limited between 1 and 100, generating all permutations is computationally feasible and does not require optimization.\n\n4. **Use itertools.permutations**:\n   - Python’s `itertools.permutations` provides an easy way to generate all permutations of a list.\n\n### Final Plan:\n- Read the input as a list of three integers.\n- Generate all permutations using `itertools.permutations`.\n- Check each permutation for the condition $B_1 \\times B_2 = B_3$.\n- Print \"Yes\" if any permutation satisfies the condition; otherwise, print \"No\".\n\nHere is the complete code:\n\n```python\nimport sys\nfrom itertools import permutations\n\n# Read input\nA = list(map(int, sys.stdin.read().split()))\n\n# Generate all permutations of the list\nperms = permutations(A)\n\n# Check each permutation for the condition\nfound = False\nfor p in perms:\n    if p[0] * p[1] == p[2]:\n        found = True\n        break\n\n# Output the result\nprint(\"Yes\" if found else \"No\")\n```"
+}

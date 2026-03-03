@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772541220",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 2,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 22.03592586517334,
+  "response": "The error is occurring due to incorrect handling of indices when accessing the `temp_heap`. The issue arises when we try to access `temp_heap[i]` and assume that all elements in `temp_heap` are properly stored. Let's rework the code carefully to ensure correct handling of the max scores and their indices.\n\nHere’s the corrected and complete code:\n\n```python\nimport heapq\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:]))\n    \n    # List to store the rank of each person\n    rank_list = [None] * N\n    \n    # Max heap implementation using negative values\n    heap = []\n    for i in range(N):\n        # Store as (-score, index) to simulate a max heap\n        heapq.heappush(heap, (-P[i], i))\n    \n    r = 1  # Current rank\n    \n    while heap:\n        # Get the max score and its index\n        max_score_neg, idx = heapq.heappop(heap)\n        max_score = -max_score_neg\n        \n        # Find all other indices with the same score\n        count = 1\n        temp_heap = [(max_score_neg, idx)]  # Start with the first one\n        \n        # Check if there are more elements in the heap with same score\n        while heap and -heap[0][0] == max_score:\n            temp_score_neg, temp_idx = heapq.heappop(heap)\n            temp_heap.append((temp_score_neg, temp_idx))\n            count += 1\n        \n        # Assign the current rank to those with max score\n        for score_neg, idx in temp_heap:\n            rank_list[idx] = r\n        \n        # Update the rank\n        r += count\n    \n    # Print the ranks of each person\n    for rank in rank_list:\n        print(rank)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

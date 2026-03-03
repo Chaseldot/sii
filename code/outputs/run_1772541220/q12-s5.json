@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772541220",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 5,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 5.393187046051025,
+  "response": "I'll solve this problem step by step.\n\n### Problem Analysis:\nWe are given an integer sequence of length N, and we need to determine whether there is a place in the sequence where the same element appears **three or more times in a row**. That means we're looking for a subsequence of at least three identical elements in a row.\n\n### Key Observations:\n- We need to check consecutive triplets (i, i+1, i+2) for equality.\n- If such a triplet exists, we print \"Yes\", otherwise we print \"No\".\n- The constraints allow for a simple brute-force approach since N is small (≤ 100).\n\n### Algorithm:\n1. Read N and the list A.\n2. Iterate through the list from index 0 to N-3.\n3. For each index i, check if A[i] == A[i+1] == A[i+2].\n4. If such a triplet is found, print \"Yes\" and exit.\n5. If no such triplet is found after checking all possible positions, print \"No\".\n\n### Time and Space Complexity:\n- **Time Complexity:** O(N), where N is the length of the sequence.\n- **Space Complexity:** O(1), as we only use a few variables for iteration and comparison.\n\nHere is the complete Python code:\n\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three consecutive equal elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        found = True\n        break\n\n# Output result\nprint(\"Yes\" if found else \"No\")\n```"
+}

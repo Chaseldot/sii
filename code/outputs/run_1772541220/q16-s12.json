@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772541220",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 12,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.753316164016724,
+  "response": "To solve this problem, we need to determine a positive integer $ B $ such that the product of $ A $ (rows) and $ B $ (columns) equals 400. This means we are looking for a divisor of 400 that is greater than or equal to 1.\n\n### Key Steps:\n1. **Understand the Problem**: We are given a number $ A $, and we must find a $ B $ such that $ A \\times B = 400 $. If no such $ B $ exists (i.e., if $ A $ is not a factor of 400), we output `-1`.\n2. **Brute Force with Optimization**:\n   - Loop through all possible factors of 400 up to $ \\sqrt{400} $.\n   - For each factor $ i $, check if $ 400 \\% i == 0 $.\n   - Then compute the corresponding $ B $ as $ B = 400 / i $.\n   - Ensure $ B $ is an integer and also a valid positive value.\n3. **Edge Cases**:\n   - If $ A = 400 $, the only valid $ B $ is 1.\n   - If $ A $ is not a factor of 400, return `-1`.\n\n### Time Complexity:\n- The loop runs in $ O(\\sqrt{400}) $, which is very efficient even for large ranges.\n\n---\n\nHere is the complete Python code:\n\n```python\nimport sys\n\ndef find_b(A):\n    # Check if A divides 400 evenly\n    if 400 % A == 0:\n        return 400 // A\n    else:\n        return -1\n\ndef main():\n    A = int(sys.stdin.readline())\n    result = find_b(A)\n    print(result)\n\nif __name__ == \"__main__\":\n    main()\n```\n\nThis solution efficiently checks if $ A $ divides 400 and returns the appropriate $ B $. If no such $ B $ exists, it prints `-1`. The algorithm ensures optimal performance within the constraints."
+}

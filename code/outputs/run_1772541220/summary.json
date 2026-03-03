@@ -1,0 +1,3034 @@
+{
+  "run_name": "run_1772541220",
+  "jsonl_path": "data/dev.jsonl",
+  "max_turns": 3,
+  "num_questions": 20,
+  "samples_per_question": 16,
+  "total_samples": 320,
+  "total_passed": 139,
+  "total_errors": 0,
+  "avg_pass_at_1": 0.434375,
+  "elapsed_seconds": 573.2431833744049,
+  "per_question": [
+    {
+      "question_index": 0,
+      "question_id": "0",
+      "pass_at_1": 0.0,
+      "samples": [
+        {
+          "question_index": 0,
+          "question_id": "0",
+          "split": "train",
+          "sample_id": 0,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 60.872514724731445
+        },
+        {
+          "question_index": 0,
+          "question_id": "0",
+          "split": "train",
+          "sample_id": 1,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 53.22071647644043
+        },
+        {
+          "question_index": 0,
+          "question_id": "0",
+          "split": "train",
+          "sample_id": 2,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 64.89649724960327
+        },
+        {
+          "question_index": 0,
+          "question_id": "0",
+          "split": "train",
+          "sample_id": 3,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 57.3972909450531
+        },
+        {
+          "question_index": 0,
+          "question_id": "0",
+          "split": "train",
+          "sample_id": 4,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 47.19217538833618
+        },
+        {
+          "question_index": 0,
+          "question_id": "0",
+          "split": "train",
+          "sample_id": 5,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 74.59533143043518
+        },
+        {
+          "question_index": 0,
+          "question_id": "0",
+          "split": "train",
+          "sample_id": 6,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 56.67892789840698
+        },
+        {
+          "question_index": 0,
+          "question_id": "0",
+          "split": "train",
+          "sample_id": 7,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 41.825092792510986
+        },
+        {
+          "question_index": 0,
+          "question_id": "0",
+          "split": "train",
+          "sample_id": 8,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 47.88534879684448
+        },
+        {
+          "question_index": 0,
+          "question_id": "0",
+          "split": "train",
+          "sample_id": 9,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 62.64994978904724
+        },
+        {
+          "question_index": 0,
+          "question_id": "0",
+          "split": "train",
+          "sample_id": 10,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 82.76578259468079
+        },
+        {
+          "question_index": 0,
+          "question_id": "0",
+          "split": "train",
+          "sample_id": 11,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 52.71906542778015
+        },
+        {
+          "question_index": 0,
+          "question_id": "0",
+          "split": "train",
+          "sample_id": 12,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 38.382160902023315
+        },
+        {
+          "question_index": 0,
+          "question_id": "0",
+          "split": "train",
+          "sample_id": 13,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 64.13019895553589
+        },
+        {
+          "question_index": 0,
+          "question_id": "0",
+          "split": "train",
+          "sample_id": 14,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 56.81188130378723
+        },
+        {
+          "question_index": 0,
+          "question_id": "0",
+          "split": "train",
+          "sample_id": 15,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 44.899481773376465
+        }
+      ]
+    },
+    {
+      "question_index": 1,
+      "question_id": "3",
+      "pass_at_1": 0.0,
+      "samples": [
+        {
+          "question_index": 1,
+          "question_id": "3",
+          "split": "train",
+          "sample_id": 0,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 55.57425355911255
+        },
+        {
+          "question_index": 1,
+          "question_id": "3",
+          "split": "train",
+          "sample_id": 1,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 50.01478886604309
+        },
+        {
+          "question_index": 1,
+          "question_id": "3",
+          "split": "train",
+          "sample_id": 2,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 46.52380132675171
+        },
+        {
+          "question_index": 1,
+          "question_id": "3",
+          "split": "train",
+          "sample_id": 3,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 41.41596174240112
+        },
+        {
+          "question_index": 1,
+          "question_id": "3",
+          "split": "train",
+          "sample_id": 4,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 56.716357946395874
+        },
+        {
+          "question_index": 1,
+          "question_id": "3",
+          "split": "train",
+          "sample_id": 5,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 59.38956141471863
+        },
+        {
+          "question_index": 1,
+          "question_id": "3",
+          "split": "train",
+          "sample_id": 6,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 46.09278869628906
+        },
+        {
+          "question_index": 1,
+          "question_id": "3",
+          "split": "train",
+          "sample_id": 7,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 40.853641986846924
+        },
+        {
+          "question_index": 1,
+          "question_id": "3",
+          "split": "train",
+          "sample_id": 8,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 59.41829204559326
+        },
+        {
+          "question_index": 1,
+          "question_id": "3",
+          "split": "train",
+          "sample_id": 9,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 46.15253829956055
+        },
+        {
+          "question_index": 1,
+          "question_id": "3",
+          "split": "train",
+          "sample_id": 10,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 70.05869388580322
+        },
+        {
+          "question_index": 1,
+          "question_id": "3",
+          "split": "train",
+          "sample_id": 11,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 41.42801380157471
+        },
+        {
+          "question_index": 1,
+          "question_id": "3",
+          "split": "train",
+          "sample_id": 12,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 65.55672526359558
+        },
+        {
+          "question_index": 1,
+          "question_id": "3",
+          "split": "train",
+          "sample_id": 13,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 39.770838022232056
+        },
+        {
+          "question_index": 1,
+          "question_id": "3",
+          "split": "train",
+          "sample_id": 14,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 39.26379132270813
+        },
+        {
+          "question_index": 1,
+          "question_id": "3",
+          "split": "train",
+          "sample_id": 15,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 51.72856092453003
+        }
+      ]
+    },
+    {
+      "question_index": 2,
+      "question_id": "4",
+      "pass_at_1": 0.0,
+      "samples": [
+        {
+          "question_index": 2,
+          "question_id": "4",
+          "split": "train",
+          "sample_id": 0,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 66.10998153686523
+        },
+        {
+          "question_index": 2,
+          "question_id": "4",
+          "split": "train",
+          "sample_id": 1,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 47.52106976509094
+        },
+        {
+          "question_index": 2,
+          "question_id": "4",
+          "split": "train",
+          "sample_id": 2,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 37.487250089645386
+        },
+        {
+          "question_index": 2,
+          "question_id": "4",
+          "split": "train",
+          "sample_id": 3,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 40.30001759529114
+        },
+        {
+          "question_index": 2,
+          "question_id": "4",
+          "split": "train",
+          "sample_id": 4,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 46.71260738372803
+        },
+        {
+          "question_index": 2,
+          "question_id": "4",
+          "split": "train",
+          "sample_id": 5,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 41.0975980758667
+        },
+        {
+          "question_index": 2,
+          "question_id": "4",
+          "split": "train",
+          "sample_id": 6,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 49.25490665435791
+        },
+        {
+          "question_index": 2,
+          "question_id": "4",
+          "split": "train",
+          "sample_id": 7,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 49.20484781265259
+        },
+        {
+          "question_index": 2,
+          "question_id": "4",
+          "split": "train",
+          "sample_id": 8,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 48.76720118522644
+        },
+        {
+          "question_index": 2,
+          "question_id": "4",
+          "split": "train",
+          "sample_id": 9,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 39.63588857650757
+        },
+        {
+          "question_index": 2,
+          "question_id": "4",
+          "split": "train",
+          "sample_id": 10,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 45.77339744567871
+        },
+        {
+          "question_index": 2,
+          "question_id": "4",
+          "split": "train",
+          "sample_id": 11,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 42.52135133743286
+        },
+        {
+          "question_index": 2,
+          "question_id": "4",
+          "split": "train",
+          "sample_id": 12,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 48.527594566345215
+        },
+        {
+          "question_index": 2,
+          "question_id": "4",
+          "split": "train",
+          "sample_id": 13,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 38.43934106826782
+        },
+        {
+          "question_index": 2,
+          "question_id": "4",
+          "split": "train",
+          "sample_id": 14,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 43.850871324539185
+        },
+        {
+          "question_index": 2,
+          "question_id": "4",
+          "split": "train",
+          "sample_id": 15,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 38.71496653556824
+        }
+      ]
+    },
+    {
+      "question_index": 3,
+      "question_id": "6",
+      "pass_at_1": 1.0,
+      "samples": [
+        {
+          "question_index": 3,
+          "question_id": "6",
+          "split": "train",
+          "sample_id": 0,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 11.715808629989624
+        },
+        {
+          "question_index": 3,
+          "question_id": "6",
+          "split": "train",
+          "sample_id": 1,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 6.0178141593933105
+        },
+        {
+          "question_index": 3,
+          "question_id": "6",
+          "split": "train",
+          "sample_id": 2,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 4.368693828582764
+        },
+        {
+          "question_index": 3,
+          "question_id": "6",
+          "split": "train",
+          "sample_id": 3,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 10.51661729812622
+        },
+        {
+          "question_index": 3,
+          "question_id": "6",
+          "split": "train",
+          "sample_id": 4,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 11.233863592147827
+        },
+        {
+          "question_index": 3,
+          "question_id": "6",
+          "split": "train",
+          "sample_id": 5,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 8.09043574333191
+        },
+        {
+          "question_index": 3,
+          "question_id": "6",
+          "split": "train",
+          "sample_id": 6,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 6.675363063812256
+        },
+        {
+          "question_index": 3,
+          "question_id": "6",
+          "split": "train",
+          "sample_id": 7,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 4.676553964614868
+        },
+        {
+          "question_index": 3,
+          "question_id": "6",
+          "split": "train",
+          "sample_id": 8,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 6.908997297286987
+        },
+        {
+          "question_index": 3,
+          "question_id": "6",
+          "split": "train",
+          "sample_id": 9,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 5.9752116203308105
+        },
+        {
+          "question_index": 3,
+          "question_id": "6",
+          "split": "train",
+          "sample_id": 10,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 4.571882724761963
+        },
+        {
+          "question_index": 3,
+          "question_id": "6",
+          "split": "train",
+          "sample_id": 11,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 4.462724447250366
+        },
+        {
+          "question_index": 3,
+          "question_id": "6",
+          "split": "train",
+          "sample_id": 12,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 6.627746820449829
+        },
+        {
+          "question_index": 3,
+          "question_id": "6",
+          "split": "train",
+          "sample_id": 13,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 6.185721158981323
+        },
+        {
+          "question_index": 3,
+          "question_id": "6",
+          "split": "train",
+          "sample_id": 14,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 8.957001686096191
+        },
+        {
+          "question_index": 3,
+          "question_id": "6",
+          "split": "train",
+          "sample_id": 15,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 11.889977216720581
+        }
+      ]
+    },
+    {
+      "question_index": 4,
+      "question_id": "11",
+      "pass_at_1": 0.5625,
+      "samples": [
+        {
+          "question_index": 4,
+          "question_id": "11",
+          "split": "train",
+          "sample_id": 0,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 27.161309719085693
+        },
+        {
+          "question_index": 4,
+          "question_id": "11",
+          "split": "train",
+          "sample_id": 1,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 37.79535222053528
+        },
+        {
+          "question_index": 4,
+          "question_id": "11",
+          "split": "train",
+          "sample_id": 2,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 32.53810000419617
+        },
+        {
+          "question_index": 4,
+          "question_id": "11",
+          "split": "train",
+          "sample_id": 3,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 34.794594049453735
+        },
+        {
+          "question_index": 4,
+          "question_id": "11",
+          "split": "train",
+          "sample_id": 4,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 21.80904269218445
+        },
+        {
+          "question_index": 4,
+          "question_id": "11",
+          "split": "train",
+          "sample_id": 5,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 17.022725105285645
+        },
+        {
+          "question_index": 4,
+          "question_id": "11",
+          "split": "train",
+          "sample_id": 6,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 17.9862642288208
+        },
+        {
+          "question_index": 4,
+          "question_id": "11",
+          "split": "train",
+          "sample_id": 7,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 24.353856563568115
+        },
+        {
+          "question_index": 4,
+          "question_id": "11",
+          "split": "train",
+          "sample_id": 8,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 27.269482612609863
+        },
+        {
+          "question_index": 4,
+          "question_id": "11",
+          "split": "train",
+          "sample_id": 9,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 37.45362186431885
+        },
+        {
+          "question_index": 4,
+          "question_id": "11",
+          "split": "train",
+          "sample_id": 10,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 31.030161380767822
+        },
+        {
+          "question_index": 4,
+          "question_id": "11",
+          "split": "train",
+          "sample_id": 11,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 38.06459856033325
+        },
+        {
+          "question_index": 4,
+          "question_id": "11",
+          "split": "train",
+          "sample_id": 12,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 34.31212759017944
+        },
+        {
+          "question_index": 4,
+          "question_id": "11",
+          "split": "train",
+          "sample_id": 13,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 23.615720987319946
+        },
+        {
+          "question_index": 4,
+          "question_id": "11",
+          "split": "train",
+          "sample_id": 14,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 35.904892921447754
+        },
+        {
+          "question_index": 4,
+          "question_id": "11",
+          "split": "train",
+          "sample_id": 15,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 10.452451705932617
+        }
+      ]
+    },
+    {
+      "question_index": 5,
+      "question_id": "13",
+      "pass_at_1": 0.125,
+      "samples": [
+        {
+          "question_index": 5,
+          "question_id": "13",
+          "split": "train",
+          "sample_id": 0,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 76.0035572052002
+        },
+        {
+          "question_index": 5,
+          "question_id": "13",
+          "split": "train",
+          "sample_id": 1,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 37.76681923866272
+        },
+        {
+          "question_index": 5,
+          "question_id": "13",
+          "split": "train",
+          "sample_id": 2,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 45.0375759601593
+        },
+        {
+          "question_index": 5,
+          "question_id": "13",
+          "split": "train",
+          "sample_id": 3,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 88.18102622032166
+        },
+        {
+          "question_index": 5,
+          "question_id": "13",
+          "split": "train",
+          "sample_id": 4,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 65.70982146263123
+        },
+        {
+          "question_index": 5,
+          "question_id": "13",
+          "split": "train",
+          "sample_id": 5,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 62.204928159713745
+        },
+        {
+          "question_index": 5,
+          "question_id": "13",
+          "split": "train",
+          "sample_id": 6,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 59.518714427948
+        },
+        {
+          "question_index": 5,
+          "question_id": "13",
+          "split": "train",
+          "sample_id": 7,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 62.308762073516846
+        },
+        {
+          "question_index": 5,
+          "question_id": "13",
+          "split": "train",
+          "sample_id": 8,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 52.58222556114197
+        },
+        {
+          "question_index": 5,
+          "question_id": "13",
+          "split": "train",
+          "sample_id": 9,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 70.63877892494202
+        },
+        {
+          "question_index": 5,
+          "question_id": "13",
+          "split": "train",
+          "sample_id": 10,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 56.84122037887573
+        },
+        {
+          "question_index": 5,
+          "question_id": "13",
+          "split": "train",
+          "sample_id": 11,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 66.8664333820343
+        },
+        {
+          "question_index": 5,
+          "question_id": "13",
+          "split": "train",
+          "sample_id": 12,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 65.37105512619019
+        },
+        {
+          "question_index": 5,
+          "question_id": "13",
+          "split": "train",
+          "sample_id": 13,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 75.13811540603638
+        },
+        {
+          "question_index": 5,
+          "question_id": "13",
+          "split": "train",
+          "sample_id": 14,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 64.03009033203125
+        },
+        {
+          "question_index": 5,
+          "question_id": "13",
+          "split": "train",
+          "sample_id": 15,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 65.12646627426147
+        }
+      ]
+    },
+    {
+      "question_index": 6,
+      "question_id": "17",
+      "pass_at_1": 0.4375,
+      "samples": [
+        {
+          "question_index": 6,
+          "question_id": "17",
+          "split": "train",
+          "sample_id": 0,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 18.789214372634888
+        },
+        {
+          "question_index": 6,
+          "question_id": "17",
+          "split": "train",
+          "sample_id": 1,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 36.395877838134766
+        },
+        {
+          "question_index": 6,
+          "question_id": "17",
+          "split": "train",
+          "sample_id": 2,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 31.81290054321289
+        },
+        {
+          "question_index": 6,
+          "question_id": "17",
+          "split": "train",
+          "sample_id": 3,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 17.783557176589966
+        },
+        {
+          "question_index": 6,
+          "question_id": "17",
+          "split": "train",
+          "sample_id": 4,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 30.65068769454956
+        },
+        {
+          "question_index": 6,
+          "question_id": "17",
+          "split": "train",
+          "sample_id": 5,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 29.36507272720337
+        },
+        {
+          "question_index": 6,
+          "question_id": "17",
+          "split": "train",
+          "sample_id": 6,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 21.79391598701477
+        },
+        {
+          "question_index": 6,
+          "question_id": "17",
+          "split": "train",
+          "sample_id": 7,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 17.268099546432495
+        },
+        {
+          "question_index": 6,
+          "question_id": "17",
+          "split": "train",
+          "sample_id": 8,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 25.48097562789917
+        },
+        {
+          "question_index": 6,
+          "question_id": "17",
+          "split": "train",
+          "sample_id": 9,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 25.935131788253784
+        },
+        {
+          "question_index": 6,
+          "question_id": "17",
+          "split": "train",
+          "sample_id": 10,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 21.129414558410645
+        },
+        {
+          "question_index": 6,
+          "question_id": "17",
+          "split": "train",
+          "sample_id": 11,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 32.55925130844116
+        },
+        {
+          "question_index": 6,
+          "question_id": "17",
+          "split": "train",
+          "sample_id": 12,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 27.870131969451904
+        },
+        {
+          "question_index": 6,
+          "question_id": "17",
+          "split": "train",
+          "sample_id": 13,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 28.791465520858765
+        },
+        {
+          "question_index": 6,
+          "question_id": "17",
+          "split": "train",
+          "sample_id": 14,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 14.359293222427368
+        },
+        {
+          "question_index": 6,
+          "question_id": "17",
+          "split": "train",
+          "sample_id": 15,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 41.91333484649658
+        }
+      ]
+    },
+    {
+      "question_index": 7,
+      "question_id": "20",
+      "pass_at_1": 1.0,
+      "samples": [
+        {
+          "question_index": 7,
+          "question_id": "20",
+          "split": "train",
+          "sample_id": 0,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 5.239480972290039
+        },
+        {
+          "question_index": 7,
+          "question_id": "20",
+          "split": "train",
+          "sample_id": 1,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 2.689283609390259
+        },
+        {
+          "question_index": 7,
+          "question_id": "20",
+          "split": "train",
+          "sample_id": 2,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 5.654230117797852
+        },
+        {
+          "question_index": 7,
+          "question_id": "20",
+          "split": "train",
+          "sample_id": 3,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 3.324662446975708
+        },
+        {
+          "question_index": 7,
+          "question_id": "20",
+          "split": "train",
+          "sample_id": 4,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 3.71405291557312
+        },
+        {
+          "question_index": 7,
+          "question_id": "20",
+          "split": "train",
+          "sample_id": 5,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 4.648686170578003
+        },
+        {
+          "question_index": 7,
+          "question_id": "20",
+          "split": "train",
+          "sample_id": 6,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 2.6192073822021484
+        },
+        {
+          "question_index": 7,
+          "question_id": "20",
+          "split": "train",
+          "sample_id": 7,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 3.3666539192199707
+        },
+        {
+          "question_index": 7,
+          "question_id": "20",
+          "split": "train",
+          "sample_id": 8,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 3.1560027599334717
+        },
+        {
+          "question_index": 7,
+          "question_id": "20",
+          "split": "train",
+          "sample_id": 9,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 5.369090557098389
+        },
+        {
+          "question_index": 7,
+          "question_id": "20",
+          "split": "train",
+          "sample_id": 10,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 3.7638208866119385
+        },
+        {
+          "question_index": 7,
+          "question_id": "20",
+          "split": "train",
+          "sample_id": 11,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 3.2565693855285645
+        },
+        {
+          "question_index": 7,
+          "question_id": "20",
+          "split": "train",
+          "sample_id": 12,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 4.268230199813843
+        },
+        {
+          "question_index": 7,
+          "question_id": "20",
+          "split": "train",
+          "sample_id": 13,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 4.1149678230285645
+        },
+        {
+          "question_index": 7,
+          "question_id": "20",
+          "split": "train",
+          "sample_id": 14,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 3.0008044242858887
+        },
+        {
+          "question_index": 7,
+          "question_id": "20",
+          "split": "train",
+          "sample_id": 15,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 4.290459632873535
+        }
+      ]
+    },
+    {
+      "question_index": 8,
+      "question_id": "25",
+      "pass_at_1": 0.0,
+      "samples": [
+        {
+          "question_index": 8,
+          "question_id": "25",
+          "split": "train",
+          "sample_id": 0,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 80.30936813354492
+        },
+        {
+          "question_index": 8,
+          "question_id": "25",
+          "split": "train",
+          "sample_id": 1,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 65.68315243721008
+        },
+        {
+          "question_index": 8,
+          "question_id": "25",
+          "split": "train",
+          "sample_id": 2,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 36.886348724365234
+        },
+        {
+          "question_index": 8,
+          "question_id": "25",
+          "split": "train",
+          "sample_id": 3,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 76.21863293647766
+        },
+        {
+          "question_index": 8,
+          "question_id": "25",
+          "split": "train",
+          "sample_id": 4,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 52.51077747344971
+        },
+        {
+          "question_index": 8,
+          "question_id": "25",
+          "split": "train",
+          "sample_id": 5,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 62.58027410507202
+        },
+        {
+          "question_index": 8,
+          "question_id": "25",
+          "split": "train",
+          "sample_id": 6,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 58.03813910484314
+        },
+        {
+          "question_index": 8,
+          "question_id": "25",
+          "split": "train",
+          "sample_id": 7,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 69.21919417381287
+        },
+        {
+          "question_index": 8,
+          "question_id": "25",
+          "split": "train",
+          "sample_id": 8,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 62.424532413482666
+        },
+        {
+          "question_index": 8,
+          "question_id": "25",
+          "split": "train",
+          "sample_id": 9,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 43.6299204826355
+        },
+        {
+          "question_index": 8,
+          "question_id": "25",
+          "split": "train",
+          "sample_id": 10,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 71.59654259681702
+        },
+        {
+          "question_index": 8,
+          "question_id": "25",
+          "split": "train",
+          "sample_id": 11,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 46.1889967918396
+        },
+        {
+          "question_index": 8,
+          "question_id": "25",
+          "split": "train",
+          "sample_id": 12,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 73.64485573768616
+        },
+        {
+          "question_index": 8,
+          "question_id": "25",
+          "split": "train",
+          "sample_id": 13,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 83.58949947357178
+        },
+        {
+          "question_index": 8,
+          "question_id": "25",
+          "split": "train",
+          "sample_id": 14,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 68.77098417282104
+        },
+        {
+          "question_index": 8,
+          "question_id": "25",
+          "split": "train",
+          "sample_id": 15,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 79.4879400730133
+        }
+      ]
+    },
+    {
+      "question_index": 9,
+      "question_id": "27",
+      "pass_at_1": 1.0,
+      "samples": [
+        {
+          "question_index": 9,
+          "question_id": "27",
+          "split": "train",
+          "sample_id": 0,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 5.999076843261719
+        },
+        {
+          "question_index": 9,
+          "question_id": "27",
+          "split": "train",
+          "sample_id": 1,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 4.958472728729248
+        },
+        {
+          "question_index": 9,
+          "question_id": "27",
+          "split": "train",
+          "sample_id": 2,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 4.71354603767395
+        },
+        {
+          "question_index": 9,
+          "question_id": "27",
+          "split": "train",
+          "sample_id": 3,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 4.502005338668823
+        },
+        {
+          "question_index": 9,
+          "question_id": "27",
+          "split": "train",
+          "sample_id": 4,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 4.106257200241089
+        },
+        {
+          "question_index": 9,
+          "question_id": "27",
+          "split": "train",
+          "sample_id": 5,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 5.6400675773620605
+        },
+        {
+          "question_index": 9,
+          "question_id": "27",
+          "split": "train",
+          "sample_id": 6,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 6.2007434368133545
+        },
+        {
+          "question_index": 9,
+          "question_id": "27",
+          "split": "train",
+          "sample_id": 7,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 5.050302028656006
+        },
+        {
+          "question_index": 9,
+          "question_id": "27",
+          "split": "train",
+          "sample_id": 8,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 5.178922414779663
+        },
+        {
+          "question_index": 9,
+          "question_id": "27",
+          "split": "train",
+          "sample_id": 9,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 5.1343584060668945
+        },
+        {
+          "question_index": 9,
+          "question_id": "27",
+          "split": "train",
+          "sample_id": 10,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 7.885974645614624
+        },
+        {
+          "question_index": 9,
+          "question_id": "27",
+          "split": "train",
+          "sample_id": 11,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 4.416801691055298
+        },
+        {
+          "question_index": 9,
+          "question_id": "27",
+          "split": "train",
+          "sample_id": 12,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 3.777564525604248
+        },
+        {
+          "question_index": 9,
+          "question_id": "27",
+          "split": "train",
+          "sample_id": 13,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 6.9525721073150635
+        },
+        {
+          "question_index": 9,
+          "question_id": "27",
+          "split": "train",
+          "sample_id": 14,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 5.766145467758179
+        },
+        {
+          "question_index": 9,
+          "question_id": "27",
+          "split": "train",
+          "sample_id": 15,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 4.821809768676758
+        }
+      ]
+    },
+    {
+      "question_index": 10,
+      "question_id": "28",
+      "pass_at_1": 0.9375,
+      "samples": [
+        {
+          "question_index": 10,
+          "question_id": "28",
+          "split": "train",
+          "sample_id": 0,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 30.916754961013794
+        },
+        {
+          "question_index": 10,
+          "question_id": "28",
+          "split": "train",
+          "sample_id": 1,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 19.86933922767639
+        },
+        {
+          "question_index": 10,
+          "question_id": "28",
+          "split": "train",
+          "sample_id": 2,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 15.16947317123413
+        },
+        {
+          "question_index": 10,
+          "question_id": "28",
+          "split": "train",
+          "sample_id": 3,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 21.34409785270691
+        },
+        {
+          "question_index": 10,
+          "question_id": "28",
+          "split": "train",
+          "sample_id": 4,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 20.409860610961914
+        },
+        {
+          "question_index": 10,
+          "question_id": "28",
+          "split": "train",
+          "sample_id": 5,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 14.271921873092651
+        },
+        {
+          "question_index": 10,
+          "question_id": "28",
+          "split": "train",
+          "sample_id": 6,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 15.266747236251831
+        },
+        {
+          "question_index": 10,
+          "question_id": "28",
+          "split": "train",
+          "sample_id": 7,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 15.2767493724823
+        },
+        {
+          "question_index": 10,
+          "question_id": "28",
+          "split": "train",
+          "sample_id": 8,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 18.591824769973755
+        },
+        {
+          "question_index": 10,
+          "question_id": "28",
+          "split": "train",
+          "sample_id": 9,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 19.311622858047485
+        },
+        {
+          "question_index": 10,
+          "question_id": "28",
+          "split": "train",
+          "sample_id": 10,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 46.20778751373291
+        },
+        {
+          "question_index": 10,
+          "question_id": "28",
+          "split": "train",
+          "sample_id": 11,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 19.308509588241577
+        },
+        {
+          "question_index": 10,
+          "question_id": "28",
+          "split": "train",
+          "sample_id": 12,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 17.20602798461914
+        },
+        {
+          "question_index": 10,
+          "question_id": "28",
+          "split": "train",
+          "sample_id": 13,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 30.760579824447632
+        },
+        {
+          "question_index": 10,
+          "question_id": "28",
+          "split": "train",
+          "sample_id": 14,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 13.106739521026611
+        },
+        {
+          "question_index": 10,
+          "question_id": "28",
+          "split": "train",
+          "sample_id": 15,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 16.085739850997925
+        }
+      ]
+    },
+    {
+      "question_index": 11,
+      "question_id": "29",
+      "pass_at_1": 0.0,
+      "samples": [
+        {
+          "question_index": 11,
+          "question_id": "29",
+          "split": "train",
+          "sample_id": 0,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 47.89557147026062
+        },
+        {
+          "question_index": 11,
+          "question_id": "29",
+          "split": "train",
+          "sample_id": 1,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 47.73020625114441
+        },
+        {
+          "question_index": 11,
+          "question_id": "29",
+          "split": "train",
+          "sample_id": 2,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 52.199483156204224
+        },
+        {
+          "question_index": 11,
+          "question_id": "29",
+          "split": "train",
+          "sample_id": 3,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 18.402050733566284
+        },
+        {
+          "question_index": 11,
+          "question_id": "29",
+          "split": "train",
+          "sample_id": 4,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 29.54991102218628
+        },
+        {
+          "question_index": 11,
+          "question_id": "29",
+          "split": "train",
+          "sample_id": 5,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 48.56553268432617
+        },
+        {
+          "question_index": 11,
+          "question_id": "29",
+          "split": "train",
+          "sample_id": 6,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 50.2304584980011
+        },
+        {
+          "question_index": 11,
+          "question_id": "29",
+          "split": "train",
+          "sample_id": 7,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 45.704286336898804
+        },
+        {
+          "question_index": 11,
+          "question_id": "29",
+          "split": "train",
+          "sample_id": 8,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 51.87916874885559
+        },
+        {
+          "question_index": 11,
+          "question_id": "29",
+          "split": "train",
+          "sample_id": 9,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 53.442283630371094
+        },
+        {
+          "question_index": 11,
+          "question_id": "29",
+          "split": "train",
+          "sample_id": 10,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 53.34072923660278
+        },
+        {
+          "question_index": 11,
+          "question_id": "29",
+          "split": "train",
+          "sample_id": 11,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 46.07811379432678
+        },
+        {
+          "question_index": 11,
+          "question_id": "29",
+          "split": "train",
+          "sample_id": 12,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 26.079939365386963
+        },
+        {
+          "question_index": 11,
+          "question_id": "29",
+          "split": "train",
+          "sample_id": 13,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 53.79762315750122
+        },
+        {
+          "question_index": 11,
+          "question_id": "29",
+          "split": "train",
+          "sample_id": 14,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 43.80946946144104
+        },
+        {
+          "question_index": 11,
+          "question_id": "29",
+          "split": "train",
+          "sample_id": 15,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 60.67393684387207
+        }
+      ]
+    },
+    {
+      "question_index": 12,
+      "question_id": "35",
+      "pass_at_1": 1.0,
+      "samples": [
+        {
+          "question_index": 12,
+          "question_id": "35",
+          "split": "train",
+          "sample_id": 0,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 5.765890121459961
+        },
+        {
+          "question_index": 12,
+          "question_id": "35",
+          "split": "train",
+          "sample_id": 1,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 5.147740602493286
+        },
+        {
+          "question_index": 12,
+          "question_id": "35",
+          "split": "train",
+          "sample_id": 2,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 4.322961807250977
+        },
+        {
+          "question_index": 12,
+          "question_id": "35",
+          "split": "train",
+          "sample_id": 3,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 4.8835437297821045
+        },
+        {
+          "question_index": 12,
+          "question_id": "35",
+          "split": "train",
+          "sample_id": 4,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 5.779917001724243
+        },
+        {
+          "question_index": 12,
+          "question_id": "35",
+          "split": "train",
+          "sample_id": 5,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 5.393187046051025
+        },
+        {
+          "question_index": 12,
+          "question_id": "35",
+          "split": "train",
+          "sample_id": 6,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 5.90192723274231
+        },
+        {
+          "question_index": 12,
+          "question_id": "35",
+          "split": "train",
+          "sample_id": 7,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 5.0940399169921875
+        },
+        {
+          "question_index": 12,
+          "question_id": "35",
+          "split": "train",
+          "sample_id": 8,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 4.683037757873535
+        },
+        {
+          "question_index": 12,
+          "question_id": "35",
+          "split": "train",
+          "sample_id": 9,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 3.8358352184295654
+        },
+        {
+          "question_index": 12,
+          "question_id": "35",
+          "split": "train",
+          "sample_id": 10,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 5.513122797012329
+        },
+        {
+          "question_index": 12,
+          "question_id": "35",
+          "split": "train",
+          "sample_id": 11,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 5.123079061508179
+        },
+        {
+          "question_index": 12,
+          "question_id": "35",
+          "split": "train",
+          "sample_id": 12,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 7.1262946128845215
+        },
+        {
+          "question_index": 12,
+          "question_id": "35",
+          "split": "train",
+          "sample_id": 13,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 4.474600553512573
+        },
+        {
+          "question_index": 12,
+          "question_id": "35",
+          "split": "train",
+          "sample_id": 14,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 5.203111410140991
+        },
+        {
+          "question_index": 12,
+          "question_id": "35",
+          "split": "train",
+          "sample_id": 15,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 4.844446182250977
+        }
+      ]
+    },
+    {
+      "question_index": 13,
+      "question_id": "43",
+      "pass_at_1": 0.0625,
+      "samples": [
+        {
+          "question_index": 13,
+          "question_id": "43",
+          "split": "train",
+          "sample_id": 0,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 19.79946994781494
+        },
+        {
+          "question_index": 13,
+          "question_id": "43",
+          "split": "train",
+          "sample_id": 1,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 8.911561012268066
+        },
+        {
+          "question_index": 13,
+          "question_id": "43",
+          "split": "train",
+          "sample_id": 2,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 37.039271116256714
+        },
+        {
+          "question_index": 13,
+          "question_id": "43",
+          "split": "train",
+          "sample_id": 3,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 26.802034378051758
+        },
+        {
+          "question_index": 13,
+          "question_id": "43",
+          "split": "train",
+          "sample_id": 4,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 20.467679738998413
+        },
+        {
+          "question_index": 13,
+          "question_id": "43",
+          "split": "train",
+          "sample_id": 5,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 24.870931148529053
+        },
+        {
+          "question_index": 13,
+          "question_id": "43",
+          "split": "train",
+          "sample_id": 6,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 24.883761644363403
+        },
+        {
+          "question_index": 13,
+          "question_id": "43",
+          "split": "train",
+          "sample_id": 7,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 31.295320987701416
+        },
+        {
+          "question_index": 13,
+          "question_id": "43",
+          "split": "train",
+          "sample_id": 8,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 58.23656177520752
+        },
+        {
+          "question_index": 13,
+          "question_id": "43",
+          "split": "train",
+          "sample_id": 9,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 47.088576316833496
+        },
+        {
+          "question_index": 13,
+          "question_id": "43",
+          "split": "train",
+          "sample_id": 10,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 28.43547749519348
+        },
+        {
+          "question_index": 13,
+          "question_id": "43",
+          "split": "train",
+          "sample_id": 11,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 31.469075679779053
+        },
+        {
+          "question_index": 13,
+          "question_id": "43",
+          "split": "train",
+          "sample_id": 12,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 31.710665941238403
+        },
+        {
+          "question_index": 13,
+          "question_id": "43",
+          "split": "train",
+          "sample_id": 13,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 34.14242219924927
+        },
+        {
+          "question_index": 13,
+          "question_id": "43",
+          "split": "train",
+          "sample_id": 14,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 36.404494524002075
+        },
+        {
+          "question_index": 13,
+          "question_id": "43",
+          "split": "train",
+          "sample_id": 15,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 37.978593587875366
+        }
+      ]
+    },
+    {
+      "question_index": 14,
+      "question_id": "53",
+      "pass_at_1": 0.75,
+      "samples": [
+        {
+          "question_index": 14,
+          "question_id": "53",
+          "split": "train",
+          "sample_id": 0,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 11.25157356262207
+        },
+        {
+          "question_index": 14,
+          "question_id": "53",
+          "split": "train",
+          "sample_id": 1,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 43.74678373336792
+        },
+        {
+          "question_index": 14,
+          "question_id": "53",
+          "split": "train",
+          "sample_id": 2,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 7.6741623878479
+        },
+        {
+          "question_index": 14,
+          "question_id": "53",
+          "split": "train",
+          "sample_id": 3,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 11.45232343673706
+        },
+        {
+          "question_index": 14,
+          "question_id": "53",
+          "split": "train",
+          "sample_id": 4,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 12.338665008544922
+        },
+        {
+          "question_index": 14,
+          "question_id": "53",
+          "split": "train",
+          "sample_id": 5,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 12.72823715209961
+        },
+        {
+          "question_index": 14,
+          "question_id": "53",
+          "split": "train",
+          "sample_id": 6,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 7.451065301895142
+        },
+        {
+          "question_index": 14,
+          "question_id": "53",
+          "split": "train",
+          "sample_id": 7,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 33.90885019302368
+        },
+        {
+          "question_index": 14,
+          "question_id": "53",
+          "split": "train",
+          "sample_id": 8,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 43.39541029930115
+        },
+        {
+          "question_index": 14,
+          "question_id": "53",
+          "split": "train",
+          "sample_id": 9,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 16.267525911331177
+        },
+        {
+          "question_index": 14,
+          "question_id": "53",
+          "split": "train",
+          "sample_id": 10,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 33.6691575050354
+        },
+        {
+          "question_index": 14,
+          "question_id": "53",
+          "split": "train",
+          "sample_id": 11,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 13.616706848144531
+        },
+        {
+          "question_index": 14,
+          "question_id": "53",
+          "split": "train",
+          "sample_id": 12,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 10.480305433273315
+        },
+        {
+          "question_index": 14,
+          "question_id": "53",
+          "split": "train",
+          "sample_id": 13,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 41.70135450363159
+        },
+        {
+          "question_index": 14,
+          "question_id": "53",
+          "split": "train",
+          "sample_id": 14,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 13.502915620803833
+        },
+        {
+          "question_index": 14,
+          "question_id": "53",
+          "split": "train",
+          "sample_id": 15,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 20.74937152862549
+        }
+      ]
+    },
+    {
+      "question_index": 15,
+      "question_id": "54",
+      "pass_at_1": 0.8125,
+      "samples": [
+        {
+          "question_index": 15,
+          "question_id": "54",
+          "split": "train",
+          "sample_id": 0,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 9.864931583404541
+        },
+        {
+          "question_index": 15,
+          "question_id": "54",
+          "split": "train",
+          "sample_id": 1,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 6.8239099979400635
+        },
+        {
+          "question_index": 15,
+          "question_id": "54",
+          "split": "train",
+          "sample_id": 2,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 22.03592586517334
+        },
+        {
+          "question_index": 15,
+          "question_id": "54",
+          "split": "train",
+          "sample_id": 3,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 22.927316665649414
+        },
+        {
+          "question_index": 15,
+          "question_id": "54",
+          "split": "train",
+          "sample_id": 4,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 23.038594007492065
+        },
+        {
+          "question_index": 15,
+          "question_id": "54",
+          "split": "train",
+          "sample_id": 5,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 8.671713829040527
+        },
+        {
+          "question_index": 15,
+          "question_id": "54",
+          "split": "train",
+          "sample_id": 6,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 6.829338312149048
+        },
+        {
+          "question_index": 15,
+          "question_id": "54",
+          "split": "train",
+          "sample_id": 7,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 10.202739953994751
+        },
+        {
+          "question_index": 15,
+          "question_id": "54",
+          "split": "train",
+          "sample_id": 8,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 8.070330381393433
+        },
+        {
+          "question_index": 15,
+          "question_id": "54",
+          "split": "train",
+          "sample_id": 9,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 10.36610746383667
+        },
+        {
+          "question_index": 15,
+          "question_id": "54",
+          "split": "train",
+          "sample_id": 10,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 8.509342432022095
+        },
+        {
+          "question_index": 15,
+          "question_id": "54",
+          "split": "train",
+          "sample_id": 11,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 34.44339656829834
+        },
+        {
+          "question_index": 15,
+          "question_id": "54",
+          "split": "train",
+          "sample_id": 12,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 13.26846981048584
+        },
+        {
+          "question_index": 15,
+          "question_id": "54",
+          "split": "train",
+          "sample_id": 13,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 9.533858299255371
+        },
+        {
+          "question_index": 15,
+          "question_id": "54",
+          "split": "train",
+          "sample_id": 14,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 6.810126543045044
+        },
+        {
+          "question_index": 15,
+          "question_id": "54",
+          "split": "train",
+          "sample_id": 15,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 27.870826244354248
+        }
+      ]
+    },
+    {
+      "question_index": 16,
+      "question_id": "57",
+      "pass_at_1": 1.0,
+      "samples": [
+        {
+          "question_index": 16,
+          "question_id": "57",
+          "split": "train",
+          "sample_id": 0,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 7.458448171615601
+        },
+        {
+          "question_index": 16,
+          "question_id": "57",
+          "split": "train",
+          "sample_id": 1,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 4.022042274475098
+        },
+        {
+          "question_index": 16,
+          "question_id": "57",
+          "split": "train",
+          "sample_id": 2,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 4.502206802368164
+        },
+        {
+          "question_index": 16,
+          "question_id": "57",
+          "split": "train",
+          "sample_id": 3,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 5.248321294784546
+        },
+        {
+          "question_index": 16,
+          "question_id": "57",
+          "split": "train",
+          "sample_id": 4,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 6.406197547912598
+        },
+        {
+          "question_index": 16,
+          "question_id": "57",
+          "split": "train",
+          "sample_id": 5,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 5.986332178115845
+        },
+        {
+          "question_index": 16,
+          "question_id": "57",
+          "split": "train",
+          "sample_id": 6,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 3.6742067337036133
+        },
+        {
+          "question_index": 16,
+          "question_id": "57",
+          "split": "train",
+          "sample_id": 7,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 5.071642160415649
+        },
+        {
+          "question_index": 16,
+          "question_id": "57",
+          "split": "train",
+          "sample_id": 8,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 4.615983724594116
+        },
+        {
+          "question_index": 16,
+          "question_id": "57",
+          "split": "train",
+          "sample_id": 9,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 5.233205318450928
+        },
+        {
+          "question_index": 16,
+          "question_id": "57",
+          "split": "train",
+          "sample_id": 10,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 4.953476428985596
+        },
+        {
+          "question_index": 16,
+          "question_id": "57",
+          "split": "train",
+          "sample_id": 11,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 5.351016998291016
+        },
+        {
+          "question_index": 16,
+          "question_id": "57",
+          "split": "train",
+          "sample_id": 12,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 6.753316164016724
+        },
+        {
+          "question_index": 16,
+          "question_id": "57",
+          "split": "train",
+          "sample_id": 13,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 5.441410303115845
+        },
+        {
+          "question_index": 16,
+          "question_id": "57",
+          "split": "train",
+          "sample_id": 14,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 4.097803115844727
+        },
+        {
+          "question_index": 16,
+          "question_id": "57",
+          "split": "train",
+          "sample_id": 15,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 5.88103723526001
+        }
+      ]
+    },
+    {
+      "question_index": 17,
+      "question_id": "62",
+      "pass_at_1": 0.0,
+      "samples": [
+        {
+          "question_index": 17,
+          "question_id": "62",
+          "split": "train",
+          "sample_id": 0,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 39.4446656703949
+        },
+        {
+          "question_index": 17,
+          "question_id": "62",
+          "split": "train",
+          "sample_id": 1,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 37.26934504508972
+        },
+        {
+          "question_index": 17,
+          "question_id": "62",
+          "split": "train",
+          "sample_id": 2,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 45.95779228210449
+        },
+        {
+          "question_index": 17,
+          "question_id": "62",
+          "split": "train",
+          "sample_id": 3,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 33.644978046417236
+        },
+        {
+          "question_index": 17,
+          "question_id": "62",
+          "split": "train",
+          "sample_id": 4,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 33.18850636482239
+        },
+        {
+          "question_index": 17,
+          "question_id": "62",
+          "split": "train",
+          "sample_id": 5,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 50.054895877838135
+        },
+        {
+          "question_index": 17,
+          "question_id": "62",
+          "split": "train",
+          "sample_id": 6,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 38.28083276748657
+        },
+        {
+          "question_index": 17,
+          "question_id": "62",
+          "split": "train",
+          "sample_id": 7,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 33.374855041503906
+        },
+        {
+          "question_index": 17,
+          "question_id": "62",
+          "split": "train",
+          "sample_id": 8,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 41.98221778869629
+        },
+        {
+          "question_index": 17,
+          "question_id": "62",
+          "split": "train",
+          "sample_id": 9,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 47.32803964614868
+        },
+        {
+          "question_index": 17,
+          "question_id": "62",
+          "split": "train",
+          "sample_id": 10,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 47.318161725997925
+        },
+        {
+          "question_index": 17,
+          "question_id": "62",
+          "split": "train",
+          "sample_id": 11,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 44.91193175315857
+        },
+        {
+          "question_index": 17,
+          "question_id": "62",
+          "split": "train",
+          "sample_id": 12,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 54.439446687698364
+        },
+        {
+          "question_index": 17,
+          "question_id": "62",
+          "split": "train",
+          "sample_id": 13,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 27.268548011779785
+        },
+        {
+          "question_index": 17,
+          "question_id": "62",
+          "split": "train",
+          "sample_id": 14,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 31.17095160484314
+        },
+        {
+          "question_index": 17,
+          "question_id": "62",
+          "split": "train",
+          "sample_id": 15,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 45.657286167144775
+        }
+      ]
+    },
+    {
+      "question_index": 18,
+      "question_id": "64",
+      "pass_at_1": 0.0,
+      "samples": [
+        {
+          "question_index": 18,
+          "question_id": "64",
+          "split": "train",
+          "sample_id": 0,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 47.9623007774353
+        },
+        {
+          "question_index": 18,
+          "question_id": "64",
+          "split": "train",
+          "sample_id": 1,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 52.66423535346985
+        },
+        {
+          "question_index": 18,
+          "question_id": "64",
+          "split": "train",
+          "sample_id": 2,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 48.380610704422
+        },
+        {
+          "question_index": 18,
+          "question_id": "64",
+          "split": "train",
+          "sample_id": 3,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 72.82351207733154
+        },
+        {
+          "question_index": 18,
+          "question_id": "64",
+          "split": "train",
+          "sample_id": 4,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 59.603203535079956
+        },
+        {
+          "question_index": 18,
+          "question_id": "64",
+          "split": "train",
+          "sample_id": 5,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 58.403228998184204
+        },
+        {
+          "question_index": 18,
+          "question_id": "64",
+          "split": "train",
+          "sample_id": 6,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 43.501941442489624
+        },
+        {
+          "question_index": 18,
+          "question_id": "64",
+          "split": "train",
+          "sample_id": 7,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 44.99816346168518
+        },
+        {
+          "question_index": 18,
+          "question_id": "64",
+          "split": "train",
+          "sample_id": 8,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 51.54300546646118
+        },
+        {
+          "question_index": 18,
+          "question_id": "64",
+          "split": "train",
+          "sample_id": 9,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 42.86988592147827
+        },
+        {
+          "question_index": 18,
+          "question_id": "64",
+          "split": "train",
+          "sample_id": 10,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 53.395132303237915
+        },
+        {
+          "question_index": 18,
+          "question_id": "64",
+          "split": "train",
+          "sample_id": 11,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 49.291735887527466
+        },
+        {
+          "question_index": 18,
+          "question_id": "64",
+          "split": "train",
+          "sample_id": 12,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 63.982309103012085
+        },
+        {
+          "question_index": 18,
+          "question_id": "64",
+          "split": "train",
+          "sample_id": 13,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 61.174060344696045
+        },
+        {
+          "question_index": 18,
+          "question_id": "64",
+          "split": "train",
+          "sample_id": 14,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 53.874911069869995
+        },
+        {
+          "question_index": 18,
+          "question_id": "64",
+          "split": "train",
+          "sample_id": 15,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 43.96262836456299
+        }
+      ]
+    },
+    {
+      "question_index": 19,
+      "question_id": "130",
+      "pass_at_1": 0.0,
+      "samples": [
+        {
+          "question_index": 19,
+          "question_id": "130",
+          "split": "train",
+          "sample_id": 0,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 53.570329904556274
+        },
+        {
+          "question_index": 19,
+          "question_id": "130",
+          "split": "train",
+          "sample_id": 1,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 52.64772820472717
+        },
+        {
+          "question_index": 19,
+          "question_id": "130",
+          "split": "train",
+          "sample_id": 2,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 54.05118489265442
+        },
+        {
+          "question_index": 19,
+          "question_id": "130",
+          "split": "train",
+          "sample_id": 3,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 45.37133431434631
+        },
+        {
+          "question_index": 19,
+          "question_id": "130",
+          "split": "train",
+          "sample_id": 4,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 60.34632897377014
+        },
+        {
+          "question_index": 19,
+          "question_id": "130",
+          "split": "train",
+          "sample_id": 5,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 63.54524850845337
+        },
+        {
+          "question_index": 19,
+          "question_id": "130",
+          "split": "train",
+          "sample_id": 6,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 44.42292237281799
+        },
+        {
+          "question_index": 19,
+          "question_id": "130",
+          "split": "train",
+          "sample_id": 7,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 46.25235462188721
+        },
+        {
+          "question_index": 19,
+          "question_id": "130",
+          "split": "train",
+          "sample_id": 8,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 53.21255874633789
+        },
+        {
+          "question_index": 19,
+          "question_id": "130",
+          "split": "train",
+          "sample_id": 9,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 34.87229943275452
+        },
+        {
+          "question_index": 19,
+          "question_id": "130",
+          "split": "train",
+          "sample_id": 10,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 32.28770112991333
+        },
+        {
+          "question_index": 19,
+          "question_id": "130",
+          "split": "train",
+          "sample_id": 11,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 47.328588247299194
+        },
+        {
+          "question_index": 19,
+          "question_id": "130",
+          "split": "train",
+          "sample_id": 12,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 33.85053014755249
+        },
+        {
+          "question_index": 19,
+          "question_id": "130",
+          "split": "train",
+          "sample_id": 13,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 35.061336517333984
+        },
+        {
+          "question_index": 19,
+          "question_id": "130",
+          "split": "train",
+          "sample_id": 14,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 35.24160432815552
+        },
+        {
+          "question_index": 19,
+          "question_id": "130",
+          "split": "train",
+          "sample_id": 15,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 38.341275215148926
+        }
+      ]
+    }
+  ]
+}

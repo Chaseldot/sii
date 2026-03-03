@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772541819",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 0,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.436668634414673,
+  "response": "## STEP 1 - Problem Analysis\n\n### **Problem Type**\nThis problem is a **math** and **number theory** problem. Specifically, it involves finding factors of a number.\n\n### **Key Insight**\nWe are given an integer `A`, which represents the number of rows in a rectangular formation. We need to find a positive integer `B` such that the total number of people (400) can be arranged as `A * B`. This implies:\n$$\nA \\times B = 400 \\Rightarrow B = \\frac{400}{A}\n$$\n\nSo, for a valid arrangement, `A` must be a **divisor of 400**. Otherwise, there is no such integer `B`.\n\n### **Edge Cases**\n1. If `A` is not a divisor of 400, output `-1`.\n2. If `A = 400`, then `B = 1` (a valid solution).\n3. If `A = 1`, then `B = 400` (also a valid solution).\n\n### **Approach**\n- Check whether `A` divides 400 exactly.\n- If yes, compute `B` using integer division (`400 // A`).\n- If no, output `-1`.\n\n---\n\n## STEP 2 - Code Implementation\n\n```python\n# Read input\nA = int(input())\n\n# Check if A is a divisor of 400\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```"
+}

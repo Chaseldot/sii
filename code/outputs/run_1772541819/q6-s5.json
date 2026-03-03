@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772541819",
+  "question_index": 6,
+  "question_id": "17",
+  "split": "train",
+  "sample_id": 5,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 7.1370744705200195,
+  "response": "## STEP 1 - Problem Analysis\n\n### Type of Problem:\nThis is a **string manipulation** problem involving repeated pattern replacement.\n\n### Key Algorithm/Method:\nWe are to repeatedly replace the **leftmost occurrence** of the substring \"WA\" with \"AC\" until no such substring exists. This is a greedy approach where we always prioritize replacing the earliest possible instance of \"WA\".\n\n### Edge Cases:\n- The input string may have no \"WA\" at all, so no operations are performed.\n- Replacing a \"WA\" can create new \"WA\" substrings that need to be addressed in subsequent steps (e.g., \"WWA\" becomes \"WAC\", then \"WAC\" becomes \"ACC\").\n- Large input sizes (up to 3 × 10⁵ characters) require an efficient solution, as simulating character-by-character replacements would be inefficient.\n\n### Strategy:\nTo avoid modifying the string directly and dealing with shifting indices, we can use a **greedy algorithm** and simulate the process by scanning the string from left to right. We'll keep track of positions and replace \"WA\" with \"AC\" only when it appears, ensuring we always handle the **leftmost** occurrence first.\n\n---\n\n## STEP 2 - Write Code\n\n```python\ndef replace_wa_with_ac(s):\n    s = list(s)\n    i = 0\n    while i < len(s) - 1:\n        if s[i] == 'W' and s[i+1] == 'A':\n            s[i] = 'A'\n            s[i+1] = 'C'\n            # After replacement, we need to go back one step to check for new \"WA\"\n            i = max(0, i - 1)\n        else:\n            i += 1\n    return ''.join(s)\n\n# Read input\nS = input().strip()\n\n# Process and output\nprint(replace_wa_with_ac(S))\n```"
+}

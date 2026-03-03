@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772541220",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 1,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 4.022042274475098,
+  "response": "To solve this problem, we need to find a positive integer B such that the product of A and B equals 400. This is because we are arranging exactly 400 people in a rectangular formation with A rows and B columns.\n\n### Key Points:\n- For a given A, we check if 400 is divisible by A.\n- If it is, then the corresponding B is `400 // A`.\n- If it is not, then there is no valid B, and we print `-1`.\n\n### Approach:\n1. Read the input value A.\n2. Check if 400 % A == 0.\n   - If yes, compute B = 400 // A.\n   - If no, output `-1`.\n\nThis is an efficient approach as it runs in constant time O(1).\n\nHere is the complete Python code for the solution:\n\n```python\n# Read input\nA = int(input())\n\n# Check if 400 is divisible by A\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```"
+}

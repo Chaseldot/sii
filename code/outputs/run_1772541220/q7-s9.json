@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772541220",
+  "question_index": 7,
+  "question_id": "20",
+  "split": "train",
+  "sample_id": 9,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 5.369090557098389,
+  "response": "I'll solve this problem step by step.\n\n### Problem Analysis:\nWe are given a string `S` consisting of digits. The task is to remove all characters from `S` that are **not** '2', and then concatenate the remaining characters in their original order to form the final result.\n\n### Key Observations:\n- We only need to keep characters that are equal to '2'.\n- The output string will consist only of '2's.\n- The input guarantees at least one '2' exists.\n\n### Algorithm:\n1. Iterate through each character in the input string `S`.\n2. Filter out all characters that are not '2'.\n3. Concatenate the remaining '2's to form the result.\n\nThis approach has linear time complexity O(n), where n is the length of the input string, which is efficient for the given constraints (length up to 100).\n\n### Code:\n\n```python\n# Read input from standard input\nS = input().strip()\n\n# Filter the string to include only '2's\nresult = ''.join([char for char in S if char == '2'])\n\n# Print the result\nprint(result)\n```\n\n### Example Test Cases:\n- Input: `\"20250222\"` → Output: `\"22222\"`\n- Input: `\"2\"` → Output: `\"2\"`\n- Input: `\"22222000111222222\"` → Output: `\"22222222222\"`\n\nThis solution handles all valid inputs correctly and efficiently."
+}

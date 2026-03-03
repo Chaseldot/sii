@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772541220",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 15,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 5.88103723526001,
+  "response": "To solve this problem, we need to determine whether there exists a positive integer $ B $ such that the product $ A \\times B = 400 $. This is equivalent to checking whether $ A $ is a divisor of 400.\n\n### Steps:\n1. **Understand the Problem**:\n   - We are given an integer $ A $ and need to find a positive integer $ B $ such that $ A \\times B = 400 $.\n   - If no such $ B $ exists (i.e., $ A $ is not a divisor of 400), we should print `-1`.\n\n2. **Edge Cases**:\n   - If $ A = 400 $, then $ B = 1 $.\n   - If $ A = 1 $, then $ B = 400 $.\n   - If $ A > 400 $, then it cannot divide 400, and we should print `-1`.\n   - For any valid $ A $, check if $ 400 \\% A == 0 $.\n\n3. **Efficiency**:\n   - Since $ A $ is within the range [1, 400], checking divisibility is efficient and only takes constant time.\n\nNow, here's the complete Python implementation:\n\n```python\n# Read input\nA = int(input())\n\n# Check if A divides 400\nif 400 % A == 0:\n    print(400 // A)\nelse:\n    print(-1)\n```"
+}

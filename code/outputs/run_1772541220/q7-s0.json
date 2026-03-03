@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772541220",
+  "question_index": 7,
+  "question_id": "20",
+  "split": "train",
+  "sample_id": 0,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 5.239480972290039,
+  "response": "I'll solve this coding problem step by step.\n\n### Problem Analysis\n\nWe are given a string `S` consisting of digits. Our task is to:\n1. Remove all characters from `S` that are not '2'.\n2. Concatenate the remaining '2's in their original order.\n3. Output the resulting string.\n\n### Key Observations\n\n- The input string can be up to 100 characters long, so we don't need any highly optimized algorithm - a simple iteration will suffice.\n- We must ensure that we preserve the order of '2's as they appear in the original string.\n- The output should be the concatenation of only the '2's.\n\n### Solution Plan\n\n1. Iterate through each character in the input string.\n2. Check if the character is '2'.\n3. If it is, add it to a result list or string.\n4. Finally, concatenate all the collected '2's and print the result.\n\n### Edge Cases\n\n- Input with only one '2' (e.g., \"2\") → Output is \"2\".\n- Input with multiple '2's and other digits (e.g., \"20250222\") → Output is \"22222\".\n\nThis approach ensures we handle all cases efficiently and correctly.\n\n### Python Code Implementation\n\n```python\n# Read the input string\nS = input().strip()\n\n# Filter out all characters except '2'\nresult = ''.join([ch for ch in S if ch == '2'])\n\n# Print the result\nprint(result)\n```"
+}

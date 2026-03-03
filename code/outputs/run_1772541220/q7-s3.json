@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772541220",
+  "question_index": 7,
+  "question_id": "20",
+  "split": "train",
+  "sample_id": 3,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 3.324662446975708,
+  "response": "The problem is to extract all occurrences of the digit '2' from a given string and concatenate them to form a new string. The input consists of a single string of digits, and the output should be the resulting string after filtering out all characters except '2'.\n\n### Key Observations:\n- We need to iterate over each character in the string.\n- For each character, we check if it is equal to '2'.\n- If it is, we include it in the result.\n- Finally, we join these selected characters to form the final output string.\n\n### Time Complexity\n- Time complexity: $O(n)$, where $n$ is the length of the input string.\n- Space complexity: $O(n)$ for storing the result string.\n\nHere is the complete Python code that solves the problem:\n\n```python\n# Read input from standard input\nS = input().strip()\n\n# Filter out all characters except '2' and concatenate them\nresult = ''.join([char for char in S if char == '2'])\n\n# Print the result\nprint(result)\n```"
+}
