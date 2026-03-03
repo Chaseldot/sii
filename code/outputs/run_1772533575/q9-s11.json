@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772533575",
+  "question_index": 9,
+  "question_id": "27",
+  "split": "train",
+  "sample_id": 11,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 10.837978839874268,
+  "response": "```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check if the sequence is strictly increasing\nis_increasing = True\nfor i in range(N - 1):\n    if A[i] >= A[i + 1]:\n        is_increasing = False\n        break\n\n# Output the result\nprint(\"Yes\" if is_increasing else \"No\")\n```"
+}

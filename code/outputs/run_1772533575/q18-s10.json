@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772533575",
+  "question_index": 18,
+  "question_id": "64",
+  "split": "train",
+  "sample_id": 10,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 35.814120054244995,
+  "response": "```python\nimport sys\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    A = list(map(int, data[1:]))\n    \n    if all(a == 1 for a in A):\n        print(\"Yes\")\n        return\n    \n    # Try to greedily flip zeros using the allowed patterns\n    # We need to check if we can flip all zeros with the two operations\n    \n    # The two valid patterns in S:\n    # Pattern 1: \"ARC\" -> Flip A_i and A_{i+1}\n    # Pattern 2: \"CRA\" -> Flip A_i and A_{i+1}\n    # We simulate flipping by checking if a zero is at A[i] or A[i+1]\n    \n    # We'll traverse the array once and try to flip zeros where possible\n    # This is a greedy approach\n    \n    # Since the array is circular, we'll use modulo\n    i = 0\n    while i < N:\n        # Check if current position is 0\n        if A[i] == 0:\n            # We can perform operation to flip A[i] and A[i+1]\n            # But we need to ensure that we can find a pattern to do it\n            # For simplicity, we will simulate flipping the values\n            \n            # Flip A[i] and A[(i+1) % N]\n            A[i] = 1\n            A[(i + 1) % N] = 1\n            i += 1  # Move forward\n        else:\n            i += 1\n    \n    if all(a == 1 for a in A):\n        print(\"Yes\")\n    else:\n        print(\"No\")\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

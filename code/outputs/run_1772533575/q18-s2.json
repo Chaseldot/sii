@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772533575",
+  "question_index": 18,
+  "question_id": "64",
+  "split": "train",
+  "sample_id": 2,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 39.588852643966675,
+  "response": "```python\nimport sys\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    A = list(map(int, data[1:N+1]))\n    \n    if all(a == 1 for a in A):\n        print(\"Yes\")\n        return\n    \n    zero_positions = []\n    for i in range(N):\n        if A[i] == 0:\n            zero_positions.append(i)\n    \n    # If there are more than N // 2 zeros, it's impossible to convert them all\n    # Because each operation removes exactly two zeros\n    if len(zero_positions) > N // 2:\n        print(\"No\")\n        return\n    \n    # If the number of zeros is less than or equal to N // 2, it's possible\n    print(\"Yes\")\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

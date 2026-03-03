@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772533575",
+  "question_index": 17,
+  "question_id": "62",
+  "split": "train",
+  "sample_id": 0,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 27.707911729812622,
+  "response": "```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Calculate the count of first-time moves needed\ncount = sum(min(a, 1) for a in A)\n\n# Determine the winner based on whether the count is odd or even\nif count % 2 == 1:\n    print(\"Fennec\")\nelse:\n    print(\"Snuke\")\n```"
+}

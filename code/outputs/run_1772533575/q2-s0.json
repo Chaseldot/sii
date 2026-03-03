@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772533575",
+  "question_index": 2,
+  "question_id": "4",
+  "split": "train",
+  "sample_id": 0,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 37.10653018951416,
+  "response": "```python\nMOD = 998244353\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    M = int(data[1])\n    S = data[2]\n    \n    # Initialize DP table: dp[i][j][l] represents the number of strings of length j\n    # using the first i characters of S with LCS length l\n    dp = [[[0] * (N + 1) for _ in range(M + 1)] for __ in range(N + 1)]\n    dp[0][0][0] = 1\n    \n    for i in range(N + 1):\n        for j in range(M + 1):\n            for l in range(N + 1):\n                if dp[i][j][l] == 0:\n                    continue\n                # Consider adding a new character to the generated string\n                for c in range(26):\n                    char = chr(ord('a') + c)\n                    # Character not present in S, does not affect LCS\n                    if char not in S:\n                        dp[i][j + 1][l] = (dp[i][j + 1][l] + dp[i][j][l]) % MOD\n                    else:\n                        # Find the position of this character in S\n                        pos = S.find(char)\n                        # If the character is not in the current prefix of S, it's same as above\n                        if pos >= i:\n                            # The character can be added to the LCS, increasing the length by 1\n                            if l + 1 <= N:\n                                dp[i + 1][j + 1][l + 1] = (dp[i + 1][j + 1][l + 1] + dp[i][j][l]) % MOD\n                        else:\n                            # The character is already considered, does not increase LCS length\n                            dp[i][j + 1][l] = (dp[i][j + 1][l] + dp[i][j][l]) % MOD\n    \n    # Compute answers for each k from 0 to N\n    ans = [0] * (N + 1)\n    for k in range(N + 1):\n        ans[k] = dp[N][M][k]\n    \n    print(' '.join(map(str, ans)))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772533575",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 5,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 31.994579076766968,
+  "response": "```python\nimport heapq\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:N+1]))\n    \n    rank = [0] * N\n    assigned = [False] * N\n    r = 1\n    \n    # Create a max-heap by pushing negative scores\n    heap = []\n    for i in range(N):\n        heapq.heappush(heap, (-P[i], i))\n    \n    while True:\n        # Find the current max score among unassigned participants\n        current_max_score = -float('inf')\n        current_indices = []\n        \n        # Extract elements from heap until we find unassigned ones\n        temp = []\n        while heap:\n            score_neg, idx = heapq.heappop(heap)\n            score = -score_neg\n            if not assigned[idx]:\n                current_max_score = score\n                current_indices.append(idx)\n            else:\n                temp.append((score_neg, idx))\n        \n        # Put back the elements that were not unassigned\n        for item in temp:\n            heapq.heappush(heap, item)\n        \n        if not current_indices:\n            break\n        \n        # Assign rank to these people\n        for idx in current_indices:\n            rank[idx] = r\n            assigned[idx] = True\n        \n        r += len(current_indices)\n    \n    for i in range(N):\n        print(rank[i])\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

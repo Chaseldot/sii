@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772533575",
+  "question_index": 14,
+  "question_id": "53",
+  "split": "train",
+  "sample_id": 10,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 38.032851457595825,
+  "response": "```python\nimport sys\ninput = sys.stdin.read\n\nMOD = 998244353\n\ndef main():\n    data = input().split()\n    N = int(data[0])\n    K = int(data[1])\n    A = list(map(int, data[2:2+N]))\n    \n    prefix_sum = [0] * (N + 1)\n    for i in range(N):\n        prefix_sum[i+1] = (prefix_sum[i] + A[i]) % MOD\n    \n    from collections import defaultdict\n    # Use a list of dictionaries to store the count of each sum^k\n    dp = [defaultdict(int) for _ in range(K+1)]\n    \n    for i in range(N+1):\n        current_sum = prefix_sum[i]\n        # Update from the previous level\n        for k in range(K, 0, -1):\n            if i == 0:\n                dp[k][current_sum] = 1\n            else:\n                for s in dp[k-1]:\n                    new_sum = (current_sum - s) % MOD\n                    dp[k][new_sum] = (dp[k][new_sum] + dp[k-1][s]) % MOD\n    \n    result = 0\n    for s in dp[K]:\n        count = dp[K][s]\n        power = pow(s, K, MOD)\n        result = (result + count * power) % MOD\n    \n    print(result)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772533575",
+  "question_index": 17,
+  "question_id": "62",
+  "split": "train",
+  "sample_id": 1,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 26.832587480545044,
+  "response": "```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Calculate the total number of operations\ntotal_operations = sum(A)\n\n# Determine the winner based on whether the total is odd or even\nif total_operations % 2 == 1:\n    print(\"Fennec\")\nelse:\n    print(\"Snuke\")\n```"
+}

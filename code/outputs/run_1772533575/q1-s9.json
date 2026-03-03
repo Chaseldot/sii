@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772533575",
+  "question_index": 1,
+  "question_id": "3",
+  "split": "train",
+  "sample_id": 9,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 47.08822011947632,
+  "response": "```python\nimport sys\nfrom functools import lru_cache\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    A = data[1]\n\n    length = 3 ** N\n\n    @lru_cache(maxsize=None)\n    def majority(group):\n        a, b, c = group\n        if a == b or b == c:\n            return a\n        return c\n\n    def compute_final_value(s, level):\n        if level == 0:\n            return s\n        new_s = []\n        for i in range(0, len(s), 3):\n            group = s[i:i+3]\n            new_s.append(majority(group))\n        return compute_final_value(''.join(new_s), level - 1)\n\n    original = compute_final_value(A, N)\n    target = '0' if original == '1' else '1'\n\n    # To optimize, we simulate from the bottom up and track how flipping bits affects each level\n    # We use dynamic programming to track the minimum number of flips needed at each level\n\n    # We build a memo table where dp[level][current_string] = min_flips\n    # However, due to memory constraints, we use a recursive approach with memoization\n\n    @lru_cache(maxsize=None)\n    def dfs(level, s):\n        if level == 0:\n            return 0 if s == target else float('inf')\n        \n        new_s = []\n        for i in range(0, len(s), 3):\n            group = s[i:i+3]\n            new_char = majority(group)\n            new_s.append(new_char)\n        \n        min_flips = float('inf')\n        for i in range(len(s)):\n            new_s_list = list(s)\n            new_s_list[i] = '1' if new_s_list[i] == '0' else '0'\n            new_s_str = ''.join(new_s_list)\n            flips = 1 + dfs(level - 1, new_s_str)\n            min_flips = min(min_flips, flips)\n        \n        return min_flips\n\n    result = dfs(N, A)\n    print(result)\n\nif __name__ == '__main__':\n    main()\n```"
+}

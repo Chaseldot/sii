@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772533575",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 6,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 18.60992169380188,
+  "response": "```python\nn = int(input())\np = list(map(int, input().split()))\nscores = [(p[i], i) for i in range(n)]\n\n# Group indices by their scores and sort the groups in descending order of score\nfrom collections import defaultdict\ngroups = defaultdict(list)\nfor score, idx in scores:\n    groups[score].append(idx)\n\nsorted_scores = sorted(groups.keys(), reverse=True)\n\nranks = [0] * n\ncurrent_rank = 1\n\nfor score in sorted_scores:\n    group = groups[score]\n    for idx in group:\n        ranks[idx] = current_rank\n    current_rank += len(group)\n\nfor rank in ranks:\n    print(rank)\n```"
+}

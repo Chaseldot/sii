@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772533575",
+  "question_index": 18,
+  "question_id": "64",
+  "split": "train",
+  "sample_id": 15,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 40.430267333984375,
+  "response": "```python\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    A = list(map(int, data[1:N+1]))\n    \n    # If no zeros, output is always \"Yes\"\n    if 0 not in A:\n        print(\"Yes\")\n        return\n    \n    # We need to find a way to pair all zeros using the allowed operations\n    # Let's simulate a greedy matching process by looking for possible patterns\n    # Since it's circular, we'll handle wrap-around\n    \n    # We can try two different starting positions for the pattern to match\n    # and check if either of them leads to a solution\n    \n    # For each zero, look for the next position that could form a valid pair\n    # We'll mark positions as matched once processed\n    \n    visited = [False] * N\n    count = 0\n    \n    for i in range(N):\n        if not visited[i] and A[i] == 0:\n            # Check if the next position is also 0 and forms a valid pattern\n            j = (i + 1) % N\n            if A[j] == 0:\n                # We can apply an operation on this pair\n                visited[i] = True\n                visited[j] = True\n                count += 2\n            else:\n                # Check the next position after j\n                k = (j + 1) % N\n                if A[k] == 0:\n                    # We can apply an operation on this triplet\n                    # This allows us to turn A[i] and A[j] to 1\n                    visited[i] = True\n                    visited[j] = True\n                    count += 2\n                else:\n                    # Not possible to pair this zero with any adjacent one\n                    print(\"No\")\n                    return\n    \n    # After processing, if all zeros are paired, then answer is Yes\n    if count == sum(A):\n        print(\"Yes\")\n    else:\n        print(\"No\")\n\nmain()\n```"
+}

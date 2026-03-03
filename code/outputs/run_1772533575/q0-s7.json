@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772533575",
+  "question_index": 0,
+  "question_id": "0",
+  "split": "train",
+  "sample_id": 7,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 42.41468906402588,
+  "response": "```python\nimport sys\nimport bisect\nfrom collections import defaultdict\n\ndef main():\n    input = sys.stdin.read().split()\n    ptr = 0\n    N = int(input[ptr])\n    ptr += 1\n    W = int(input[ptr])\n    ptr += 1\n    \n    positions = [None] * (N + 1)  # Using 1-based indexing for block IDs\n    \n    for block_id in range(1, N + 1):\n        X = int(input[ptr])\n        ptr += 1\n        Y = int(input[ptr])\n        ptr += 1\n        positions[block_id] = (X, Y)\n    \n    columns = defaultdict(list)\n    for block_id in range(1, N + 1):\n        X, Y = positions[block_id]\n        columns[X].append(Y)\n    \n    # Sort each column's Y values\n    for col in columns:\n        columns[col].sort()\n    \n    Q = int(input[ptr])\n    ptr += 1\n    \n    queries = []\n    for _ in range(Q):\n        T = int(input[ptr])\n        ptr += 1\n        A = int(input[ptr])\n        ptr += 1\n        queries.append((T, A))\n    \n    results = []\n    \n    for T, A in queries:\n        X, Y = positions[A]\n        col = X\n        if col not in columns:\n            # No blocks in this column, so the block never gets removed\n            results.append(\"Yes\")\n            continue\n        ys = columns[col]\n        # Find how many blocks are at or below Y in this column\n        cnt = bisect.bisect_right(ys, Y)\n        if cnt >= len(ys):\n            # This block is not removed before time T\n            results.append(\"Yes\")\n        else:\n            # The block would be removed at time (cnt)\n            # Check if T < cnt\n            if T < cnt:\n                results.append(\"Yes\")\n            else:\n                results.append(\"No\")\n    \n    print(\"\\n\".join(results))\n\nif __name__ == '__main__':\n    main()\n```"
+}

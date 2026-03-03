@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772533575",
+  "question_index": 2,
+  "question_id": "4",
+  "split": "train",
+  "sample_id": 5,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 30.204570293426514,
+  "response": "```python\nimport sys\nMOD = 998244353\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    M = int(data[1])\n    S = data[2]\n    \n    # dp[i][m][k] = number of strings of length m with LCS of length k with first i characters of S\n    dp = [[[0] * (N + 1) for _ in range(M + 1)] for __ in range(N + 1)]\n    dp[0][0][0] = 1\n    \n    for i in range(N + 1):\n        for m in range(M + 1):\n            for k in range(N + 1):\n                if dp[i][m][k] == 0:\n                    continue\n                # Add a new character to the string T\n                for c in range(26):\n                    new_k = k\n                    if i < N and S[i] == chr(ord('a') + c):\n                        new_k = min(k + 1, N)\n                    # Transition to next state\n                    dp[i + 1][m + 1][new_k] = (dp[i + 1][m + 1][new_k] + dp[i][m][k]) % MOD\n    \n    # The answer for k is dp[N][M][k]\n    ans = [0] * (N + 1)\n    for k in range(N + 1):\n        ans[k] = dp[N][M][k]\n    \n    print(' '.join(map(str, ans)))\n\nif __name__ == '__main__':\n    main()\n```"
+}

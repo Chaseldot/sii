@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772533575",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 3,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 28.795550107955933,
+  "response": "```python\nimport heapq\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:N+1]))\n    \n    ranks = [0] * N\n    assigned = [False] * N\n    \n    # Create a max-heap using negative values\n    heap = []\n    for i in range(N):\n        heapq.heappush(heap, (-P[i], i))\n    \n    current_rank = 1\n    \n    while heap:\n        max_score_neg, idx = heapq.heappop(heap)\n        max_score = -max_score_neg\n        \n        # Find all participants with the same score and not yet assigned\n        count = 0\n        temp_heap = []\n        while heap and -heap[0][0] == max_score:\n            score_neg, i = heapq.heappop(heap)\n            if not assigned[i]:\n                count += 1\n                temp_heap.append((score_neg, i))\n        \n        # Also check if the current index (idx) is not assigned\n        if not assigned[idx]:\n            count += 1\n            temp_heap.append((max_score_neg, idx))\n        \n        # Assign rank to these participants\n        for i in temp_heap:\n            ranks[i[1]] = current_rank\n            assigned[i[1]] = True\n        \n        # Add back the remaining elements\n        for item in temp_heap:\n            heapq.heappush(heap, item)\n        \n        # Update current_rank\n        current_rank += count\n    \n    for rank in ranks:\n        print(rank)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772533575",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 1,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 19.593491315841675,
+  "response": "```python\n# Read input\nN = int(input())\nP = list(map(int, input().split()))\n\n# Create a list of tuples (score, original index)\npeople = [(P[i], i + 1) for i in range(N)]\n\n# Sort people by score in descending order\npeople.sort(reverse=True, key=lambda x: x[0])\n\n# Initialize current rank and result list\ncurrent_rank = 1\nresult = [0] * (N + 1)  # Using 1-based indexing\n\n# Assign ranks\ni = 0\nwhile i < N:\n    current_score = people[i][0]\n    count = 0\n    # Count how many people have the same score\n    while i < N and people[i][0] == current_score:\n        count += 1\n        i += 1\n    # Assign the current rank to all these people\n    for j in range(i - count, i):\n        result[people[j][1]] = current_rank\n    # Update current rank\n    current_rank += count\n\n# Print the result for each person from 1 to N\nfor i in range(1, N + 1):\n    print(result[i])\n```"
+}

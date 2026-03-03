@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772533575",
+  "question_index": 11,
+  "question_id": "29",
+  "split": "train",
+  "sample_id": 1,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 58.48814153671265,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    H = int(data[0])\n    W = int(data[1])\n    grid = data[2:2+H]\n    \n    # Precompute row values as integers\n    rows = []\n    for i in range(H):\n        row = list(map(int, list(grid[i])))\n        rows.append(row)\n    \n    min_total = float('inf')\n    \n    # Precompute the number of 1s in each row for all possible column masks\n    # For each row, create a list where each entry is the count of 1s after flipping columns\n    # We can precompute this using bitwise operations\n    \n    # For each row, precompute the count of 1s for all possible column masks\n    row_counts = []\n    for row in rows:\n        cnt = [0] * (1 << W)\n        for mask in range(1 << W):\n            total = 0\n            for j in range(W):\n                if (mask >> j) & 1:\n                    total += 1 - row[j]\n                else:\n                    total += row[j]\n            cnt[mask] = total\n        row_counts.append(cnt)\n    \n    # Iterate through all possible column masks\n    for mask in range(1 << W):\n        total = 0\n        for i in range(H):\n            # Get the number of 1s in this row with current column mask\n            cnt = row_counts[i][mask]\n            # Decide whether to flip the row\n            total += min(cnt, H - cnt)\n        min_total = min(min_total, total)\n    \n    print(min_total)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

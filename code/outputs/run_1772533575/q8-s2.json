@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772533575",
+  "question_index": 8,
+  "question_id": "25",
+  "split": "train",
+  "sample_id": 2,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 46.89199233055115,
+  "response": "```python\nimport sys\ninput = sys.stdin.read\n\ndef main():\n    data = input().split()\n    N = int(data[0])\n    X = int(data[1])\n    U = []\n    D = []\n    idx = 2\n    for _ in range(N):\n        u = int(data[idx])\n        d = int(data[idx + 1])\n        U.append(u)\n        D.append(d)\n        idx += 2\n\n    # Precompute all possible H values based on each pair (U[i] + D[i])\n    candidate_H = set()\n    for i in range(N):\n        candidate_H.add(U[i] + D[i])\n\n    min_cost = float('inf')\n\n    # Try each candidate H\n    for h in candidate_H:\n        adjusted_U = [h - d for d in D]\n        valid = True\n        for i in range(N - 1):\n            if abs(adjusted_U[i] - adjusted_U[i + 1]) > X:\n                valid = False\n                break\n        if valid:\n            cost = sum(max(0, u - adjusted_u) for u, adjusted_u in zip(U, adjusted_U))\n            min_cost = min(min_cost, cost)\n\n    print(min_cost)\n\nif __name__ == '__main__':\n    main()\n```"
+}

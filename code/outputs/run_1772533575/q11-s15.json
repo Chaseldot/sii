@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772533575",
+  "question_index": 11,
+  "question_id": "29",
+  "split": "train",
+  "sample_id": 15,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 46.292604207992554,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    H = int(data[0])\n    W = int(data[1])\n    grid = data[2:2+H]\n    \n    min_total = float('inf')\n    \n    # Preprocess the grid into a list of integers for each row\n    rows = []\n    for row in grid:\n        rows.append([int(c) for c in row])\n    \n    # Iterate through all possible column flip configurations (2^W)\n    for mask in range(1 << W):\n        # Calculate the value of each row after applying column flips\n        row_values = []\n        for i in range(H):\n            val = 0\n            for j in range(W):\n                if (mask >> j) & 1:\n                    val = val * 2 + (1 - rows[i][j])\n                else:\n                    val = val * 2 + rows[i][j]\n            row_values.append(val)\n        \n        # Decide whether to flip each row to minimize the total sum\n        total = 0\n        for val in row_values:\n            total += min(val, (1 << W) - 1 - val)\n        \n        min_total = min(min_total, total)\n    \n    print(min_total)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

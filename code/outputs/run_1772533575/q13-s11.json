@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772533575",
+  "question_index": 13,
+  "question_id": "43",
+  "split": "train",
+  "sample_id": 11,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 27.416156768798828,
+  "response": "```python\ndef shortest_palindrome(s):\n    if not s:\n        return \"\"\n    \n    # Create a modified string to find the longest palindromic prefix using KMP\n    modified = s + '#' + s[::-1]\n    lps = [0] * len(modified)\n    \n    for i in range(1, len(modified)):\n        j = lps[i - 1]\n        while j > 0 and modified[i] != modified[j]:\n            j = lps[j - 1]\n        if modified[i] == modified[j]:\n            j += 1\n        lps[i] = j\n    \n    # The length of the longest palindromic suffix\n    longest_palindrome_suffix_length = lps[-1]\n    \n    # The part to prepend is the reverse of the non-palindromic prefix\n    return s + s[:len(s) - longest_palindrome_suffix_length][::-1]\n\n# Read input\nimport sys\ns = sys.stdin.readline().strip()\n# Compute and print the result\nprint(shortest_palindrome(s))\n```"
+}

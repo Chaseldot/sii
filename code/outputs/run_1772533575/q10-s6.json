@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772533575",
+  "question_index": 10,
+  "question_id": "28",
+  "split": "train",
+  "sample_id": 6,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 38.88896155357361,
+  "response": "```python\nimport sys\nimport heapq\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    M = int(data[1])\n    X = int(data[2])\n    \n    adj = [[] for _ in range(N + 1)]\n    rev_adj = [[] for _ in range(N + 1)]\n    \n    index = 3\n    for _ in range(M):\n        u = int(data[index])\n        v = int(data[index + 1])\n        adj[u].append(v)\n        rev_adj[v].append(u)\n        index += 2\n    \n    INF = float('inf')\n    dist = [[INF] * 2 for _ in range(N + 1)]\n    dist[1][0] = 0  # Starting at vertex 1 with no reversal\n    \n    heap = []\n    heapq.heappush(heap, (0, 1, 0))  # (cost, vertex, reversed flag)\n    \n    while heap:\n        cost, u, reversed_flag = heapq.heappop(heap)\n        \n        if u == N:\n            print(cost)\n            return\n        \n        if cost > dist[u][reversed_flag]:\n            continue\n        \n        # Move along original edges if not reversed\n        if not reversed_flag:\n            for v in adj[u]:\n                if dist[v][reversed_flag] > cost + 1:\n                    dist[v][reversed_flag] = cost + 1\n                    heapq.heappush(heap, (dist[v][reversed_flag], v, reversed_flag))\n        \n        # Reverse edges (cost X), transition to reversed graph\n        if dist[u][1] > cost + X:\n            dist[u][1] = cost + X\n            heapq.heappush(heap, (dist[u][1], u, 1))\n        \n        # Move along reversed edges if reversed\n        if reversed_flag:\n            for v in rev_adj[u]:\n                if dist[v][reversed_flag] > cost + 1:\n                    dist[v][reversed_flag] = cost + 1\n                    heapq.heappush(heap, (dist[v][reversed_flag], v, reversed_flag))\n        \n        # Reverse again (cost X), back to original graph\n        if dist[u][0] > cost + X:\n            dist[u][0] = cost + X\n            heapq.heappush(heap, (dist[u][0], u, 0))\n    \n    print(-1)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

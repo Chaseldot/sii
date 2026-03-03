@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772533575",
+  "question_index": 8,
+  "question_id": "25",
+  "split": "train",
+  "sample_id": 13,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 62.111238956451416,
+  "response": "```python\nimport sys\ninput = sys.stdin.read\n\ndef main():\n    data = input().split()\n    N = int(data[0])\n    X = int(data[1])\n    U = []\n    D = []\n    for i in range(N):\n        u = int(data[2 + 2*i])\n        d = int(data[3 + 2*i])\n        U.append(u)\n        D.append(d)\n    \n    # Determine the feasible range of H\n    low = max(U)\n    high = min([U[i] + D[i] for i in range(N)])\n    \n    if low > high:\n        print(0)\n        return\n    \n    min_cost = float('inf')\n    \n    # Precompute the adjusted U' sequence for a given H and check validity\n    def is_valid(H):\n        U_prime = [H - D[i] for i in range(N)]\n        for i in range(N-1):\n            if abs(U_prime[i] - U_prime[i+1]) > X:\n                return False\n        return True\n    \n    # Check all H in the feasible range\n    for H in range(low, high + 1):\n        if is_valid(H):\n            cost = 0\n            for i in range(N):\n                cost += max(0, U[i] - (H - D[i]))\n            min_cost = min(min_cost, cost)\n    \n    print(min_cost)\n\nmain()\n```"
+}

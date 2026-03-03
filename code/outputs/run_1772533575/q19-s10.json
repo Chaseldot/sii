@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772533575",
+  "question_index": 19,
+  "question_id": "130",
+  "split": "train",
+  "sample_id": 10,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 42.711106300354004,
+  "response": "```python\nfrom typing import List\n\ndef minimumCost(nums: List[int], cost: List[int], k: int) -> int:\n    n = len(nums)\n    \n    # Step 1: Compute prefix sums for nums and cost\n    prefix_sum_nums = [0] * (n + 1)\n    prefix_sum_cost = [0] * (n + 1)\n    \n    for i in range(n):\n        prefix_sum_nums[i + 1] = prefix_sum_nums[i] + nums[i]\n        prefix_sum_cost[i + 1] = prefix_sum_cost[i] + cost[i]\n    \n    # Step 2: Initialize DP array\n    dp = [float('inf')] * (n + 1)\n    dp[0] = 0\n    \n    # Step 3: Fill the DP array\n    for i in range(1, n + 1):\n        for j in range(i):\n            # Calculate sum of nums[j..i-1]\n            sum_nums = prefix_sum_nums[i] - prefix_sum_nums[j]\n            # Calculate sum of cost[j..i-1]\n            sum_cost = prefix_sum_cost[i] - prefix_sum_cost[j]\n            # Number of subarrays before j is (i - j), so current subarray is (i - j)th subarray (starting from 1)\n            i_subarray = i - j\n            # Calculate subarray cost\n            sub_cost = (sum_nums + k * i_subarray) * sum_cost\n            # Update dp[i]\n            dp[i] = min(dp[i], dp[j] + sub_cost)\n    \n    return dp[n]\n```"
+}

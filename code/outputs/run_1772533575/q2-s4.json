@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772533575",
+  "question_index": 2,
+  "question_id": "4",
+  "split": "train",
+  "sample_id": 4,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 36.72017168998718,
+  "response": "```python\nMOD = 998244353\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    M = int(data[1])\n    S = data[2]\n    \n    # dp[m][i][j] represents the number of ways to build a string of length m\n    # such that the LCS with S is j and we are at position i in S.\n    dp = [[[0] * (N + 1) for _ in range(N + 1)] for _ in range(M + 1)]\n    dp[0][0][0] = 1\n    \n    for m in range(M):\n        for i in range(N + 1):\n            for j in range(N + 1):\n                if dp[m][i][j] == 0:\n                    continue\n                # Try adding all possible characters\n                for c in range(26):\n                    char = chr(ord('a') + c)\n                    # If the character matches S[i], increment the LCS length and move forward\n                    if i < N and char == S[i]:\n                        dp[m + 1][i + 1][j + 1] = (dp[m + 1][i + 1][j + 1] + dp[m][i][j]) % MOD\n                    # Otherwise, the LCS length remains the same\n                    dp[m + 1][i][j] = (dp[m + 1][i][j] + dp[m][i][j]) % MOD\n    \n    # ans[k] is the number of strings with LCS length exactly k\n    ans = [0] * (N + 1)\n    for i in range(N + 1):\n        for j in range(N + 1):\n            ans[j] = (ans[j] + dp[M][i][j]) % MOD\n    \n    print(' '.join(map(str, ans)))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

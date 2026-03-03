@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772533575",
+  "question_index": 18,
+  "question_id": "64",
+  "split": "train",
+  "sample_id": 4,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 35.70366024971008,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    A = list(map(int, data[1:N+1]))\n    \n    if all(a == 1 for a in A):\n        print(\"Yes\")\n        return\n    \n    zeros = [i for i in range(N) if A[i] == 0]\n    covered = [False] * N\n    \n    for i in zeros:\n        if not covered[i]:\n            # First operation: Check if we can cover i and i+1\n            j = (i + 1) % N\n            if not covered[j]:\n                covered[i] = True\n                covered[j] = True\n            # Second operation: Check if we can cover i-2 and i-1\n            k = (i - 2) % N\n            l = (i - 1) % N\n            if not covered[k]:\n                covered[k] = True\n                covered[l] = True\n    \n    if all(covered):\n        print(\"Yes\")\n    else:\n        print(\"No\")\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

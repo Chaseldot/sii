@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772533575",
+  "question_index": 5,
+  "question_id": "13",
+  "split": "train",
+  "sample_id": 2,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 43.183836936950684,
+  "response": "```python\nimport sys\nimport bisect\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    idx = 0\n    N = int(data[idx])\n    idx += 1\n    Q = int(data[idx])\n    idx += 1\n    \n    A = list(map(int, data[idx:idx+N]))\n    idx += N\n    \n    queries = []\n    for _ in range(Q):\n        R = int(data[idx])\n        X = int(data[idx+1])\n        queries.append((R, X))\n        idx += 2\n    \n    # Coordinate compression\n    sorted_unique = sorted(set(A))\n    coord_map = {v: i+1 for i, v in enumerate(sorted_unique)}\n    max_coord = len(sorted_unique)\n    \n    # Fenwick Tree implementation\n    class FenwickTree:\n        def __init__(self, size):\n            self.n = size\n            self.tree = [0] * (self.n + 2)\n        \n        def update(self, idx, value):\n            while idx <= self.n:\n                self.tree[idx] = max(self.tree[idx], value)\n                idx += idx & -idx\n        \n        def query(self, idx):\n            res = 0\n            while idx > 0:\n                res = max(res, self.tree[idx])\n                idx -= idx & -idx\n            return res\n    \n    # Preprocess the array\n    ft = FenwickTree(max_coord)\n    max_len = [0] * (N + 1)  # max_len[i] will store the best length up to position i\n    for i in range(1, N+1):\n        val = A[i-1]\n        pos = coord_map[val]\n        # Find the maximum length of LIS ending with value < val\n        prev_max = ft.query(pos - 1)\n        current_max = prev_max + 1\n        max_len[i] = current_max\n        ft.update(pos, current_max)\n    \n    # Process each query\n    results = []\n    for R, X in queries:\n        # Find all values <= X\n        pos = bisect.bisect_right(sorted_unique, X)\n        if pos == 0:\n            results.append(0)\n        else:\n            # Query the Fenwick Tree up to the compressed index of X\n            max_value = ft.query(pos)\n            results.append(max_value)\n    \n    print(\"\\n\".join(map(str, results)))\n\nif __name__ == '__main__':\n    main()\n```"
+}

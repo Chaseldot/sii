@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772533575",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 14,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 26.50885581970215,
+  "response": "```python\nimport heapq\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:N+1]))\n    \n    ranks = [0] * N\n    assigned = [False] * N\n    \n    # Create a max heap by pushing negative scores\n    max_heap = []\n    for i in range(N):\n        heapq.heappush(max_heap, (-P[i], i))\n    \n    r = 1\n    \n    while max_heap:\n        current_score_neg, idx = heapq.heappop(max_heap)\n        current_score = -current_score_neg\n        \n        # Collect all participants with the same score\n        group = []\n        while max_heap and -max_heap[0][0] == current_score:\n            score_neg, idx2 = heapq.heappop(max_heap)\n            group.append(idx2)\n        \n        # Add the current index if it was not already processed\n        if not assigned[idx]:\n            group.append(idx)\n        \n        # Assign rank to all participants in the group\n        for person in group:\n            if not assigned[person]:\n                ranks[person] = r\n                assigned[person] = True\n        \n        # Update r after processing the current group\n        r += len(group)\n    \n    for rank in ranks:\n        print(rank)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

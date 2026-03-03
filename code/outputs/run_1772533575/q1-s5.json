@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772533575",
+  "question_index": 1,
+  "question_id": "3",
+  "split": "train",
+  "sample_id": 5,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 32.93033957481384,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    A = data[1] if len(data) > 1 else ''\n    \n    def get_majority(group):\n        count_0 = group.count('0')\n        count_1 = len(group) - count_0\n        return '0' if count_0 > count_1 else '1'\n    \n    def simulate(A):\n        n = len(A)\n        while n > 1:\n            new_A = []\n            for i in range(0, n, 3):\n                trio = A[i:i+3]\n                majority = get_majority(trio)\n                new_A.append(majority)\n            A = ''.join(new_A)\n            n = len(A)\n        return A\n    \n    original_result = simulate(A)\n    target_result = '1' if original_result == '0' else '0'\n    \n    def min_changes_to_flip(A, target_result, level=0):\n        length = len(A)\n        if length == 1:\n            return 0 if A == target_result else 1\n        \n        min_changes = float('inf')\n        \n        for i in range(0, length, 3):\n            trio = A[i:i+3]\n            current_majority = get_majority(trio)\n            \n            if current_majority == target_result:\n                continue\n            \n            for change in range(3):\n                new_trio = list(trio)\n                new_trio[change] = '1' if new_trio[change] == '0' else '0'\n                new_trio_str = ''.join(new_trio)\n                new_A = A[:i] + new_trio_str + A[i+3:]\n                changes = 1 + min_changes_to_flip(new_A, target_result, level + 1)\n                min_changes = min(min_changes, changes)\n        \n        return min_changes\n    \n    result = min_changes_to_flip(A, target_result)\n    print(result)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772533575",
+  "question_index": 13,
+  "question_id": "43",
+  "split": "train",
+  "sample_id": 6,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 21.603875637054443,
+  "response": "```python\ndef shortest_palindrome(s):\n    if s == s[::-1]:\n        return s\n\n    rev_s = s[::-1]\n    combined = s + '#' + rev_s\n    prefix_function = [0] * len(combined)\n\n    for i in range(1, len(combined)):\n        j = prefix_function[i - 1]\n        while j > 0 and combined[i] != combined[j]:\n            j = prefix_function[j - 1]\n        if combined[i] == combined[j]:\n            j += 1\n        prefix_function[i] = j\n\n    longest_palindrome_suffix_length = prefix_function[-1]\n    return s + rev_s[:len(s) - longest_palindrome_suffix_length]\n\nimport sys\n\ndef main():\n    s = sys.stdin.readline().strip()\n    print(shortest_palindrome(s))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

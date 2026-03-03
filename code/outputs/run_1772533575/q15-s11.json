@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772533575",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 11,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 26.803128242492676,
+  "response": "```python\nimport heapq\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:]))\n    \n    # Create a max-heap using negative scores\n    heap = [(-P[i], i) for i in range(N)]\n    heapq.heapify(heap)\n    \n    ranked = [False] * N\n    current_rank = 1\n    result = [0] * N\n    \n    while True:\n        # Find the maximum score among unranked people\n        max_score_neg, idx = heapq.heappop(heap)\n        max_score = -max_score_neg\n        \n        # Collect all people with this score\n        count = 0\n        temp = []\n        while True:\n            if not heap or -heap[0][0] != max_score or ranked[heap[0][1]]:\n                break\n            temp.append(heapq.heappop(heap))\n            count += 1\n        \n        # Add the current person\n        temp.append((max_score_neg, idx))\n        count += 1\n        \n        # Assign rank to all these people\n        for i in range(count):\n            person_idx = temp[i][1]\n            result[person_idx] = current_rank\n        \n        # Update the current rank\n        current_rank += count\n        \n        # Mark them as ranked\n        for i in range(count):\n            person_idx = temp[i][1]\n            ranked[person_idx] = True\n        \n        # If all are ranked, break\n        if all(ranked):\n            break\n    \n    for rank in result:\n        print(rank)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

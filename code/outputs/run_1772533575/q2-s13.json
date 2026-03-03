@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772533575",
+  "question_index": 2,
+  "question_id": "4",
+  "split": "train",
+  "sample_id": 13,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 39.70601296424866,
+  "response": "```python\nMOD = 998244353\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    M = int(data[1])\n    S = data[2]\n    \n    # Preprocessing: for each character, store the indices in S\n    from collections import defaultdict\n    char_indices = defaultdict(list)\n    for idx, c in enumerate(S):\n        char_indices[c].append(idx)\n    \n    # DP table: dp[i][j] is the number of strings of length i with LCS at most j\n    dp = [[0] * (N + 1) for _ in range(M + 1)]\n    dp[0][0] = 1\n    \n    for i in range(1, M + 1):\n        for j in range(N + 1):\n            for c in 'abcdefghijklmnopqrstuvwxyz':\n                # If the character c is not in S, it doesn't affect LCS\n                if c not in char_indices:\n                    dp[i][j] = (dp[i][j] + dp[i - 1][j]) % MOD\n                    continue\n                \n                # Find the maximum index in S where c appears that is <= current LCS length j\n                max_pos = -1\n                # Iterate through positions in reverse to find the last one <= j\n                for pos in reversed(char_indices[c]):\n                    if pos <= j:\n                        max_pos = pos\n                        break\n                \n                if max_pos == -1:\n                    # Character c does not contribute to LCS\n                    dp[i][j] = (dp[i][j] + dp[i - 1][j]) % MOD\n                else:\n                    # Character contributes to LCS, new LCS is max_pos + 1\n                    new_j = max_pos + 1\n                    if new_j <= N:\n                        dp[i][j] = (dp[i][j] + dp[i - 1][new_j]) % MOD\n    \n    # Compute answers for k from 0 to N\n    ans = [0] * (N + 1)\n    for k in range(N + 1):\n        if k == 0:\n            ans[k] = dp[M][k]\n        else:\n            ans[k] = (dp[M][k] - dp[M][k - 1]) % MOD\n    \n    # Ensure non-negative\n    for i in range(N + 1):\n        if ans[i] < 0:\n            ans[i] += MOD\n    \n    print(' '.join(map(str, ans)))\n\nif __name__ == '__main__':\n    main()\n```"
+}

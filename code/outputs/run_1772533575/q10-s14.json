@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772533575",
+  "question_index": 10,
+  "question_id": "28",
+  "split": "train",
+  "sample_id": 14,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 30.696220874786377,
+  "response": "```python\nimport sys\nimport heapq\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    M = int(data[1])\n    X = int(data[2])\n    \n    original_adj = [[] for _ in range(N + 1)]\n    reversed_adj = [[] for _ in range(N + 1)]\n    \n    index = 3\n    for _ in range(M):\n        u = int(data[index])\n        v = int(data[index + 1])\n        original_adj[u].append(v)\n        reversed_adj[v].append(u)\n        index += 2\n    \n    INF = float('inf')\n    dist = [INF] * (2 * (N + 1))  # dist[i][0] for normal, dist[i][1] for reversed\n    \n    heap = []\n    dist[1] = 0\n    heapq.heappush(heap, (0, 1, 0))  # (cost, node, mode)\n    \n    while heap:\n        cost, u, mode = heapq.heappop(heap)\n        \n        if u == N:\n            break\n        \n        if cost > dist[u + mode * N]:\n            continue\n        \n        # Move along current mode edges\n        if mode == 0:\n            for v in original_adj[u]:\n                if dist[v] > cost + 1:\n                    dist[v] = cost + 1\n                    heapq.heappush(heap, (dist[v], v, 0))\n        else:\n            for v in reversed_adj[u]:\n                if dist[v + N] > cost + 1:\n                    dist[v + N] = cost + 1\n                    heapq.heappush(heap, (dist[v + N], v, 1))\n        \n        # Reverse the edges (cost X), and move along new edges\n        new_mode = 1 - mode\n        reverse_cost = cost + X\n        if mode == 0:\n            for v in original_adj[u]:\n                if dist[v + N] > reverse_cost:\n                    dist[v + N] = reverse_cost\n                    heapq.heappush(heap, (dist[v + N], v, new_mode))\n        else:\n            for v in reversed_adj[u]:\n                if dist[v] > reverse_cost:\n                    dist[v] = reverse_cost\n                    heapq.heappush(heap, (dist[v], v, new_mode))\n    \n    result = min(dist[N], dist[N + N])\n    print(result)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

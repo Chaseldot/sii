@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772533575",
+  "question_index": 18,
+  "question_id": "64",
+  "split": "train",
+  "sample_id": 1,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 37.63945651054382,
+  "response": "```python\nimport sys\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    A = list(map(int, data[1:]))\n    \n    zero_count = sum(1 for x in A if x == 0)\n    \n    if zero_count == 0:\n        print(\"Yes\")\n        return\n    \n    # If there are an odd number of zeros, it's impossible to pair them all\n    if zero_count % 2 != 0:\n        print(\"No\")\n        return\n    \n    # Check if the number of zeros is at least 2 and if we can apply any operation\n    # We need to ensure that there exists a valid configuration of the string S such that the operations can be applied.\n    # For small N (like 3), certain patterns may not allow us to perform operations.\n    \n    # For N=3 and all zeros, it's impossible\n    if N == 3 and zero_count == 3:\n        print(\"No\")\n        return\n    \n    # For other cases with even number of zeros, it's possible to construct a valid string\n    print(\"Yes\")\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

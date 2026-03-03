@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772533575",
+  "question_index": 10,
+  "question_id": "28",
+  "split": "train",
+  "sample_id": 7,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 24.88999342918396,
+  "response": "```python\nimport sys\nimport heapq\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    M = int(data[1])\n    X = int(data[2])\n    \n    adj = [[] for _ in range(N + 1)]\n    rev_adj = [[] for _ in range(N + 1)]\n    \n    index = 3\n    for _ in range(M):\n        u = int(data[index])\n        v = int(data[index + 1])\n        adj[u].append(v)\n        rev_adj[v].append(u)\n        index += 2\n    \n    # Dijkstra's algorithm with state (node, is_reversed)\n    # 0: original graph, 1: reversed graph\n    dist = [float('inf')] * (2 * N + 1)\n    dist[1] = 0\n    heap = [(0, 1, 0)]  # (cost, node, is_reversed)\n    \n    while heap:\n        cost, node, is_reversed = heapq.heappop(heap)\n        \n        if node == N or node == N + N:\n            break\n        \n        if cost > dist[node + is_reversed * N]:\n            continue\n        \n        # Move along original edges\n        if not is_reversed:\n            for neighbor in adj[node]:\n                new_cost = cost + 1\n                if new_cost < dist[neighbor]:\n                    dist[neighbor] = new_cost\n                    heapq.heappush(heap, (new_cost, neighbor, 0))\n        else:\n            for neighbor in rev_adj[node]:\n                new_cost = cost + 1\n                if new_cost < dist[neighbor + N]:\n                    dist[neighbor + N] = new_cost\n                    heapq.heappush(heap, (new_cost, neighbor, 1))\n        \n        # Reverse edges (cost X)\n        new_cost_rev = cost + X\n        if not is_reversed:\n            if new_cost_rev < dist[node + N]:\n                dist[node + N] = new_cost_rev\n                heapq.heappush(heap, (new_cost_rev, node, 1))\n        else:\n            if new_cost_rev < dist[node]:\n                dist[node] = new_cost_rev\n                heapq.heappush(heap, (new_cost_rev, node, 0))\n    \n    print(min(dist[N], dist[N + N]))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

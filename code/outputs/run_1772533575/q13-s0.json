@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772533575",
+  "question_index": 13,
+  "question_id": "43",
+  "split": "train",
+  "sample_id": 0,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 26.30822730064392,
+  "response": "```python\ndef shortest_palindrome(s):\n    rev_s = s[::-1]\n    lps = [0] * len(rev_s)\n    for i in range(1, len(rev_s)):\n        j = lps[i - 1]\n        while j > 0 and rev_s[i] != rev_s[j]:\n            j = lps[j - 1]\n        if rev_s[i] == rev_s[j]:\n            j += 1\n        lps[i] = j\n    longest_pal_prefix = lps[-1]\n    return s[:len(s) - longest_pal_prefix] + rev_s[:longest_pal_prefix]\n\ns = input().strip()\nprint(shortest_palindrome(s))\n```"
+}

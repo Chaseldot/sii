@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772533575",
+  "question_index": 8,
+  "question_id": "25",
+  "split": "train",
+  "sample_id": 0,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 69.64861345291138,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    X = int(data[1])\n    \n    U = []\n    D = []\n    for i in range(N):\n        u = int(data[2 + 2*i])\n        d = int(data[3 + 2*i])\n        U.append(u)\n        D.append(d)\n    \n    # First pass: Adjust the upper teeth to satisfy the adjacent constraint\n    adjusted_U = [0] * N\n    adjusted_U[0] = U[0]\n\n    for i in range(1, N):\n        if abs(adjusted_U[i-1] - U[i]) > X:\n            if U[i] > adjusted_U[i-1]:\n                adjusted_U[i] = adjusted_U[i-1] + X\n            else:\n                adjusted_U[i] = adjusted_U[i-1] - X\n        else:\n            adjusted_U[i] = U[i]\n    \n    # Second pass: refine to ensure all adjacent differences are at most X\n    for i in range(1, N):\n        if abs(adjusted_U[i] - adjusted_U[i-1]) > X:\n            adjusted_U[i] = adjusted_U[i-1]\n    \n    # Now, generate possible H values based on adjusted_upper and original D\n    # Possible H's are from adjusted_U[i] + D[i] or original U[i] + D[i]\n    possible_H = set()\n    for i in range(N):\n        possible_H.add(adjusted_U[i] + D[i])\n        possible_H.add(U[i] + D[i])\n    \n    min_cost = float('inf')\n    \n    # Try each unique H value to see if we can form a valid sequence\n    for H in possible_H:\n        cost = 0\n        adjusted_U_h = []\n        for i in range(N):\n            u_new = min(H - D[i], U[i])\n            d_new = min(H - U[i], D[i])\n            cost += (U[i] - u_new) + (D[i] - d_new)\n            adjusted_U_h.append(u_new)\n        \n        # Check if the adjusted upper sequence satisfies the condition\n        valid = True\n        for i in range(N-1):\n            if abs(adjusted_U_h[i] - adjusted_U_h[i+1]) > X:\n                valid = False\n                break\n        \n        if valid:\n            min_cost = min(min_cost, cost)\n    \n    print(min_cost)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

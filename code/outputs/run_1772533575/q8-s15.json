@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772533575",
+  "question_index": 8,
+  "question_id": "25",
+  "split": "train",
+  "sample_id": 15,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 67.20009160041809,
+  "response": "```python\nimport sys\ninput = sys.stdin.read\n\ndef main():\n    data = input().split()\n    N = int(data[0])\n    X = int(data[1])\n    U = []\n    D = []\n    for i in range(N):\n        U.append(int(data[2 + 2*i]))\n        D.append(int(data[3 + 2*i]))\n    \n    # For each position, consider the possible adjusted H values that could lead to a valid configuration\n    # We will collect candidate H values based on the U and D pairs\n    # H can be either U[i] + D[i], or adjusted accordingly based on the constraints\n    \n    # Generate potential H values\n    H_candidates = set()\n    for i in range(N):\n        H_candidates.add(U[i] + D[i])\n    \n    min_cost = float('inf')\n    \n    def calculate_cost(H):\n        new_U = []\n        for i in range(N):\n            u_new = max(0, H - D[i])\n            new_U.append(u_new)\n        \n        # Check if the new upper teeth satisfy the X constraint\n        for i in range(N-1):\n            if abs(new_U[i] - new_U[i+1]) > X:\n                return float('inf')\n        \n        # Calculate cost\n        total_cost = 0\n        for i in range(N):\n            total_cost += U[i] - new_U[i]\n            total_cost += D[i] - (H - new_U[i])\n        return total_cost\n    \n    # Try all H candidates\n    for H in H_candidates:\n        cost = calculate_cost(H)\n        if cost < min_cost:\n            min_cost = cost\n    \n    print(min_cost)\n\nmain()\n```"
+}

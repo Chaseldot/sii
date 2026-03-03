@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772533575",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 7,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 30.299275159835815,
+  "response": "```python\nimport heapq\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:N+1]))\n    \n    rank = [0] * N\n    determined = [False] * N\n    max_heap = []\n    \n    for i in range(N):\n        heapq.heappush(max_heap, (-P[i], i))\n    \n    current_rank = 1\n    \n    while max_heap:\n        score_neg, idx = heapq.heappop(max_heap)\n        score = -score_neg\n        \n        if determined[idx]:\n            continue\n        \n        # Find all participants with the same score that are undetermined\n        k = 0\n        temp = []\n        while max_heap and -max_heap[0][0] == score:\n            s_neg, i = heapq.heappop(max_heap)\n            if not determined[i]:\n                temp.append((s_neg, i))\n                k += 1\n        \n        # Add the current participant to the list\n        temp.append((score_neg, idx))\n        k += 1\n        \n        # Assign rank to these participants\n        for s_neg, i in temp:\n            rank[i] = current_rank\n            determined[i] = True\n        \n        current_rank += k\n    \n    for r in rank:\n        print(r)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

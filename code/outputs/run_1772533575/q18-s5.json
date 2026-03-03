@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772533575",
+  "question_index": 18,
+  "question_id": "64",
+  "split": "train",
+  "sample_id": 5,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 46.33413600921631,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    A = list(map(int, data[1:N+1]))\n    \n    # If there are no zeros, output is automatically Yes\n    if 0 not in A:\n        print(\"Yes\")\n        return\n    \n    # We need to check whether we can flip all zeros in A using the given operations\n    # Since we can't simulate all possibilities due to time constraints, we try a greedy approach:\n    # We iterate through the array and try to flip as many zeros as possible by checking for valid patterns\n    \n    # Create a copy of A to modify\n    A_mod = A[:]\n    \n    zero_positions = set(i for i in range(N) if A_mod[i] == 0)\n    \n    while True:\n        changed = False\n        \n        # Check for pattern 'ARC' (S_i=A, S_{i+1}=R, S_{i+2}=C)\n        # In this case, we can flip A[i] and A[i+1] to 1\n        for i in range(N):\n            j = (i + 1) % N\n            k = (i + 2) % N\n            if A_mod[i] == 0 and A_mod[j] == 0 and A_mod[k] == 0:\n                A_mod[i] = 1\n                A_mod[j] = 1\n                changed = True\n                if i in zero_positions:\n                    zero_positions.remove(i)\n                if j in zero_positions:\n                    zero_positions.remove(j)\n        \n        # Check for pattern 'CRA' (S_{i+2}=A, S_{i+1}=R, S_i=C)\n        # In this case, we can flip A[i] and A[i+1] to 1\n        for i in range(N):\n            j = (i + 1) % N\n            k = (i + 2) % N\n            if A_mod[k] == 0 and A_mod[j] == 0 and A_mod[i] == 0:\n                A_mod[k] = 1\n                A_mod[j] = 1\n                changed = True\n                if k in zero_positions:\n                    zero_positions.remove(k)\n                if j in zero_positions:\n                    zero_positions.remove(j)\n        \n        if not changed:\n            break\n    \n    if not zero_positions:\n        print(\"Yes\")\n    else:\n        print(\"No\")\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

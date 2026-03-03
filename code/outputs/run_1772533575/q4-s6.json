@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772533575",
+  "question_index": 4,
+  "question_id": "11",
+  "split": "train",
+  "sample_id": 6,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 24.088855743408203,
+  "response": "```python\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:N+1]))\n    Q = list(map(int, data[N+1:2*N+1]))\n    \n    person_to_bib = [0] * (N + 1)\n    bib_to_person = [0] * (N + 1)\n    \n    for i in range(N):\n        person = i + 1\n        bib = Q[i]\n        person_to_bib[person] = bib\n        bib_to_person[bib] = person\n    \n    result = [0] * N\n    for i in range(N):\n        person = i + 1\n        target_person = P[i]\n        bib = person_to_bib[target_person]\n        result[i] = bib\n    \n    print(' '.join(map(str, result)))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

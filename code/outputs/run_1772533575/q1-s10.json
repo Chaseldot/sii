@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772533575",
+  "question_index": 1,
+  "question_id": "3",
+  "split": "train",
+  "sample_id": 10,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 32.228670835494995,
+  "response": "```python\nimport sys\nsys.setrecursionlimit(10000)\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    A = data[1]\n    \n    def min_changes_to_goal(group, level, target):\n        if level == 0:\n            count_0 = sum(1 for c in group if c == '0')\n            count_1 = len(group) - count_0\n            if (count_1 > count_0 and target == '1') or (count_0 > count_1 and target == '0'):\n                return 0\n            else:\n                return len(group) - max(count_0, count_1)\n        \n        total_changes = float('inf')\n        for v in ['0', '1']:\n            new_group = []\n            for i in range(3):\n                new_group.append(v)\n            changes_needed = min_changes_to_goal(new_group, level - 1, target)\n            total_changes = min(total_changes, changes_needed)\n        return total_changes\n    \n    initial_group = list(A)\n    original_bit = initial_group[0]\n    desired_bit = '1' if original_bit == '0' else '0'\n    result = min_changes_to_goal(initial_group, N, desired_bit)\n    print(result)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

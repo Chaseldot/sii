@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772533575",
+  "question_index": 19,
+  "question_id": "130",
+  "split": "train",
+  "sample_id": 9,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 36.01953125,
+  "response": "```python\nfrom typing import List\n\ndef minimumCost(nums: List[int], cost: List[int], k: int) -> int:\n    n = len(nums)\n    # Precompute prefix sums for nums and cost\n    prefix_sum_nums = [0] * (n + 1)\n    prefix_sum_cost = [0] * (n + 1)\n    \n    for i in range(n):\n        prefix_sum_nums[i + 1] = prefix_sum_nums[i] + nums[i]\n        prefix_sum_cost[i + 1] = prefix_sum_cost[i] + cost[i]\n    \n    # dp[i] will store the minimum cost to split the first i elements\n    dp = [float('inf')] * (n + 1)\n    dp[0] = 0  # base case: 0 elements have 0 cost\n    \n    for j in range(1, n + 1):\n        # Try all possible previous splits\n        for i in range(max(0, j - 50), j):  # limit the number of previous checks to reduce complexity\n            sum_subarray_nums = prefix_sum_nums[j] - prefix_sum_nums[i]\n            sum_subarray_cost = prefix_sum_cost[j] - prefix_sum_cost[i]\n            num_subarrays = i + 1  # number of subarrays before the current one\n            current_subarray_index = num_subarrays + 1\n            cost_subarray = (sum_subarray_nums + k * current_subarray_index) * sum_subarray_cost\n            dp[j] = min(dp[j], dp[i] + cost_subarray)\n    \n    return dp[n]\n```"
+}

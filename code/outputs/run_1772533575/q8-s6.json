@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772533575",
+  "question_index": 8,
+  "question_id": "25",
+  "split": "train",
+  "sample_id": 6,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 83.73635125160217,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    X = int(data[1])\n    U = []\n    D = []\n    for i in range(N):\n        u = int(data[2 + 2*i])\n        d = int(data[3 + 2*i])\n        U.append(u)\n        D.append(d)\n    \n    min_cost = float('inf')\n    \n    # Try all possible values of H as the sum of the first pair\n    # Since U_1' can be from 0 to U_1, we compute H_candidate = U_1' + D_1\n    # So H_candidate ranges from D_1 to U_1 + D_1\n    \n    lower_H = D[0]\n    upper_H = U[0] + D[0]\n    \n    # Try all possible H values that could result from changing U_1\n    # For each H, compute the derived sequence and check conditions\n    # We use binary search to find the optimal H if needed\n    \n    for H in range(lower_H, upper_H + 1):\n        # Compute the required U values based on H\n        current_U = H - D[0]\n        valid = True\n        total_cost = 0\n        \n        # Check if the current value of U_1 is feasible (must be <= original U_1 and >=0)\n        if current_U < 0 or current_U > U[0]:\n            continue\n        \n        total_cost += abs(current_U - U[0])\n        \n        for i in range(1, N):\n            next_U = H - D[i]\n            diff = abs(next_U - current_U)\n            if diff > X:\n                valid = False\n                break\n            total_cost += abs(next_U - U[i])\n            current_U = next_U\n        \n        if valid:\n            min_cost = min(min_cost, total_cost)\n    \n    print(min_cost)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

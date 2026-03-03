@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772533575",
+  "question_index": 8,
+  "question_id": "25",
+  "split": "train",
+  "sample_id": 7,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 51.1205997467041,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    X = int(data[1])\n    U = []\n    D = []\n    for i in range(N):\n        U.append(int(data[2 + 2 * i]))\n        D.append(int(data[3 + 2 * i]))\n    \n    def compute_cost(H):\n        cost = 0\n        adjusted_U = []\n        for i in range(N):\n            required_U = H - D[i]\n            if required_U < 0:\n                required_U = 0\n            adjusted_U.append(required_U)\n            cost += U[i] - required_U\n        # Check adjacency constraints\n        for i in range(N - 1):\n            if abs(adjusted_U[i] - adjusted_U[i + 1]) > X:\n                return float('inf')\n        return cost\n\n    # Find min and max possible H to binary search between\n    # We can't go below 0 as we can't have negative lengths\n    min_H = 0\n    max_H = 0\n    for i in range(N):\n        current_sum = U[i] + D[i]\n        if current_sum > max_H:\n            max_H = current_sum\n    \n    left = 0\n    right = max_H\n    min_cost = float('inf')\n\n    while left <= right:\n        mid = (left + right) // 2\n        cost = compute_cost(mid)\n        if cost < min_cost:\n            min_cost = cost\n        if cost == float('inf'):\n            left = mid + 1\n        else:\n            # Try smaller H to see if we can find a cheaper solution\n            right = mid - 1\n\n    print(min_cost)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

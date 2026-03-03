@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772533575",
+  "question_index": 18,
+  "question_id": "64",
+  "split": "train",
+  "sample_id": 9,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 43.910075187683105,
+  "response": "```python\nimport sys\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    A = list(map(int, data[1:N+1]))\n    \n    # Check if there are no zeros\n    if all(a == 1 for a in A):\n        print(\"Yes\")\n        return\n    \n    # Convert A to list for easier manipulation\n    A = [a for a in A]\n    \n    i = 0\n    while i < N:\n        if A[i] == 0:\n            # Try operation 1: check if we can apply it starting at i\n            # S_i = A, S_{i+1} = R, S_{i+2} = C\n            # This affects A[i] and A[i+1]\n            # Need to wrap around using modulo\n            j1 = (i + 2) % N\n            j2 = (i + 1) % N\n            if A[i] == 0 and A[j2] == 0 and A[j1] == 0:\n                # Apply operation 1\n                A[i] = 1\n                A[j2] = 1\n                i += 1\n            else:\n                # Try operation 2: check if we can apply it starting at i\n                # S_{i+2} = A, S_{i+1} = R, S_i = C\n                # This affects A[i] and A[i+1]\n                j1 = (i + 2) % N\n                j2 = (i + 1) % N\n                if A[j1] == 0 and A[j2] == 0 and A[i] == 0:\n                    # Apply operation 2\n                    A[j1] = 1\n                    A[j2] = 1\n                    i += 1\n                else:\n                    # No valid operation found to clear A[i]\n                    print(\"No\")\n                    return\n        else:\n            i += 1\n    \n    # After trying to clear all 0s, check if all are 1s\n    if all(a == 1 for a in A):\n        print(\"Yes\")\n    else:\n        print(\"No\")\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

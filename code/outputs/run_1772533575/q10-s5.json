@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772533575",
+  "question_index": 10,
+  "question_id": "28",
+  "split": "train",
+  "sample_id": 5,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 23.897599935531616,
+  "response": "```python\nimport sys\nimport heapq\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    M = int(data[1])\n    X = int(data[2])\n    \n    adj_original = [[] for _ in range(N + 1)]\n    adj_reversed = [[] for _ in range(N + 1)]\n    \n    index = 3\n    for _ in range(M):\n        u = int(data[index])\n        v = int(data[index + 1])\n        adj_original[u].append(v)\n        adj_reversed[v].append(u)\n        index += 2\n    \n    INF = float('inf')\n    dist = [[INF] * 2 for _ in range(N + 1)]\n    dist[1][0] = 0\n    heap = []\n    heapq.heappush(heap, (0, 1, 0))\n    \n    while heap:\n        cost, node, reversed_flag = heapq.heappop(heap)\n        \n        if node == N:\n            break\n        \n        if cost > dist[node][reversed_flag]:\n            continue\n        \n        # Move along edges (original or reversed)\n        if reversed_flag == 0:\n            for neighbor in adj_original[node]:\n                if dist[neighbor][reversed_flag] > cost + 1:\n                    dist[neighbor][reversed_flag] = cost + 1\n                    heapq.heappush(heap, (dist[neighbor][reversed_flag], neighbor, reversed_flag))\n        else:\n            for neighbor in adj_reversed[node]:\n                if dist[neighbor][reversed_flag] > cost + 1:\n                    dist[neighbor][reversed_flag] = cost + 1\n                    heapq.heappush(heap, (dist[neighbor][reversed_flag], neighbor, reversed_flag))\n        \n        # Reverse the graph (cost X)\n        if dist[node][1 - reversed_flag] > cost + X:\n            dist[node][1 - reversed_flag] = cost + X\n            heapq.heappush(heap, (dist[node][1 - reversed_flag], node, 1 - reversed_flag))\n    \n    print(min(dist[N][0], dist[N][1]))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

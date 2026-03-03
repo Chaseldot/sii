@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772533575",
+  "question_index": 10,
+  "question_id": "28",
+  "split": "train",
+  "sample_id": 1,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 26.67725396156311,
+  "response": "```python\nimport sys\nimport heapq\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    M = int(data[1])\n    X = int(data[2])\n    \n    original_adj = [[] for _ in range(N + 1)]\n    reversed_adj = [[] for _ in range(N + 1)]\n    \n    index = 3\n    for _ in range(M):\n        u = int(data[index])\n        v = int(data[index + 1])\n        original_adj[u].append(v)\n        reversed_adj[v].append(u)\n        index += 2\n    \n    INF = float('inf')\n    dist = [[INF] * 2 for _ in range(N + 1)]\n    dist[1][0] = 0  # Starting at vertex 1 with no reversals\n    \n    heap = []\n    heapq.heappush(heap, (0, 1, 0))  # (cost, vertex, reversal_state)\n    \n    while heap:\n        cost, u, rev = heapq.heappop(heap)\n        \n        if u == N:\n            print(cost)\n            return\n        \n        if cost > dist[u][rev]:\n            continue\n        \n        # Option 1: Move along original edges (if not reversed)\n        if rev == 0:\n            for v in original_adj[u]:\n                if dist[v][rev] > cost + 1:\n                    dist[v][rev] = cost + 1\n                    heapq.heappush(heap, (dist[v][rev], v, rev))\n        else:\n            for v in reversed_adj[u]:\n                if dist[v][rev] > cost + 1:\n                    dist[v][rev] = cost + 1\n                    heapq.heappush(heap, (dist[v][rev], v, rev))\n        \n        # Option 2: Reverse all edges (cost X)\n        if rev == 0:\n            new_rev = 1\n            if dist[u][new_rev] > cost + X:\n                dist[u][new_rev] = cost + X\n                heapq.heappush(heap, (dist[u][new_rev], u, new_rev))\n        else:\n            new_rev = 0\n            if dist[u][new_rev] > cost + X:\n                dist[u][new_rev] = cost + X\n                heapq.heappush(heap, (dist[u][new_rev], u, new_rev))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

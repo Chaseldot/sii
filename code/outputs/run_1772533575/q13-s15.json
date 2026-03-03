@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772533575",
+  "question_index": 13,
+  "question_id": "43",
+  "split": "train",
+  "sample_id": 15,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 24.81074047088623,
+  "response": "```python\ndef shortest_palindrome(s):\n    reversed_s = s[::-1]\n    lps = [0] * len(reversed_s)\n    length = 0\n\n    for i in range(1, len(reversed_s)):\n        while length > 0 and reversed_s[i] != reversed_s[length]:\n            length = lps[length - 1]\n        if reversed_s[i] == reversed_s[length]:\n            length += 1\n            lps[i] = length\n        else:\n            lps[i] = 0\n\n    longest_palindromic_suffix_length = lps[-1]\n    prefix_to_add = s[:len(s) - longest_palindromic_suffix_length][::-1]\n    return s + prefix_to_add\n\nimport sys\ninput_str = sys.stdin.read().strip()\nprint(shortest_palindrome(input_str))\n```"
+}

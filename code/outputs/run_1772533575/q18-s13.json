@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772533575",
+  "question_index": 18,
+  "question_id": "64",
+  "split": "train",
+  "sample_id": 13,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 44.813594579696655,
+  "response": "```python\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    A = list(map(int, data[1:N+1]))\n    \n    if all(a == 1 for a in A):\n        print(\"Yes\")\n        return\n    \n    # We simulate the process of applying operations to turn A into all 1s\n    # We use a greedy approach to cover zeros by checking possible patterns\n    \n    i = 0\n    while i < N:\n        if A[i] == 0:\n            # Try to apply operation 1 (ARC pattern)\n            # Check if S[i] = 'A', S[i+1] = 'R', S[i+2] = 'C'\n            # To do this, we assume we can choose any letters, so we just need the positions to be set correctly\n            # So we can check if the current and next element are 0, which means they can be toggled\n            \n            if i + 1 < N and A[i] == 0 and A[i+1] == 0:\n                A[i] = 1\n                A[i+1] = 1\n                i += 1\n            elif i - 1 >= 0 and A[i-1] == 0 and A[i] == 0:\n                A[i-1] = 1\n                A[i] = 1\n                i += 1\n            else:\n                # No valid operation can be applied at current position\n                print(\"No\")\n                return\n        else:\n            i += 1\n    \n    print(\"Yes\")\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

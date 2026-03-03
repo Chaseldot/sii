@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772533575",
+  "question_index": 8,
+  "question_id": "25",
+  "split": "train",
+  "sample_id": 9,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 40.462026596069336,
+  "response": "```python\nimport sys\n\ndef compute_min_cost(arr, X, is_increasing=True):\n    n = len(arr)\n    res = [0] * n\n    res[0] = arr[0]\n    cost = 0\n    for i in range(1, n):\n        if is_increasing:\n            lower = res[i - 1] - X\n            upper = res[i - 1] + X\n        else:\n            lower = res[i - 1] + X\n            upper = res[i - 1] - X\n        current = arr[i]\n        if current < lower:\n            res[i] = lower\n            cost += (lower - current)\n        elif current > upper:\n            res[i] = upper\n            cost += (current - upper)\n        else:\n            res[i] = current\n    return cost, res\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    \n    idx = 0\n    N = int(data[idx])\n    idx += 1\n    X = int(data[idx])\n    idx += 1\n    \n    U = []\n    D = []\n    for _ in range(N):\n        u = int(data[idx])\n        idx += 1\n        d = int(data[idx])\n        idx += 1\n        U.append(u)\n        D.append(d)\n    \n    # Compute for non-decreasing upper sequence\n    cost1, res1 = compute_min_cost(U, X, True)\n    H1 = res1[0] + D[0]\n    for i in range(1, N):\n        H1 = min(H1, res1[i] + D[i])\n    total_cost1 = cost1\n    for i in range(N):\n        required_H = H1\n        delta_u = res1[i] - U[i]\n        delta_d = required_H - U[i] - D[i]\n        if delta_d < 0:\n            delta_d = 0\n        total_cost1 += delta_d\n    \n    # Compute for non-increasing upper sequence\n    reversed_U = U[::-1]\n    cost2, res2 = compute_min_cost(reversed_U, X, False)\n    H2 = res2[0] + D[N-1]\n    for i in range(1, N):\n        H2 = min(H2, res2[i] + D[N-1-i])\n    total_cost2 = cost2\n    for i in range(N):\n        required_H = H2\n        delta_u = res2[i] - U[N-1-i]\n        delta_d = required_H - U[N-1-i] - D[N-1-i]\n        if delta_d < 0:\n            delta_d = 0\n        total_cost2 += delta_d\n    \n    print(min(total_cost1, total_cost2))\n\nmain()\n```"
+}

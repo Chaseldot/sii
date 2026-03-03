@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772533575",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 8,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 20.218194723129272,
+  "response": "```python\nimport heapq\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:N+1]))\n    \n    # Create a max heap by inverting the scores\n    max_heap = []\n    for i in range(N):\n        heapq.heappush(max_heap, (-P[i], i))\n    \n    rank = [0] * N\n    r = 1\n    is_ranked = [False] * N\n    \n    while True:\n        if all(is_ranked):\n            break\n        \n        # Get the current maximum score and its index\n        current_max_neg, idx = heapq.heappop(max_heap)\n        current_max = -current_max_neg\n        \n        # Find all people with this score that are not yet ranked\n        count = 0\n        indices = []\n        for i in range(N):\n            if not is_ranked[i] and P[i] == current_max:\n                indices.append(i)\n                count += 1\n        \n        # Assign rank to these people\n        for i in indices:\n            rank[i] = r\n            is_ranked[i] = True\n        \n        r += count\n    \n    for i in range(N):\n        print(rank[i])\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

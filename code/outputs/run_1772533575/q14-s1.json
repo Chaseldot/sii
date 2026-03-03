@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772533575",
+  "question_index": 14,
+  "question_id": "53",
+  "split": "train",
+  "sample_id": 1,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 31.50207829475403,
+  "response": "```python\nimport sys\nfrom collections import defaultdict\n\nMOD = 998244353\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    K = int(data[1])\n    A = list(map(int, data[2:2+N]))\n    \n    prefix_sum = [0] * (N + 1)\n    for i in range(N):\n        prefix_sum[i + 1] = (prefix_sum[i] + A[i]) % MOD\n    \n    dp = defaultdict(int)\n    total = 0\n    \n    for r in range(N):\n        current_sum = prefix_sum[r + 1]\n        new_dp = defaultdict(int)\n        # Adding the subarray [r+1, r+1]\n        new_dp[current_sum] += 1\n        # Combine with previous subarrays ending at r\n        for s in dp:\n            new_s = (s + A[r]) % MOD\n            new_dp[new_s] = (new_dp[new_s] + dp[s]) % MOD\n        # Update dp and calculate contribution\n        dp = new_dp\n        for s in dp:\n            power = pow(s, K, MOD)\n            total = (total + dp[s] * power) % MOD\n    \n    print(total % MOD)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}
