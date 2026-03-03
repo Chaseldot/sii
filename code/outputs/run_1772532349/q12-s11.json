@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772532349",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 11,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 10.307352304458618,
+  "response": "I'll solve this problem by checking for three consecutive equal elements in the sequence.\n\n### Thought Process:\n- We need to check if there exists any index i (1 ≤ i ≤ N-2) such that A[i] = A[i+1] = A[i+2].\n- This can be done by iterating through the list from the start to the third last element.\n- For each element, we check if it is equal to the next two elements.\n- If we find such a triplet, we print \"Yes\" and exit. If not, we print \"No\".\n\n### Approach:\n1. Read N and the list of integers.\n2. Iterate from index 0 to N-3:\n   - Check if A[i] == A[i+1] == A[i+2].\n3. Print \"Yes\" if found, otherwise \"No\".\n\n### Time and Space Complexity:\n- **Time Complexity**: O(N), where N is the length of the list. We iterate through the list once.\n- **Space Complexity**: O(1), since we use a constant amount of extra space.\n\nNow, here's the complete code:\n\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three consecutive equal elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        found = True\n        break\n\n# Output result\nprint(\"Yes\" if found else \"No\")\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772532349",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 14,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 8.220017433166504,
+  "response": "To solve this problem, we need to determine the rank of each participant based on the given rules. Here's a breakdown of our approach:\n\n### Thought Process:\n1. **Input Format**: We are given the number of participants $ N $ and an array $ P $ containing their scores.\n2. **Ranking Rule**: \n   - We start with rank $ r = 1 $.\n   - In each iteration, identify the maximum score among undetermined people.\n   - Assign the current rank $ r $ to all people with that score.\n   - Increment $ r $ by the number of people who received the rank in this step.\n3. **Implementation Steps**:\n   - Keep track of which people have been assigned ranks.\n   - Use a priority queue (heaps) to efficiently get the maximum score at each step.\n   - Maintain a list of ranks for each participant.\n\n### Code Implementation:\n```python\nimport heapq\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:N+1]))\n    \n    # Initialize rank array with 0 (undetermined)\n    ranks = [0] * N\n    \n    # Priority queue: store (-score, index) to simulate a max heap\n    pq = [(-P[i], i) for i in range(N)]\n    heapq.heapify(pq)\n    \n    r = 1  # Current rank\n    \n    while pq:\n        # Get the person with the highest score\n        score_neg, idx = heapq.heappop(pq)\n        score = -score_neg\n        \n        # Find all people with the same score\n        count = 1\n        while pq and -pq[0][0] == score:\n            _, idx2 = heapq.heappop(pq)\n            count += 1\n            ranks[idx2] = r\n        \n        # Assign rank to the current person\n        ranks[idx] = r\n        \n        # Update r\n        r += count\n    \n    # Output the ranks\n    for rank in ranks:\n        print(rank)\n\nif __name__ == \"__main__\":\n    main()\n```\n\nThis solution ensures that we efficiently determine the rank using a max-heap to always get the highest score, making the process both intuitive and optimal for small to moderately sized inputs."
+}

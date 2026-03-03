@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772532349",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 1,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 8.100196361541748,
+  "response": "To solve this problem, we need to determine whether a given sequence of integers contains three or more consecutive identical elements. This is a simple traversal problem where we check each triplet of consecutive elements in the list.\n\n### Steps:\n1. Read the input values: first read the length `N` and then the list of integers.\n2. Iterate through the list from index 0 to `N-3` (inclusive) and check if any three consecutive elements are the same.\n3. If such a triplet is found, print `\"Yes\"` and exit.\n4. If no such triplet is found after checking all possibilities, print `\"No\"`.\n\nThis solution has a time complexity of O(N), which is efficient for the given constraints (`N ≤ 100`).\n\nHere is the complete code:\n\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three consecutive equal elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        found = True\n        break\n\n# Output result\nprint(\"Yes\" if found else \"No\")\n```"
+}

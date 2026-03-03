@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772532349",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 7,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 9.504845142364502,
+  "response": "I'll solve this problem step-by-step.\n\n### Problem Analysis:\nWe are given an integer sequence of length N. We need to determine if there is a place in the sequence where the same element appears three or more times consecutively.\n\n### Key Points:\n- We need to check every triplet of consecutive elements (i.e., A_i, A_{i+1}, A_{i+2}).\n- If any such triplet has all three elements equal, we output \"Yes\".\n- Otherwise, we output \"No\".\n\n### Constraints:\n- The length of the sequence N ranges from 3 to 100.\n- Each element of the sequence can be between 1 and 100.\n\n### Approach:\n- Loop through the sequence from index 0 to N-3.\n- For each position i, check if A[i] == A[i+1] == A[i+2].\n- If found, print \"Yes\" and exit.\n- If the loop completes without finding such a triplet, print \"No\".\n\n### Python Code:\n\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three consecutive equal elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        found = True\n        break\n\n# Output the result\nprint(\"Yes\" if found else \"No\")\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772532349",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 14,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.505967617034912,
+  "response": "To solve this problem, we need to determine a positive integer `B` such that the product of `A` and `B` equals 400, since we are arranging 400 people in `A` rows and `B` columns.\n\n### Step-by-step Plan:\n\n1. **Input:** Read a positive integer `A`.\n2. **Find B:** Check if there exists a positive integer `B` such that `A * B = 400`. This means that `B = 400 / A`.\n3. **Validation:** \n   - If `400 % A == 0`, then `B = 400 // A` is a valid solution.\n   - Otherwise, print `-1` because no such integer `B` exists.\n4. **Edge Cases:**\n   - If `A = 400`, then `B = 1` (as 400 × 1 = 400).\n   - For `A = 1`, `B = 400` (as 1 × 400 = 400).\n\n### Time and Space Complexity:\n- Time Complexity: O(1) — constant time operations.\n- Space Complexity: O(1) — no additional data structures are used.\n\nNow, here's the complete Python code for the problem:\n\n```python\n# Read input\nA = int(input())\n\n# Check if 400 is divisible by A\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```"
+}

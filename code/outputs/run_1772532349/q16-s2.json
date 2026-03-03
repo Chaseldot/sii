@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772532349",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 2,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.415456771850586,
+  "response": "To solve this problem, we need to find a positive integer `B` such that the product of `A` (rows) and `B` (columns) equals 400. In other words, `A * B = 400`. If such a `B` exists, we print it; otherwise, we print `-1`.\n\n### Steps:\n1. **Understand the Requirement**: We are given a positive integer `A` and must compute a corresponding positive integer `B` such that `A * B = 400`.\n2. **Check for Validity**: Since `A` ranges from 1 to 400, we can check if 400 is divisible by `A`. If it is, then the result will be `B = 400 / A`. Otherwise, no such `B` exists.\n3. **Edge Cases**:\n   - If `A == 0`, this is not valid since `A` is between 1 and 400.\n   - For `A == 400`, `B == 1`.\n   - For `A == 1`, `B == 400`.\n\n### Algorithm:\n- Take input `A`.\n- Check if `400 % A == 0`. If yes, compute `B = 400 // A` and print it.\n- If the remainder is non-zero, print `-1`.\n\nThis approach has time complexity O(1), as it involves only one division and conditional check.\n\nHere's the complete code in Python:\n\n```python\n# Read the input\nA = int(input())\n\n# Check if 400 is divisible by A\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```"
+}

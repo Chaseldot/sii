@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772532349",
+  "question_index": 3,
+  "question_id": "6",
+  "split": "train",
+  "sample_id": 10,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.569850206375122,
+  "response": "To solve this problem, we need to determine whether any permutation of the given sequence of integers (A) can satisfy the condition that the product of the first two elements equals the third one.\n\n### Step-by-step Analysis\n\n1. **Input**: Three integers A₁, A₂, and A₃.\n2. **Permutations**: Since the length of the array is 3, there are 3! = 6 permutations of the array.\n3. **Check all permutations**: For each permutation B of A, check if B₁ × B₂ == B₃.\n4. **Output**: If at least one permutation satisfies this condition, print \"Yes\"; otherwise, print \"No\".\n\n### Efficient Strategy\nGiven the small input size (only 3 elements), a brute-force approach of checking all permutations is acceptable, even though it's not optimized. However, we can simplify the process by checking all possible placements of the three elements in the positions (B₁, B₂, B₃).\n\nWe will:\n- Generate all 6 permutations.\n- For each permutation, verify if the condition holds.\n- If found, return \"Yes\"; otherwise, return \"No\".\n\n### Edge Cases\n- All values are zero → Product is zero, but B₃ must be zero as well.\n- One or more values are negative (but based on the constraints, inputs are between 1 and 100).\n\n---\n\nHere is the complete code for the solution:\n\n```python\nfrom itertools import permutations\n\n# Read input\nA = list(map(int, input().split()))\n\n# Check all permutations\nfor perm in permutations(A):\n    if perm[0] * perm[1] == perm[2]:\n        print(\"Yes\")\n        break\nelse:\n    print(\"No\")\n```"
+}

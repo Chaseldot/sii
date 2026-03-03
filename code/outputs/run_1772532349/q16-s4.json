@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772532349",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 4,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 8.008780717849731,
+  "response": "To solve this problem, we need to determine if there exists a positive integer $ B $ such that the total number of people (400) can be arranged in $ A $ rows and $ B $ columns. This is possible only if $ A \\times B = 400 $. \n\n### Steps:\n1. Iterate through all possible values of $ B $ that are divisors of 400.\n2. For each valid divisor $ B $, check if it satisfies the condition $ A \\times B = 400 $.\n3. If such a $ B $ is found, print it. Otherwise, print `-1`.\n\n### Edge Cases:\n- $ A = 1 $: Then $ B = 400 $, which is valid.\n- $ A = 400 $: Then $ B = 1 $, which is valid.\n- $ A $ is a prime number and does not divide 400: Then no such $ B $ exists, so print `-1`.\n\n### Approach:\n- We can optimize the check by iterating up to $ \\sqrt{400} $ instead of checking all numbers from 1 to 400.\n- For each $ i $ from 1 to $ \\sqrt{400} $, if $ 400 \\% i == 0 $, then both $ i $ and $ 400 / i $ are divisors. We check these pairs for the value of $ B $.\n\nHere is the complete code:\n\n```python\nimport sys\nimport math\n\ndef find_valid_B(A):\n    # Check if A divides 400\n    if 400 % A == 0:\n        return 400 // A\n    else:\n        return -1\n\ndef main():\n    A = int(sys.stdin.readline())\n    B = find_valid_B(A)\n    print(B)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

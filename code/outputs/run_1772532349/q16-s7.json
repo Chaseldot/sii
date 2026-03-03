@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772532349",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 7,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.207044839859009,
+  "response": "To solve this problem, we need to find a positive integer $ B $ such that $ A \\times B = 400 $. That is, $ B $ must be a divisor of 400. If there is no such $ B $, we should return -1.\n\n### Key Observations:\n1. Since $ A \\times B = 400 $, $ B $ must be equal to $ 400 / A $.\n2. For $ B $ to be a valid integer, $ 400 $ must be divisible by $ A $ (i.e., $ 400 \\% A == 0 $).\n3. If $ A $ divides 400 evenly, then $ B = 400 / A $ is the solution.\n4. Otherwise, no such $ B $ exists, and we should print -1.\n\n### Approach:\n- Read the input $ A $.\n- Check if $ 400 \\% A == 0 $.\n  - If yes, compute $ B = 400 // A $.\n  - If no, print -1.\n\n### Edge Cases:\n- If $ A = 400 $: $ B = 1 $\n- If $ A = 1 $: $ B = 400 $\n- If $ A $ is not a divisor of 400 (e.g., $ A = 11 $): Output is -1\n\nNow, here's the complete code:\n\n```python\n# Read input\nA = int(input())\n\n# Check if A is a divisor of 400\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```"
+}

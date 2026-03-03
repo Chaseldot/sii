@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772532349",
+  "question_index": 9,
+  "question_id": "27",
+  "split": "train",
+  "sample_id": 12,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 8.196336507797241,
+  "response": "To solve the problem, we need to check if a sequence of integers is strictly increasing. This means that each element in the sequence must be less than the next one.\n\n### Step-by-step Analysis\n\n1. **Read Input:** We first read the integer `N` and then the sequence `A` of length `N`.\n2. **Check Strictly Increasing Condition:** For every consecutive pair `(A[i], A[i+1])`, we ensure that `A[i] < A[i+1]`.\n3. **Output Result:** If all pairs satisfy the condition, print `\"Yes\"`; otherwise, print `\"No\"`.\n\nThis solution is efficient as it checks each pair only once, making the time complexity O(N), which is acceptable for the given constraints (`N ≤ 100`).\n\n### Final Code\n\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check if the sequence is strictly increasing\nis_increasing = True\nfor i in range(N - 1):\n    if A[i] >= A[i + 1]:\n        is_increasing = False\n        break\n\n# Output result\nprint(\"Yes\" if is_increasing else \"No\")\n```"
+}

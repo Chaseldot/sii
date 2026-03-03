@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772532349",
+  "question_index": 6,
+  "question_id": "17",
+  "split": "train",
+  "sample_id": 10,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 8.101515293121338,
+  "response": "To solve the problem, we need to repeatedly replace the leftmost occurrence of \"WA\" in the string with \"AC\" until no more \"WA\" substrings are present.\n\n### Key Observations:\n1. The operation must always target the **leftmost** occurrence of \"WA\".\n2. Replacing \"WA\" with \"AC\" might introduce new \"WA\" substrings. For example, replacing \"WA\" in \"WWA\" creates \"WAC\", and the new \"WA\" is formed between the first \"W\" and the second \"A\" in the substring.\n3. This process must continue until there are no more occurrences of \"WA\".\n\n### Efficient Strategy:\n- We will iterate through the string while checking for \"WA\".\n- When a \"WA\" is found, we replace it with \"AC\" and move back one step to check if the replacement has introduced a new \"WA\" (since the previous character may now form a new \"WA\").\n- This ensures that we always handle the leftmost occurrence at each step.\n\n### Complexity:\n- Time complexity: O(n), where n is the length of the string.\n- Space complexity: O(n), to store the result string.\n\n---\n\nHere is the complete Python code:\n\n```python\ndef main():\n    import sys\n    input = sys.stdin.read\n    S = input().strip()\n    \n    result = list(S)\n    i = 0\n    while i < len(result) - 1:\n        if result[i] == 'W' and result[i + 1] == 'A':\n            # Replace 'WA' with 'AC'\n            result[i] = 'A'\n            result[i + 1] = 'C'\n            # Move back one step to check for new 'WA' that could have been created\n            i = max(0, i - 1)\n        else:\n            i += 1\n    \n    print(''.join(result))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

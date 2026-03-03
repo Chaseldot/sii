@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772532349",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 15,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 11.702304363250732,
+  "response": "I'll analyze the problem and provide an efficient solution.\n\n### Problem Analysis\n\nWe need to determine if there are **three or more identical consecutive elements** in a given integer sequence. This can be checked by iterating through the list and comparing each element with its next two neighbors.\n\n### Constraints\n- N ranges from 3 to 100 (so we don't need to worry about edge cases like empty input).\n- Each element is between 1 and 100.\n- Time complexity must be O(N), which is easily achievable with a simple iteration.\n\n### Approach\n- Traverse the list from the start to N-2.\n- At each step, check if A[i] == A[i+1] == A[i+2].\n- If such a triplet is found, return \"Yes\".\n- If the loop completes without finding any such triplet, return \"No\".\n\n### Solution Code\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three consecutive equal elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        found = True\n        break\n\n# Output the result\nprint(\"Yes\" if found else \"No\")\n```\n\n### Explanation\n- We read the input values and split them into a list of integers.\n- We then iterate through the list, checking each triplet of consecutive elements.\n- As soon as we find a valid triplet, we set a flag (`found`) to `True` and break out of the loop.\n- Finally, we print \"Yes\" if a valid triplet was found, otherwise we print \"No\".\n\nThis solution efficiently checks for the required condition in linear time, making it suitable for the given constraints."
+}

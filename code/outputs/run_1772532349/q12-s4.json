@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772532349",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 4,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 8.706764459609985,
+  "response": "To solve this problem, we need to determine whether there exists a subsequence in the given integer array where the same element appears *three or more times consecutively*.\n\n### Step-by-step Approach:\n\n1. **Input Reading**: Read the length of the array `N` and the array elements themselves.\n2. **Iterating Through Array**:\n   - We will iterate through the array from index 0 to N-3 (inclusive) because we are checking triplets.\n   - For each position `i`, check if `A[i] == A[i+1] == A[i+2]`.\n   - If such a triplet is found, print \"Yes\" and exit immediately.\n3. **Edge Case Handling**:\n   - If no such triplet is found by the end of the iteration, print \"No\".\n\nThis approach ensures that we only check consecutive triplets and not overlapping ones (e.g., for `[1,1,1,1]`, we check indices `(0,1,2)` then `(1,2,3)`).\n\nThe time complexity is O(N), which is efficient for the input size constraint (N ≤ 100).\n\n### Final Python Code\n\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three consecutive equal elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        found = True\n        break\n\n# Output the result\nprint(\"Yes\" if found else \"No\")\n```"
+}

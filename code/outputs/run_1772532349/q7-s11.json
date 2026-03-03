@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772532349",
+  "question_index": 7,
+  "question_id": "20",
+  "split": "train",
+  "sample_id": 11,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 4.038331508636475,
+  "response": "To solve this problem, we need to remove all characters from a given string except for the digit '2' and then concatenate the remaining '2's in their original order.\n\n### Step-by-Step Breakdown:\n\n1. **Input Format**: We read a string `S` consisting of digits.\n2. **Filtering Characters**: We iterate through each character in the string `S` and filter out any characters that are not '2'.\n3. **Concatenation**: After filtering, we concatenate the remaining '2's in the order they appear in the original string.\n4. **Output**: We print the resulting string.\n\nThe time complexity is O(n), where n is the length of the input string, as we only need to iterate through the string once.\n\nNow, here's the complete Python code that solves the problem:\n\n```python\n# Read the input\nS = input().strip()\n\n# Filter the string to keep only '2's\nresult = ''.join([char for char in S if char == '2'])\n\n# Print the result\nprint(result)\n```"
+}

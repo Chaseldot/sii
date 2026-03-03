@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772532349",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 15,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 9.113228559494019,
+  "response": "### STEP 1 - Identify the bug:\n- The error `NameError: name 'exit' is not defined` occurs because the `exit()` function is not available in standard Python environments (like some online judges).\n- We should replace `exit()` with a `break` or return from the function.\n\n---\n\n### STEP 2 - Fix the bug:\n- Replace `exit()` with `print(B)` and break out of the loop once a valid `B` is found.\n- Also, ensure `B` is a positive integer and that the product $ A \\times B = 400 $ holds.\n\nHere is the corrected code:\n\n```python\n# Read input\nA = int(input())\n\n# Find a positive integer B such that A * B = 400\nfor B in range(1, 401):\n    if A * B == 400:\n        print(B)\n        break\nelse:\n    # If no valid B found, print -1\n    print(-1)\n```\n\nThis code now runs cleanly and handles all edge cases."
+}

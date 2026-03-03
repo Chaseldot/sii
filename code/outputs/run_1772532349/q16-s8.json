@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772532349",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 8,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.6924169063568115,
+  "response": "To solve this problem, we need to find a positive integer `B` such that the product of `A` (number of rows) and `B` (number of columns) is 400. This means that `A * B = 400`.\n\n### Thought Process:\n\n1. **Input**: We are given an integer `A`.\n2. **Objective**: Find a positive integer `B` such that `A * B = 400`. If no such `B` exists, output `-1`.\n3. **Approach**:\n   - Iterate through possible values of `B` starting from 1 up to 400.\n   - For each possible value of `B`, check if `400 % A == 0` and `B == 400 / A`.\n   - The first valid `B` we find is our answer.\n   - If no valid `B` is found, return `-1`.\n\n### Edge Cases:\n- If `A = 400`, then `B = 1` because `400 * 1 = 400`.\n- If `A` does not divide evenly into 400, then no valid `B` exists.\n\n### Optimized Solution:\n- Since `A` can only be between 1 and 400, we can directly check `B = 400 // A` and ensure it is a positive integer.\n\nHere is the complete code:\n\n```python\n# Read the input\nA = int(input())\n\n# Check if A divides 400 evenly\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```"
+}

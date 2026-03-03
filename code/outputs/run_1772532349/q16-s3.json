@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772532349",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 3,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.756133794784546,
+  "response": "To solve this problem, we need to find a positive integer **B** such that the product of **A** (number of rows) and **B** (number of columns) equals **400**, since there are 400 people to be arranged without any gaps.\n\n### Key Observations:\n1. We are given an integer A (between 1 and 400).\n2. We need to determine a B such that:  \n   $ A \\times B = 400 $\n3. This implies B must be a divisor of 400.\n4. If A does not divide 400 evenly, then it is impossible to arrange the people in a rectangular formation, and we should return -1.\n\n### Steps to Solve:\n1. Check if 400 is divisible by A.\n2. If yes, compute $ B = \\frac{400}{A} $.\n3. Output B. If not divisible, output -1.\n\n### Edge Cases:\n- If A is 400, then B = 1.\n- If A is 1, then B = 400.\n- If A is a prime number greater than 20 (like 11), then B will not be an integer, so output -1.\n\n### Time Complexity:\n- The algorithm runs in constant time since it only involves a few arithmetic operations and condition checks.\n\nHere is the complete and correct Python code that implements the solution:\n\n```python\n# Read input\nA = int(input())\n\n# Calculate B such that A * B = 400\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```"
+}

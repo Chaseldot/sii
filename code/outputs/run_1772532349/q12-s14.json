@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772532349",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 14,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 10.010788679122925,
+  "response": "To solve this problem, we need to check if there is any occurrence in the sequence where the same element appears **three or more times consecutively**.\n\n### Key Steps:\n1. Read the inputs: `N` (length of the sequence) and the list `A`.\n2. Iterate through the list from index 0 to `N - 3`.\n3. Check if `A[i] == A[i+1] == A[i+2]`. If such a triplet is found, print \"Yes\" and exit.\n4. If no such triplet is found after checking all possible positions, print \"No\".\n\n### Edge Cases:\n- The input sequence may have only three elements (`N = 3`), which should be checked directly.\n- There could be sequences with many repeated elements (e.g., all ones).\n- The sequence may not contain any triplets of consecutive elements.\n\n### Time Complexity:\nThe solution runs in **O(N)** time, which is efficient for the given constraint that `N ≤ 100`.\n\n### Space Complexity:\nThe space complexity is **O(1)** since no extra data structures are used other than the input list.\n\nNow, here's the complete Python code:\n\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three consecutive elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        found = True\n        break\n\n# Output the result\nprint(\"Yes\" if found else \"No\")\n```"
+}

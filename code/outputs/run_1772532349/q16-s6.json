@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772532349",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 6,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 5.426151752471924,
+  "response": "To solve this problem, we need to find a positive integer $ B $ such that the product of $ A $ and $ B $ equals 400. This is because the total number of people is fixed at 400, and we're arranging them in a rectangular formation with $ A $ rows and $ B $ columns.\n\n### Observations:\n- We are given an integer $ A $ (between 1 and 400).\n- We want to find $ B > 0 $ such that $ A \\times B = 400 $.\n- If there's no such $ B $, we should return `-1`.\n\n### Steps to Solve:\n1. Check for each possible divisor of 400 to see if it is divisible by $ A $.\n2. If $ 400 \\% A == 0 $, then $ B = 400 / A $.\n3. Return $ B $ if valid, otherwise return `-1`.\n\n### Time Complexity:\n- The algorithm runs in $ O(1) $ time since checking if a number divides 400 is trivial.\n\nNow let's write the code:\n\n```python\n# Read input\nA = int(input())\n\n# Check if A divides 400 evenly\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```"
+}

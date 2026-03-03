@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772532349",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 12,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 5.701834678649902,
+  "response": "To solve the problem, we need to determine a positive integer B such that the product of A and B equals 400. This is because the total number of people (400) must be perfectly arranged in A rows and B columns without any gaps.\n\n### Steps:\n1. **Understand the Problem**: We are given a value A, and we must find a value B such that $ A \\times B = 400 $. If there is no such B, we should return -1.\n2. **Edge Cases**:\n   - If A is greater than 400, then no valid B exists since $ B = \\frac{400}{A} $ would not be an integer.\n   - If A is exactly 400, then B can only be 1.\n3. **Approach**:\n   - Check if 400 is divisible by A.\n   - If it is, calculate B as $ B = \\frac{400}{A} $.\n   - If not, print -1.\n4. **Time Complexity**:\n   - The algorithm runs in constant time $ O(1) $, which is efficient for the given constraints.\n\nHere is the complete Python code:\n\n```python\n# Read input\nA = int(input())\n\n# Check if A divides 400 evenly\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```"
+}

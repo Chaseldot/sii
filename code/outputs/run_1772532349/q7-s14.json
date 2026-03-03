@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772532349",
+  "question_index": 7,
+  "question_id": "20",
+  "split": "train",
+  "sample_id": 14,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 5.332346439361572,
+  "response": "To solve this problem, I will follow these steps:\n\n### Problem Analysis:\n- We are given a string `S` consisting only of digits.\n- Our task is to remove all characters from `S` that are **not** the digit '2'. This means we need to filter out any character in `S` that is not '2'.\n- The resulting characters should be concatenated to form a new string.\n\n### Approach:\n- Iterate through each character in the input string.\n- Check if the character is equal to '2'.\n- If it is, keep it; otherwise, skip it.\n- Concatenate all the filtered characters to form the final result string.\n\nThis approach has a time complexity of **O(n)** where n is the length of the input string. Since the maximum constraint on the string length is 100, this approach is efficient and fits within the time limit.\n\n### Edge Cases:\n- The input contains exactly one '2': e.g., `S = \"2\"`.\n- The input contains multiple '2's: e.g., `S = \"22222000111222222\"`.\n\n### Python Code:\n```python\n# Read input from standard input\nS = input().strip()\n\n# Filter the characters to keep only '2's and concatenate them\nresult = ''.join([char for char in S if char == '2'])\n\n# Print the result\nprint(result)\n```"
+}

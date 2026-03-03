@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772532349",
+  "question_index": 9,
+  "question_id": "27",
+  "split": "train",
+  "sample_id": 10,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 7.989281177520752,
+  "response": "To solve this problem, we need to check if a given sequence of integers is strictly increasing. This means that for every adjacent pair in the sequence, the earlier number must be less than the next number.\n\n### Steps:\n1. Read input:\n   - The first line contains an integer `N`.\n   - The second line contains `N` space-separated integers.\n2. Iterate through the list to check if each element is strictly less than the next one.\n3. If any element is not strictly less than the next, print \"No\". Otherwise, print \"Yes\".\n\n### Edge Cases:\n- Input with only two elements (minimum allowed by constraints).\n- Duplicate values (e.g., `[1, 1]`) which will fail the strictly increasing condition.\n- Large values within the allowed range.\n\n### Time Complexity:\n- **O(N)**: We iterate through the list once.\n\nHere's the complete and correct Python code:\n\n```python\n# Read input\nn = int(input())\na = list(map(int, input().split()))\n\n# Check if the sequence is strictly increasing\nis_increasing = True\nfor i in range(n - 1):\n    if a[i] >= a[i + 1]:\n        is_increasing = False\n        break\n\n# Output result\nprint(\"Yes\" if is_increasing else \"No\")\n```"
+}

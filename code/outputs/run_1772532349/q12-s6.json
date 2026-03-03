@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772532349",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 6,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 8.097967624664307,
+  "response": "To solve this problem, we need to determine whether there exists a subsequence of three or more consecutive equal elements in the given integer sequence. \n\n### Key Points:\n- **Input:** We are given an integer $ N $ (length of the sequence) and a sequence $ A $ of $ N $ integers.\n- **Output:** Print \"Yes\" if there is a place where the same element appears three or more times consecutively, otherwise print \"No\".\n- **Constraints:** \n  - $ 3 \\leq N \\leq 100 $\n  - Each $ A_i $ is between $ 1 $ and $ 100 $\n\n### Approach:\nWe can iterate through the list from the beginning and check each triplet of consecutive elements. If any such triplet has all three elements equal, we return \"Yes\". Otherwise, after checking all possible triplets, we return \"No\".\n\n### Time Complexity:\n- The algorithm runs in $ O(N) $ time as it requires only a single pass through the list.\n\n### Python Code:\n\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three consecutive equal elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        found = True\n        break\n\n# Output the result\nprint(\"Yes\" if found else \"No\")\n```"
+}
