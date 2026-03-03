@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772528834",
+  "question_index": 18,
+  "question_id": "64",
+  "split": "train",
+  "sample_id": 14,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 32.20269155502319,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    A = list(map(int, data[1:N+1]))\n    \n    if all(a == 1 for a in A):\n        print(\"Yes\")\n        return\n    \n    # We can model this as a graph problem or use a greedy approach based on the patterns.\n    # The operation is to find a pattern \"ARC\" or \"CRC\" in the string S and convert the corresponding A entries to 1.\n\n    # We simulate the process using a greedy strategy.\n    i = 0\n    while i < N:\n        # Check if the current position allows any useful operation\n        if A[i] == 0:\n            # Try to apply operation 1: \"ARC\" pattern (S_i = 'A', S_{i+1} = 'R', S_{i+2} = 'C')\n            # This would change A[i] and A[i+1] to 1\n            # Since we can choose S arbitrarily, we can assume the required pattern exists\n            if i + 2 < N:\n                A[i] = 1\n                A[i+1] = 1\n                i += 1\n                continue\n            # Try to apply operation 2: \"CRC\" pattern (S_i = 'C', S_{i+1} = 'R', S_{i+2} = 'A')\n            # This would also change A[i] and A[i+1] to 1\n            if i + 2 < N:\n                A[i] = 1\n                A[i+1] = 1\n                i += 1\n                continue\n        i += 1\n    \n    if all(a == 1 for a in A):\n        print(\"Yes\")\n    else:\n        print(\"No\")\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

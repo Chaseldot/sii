@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772528519",
+  "question_index": 13,
+  "question_id": "43",
+  "split": "train",
+  "sample_id": 2,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 15.114342451095581,
+  "response": "```python\ndef shortest_palindrome(s):\n    if not s:\n        return \"\"\n    \n    # Create concatenated string for KMP preprocessing\n    concat = s + '#' + s[::-1]\n    lps = [0] * len(concat)\n    \n    for i in range(1, len(concat)):\n        j = lps[i - 1]\n        while j > 0 and concat[i] != concat[j]:\n            j = lps[j - 1]\n        if concat[i] == concat[j]:\n            j += 1\n        lps[i] = j\n    \n    # The length of the longest prefix which is also a suffix\n    prefix_length = lps[-1]\n    \n    # Construct the shortest palindrome\n    return s + s[:prefix_length][::-1]\n\n# Read input\nimport sys\ns = sys.stdin.readline().strip()\n# Compute and print the result\nprint(shortest_palindrome(s))\n```"
+}

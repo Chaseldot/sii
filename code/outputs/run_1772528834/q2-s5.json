@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772528834",
+  "question_index": 2,
+  "question_id": "4",
+  "split": "train",
+  "sample_id": 5,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 29.111255884170532,
+  "response": "```python\nimport sys\nMOD = 998244353\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    M = int(data[1])\n    S = data[2]\n\n    # dp[m][lcs]: number of strings of length m with LCS length lcs\n    dp = [[0] * (N + 1) for _ in range(M + 1)]\n    dp[0][0] = 1\n\n    for c in S:\n        new_dp = [[0] * (N + 1) for _ in range(M + 1)]\n        for m in range(M + 1):\n            for lcs in range(N + 1):\n                if dp[m][lcs] == 0:\n                    continue\n                # Case 1: add a character not equal to c\n                new_dp[m][lcs] = (new_dp[m][lcs] + dp[m][lcs] * 25) % MOD\n                # Case 2: add a character equal to c and update LCS\n                # Try to extend LCS by adding this character at the end\n                # We consider all possible positions where this can happen\n                for i in range(lcs, N):\n                    if S[i] == c:\n                        new_dp[m][i + 1] = (new_dp[m][i + 1] + dp[m][lcs]) % MOD\n                        break  # Only one extension is considered for maximum LCS\n        dp = new_dp\n\n    result = [0] * (N + 1)\n    for lcs in range(N + 1):\n        result[lcs] = dp[M][lcs]\n    print(' '.join(map(str, result)))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

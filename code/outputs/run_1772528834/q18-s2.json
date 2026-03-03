@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772528834",
+  "question_index": 18,
+  "question_id": "64",
+  "split": "train",
+  "sample_id": 2,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 39.49875998497009,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    A = list(map(int, data[1:N+1]))\n    \n    if all(a == 1 for a in A):\n        print(\"Yes\")\n        return\n    \n    # We need to find a way to apply operations such that all 0s are changed to 1s.\n    # Try all positions and simulate the effect of the two operations.\n\n    # Since we cannot afford to try every possible string, we will greedily try to apply any valid operation.\n    # For each position i, check if we can apply either operation and update the array accordingly.\n    \n    # Use a flag to detect if any changes were made (to avoid infinite loops)\n    changed = True\n    while changed:\n        changed = False\n        for i in range(N):\n            # Operation 1: Check for 'ARC' pattern (A, R, C), replace A_i with 1\n            if i + 2 < N:\n                if A[i] == 0 and A[i+1] == 1 and A[i+2] == 1:\n                    A[i] = 1\n                    changed = True\n            # Operation 2: Check for 'CRA' pattern (C, R, A), replace A_i-2 and A_i-1 with 1\n            if i - 2 >= 0:\n                if A[i-2] == 1 and A[i-1] == 1 and A[i] == 0:\n                    A[i-2] = 1\n                    A[i-1] = 1\n                    changed = True\n    \n    if all(a == 1 for a in A):\n        print(\"Yes\")\n    else:\n        print(\"No\")\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

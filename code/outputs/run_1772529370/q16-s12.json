@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772529370",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 12,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 7.723830699920654,
+  "response": "To solve this problem, we need to determine a positive integer $ B $ such that the product of $ A $ (rows) and $ B $ (columns) equals 400. This means that $ A \\times B = 400 $.\n\n### Key Points:\n- We are given $ A $.\n- We must find a positive integer $ B $ such that $ A \\times B = 400 $.\n- If no such $ B $ exists (e.g., when $ A > 400 $ or $ A $ is not a divisor of 400), we print `-1`.\n\n### Steps:\n1. Check if $ A $ is a valid input: Must be between 1 and 400 inclusive.\n2. Iterate through all possible divisors of 400 to check if $ B = \\frac{400}{A} $ is an integer.\n3. If such a $ B $ exists, print it; otherwise, print `-1`.\n\n### Time Complexity:\n- Since we loop up to 400, the time complexity is $ O(400) $, which is acceptable within the 1-second limit.\n\n### Edge Cases:\n- For $ A = 400 $, $ B = 1 $ is valid.\n- For $ A = 1 $, $ B = 400 $ is valid.\n- For $ A = 10 $, $ B = 40 $ is valid.\n- For $ A = 11 $, there is no valid $ B $, so output is `-1`.\n- For $ A = 0 $, invalid input as per constraints.\n\nHere is the full Python code:\n\n```python\n# Read the input from standard input\nA = int(input())\n\n# Check if A is 0 or greater than 400\nif A == 0 or A > 400:\n    print(-1)\nelse:\n    # Check if A is a divisor of 400\n    if 400 % A == 0:\n        B = 400 // A\n        print(B)\n    else:\n        print(-1)\n```"
+}

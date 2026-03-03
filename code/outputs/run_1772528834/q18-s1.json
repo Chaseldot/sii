@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772528834",
+  "question_index": 18,
+  "question_id": "64",
+  "split": "train",
+  "sample_id": 1,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 36.71060633659363,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    A = list(map(int, data[1:]))\n    \n    if all(a == 1 for a in A):\n        print(\"Yes\")\n        return\n    \n    # We need to determine if there exists a string S such that we can flip all 0s in A to 1s using the allowed operations.\n    # The allowed operations allow us to flip two adjacent elements in A to 1s if they are preceded by specific patterns in S.\n    \n    # Instead of trying to simulate the flipping, we can think in terms of whether it is possible to cover all the zeros\n    # by finding positions where the pattern \"ARC\" or \"CRA\" can be arranged to allow an operation to flip the values.\n    \n    # Each operation allows flipping two adjacent elements from 0 to 1. \n    # So, for each zero, we check if we can find either one of the two operations that can flip it.\n\n    B = A[:]\n    flipped = [False] * N\n\n    for i in range(N):\n        if B[i] == 0 and not flipped[i]:\n            # Try first operation: look at i, i+1, i+2 (with wrap around)\n            next_idx1 = (i + 1) % N\n            next_idx2 = (i + 2) % N\n            if B[next_idx1] == 1 and B[next_idx2] == 1:\n                B[i] = 1\n                flipped[i] = True\n                flipped[next_idx1] = True\n                flipped[next_idx2] = True\n            else:\n                # Try second operation: look at i-2, i-1, i (with wrap around)\n                prev_idx1 = (i - 2) % N\n                prev_idx2 = (i - 1) % N\n                if B[prev_idx1] == 1 and B[prev_idx2] == 1:\n                    B[i] = 1\n                    flipped[i] = True\n                    flipped[prev_idx1] = True\n                    flipped[prev_idx2] = True\n                else:\n                    # No valid operation to flip this zero\n                    print(\"No\")\n                    return\n    \n    if all(b == 1 for b in B):\n        print(\"Yes\")\n    else:\n        print(\"No\")\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

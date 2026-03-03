@@ -1,0 +1,924 @@
+{
+  "run_name": "run_1772528519",
+  "jsonl_path": "data/dev.jsonl",
+  "max_turns": 3,
+  "num_questions": 20,
+  "samples_per_question": 4,
+  "total_samples": 80,
+  "total_passed": 16,
+  "total_errors": 50,
+  "avg_pass_at_1": 0.2,
+  "elapsed_seconds": 56.81005096435547,
+  "per_question": [
+    {
+      "question_index": 0,
+      "question_id": "unknown",
+      "pass_at_1": 0.0,
+      "samples": [
+        {
+          "question_index": 0,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 0,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': 'eee34afa-b998-9db6-bcdd-eae8aa799b96'}"
+        },
+        {
+          "question_index": 0,
+          "question_id": "0",
+          "split": "train",
+          "sample_id": 1,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 45.56814694404602
+        },
+        {
+          "question_index": 0,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 2,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '846741fd-7fab-92b0-83a8-93eeff7272ed'}"
+        },
+        {
+          "question_index": 0,
+          "question_id": "0",
+          "split": "train",
+          "sample_id": 3,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 34.580601930618286
+        }
+      ]
+    },
+    {
+      "question_index": 1,
+      "question_id": "unknown",
+      "pass_at_1": 0.0,
+      "samples": [
+        {
+          "question_index": 1,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 0,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '3c8eae63-5de3-9c23-b0f9-fa6251ae04ad'}"
+        },
+        {
+          "question_index": 1,
+          "question_id": "3",
+          "split": "train",
+          "sample_id": 1,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 28.743977308273315
+        },
+        {
+          "question_index": 1,
+          "question_id": "3",
+          "split": "train",
+          "sample_id": 2,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 34.183478116989136
+        },
+        {
+          "question_index": 1,
+          "question_id": "3",
+          "split": "train",
+          "sample_id": 3,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 34.61358428001404
+        }
+      ]
+    },
+    {
+      "question_index": 2,
+      "question_id": "unknown",
+      "pass_at_1": 0.0,
+      "samples": [
+        {
+          "question_index": 2,
+          "question_id": "4",
+          "split": "train",
+          "sample_id": 0,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 19.971641302108765
+        },
+        {
+          "question_index": 2,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 1,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '180bf80a-ad72-9601-88f9-2132ed3cf37b'}"
+        },
+        {
+          "question_index": 2,
+          "question_id": "4",
+          "split": "train",
+          "sample_id": 2,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 20.000317811965942
+        },
+        {
+          "question_index": 2,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 3,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': 'c319f11a-2e92-9e95-912b-93f6783b2c92'}"
+        }
+      ]
+    },
+    {
+      "question_index": 3,
+      "question_id": "6",
+      "pass_at_1": 0.5,
+      "samples": [
+        {
+          "question_index": 3,
+          "question_id": "6",
+          "split": "train",
+          "sample_id": 0,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 1.879857063293457
+        },
+        {
+          "question_index": 3,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 1,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '3acfdb73-e685-9ba7-95ff-d59b12fa9117'}"
+        },
+        {
+          "question_index": 3,
+          "question_id": "6",
+          "split": "train",
+          "sample_id": 2,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 2.24043607711792
+        },
+        {
+          "question_index": 3,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 3,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '199d1937-ca20-9f00-a844-96dfbce38c4a'}"
+        }
+      ]
+    },
+    {
+      "question_index": 4,
+      "question_id": "unknown",
+      "pass_at_1": 0.0,
+      "samples": [
+        {
+          "question_index": 4,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 0,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': 'e8fe160b-19f7-9c67-bce5-e7f781aadfb8'}"
+        },
+        {
+          "question_index": 4,
+          "question_id": "11",
+          "split": "train",
+          "sample_id": 1,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 12.675475597381592
+        },
+        {
+          "question_index": 4,
+          "question_id": "11",
+          "split": "train",
+          "sample_id": 2,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 14.56592607498169
+        },
+        {
+          "question_index": 4,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 3,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': 'bc8ac85a-3592-9484-acdb-0432470044f2'}"
+        }
+      ]
+    },
+    {
+      "question_index": 5,
+      "question_id": "unknown",
+      "pass_at_1": 0.0,
+      "samples": [
+        {
+          "question_index": 5,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 0,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '26e4c6a7-3e7a-977f-b382-1d1397ad5e15'}"
+        },
+        {
+          "question_index": 5,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 1,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': 'a256e02c-1e51-95d4-84e6-fe3ffa0a4cca'}"
+        },
+        {
+          "question_index": 5,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 2,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '6d23e455-9268-9417-be4c-fed981d4f96e'}"
+        },
+        {
+          "question_index": 5,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 3,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '1582b3b0-a04b-98f9-a389-951b778f2f8f'}"
+        }
+      ]
+    },
+    {
+      "question_index": 6,
+      "question_id": "unknown",
+      "pass_at_1": 0.0,
+      "samples": [
+        {
+          "question_index": 6,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 0,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '212bb41c-60fa-9fa3-a764-8a2e9a11faa7'}"
+        },
+        {
+          "question_index": 6,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 1,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': 'f579a811-0186-98ac-9b58-f8f1fb0008ef'}"
+        },
+        {
+          "question_index": 6,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 2,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': 'd8309801-07e7-9b04-80aa-15963df62966'}"
+        },
+        {
+          "question_index": 6,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 3,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '0ade306f-2609-980d-92a0-1ac0d928075e'}"
+        }
+      ]
+    },
+    {
+      "question_index": 7,
+      "question_id": "20",
+      "pass_at_1": 0.75,
+      "samples": [
+        {
+          "question_index": 7,
+          "question_id": "20",
+          "split": "train",
+          "sample_id": 0,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 1.692866563796997
+        },
+        {
+          "question_index": 7,
+          "question_id": "20",
+          "split": "train",
+          "sample_id": 1,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 1.500364065170288
+        },
+        {
+          "question_index": 7,
+          "question_id": "20",
+          "split": "train",
+          "sample_id": 2,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 1.8981351852416992
+        },
+        {
+          "question_index": 7,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 3,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '287f8d3a-7797-9b7b-b7c9-53d06d683de6'}"
+        }
+      ]
+    },
+    {
+      "question_index": 8,
+      "question_id": "unknown",
+      "pass_at_1": 0.0,
+      "samples": [
+        {
+          "question_index": 8,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 0,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': 'cd8fdbaf-aa81-94b6-b418-58b5bed8dbfb'}"
+        },
+        {
+          "question_index": 8,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 1,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '4f9f8505-d1ce-918f-bc04-1945b31d7d98'}"
+        },
+        {
+          "question_index": 8,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 2,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': 'a47a87ca-8871-9cd3-bec1-11d9b50ba415'}"
+        },
+        {
+          "question_index": 8,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 3,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': 'cab69244-3ac1-95dc-9e6e-4c45f1c818f3'}"
+        }
+      ]
+    },
+    {
+      "question_index": 9,
+      "question_id": "27",
+      "pass_at_1": 1.0,
+      "samples": [
+        {
+          "question_index": 9,
+          "question_id": "27",
+          "split": "train",
+          "sample_id": 0,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 3.3863556385040283
+        },
+        {
+          "question_index": 9,
+          "question_id": "27",
+          "split": "train",
+          "sample_id": 1,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 2.285522937774658
+        },
+        {
+          "question_index": 9,
+          "question_id": "27",
+          "split": "train",
+          "sample_id": 2,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 2.546875476837158
+        },
+        {
+          "question_index": 9,
+          "question_id": "27",
+          "split": "train",
+          "sample_id": 3,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 2.2428979873657227
+        }
+      ]
+    },
+    {
+      "question_index": 10,
+      "question_id": "unknown",
+      "pass_at_1": 0.5,
+      "samples": [
+        {
+          "question_index": 10,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 0,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': 'b300e883-7425-9713-84ad-ef367f609e2c'}"
+        },
+        {
+          "question_index": 10,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 1,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': 'fba091ab-f2f0-9c9b-adef-6447313beda7'}"
+        },
+        {
+          "question_index": 10,
+          "question_id": "28",
+          "split": "train",
+          "sample_id": 2,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 6.476621150970459
+        },
+        {
+          "question_index": 10,
+          "question_id": "28",
+          "split": "train",
+          "sample_id": 3,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 8.315613269805908
+        }
+      ]
+    },
+    {
+      "question_index": 11,
+      "question_id": "unknown",
+      "pass_at_1": 0.0,
+      "samples": [
+        {
+          "question_index": 11,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 0,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '836dd3ae-618e-9dae-a880-2758c8954a9b'}"
+        },
+        {
+          "question_index": 11,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 1,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '4bbae7e0-ca26-910e-84ba-6a46b9dfb67c'}"
+        },
+        {
+          "question_index": 11,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 2,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '9f0e5cb8-a7bd-95b4-bcdb-34fefdf39283'}"
+        },
+        {
+          "question_index": 11,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 3,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': 'ccb349ca-c49b-9189-902a-9413bd5df2e8'}"
+        }
+      ]
+    },
+    {
+      "question_index": 12,
+      "question_id": "35",
+      "pass_at_1": 0.5,
+      "samples": [
+        {
+          "question_index": 12,
+          "question_id": "35",
+          "split": "train",
+          "sample_id": 0,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 2.1962132453918457
+        },
+        {
+          "question_index": 12,
+          "question_id": "35",
+          "split": "train",
+          "sample_id": 1,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 2.2973310947418213
+        },
+        {
+          "question_index": 12,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 2,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '0fc55063-ad2f-9eea-81ce-9868dc9a7e14'}"
+        },
+        {
+          "question_index": 12,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 3,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '93378649-863c-9658-a30f-67f144d1e881'}"
+        }
+      ]
+    },
+    {
+      "question_index": 13,
+      "question_id": "unknown",
+      "pass_at_1": 0.0,
+      "samples": [
+        {
+          "question_index": 13,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 0,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': 'd4936f85-51f6-9a9c-b8b8-ca987260c1b8'}"
+        },
+        {
+          "question_index": 13,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 1,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '9d4e0d0a-58a5-940c-85ba-aa798a4dbb32'}"
+        },
+        {
+          "question_index": 13,
+          "question_id": "43",
+          "split": "train",
+          "sample_id": 2,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 15.114342451095581
+        },
+        {
+          "question_index": 13,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 3,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '215d9e62-66d2-9ea2-905b-2390b491e256'}"
+        }
+      ]
+    },
+    {
+      "question_index": 14,
+      "question_id": "unknown",
+      "pass_at_1": 0.25,
+      "samples": [
+        {
+          "question_index": 14,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 0,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '0cba7e1e-f024-93af-91a9-f8b82d4bc617'}"
+        },
+        {
+          "question_index": 14,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 1,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '0b224690-153b-9f1f-aa3e-2aa47e9ad135'}"
+        },
+        {
+          "question_index": 14,
+          "question_id": "53",
+          "split": "train",
+          "sample_id": 2,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 4.423981428146362
+        },
+        {
+          "question_index": 14,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 3,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '44206a1a-d991-94e6-835d-cd935f636aea'}"
+        }
+      ]
+    },
+    {
+      "question_index": 15,
+      "question_id": "unknown",
+      "pass_at_1": 0.25,
+      "samples": [
+        {
+          "question_index": 15,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 0,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': 'ebad311e-57a7-90b3-b3c1-3b08eb87b642'}"
+        },
+        {
+          "question_index": 15,
+          "question_id": "54",
+          "split": "train",
+          "sample_id": 1,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 11.704526424407959
+        },
+        {
+          "question_index": 15,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 2,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '42709fc9-42b4-969b-8cb4-82859efd0fa1'}"
+        },
+        {
+          "question_index": 15,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 3,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': 'e6864529-4926-945a-9925-0494acf6f029'}"
+        }
+      ]
+    },
+    {
+      "question_index": 16,
+      "question_id": "57",
+      "pass_at_1": 0.25,
+      "samples": [
+        {
+          "question_index": 16,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 0,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': 'bead146a-db92-9351-bd93-3ad5aa7048f4'}"
+        },
+        {
+          "question_index": 16,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 1,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': 'd7ac1020-8f9e-9991-b24d-7c4fb955fd5a'}"
+        },
+        {
+          "question_index": 16,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 2,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '05cce8d6-ac02-9d96-8420-8fe7e6be05b9'}"
+        },
+        {
+          "question_index": 16,
+          "question_id": "57",
+          "split": "train",
+          "sample_id": 3,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 1.8595936298370361
+        }
+      ]
+    },
+    {
+      "question_index": 17,
+      "question_id": "unknown",
+      "pass_at_1": 0.0,
+      "samples": [
+        {
+          "question_index": 17,
+          "question_id": "62",
+          "split": "train",
+          "sample_id": 0,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 28.7198326587677
+        },
+        {
+          "question_index": 17,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 1,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '4ab1c4f2-a3fc-92da-a347-f20553ed975f'}"
+        },
+        {
+          "question_index": 17,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 2,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '987cb0dc-7f23-9ed1-81ae-8dddbea8ca11'}"
+        },
+        {
+          "question_index": 17,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 3,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '467fe2d4-21c4-9883-90d6-1a1c95919d6e'}"
+        }
+      ]
+    },
+    {
+      "question_index": 18,
+      "question_id": "unknown",
+      "pass_at_1": 0.0,
+      "samples": [
+        {
+          "question_index": 18,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 0,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '379f7c34-c78b-9429-951d-58a41ad2f31d'}"
+        },
+        {
+          "question_index": 18,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 1,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '4a427734-9d16-9b71-9fcd-24ee284a15a5'}"
+        },
+        {
+          "question_index": 18,
+          "question_id": "64",
+          "split": "train",
+          "sample_id": 2,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 25.710530519485474
+        },
+        {
+          "question_index": 18,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 3,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '57691b6a-c96c-9c95-beca-1a6e2f6e71c0'}"
+        }
+      ]
+    },
+    {
+      "question_index": 19,
+      "question_id": "unknown",
+      "pass_at_1": 0.0,
+      "samples": [
+        {
+          "question_index": 19,
+          "question_id": "130",
+          "split": "train",
+          "sample_id": 0,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 19.099112510681152
+        },
+        {
+          "question_index": 19,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 1,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '4dfff30b-7c41-98a3-ac36-c7dabad262fb'}"
+        },
+        {
+          "question_index": 19,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 2,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': 'c979e9bb-1c24-9fc3-a138-10d490dda737'}"
+        },
+        {
+          "question_index": 19,
+          "question_id": "130",
+          "split": "train",
+          "sample_id": 3,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 15.634811878204346
+        }
+      ]
+    }
+  ]
+}

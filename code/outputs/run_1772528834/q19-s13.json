@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772528834",
+  "question_index": 19,
+  "question_id": "130",
+  "split": "train",
+  "sample_id": 13,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 35.18737173080444,
+  "response": "```python\nfrom typing import List\n\ndef minimumCost(nums: List[int], cost: List[int], k: int) -> int:\n    n = len(nums)\n    \n    # Prefix sums for nums and cost arrays\n    prefix_sum_nums = [0] * (n + 1)\n    prefix_sum_cost = [0] * (n + 1)\n    \n    for i in range(n):\n        prefix_sum_nums[i + 1] = prefix_sum_nums[i] + nums[i]\n        prefix_sum_cost[i + 1] = prefix_sum_cost[i] + cost[i]\n    \n    # dp[i]: minimum cost to split the first i elements\n    dp = [float('inf')] * (n + 1)\n    dp[0] = 0\n    \n    for i in range(1, n + 1):\n        # Try splitting at j (j ranges from 0 to i-1)\n        for j in range(i):\n            sum_nums = prefix_sum_nums[i] - prefix_sum_nums[j]\n            sum_cost = prefix_sum_cost[i] - prefix_sum_cost[j]\n            current_subarray_index = j + 1\n            current_cost = (sum_nums + k * current_subarray_index) * sum_cost\n            dp[i] = min(dp[i], dp[j] + current_cost)\n    \n    return dp[n]\n```"
+}

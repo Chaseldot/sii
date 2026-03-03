@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772528834",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 4,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 9.191356897354126,
+  "response": "```python\nimport heapq\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:N+1]))\n    \n    # Create a list of tuples (-score, index) to simulate a max-heap\n    # Using negative scores because Python's heapq is a min-heap by default\n    heap = [(-P[i], i) for i in range(N)]\n    \n    # Initialize rank and a list to store the ranks of each person\n    rank = [0] * N\n    r = 1\n    \n    # Use a set to track the indices with undetermined ranks\n    undetermined = set(range(N))\n    \n    while undetermined:\n        # Get the maximum score among undetermined people\n        max_score = -float('inf')\n        for i in undetermined:\n            if P[i] > max_score:\n                max_score = P[i]\n        \n        # Find all people with this max score\n        current_people = []\n        for i in undetermined:\n            if P[i] == max_score:\n                current_people.append(i)\n        \n        # Assign rank to these people\n        for i in current_people:\n            rank[i] = r\n        \n        # Update r and remove these people from undetermined\n        r += len(current_people)\n        for i in current_people:\n            undetermined.remove(i)\n    \n    for i in range(N):\n        print(rank[i])\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

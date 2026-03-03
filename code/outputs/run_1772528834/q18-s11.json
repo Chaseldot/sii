@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772528834",
+  "question_index": 18,
+  "question_id": "64",
+  "split": "train",
+  "sample_id": 11,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 25.517820835113525,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    A = list(map(int, data[1:N+1]))\n    \n    if all(a == 1 for a in A):\n        print(\"Yes\")\n        return\n    \n    # Simulate operations to check if it's possible to turn all 0s into 1s\n    # We need to simulate the two operations:\n    # 1. Replace A_i and A_{i+1} with 1, if S_i = A, S_{i+1} = R, S_{i+2} = C\n    # 2. Replace A_i and A_{i+1} with 1, if S_{i+2} = A, S_{i+1} = R, S_i = C\n\n    # Let's try all possible patterns in the string by checking for the required condition\n    # and performing the operation as long as possible.\n    temp = A.copy()\n\n    # Try every position to find a valid sequence of operations\n    for i in range(N):\n        j = i\n        while j < N:\n            if j + 2 >= N:\n                break\n            # Check for pattern \"ARC\"\n            if temp[j] == 0 and temp[j+1] == 1 and temp[j+2] == 1:\n                temp[j] = 1\n                temp[j+1] = 1\n                j += 3\n            elif temp[j] == 1 and temp[j+1] == 0 and temp[j+2] == 1:\n                temp[j] = 1\n                temp[j+1] = 1\n                j += 3\n            else:\n                break\n        if all(a == 1 for a in temp):\n            print(\"Yes\")\n            return\n        temp = A.copy()  # Reset for next iteration\n\n    print(\"No\")\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

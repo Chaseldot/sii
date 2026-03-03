@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772528834",
+  "question_index": 10,
+  "question_id": "28",
+  "split": "train",
+  "sample_id": 13,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 9.99944543838501,
+  "response": "```python\nimport sys\nimport heapq\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    M = int(data[1])\n    X = int(data[2])\n    \n    edges = [[] for _ in range(N + 1)]\n    original_edges = [[] for _ in range(N + 1)]\n    \n    idx = 3\n    for _ in range(M):\n        u = int(data[idx])\n        v = int(data[idx + 1])\n        edges[u].append(v)\n        original_edges[u].append(v)\n        idx += 2\n    \n    INF = float('inf')\n    dist = [INF] * (N + 1)\n    dist[1] = 0\n    dist_rev = [INF] * (N + 1)\n    dist_rev[1] = 0\n    \n    heap = []\n    heapq.heappush(heap, (0, 1))\n    \n    while heap:\n        cost, node = heapq.heappop(heap)\n        \n        if node == N:\n            break\n        \n        if cost > dist[node]:\n            continue\n        \n        for neighbor in edges[node]:\n            if dist[neighbor] > cost + 1:\n                dist[neighbor] = cost + 1\n                heapq.heappush(heap, (dist[neighbor], neighbor))\n        \n        if dist_rev[node] > cost + X:\n            dist_rev[node] = cost + X\n            heapq.heappush(heap, (dist_rev[node], node))\n    \n    result = min(dist[N], dist_rev[N])\n    print(result)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772528834",
+  "question_index": 13,
+  "question_id": "43",
+  "split": "train",
+  "sample_id": 7,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 21.085827827453613,
+  "response": "```python\nimport sys\n\ndef shortest_palindrome(s):\n    n = len(s)\n    # Find the longest palindromic suffix starting from the end\n    for i in range(n):\n        if s[:n-i] == s[:n-i][::-1]:\n            return s + s[i:][::-1]\n    return s\n\nif __name__ == \"__main__\":\n    S = sys.stdin.readline().strip()\n    print(shortest_palindrome(S))\n```"
+}

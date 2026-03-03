@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772529370",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 0,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 8.405810594558716,
+  "response": "To solve this problem, we need to determine if there exists a positive integer $ B $ such that the product $ A \\times B = 400 $. If such a $ B $ exists, we print it; otherwise, we print -1.\n\n### Steps to Solve:\n1. **Understand the Problem**: We are given an integer $ A $ and we need to check if there is a corresponding integer $ B $ such that $ A \\times B = 400 $.\n2. **Check Divisibility**: The number $ B $ should be a divisor of 400, and $ B $ must be a positive integer.\n3. **Find Valid Pair (A, B)**: Iterate through divisors of 400 and check if any of them satisfies $ A \\times B = 400 $.\n4. **Edge Cases**:\n   - If $ A > 400 $, it's impossible since $ A \\times B $ would exceed 400.\n   - If $ A = 400 $, then $ B = 1 $.\n5. **Efficiency**: Since 400 has limited divisors, we can check all possible divisors efficiently.\n\nNow, let's write the complete Python program to solve the problem:\n\n```python\n# Read input\nA = int(input())\n\n# Initialize answer to -1\nB = -1\n\n# Check for valid B such that A * B = 400\nif A <= 0 or A > 400:\n    print(-1)\nelse:\n    # Try all possible divisors of 400 to find B\n    for i in range(1, 401):\n        if 400 % i == 0 and 400 // i == A:\n            B = i\n            break\n    print(B)\n```"
+}

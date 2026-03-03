@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772528834",
+  "question_index": 18,
+  "question_id": "64",
+  "split": "train",
+  "sample_id": 10,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 42.42425560951233,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    A = list(map(int, data[1:]))\n    \n    if all(a == 1 for a in A):\n        print(\"Yes\")\n        return\n    \n    # We need to determine whether we can construct a good string such that after applying the operations,\n    # all elements of A become 1.\n    \n    # Insight:\n    # Each operation allows us to turn two adjacent 0s into 1s. So, we need to ensure that every occurrence\n    # of 0 is part of at least one pair (either directly or via wrap-around) that can be converted using the operations.\n\n    # The key observation is: we can always convert all 0s if and only if there is no isolated 0 (i.e., a single 0 not adjacent to another 0).\n\n    # Check for any 0 that is not adjacent (either directly or wrapping around) to another 0.\n    for i in range(N):\n        if A[i] == 0:\n            # Check left neighbor\n            if (i - 1 + N) % N != i and A[(i - 1 + N) % N] == 0:\n                continue\n            # Check right neighbor\n            if (i + 1) % N != i and A[(i + 1) % N] == 0:\n                continue\n            # If current 0 has no neighbors with 0, then it's impossible to apply any operation on it.\n            print(\"No\")\n            return\n    print(\"Yes\")\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

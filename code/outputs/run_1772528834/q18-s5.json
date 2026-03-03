@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772528834",
+  "question_index": 18,
+  "question_id": "64",
+  "split": "train",
+  "sample_id": 5,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 36.10481238365173,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    A = list(map(int, data[1:N+1]))\n    \n    if all(a == 1 for a in A):\n        print(\"Yes\")\n        return\n    \n    # We need to find a string S such that we can perform operations to make all A_i = 1.\n    # The two operations allow us to change specific positions in A to 1.\n    # Each operation modifies two positions in A (the i-th and i+1-th).\n    \n    modified = [False] * N\n    for i in range(N):\n        # Check pattern 1: A R C\n        if not modified[i]:\n            # Check i+2 in the array\n            if i + 2 < N:\n                if A[i] == 0 and A[i + 1] == 0 and A[i + 2] == 0:\n                    A[i] = 1\n                    A[i + 1] = 1\n                    modified[i] = True\n                    modified[i + 1] = True\n            else:\n                # Wrap around for i+2\n                if A[i] == 0 and A[i + 1] == 0 and A[(i + 2) % N] == 0:\n                    A[i] = 1\n                    A[i + 1] = 1\n                    modified[i] = True\n                    modified[i + 1] = True\n            \n            # Check pattern 2: C R A\n            if i - 2 >= 0:\n                if A[i] == 0 and A[i - 1] == 0 and A[i - 2] == 0:\n                    A[i] = 1\n                    A[i - 1] = 1\n                    modified[i] = True\n                    modified[i - 1] = True\n            else:\n                # Wrap around for i-2\n                if A[i] == 0 and A[i - 1] == 0 and A[(i - 2) % N] == 0:\n                    A[i] = 1\n                    A[i - 1] = 1\n                    modified[i] = True\n                    modified[i - 1] = True\n    \n    if all(a == 1 for a in A):\n        print(\"Yes\")\n    else:\n        print(\"No\")\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

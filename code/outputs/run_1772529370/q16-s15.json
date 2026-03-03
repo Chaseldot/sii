@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772529370",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 15,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 7.502163887023926,
+  "response": "To solve this problem, we need to determine if there is a positive integer $ B $ such that the product of $ A $ and $ B $ equals 400 (since there are 400 people to be arranged in a rectangular formation). If such a $ B $ exists, we print it; otherwise, we print -1.\n\n### Key Observations:\n1. We are given an integer $ A $ between 1 and 400.\n2. We need to find a positive integer $ B $ such that:  \n   $$\n   A \\times B = 400\n   $$\n3. This implies that $ B = \\frac{400}{A} $, and for a valid $ B $, the division must result in an integer.\n4. So, we check if 400 is divisible by $ A $. If yes, then $ B = \\frac{400}{A} $ is a valid solution.\n\n### Edge Cases:\n- $ A = 1 $: Then $ B = 400 $\n- $ A = 400 $: Then $ B = 1 $\n- $ A $ not dividing 400 evenly: Output is -1 (e.g., $ A = 11 $)\n\n### Time Complexity:\n- The time complexity is $ O(1) $, since all operations are constant-time.\n\n### Approach:\n- Read the input value $ A $.\n- Check if 400 is divisible by $ A $.\n- If yes, compute $ B = \\frac{400}{A} $.\n- Otherwise, print -1.\n\nHere is the complete code:\n\n```python\n# Read input from standard input\nA = int(input())\n\n# Check if 400 is divisible by A\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```"
+}

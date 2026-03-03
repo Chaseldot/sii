@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772528834",
+  "question_index": 8,
+  "question_id": "25",
+  "split": "train",
+  "sample_id": 6,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 59.72552227973938,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    X = int(data[1])\n    \n    U = []\n    D = []\n    \n    idx = 2\n    for _ in range(N):\n        U.append(int(data[idx]))\n        D.append(int(data[idx + 1]))\n        idx += 2\n    \n    # For each position, calculate the possible H values\n    # We need to find H such that all (U[i] + D[i]) can be adjusted to H with minimal cost\n    # The optimal H is determined by the constraints on the upper teeth's differences\n    \n    # First, we find the possible H candidates (since H must be the same for all)\n    # However, to minimize cost, we will try all possible H within a range derived from the U's and D's\n    \n    # Let's compute the minimum and maximum possible H (based on the current values)\n    min_h = float('inf')\n    max_h = -float('inf')\n    \n    for i in range(N):\n        min_h = min(min_h, U[i] + D[i])\n        max_h = max(max_h, U[i] + D[i])\n    \n    # To reduce the number of candidates, consider only H values that are U[i] + D[i]\n    # These are the only values that can possibly result in zero cost if we adjust both U and D accordingly\n    \n    h_candidates = set(U[i] + D[i] for i in range(N))\n    \n    min_cost = float('inf')\n    \n    # Try all possible candidates for H\n    for H in h_candidates:\n        cost = 0\n        for i in range(N):\n            u = U[i]\n            d = D[i]\n            new_u = max(0, H - d)\n            cost += abs(u - new_u)\n        min_cost = min(min_cost, cost)\n    \n    print(min_cost)\n\nif __name__ == '__main__':\n    main()\n```"
+}

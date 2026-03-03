@@ -1,0 +1,3090 @@
+{
+  "run_name": "run_1772529370",
+  "jsonl_path": "data/dev.jsonl",
+  "max_turns": 3,
+  "num_questions": 20,
+  "samples_per_question": 16,
+  "total_samples": 320,
+  "total_passed": 124,
+  "total_errors": 56,
+  "avg_pass_at_1": 0.3875,
+  "elapsed_seconds": 188.90715956687927,
+  "per_question": [
+    {
+      "question_index": 0,
+      "question_id": "unknown",
+      "pass_at_1": 0.0,
+      "samples": [
+        {
+          "question_index": 0,
+          "question_id": "0",
+          "split": "train",
+          "sample_id": 0,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 69.3819510936737
+        },
+        {
+          "question_index": 0,
+          "question_id": "0",
+          "split": "train",
+          "sample_id": 1,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 50.57631969451904
+        },
+        {
+          "question_index": 0,
+          "question_id": "0",
+          "split": "train",
+          "sample_id": 2,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 65.90043520927429
+        },
+        {
+          "question_index": 0,
+          "question_id": "0",
+          "split": "train",
+          "sample_id": 3,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 67.89769387245178
+        },
+        {
+          "question_index": 0,
+          "question_id": "0",
+          "split": "train",
+          "sample_id": 4,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 68.20413732528687
+        },
+        {
+          "question_index": 0,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 5,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': 'ee3f571c-d46f-9c81-87ca-2bd832df2cdc'}"
+        },
+        {
+          "question_index": 0,
+          "question_id": "0",
+          "split": "train",
+          "sample_id": 6,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 78.5101854801178
+        },
+        {
+          "question_index": 0,
+          "question_id": "0",
+          "split": "train",
+          "sample_id": 7,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 70.67950701713562
+        },
+        {
+          "question_index": 0,
+          "question_id": "0",
+          "split": "train",
+          "sample_id": 8,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 40.60415077209473
+        },
+        {
+          "question_index": 0,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 9,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '414c8450-69e0-9aa6-aacd-39b1d339afff'}"
+        },
+        {
+          "question_index": 0,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 10,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '96b26593-521a-942f-a44a-d00ae60c7672'}"
+        },
+        {
+          "question_index": 0,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 11,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '08953adf-2a26-970e-bf70-6da9ed2f1358'}"
+        },
+        {
+          "question_index": 0,
+          "question_id": "0",
+          "split": "train",
+          "sample_id": 12,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 71.26992344856262
+        },
+        {
+          "question_index": 0,
+          "question_id": "0",
+          "split": "train",
+          "sample_id": 13,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 43.20719385147095
+        },
+        {
+          "question_index": 0,
+          "question_id": "0",
+          "split": "train",
+          "sample_id": 14,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 61.302104234695435
+        },
+        {
+          "question_index": 0,
+          "question_id": "0",
+          "split": "train",
+          "sample_id": 15,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 62.39642572402954
+        }
+      ]
+    },
+    {
+      "question_index": 1,
+      "question_id": "unknown",
+      "pass_at_1": 0.0,
+      "samples": [
+        {
+          "question_index": 1,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 0,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '5b65f4e2-4ae6-9024-a14c-4de8210b5970'}"
+        },
+        {
+          "question_index": 1,
+          "question_id": "3",
+          "split": "train",
+          "sample_id": 1,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 74.10879850387573
+        },
+        {
+          "question_index": 1,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 2,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '44e467ac-f151-9861-b2d5-890724017838'}"
+        },
+        {
+          "question_index": 1,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 3,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '09b307f1-3f5f-9ef7-93b7-7ec8844a2e6c'}"
+        },
+        {
+          "question_index": 1,
+          "question_id": "3",
+          "split": "train",
+          "sample_id": 4,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 76.07801604270935
+        },
+        {
+          "question_index": 1,
+          "question_id": "3",
+          "split": "train",
+          "sample_id": 5,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 64.3707640171051
+        },
+        {
+          "question_index": 1,
+          "question_id": "3",
+          "split": "train",
+          "sample_id": 6,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 68.39729833602905
+        },
+        {
+          "question_index": 1,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 7,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '2413e359-264b-9d16-afdc-12bbcf0df6d1'}"
+        },
+        {
+          "question_index": 1,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 8,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': 'd366fd0f-0c0c-9304-ab96-b38ae19a2488'}"
+        },
+        {
+          "question_index": 1,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 9,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': 'aaa3b4b6-2f03-9560-86fb-eb5793648a43'}"
+        },
+        {
+          "question_index": 1,
+          "question_id": "3",
+          "split": "train",
+          "sample_id": 10,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 72.8879747390747
+        },
+        {
+          "question_index": 1,
+          "question_id": "3",
+          "split": "train",
+          "sample_id": 11,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 56.30322599411011
+        },
+        {
+          "question_index": 1,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 12,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '8efde6d8-2047-977c-94bd-16788e6fd98e'}"
+        },
+        {
+          "question_index": 1,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 13,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': 'c7c45d6a-f6b7-92ec-9b98-e2c40d4678b5'}"
+        },
+        {
+          "question_index": 1,
+          "question_id": "3",
+          "split": "train",
+          "sample_id": 14,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 88.40778279304504
+        },
+        {
+          "question_index": 1,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 15,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '1c2b4e3c-9bab-97a5-bd43-1a7333833c62'}"
+        }
+      ]
+    },
+    {
+      "question_index": 2,
+      "question_id": "unknown",
+      "pass_at_1": 0.0,
+      "samples": [
+        {
+          "question_index": 2,
+          "question_id": "4",
+          "split": "train",
+          "sample_id": 0,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 56.081969261169434
+        },
+        {
+          "question_index": 2,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 1,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '3b19c9bf-9e95-9ab4-8ccb-3a84ac0312a1'}"
+        },
+        {
+          "question_index": 2,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 2,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': 'eef45a66-aefe-95a7-8b8f-8a4a31ac42e6'}"
+        },
+        {
+          "question_index": 2,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 3,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '130f044d-978f-9182-a122-1c89e6b52935'}"
+        },
+        {
+          "question_index": 2,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 4,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '0d29c43d-7e7e-9694-8dde-7b4054fbe682'}"
+        },
+        {
+          "question_index": 2,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 5,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '0b6a3f8f-db44-98f8-a8cf-78969fc3f1fb'}"
+        },
+        {
+          "question_index": 2,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 6,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '8836ed37-5ede-948c-a23d-98e22b1eef51'}"
+        },
+        {
+          "question_index": 2,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 7,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '21e0bc6c-024a-93a0-b32f-ddf071a4edad'}"
+        },
+        {
+          "question_index": 2,
+          "question_id": "4",
+          "split": "train",
+          "sample_id": 8,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 44.783480644226074
+        },
+        {
+          "question_index": 2,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 9,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '4b4c64ee-6a6b-99d1-a96f-faefa31cbac1'}"
+        },
+        {
+          "question_index": 2,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 10,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '308549bf-03f3-9ffa-b074-749995e867d3'}"
+        },
+        {
+          "question_index": 2,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 11,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '55017c2c-f65c-9b93-b450-fecd6b312f11'}"
+        },
+        {
+          "question_index": 2,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 12,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': 'dd999e9a-045c-9067-939a-2711d2c9b1eb'}"
+        },
+        {
+          "question_index": 2,
+          "question_id": "4",
+          "split": "train",
+          "sample_id": 13,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 48.51823425292969
+        },
+        {
+          "question_index": 2,
+          "question_id": "4",
+          "split": "train",
+          "sample_id": 14,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 35.414902448654175
+        },
+        {
+          "question_index": 2,
+          "question_id": "4",
+          "split": "train",
+          "sample_id": 15,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 60.20613884925842
+        }
+      ]
+    },
+    {
+      "question_index": 3,
+      "question_id": "unknown",
+      "pass_at_1": 0.375,
+      "samples": [
+        {
+          "question_index": 3,
+          "question_id": "6",
+          "split": "train",
+          "sample_id": 0,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 8.379400730133057
+        },
+        {
+          "question_index": 3,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 1,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '4fd8b073-7969-9a5a-b923-aad2e6b8bcac'}"
+        },
+        {
+          "question_index": 3,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 2,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '96c39ac3-e4e6-9451-9a86-19ce6d2c1dce'}"
+        },
+        {
+          "question_index": 3,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 3,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '650948be-9091-9a95-9989-d3c4c1dff621'}"
+        },
+        {
+          "question_index": 3,
+          "question_id": "6",
+          "split": "train",
+          "sample_id": 4,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 7.576056718826294
+        },
+        {
+          "question_index": 3,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 5,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '15b8bb0e-561f-9124-9543-82cbab869c67'}"
+        },
+        {
+          "question_index": 3,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 6,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': 'f480d3a4-7616-908d-9413-b75538b8d30f'}"
+        },
+        {
+          "question_index": 3,
+          "question_id": "6",
+          "split": "train",
+          "sample_id": 7,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 6.543484926223755
+        },
+        {
+          "question_index": 3,
+          "question_id": "6",
+          "split": "train",
+          "sample_id": 8,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 13.725322484970093
+        },
+        {
+          "question_index": 3,
+          "question_id": "6",
+          "split": "train",
+          "sample_id": 9,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 12.664475202560425
+        },
+        {
+          "question_index": 3,
+          "question_id": "6",
+          "split": "train",
+          "sample_id": 10,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 8.467944145202637
+        },
+        {
+          "question_index": 3,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 11,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '4bff2a35-f2a2-941b-a65a-fbb03b49d927'}"
+        },
+        {
+          "question_index": 3,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 12,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '361cc90b-b9ef-9644-aeb3-f1ac3e547ba7'}"
+        },
+        {
+          "question_index": 3,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 13,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '0eb60ccb-776c-9c44-b90b-68ade19016fd'}"
+        },
+        {
+          "question_index": 3,
+          "question_id": "6",
+          "split": "train",
+          "sample_id": 14,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 6.769253253936768
+        },
+        {
+          "question_index": 3,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 15,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '5767e0c9-cb9a-9e1b-95cf-7ba4a0e98a2a'}"
+        }
+      ]
+    },
+    {
+      "question_index": 4,
+      "question_id": "unknown",
+      "pass_at_1": 0.5,
+      "samples": [
+        {
+          "question_index": 4,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 0,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': 'b150ed98-993d-90c9-bd25-d30e30f30cd0'}"
+        },
+        {
+          "question_index": 4,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 1,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '9c2dd878-32a1-9825-99cb-38dc51e01247'}"
+        },
+        {
+          "question_index": 4,
+          "question_id": "11",
+          "split": "train",
+          "sample_id": 2,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 30.403167724609375
+        },
+        {
+          "question_index": 4,
+          "question_id": "11",
+          "split": "train",
+          "sample_id": 3,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 42.30990028381348
+        },
+        {
+          "question_index": 4,
+          "question_id": "11",
+          "split": "train",
+          "sample_id": 4,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 38.996294260025024
+        },
+        {
+          "question_index": 4,
+          "question_id": "11",
+          "split": "train",
+          "sample_id": 5,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 39.10105109214783
+        },
+        {
+          "question_index": 4,
+          "question_id": "11",
+          "split": "train",
+          "sample_id": 6,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 43.27683162689209
+        },
+        {
+          "question_index": 4,
+          "question_id": "11",
+          "split": "train",
+          "sample_id": 7,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 34.39885926246643
+        },
+        {
+          "question_index": 4,
+          "question_id": "11",
+          "split": "train",
+          "sample_id": 8,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 41.88592553138733
+        },
+        {
+          "question_index": 4,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 9,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': 'bbde6ddb-d936-9b03-a0a6-2eb0a818319c'}"
+        },
+        {
+          "question_index": 4,
+          "question_id": "11",
+          "split": "train",
+          "sample_id": 10,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 10.30143117904663
+        },
+        {
+          "question_index": 4,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 11,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '49c9e2ef-5374-9e0a-b3a5-0174f7bf8038'}"
+        },
+        {
+          "question_index": 4,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 12,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '7e452c71-42e1-9f47-8771-260245a67232'}"
+        },
+        {
+          "question_index": 4,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 13,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': 'a4fa1335-01aa-93d0-afea-44c051cbda86'}"
+        },
+        {
+          "question_index": 4,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 14,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': 'a818f888-cab1-972b-8952-a407a127bc39'}"
+        },
+        {
+          "question_index": 4,
+          "question_id": "11",
+          "split": "train",
+          "sample_id": 15,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 24.87629461288452
+        }
+      ]
+    },
+    {
+      "question_index": 5,
+      "question_id": "unknown",
+      "pass_at_1": 0.0,
+      "samples": [
+        {
+          "question_index": 5,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 0,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': 'f4bb23d4-8492-9da9-b15b-01db8cbd9f64'}"
+        },
+        {
+          "question_index": 5,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 1,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '58561a2d-8e41-9c91-81b1-d8a4e54d56b4'}"
+        },
+        {
+          "question_index": 5,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 2,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': 'ff6dd76f-bf6d-9c1f-b30a-9a3b57a7cf27'}"
+        },
+        {
+          "question_index": 5,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 3,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '2f9f624f-a068-9dd1-a036-633372a6cc71'}"
+        },
+        {
+          "question_index": 5,
+          "question_id": "13",
+          "split": "train",
+          "sample_id": 4,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 82.08742308616638
+        },
+        {
+          "question_index": 5,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 5,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': 'd6627670-99e7-93dd-8103-9ea701697d06'}"
+        },
+        {
+          "question_index": 5,
+          "question_id": "13",
+          "split": "train",
+          "sample_id": 6,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 77.05682587623596
+        },
+        {
+          "question_index": 5,
+          "question_id": "13",
+          "split": "train",
+          "sample_id": 7,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 96.96243834495544
+        },
+        {
+          "question_index": 5,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 8,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': 'c696d713-2a8d-9510-b82f-5b1d26a66827'}"
+        },
+        {
+          "question_index": 5,
+          "question_id": "13",
+          "split": "train",
+          "sample_id": 9,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 69.36295294761658
+        },
+        {
+          "question_index": 5,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 10,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': 'd375b41d-9fa8-957b-bde2-c6d7c50ae1d3'}"
+        },
+        {
+          "question_index": 5,
+          "question_id": "13",
+          "split": "train",
+          "sample_id": 11,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 88.97387218475342
+        },
+        {
+          "question_index": 5,
+          "question_id": "13",
+          "split": "train",
+          "sample_id": 12,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 61.58131814002991
+        },
+        {
+          "question_index": 5,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 13,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '907daf98-0147-949d-b0c5-8ed5745c703a'}"
+        },
+        {
+          "question_index": 5,
+          "question_id": "13",
+          "split": "train",
+          "sample_id": 14,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 82.81172609329224
+        },
+        {
+          "question_index": 5,
+          "question_id": "13",
+          "split": "train",
+          "sample_id": 15,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 87.83938026428223
+        }
+      ]
+    },
+    {
+      "question_index": 6,
+      "question_id": "unknown",
+      "pass_at_1": 0.5625,
+      "samples": [
+        {
+          "question_index": 6,
+          "question_id": "17",
+          "split": "train",
+          "sample_id": 0,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 23.98222279548645
+        },
+        {
+          "question_index": 6,
+          "question_id": "17",
+          "split": "train",
+          "sample_id": 1,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 27.00725221633911
+        },
+        {
+          "question_index": 6,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 2,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '8670456e-42c9-9e18-befa-bfbb8c2ebbfd'}"
+        },
+        {
+          "question_index": 6,
+          "question_id": "17",
+          "split": "train",
+          "sample_id": 3,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 7.207267999649048
+        },
+        {
+          "question_index": 6,
+          "question_id": "17",
+          "split": "train",
+          "sample_id": 4,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 8.164225816726685
+        },
+        {
+          "question_index": 6,
+          "question_id": "17",
+          "split": "train",
+          "sample_id": 5,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 7.179660081863403
+        },
+        {
+          "question_index": 6,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 6,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '794b0832-4414-9ffd-a8c9-3937e0f1fecb'}"
+        },
+        {
+          "question_index": 6,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 7,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '86ea8534-69d9-9b54-a3a3-3473beb7c54e'}"
+        },
+        {
+          "question_index": 6,
+          "question_id": "17",
+          "split": "train",
+          "sample_id": 8,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 8.931370258331299
+        },
+        {
+          "question_index": 6,
+          "question_id": "17",
+          "split": "train",
+          "sample_id": 9,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 12.23543381690979
+        },
+        {
+          "question_index": 6,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 10,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '0315588d-6b3b-94c5-a138-f152f76a6836'}"
+        },
+        {
+          "question_index": 6,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 11,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '0309ae50-40f9-9f4f-8a95-2d54c8eab9c4'}"
+        },
+        {
+          "question_index": 6,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 12,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '7f14967b-df8e-95cf-92e6-be32faf6c809'}"
+        },
+        {
+          "question_index": 6,
+          "question_id": "17",
+          "split": "train",
+          "sample_id": 13,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 6.5299437046051025
+        },
+        {
+          "question_index": 6,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 14,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': 'dfccd43c-f290-96ce-91b3-90f0cbb415bd'}"
+        },
+        {
+          "question_index": 6,
+          "question_id": "17",
+          "split": "train",
+          "sample_id": 15,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 8.951488018035889
+        }
+      ]
+    },
+    {
+      "question_index": 7,
+      "question_id": "unknown",
+      "pass_at_1": 0.9375,
+      "samples": [
+        {
+          "question_index": 7,
+          "question_id": "20",
+          "split": "train",
+          "sample_id": 0,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 5.323734760284424
+        },
+        {
+          "question_index": 7,
+          "question_id": "20",
+          "split": "train",
+          "sample_id": 1,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 5.242288112640381
+        },
+        {
+          "question_index": 7,
+          "question_id": "unknown",
+          "split": "unknown",
+          "sample_id": 2,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 0.0,
+          "error": "Error code: 429 - {'error': {'message': 'You have exceeded your current request limit. For details, see: https://help.aliyun.com/zh/model-studio/error-code#rate-limit', 'type': 'limit_requests', 'param': None, 'code': 'limit_requests'}, 'request_id': '8dc0c033-7460-973e-9c8b-0e572b1f2406'}"
+        },
+        {
+          "question_index": 7,
+          "question_id": "20",
+          "split": "train",
+          "sample_id": 3,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 4.713507652282715
+        },
+        {
+          "question_index": 7,
+          "question_id": "20",
+          "split": "train",
+          "sample_id": 4,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 4.9517598152160645
+        },
+        {
+          "question_index": 7,
+          "question_id": "20",
+          "split": "train",
+          "sample_id": 5,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 4.96075963973999
+        },
+        {
+          "question_index": 7,
+          "question_id": "20",
+          "split": "train",
+          "sample_id": 6,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 4.575510740280151
+        },
+        {
+          "question_index": 7,
+          "question_id": "20",
+          "split": "train",
+          "sample_id": 7,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 3.668572425842285
+        },
+        {
+          "question_index": 7,
+          "question_id": "20",
+          "split": "train",
+          "sample_id": 8,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 3.468305826187134
+        },
+        {
+          "question_index": 7,
+          "question_id": "20",
+          "split": "train",
+          "sample_id": 9,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 5.2956647872924805
+        },
+        {
+          "question_index": 7,
+          "question_id": "20",
+          "split": "train",
+          "sample_id": 10,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 5.125762224197388
+        },
+        {
+          "question_index": 7,
+          "question_id": "20",
+          "split": "train",
+          "sample_id": 11,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 5.4257848262786865
+        },
+        {
+          "question_index": 7,
+          "question_id": "20",
+          "split": "train",
+          "sample_id": 12,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 4.4334352016448975
+        },
+        {
+          "question_index": 7,
+          "question_id": "20",
+          "split": "train",
+          "sample_id": 13,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 4.527524471282959
+        },
+        {
+          "question_index": 7,
+          "question_id": "20",
+          "split": "train",
+          "sample_id": 14,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 5.9072606563568115
+        },
+        {
+          "question_index": 7,
+          "question_id": "20",
+          "split": "train",
+          "sample_id": 15,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 4.303627014160156
+        }
+      ]
+    },
+    {
+      "question_index": 8,
+      "question_id": "25",
+      "pass_at_1": 0.0,
+      "samples": [
+        {
+          "question_index": 8,
+          "question_id": "25",
+          "split": "train",
+          "sample_id": 0,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 59.528347969055176
+        },
+        {
+          "question_index": 8,
+          "question_id": "25",
+          "split": "train",
+          "sample_id": 1,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 95.98621582984924
+        },
+        {
+          "question_index": 8,
+          "question_id": "25",
+          "split": "train",
+          "sample_id": 2,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 81.62357950210571
+        },
+        {
+          "question_index": 8,
+          "question_id": "25",
+          "split": "train",
+          "sample_id": 3,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 83.19302487373352
+        },
+        {
+          "question_index": 8,
+          "question_id": "25",
+          "split": "train",
+          "sample_id": 4,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 75.39107346534729
+        },
+        {
+          "question_index": 8,
+          "question_id": "25",
+          "split": "train",
+          "sample_id": 5,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 77.92726278305054
+        },
+        {
+          "question_index": 8,
+          "question_id": "25",
+          "split": "train",
+          "sample_id": 6,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 85.99420595169067
+        },
+        {
+          "question_index": 8,
+          "question_id": "25",
+          "split": "train",
+          "sample_id": 7,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 55.728548526763916
+        },
+        {
+          "question_index": 8,
+          "question_id": "25",
+          "split": "train",
+          "sample_id": 8,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 104.15429472923279
+        },
+        {
+          "question_index": 8,
+          "question_id": "25",
+          "split": "train",
+          "sample_id": 9,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 82.58857440948486
+        },
+        {
+          "question_index": 8,
+          "question_id": "25",
+          "split": "train",
+          "sample_id": 10,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 64.9073257446289
+        },
+        {
+          "question_index": 8,
+          "question_id": "25",
+          "split": "train",
+          "sample_id": 11,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 77.37726330757141
+        },
+        {
+          "question_index": 8,
+          "question_id": "25",
+          "split": "train",
+          "sample_id": 12,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 63.98020553588867
+        },
+        {
+          "question_index": 8,
+          "question_id": "25",
+          "split": "train",
+          "sample_id": 13,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 62.36907958984375
+        },
+        {
+          "question_index": 8,
+          "question_id": "25",
+          "split": "train",
+          "sample_id": 14,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 81.6200635433197
+        },
+        {
+          "question_index": 8,
+          "question_id": "25",
+          "split": "train",
+          "sample_id": 15,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 81.10912299156189
+        }
+      ]
+    },
+    {
+      "question_index": 9,
+      "question_id": "27",
+      "pass_at_1": 1.0,
+      "samples": [
+        {
+          "question_index": 9,
+          "question_id": "27",
+          "split": "train",
+          "sample_id": 0,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 3.6201138496398926
+        },
+        {
+          "question_index": 9,
+          "question_id": "27",
+          "split": "train",
+          "sample_id": 1,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 5.635780572891235
+        },
+        {
+          "question_index": 9,
+          "question_id": "27",
+          "split": "train",
+          "sample_id": 2,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 5.5651843547821045
+        },
+        {
+          "question_index": 9,
+          "question_id": "27",
+          "split": "train",
+          "sample_id": 3,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 5.1164281368255615
+        },
+        {
+          "question_index": 9,
+          "question_id": "27",
+          "split": "train",
+          "sample_id": 4,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 4.550273895263672
+        },
+        {
+          "question_index": 9,
+          "question_id": "27",
+          "split": "train",
+          "sample_id": 5,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 5.728961229324341
+        },
+        {
+          "question_index": 9,
+          "question_id": "27",
+          "split": "train",
+          "sample_id": 6,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 5.444624900817871
+        },
+        {
+          "question_index": 9,
+          "question_id": "27",
+          "split": "train",
+          "sample_id": 7,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 6.141134738922119
+        },
+        {
+          "question_index": 9,
+          "question_id": "27",
+          "split": "train",
+          "sample_id": 8,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 5.461325168609619
+        },
+        {
+          "question_index": 9,
+          "question_id": "27",
+          "split": "train",
+          "sample_id": 9,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 5.692845344543457
+        },
+        {
+          "question_index": 9,
+          "question_id": "27",
+          "split": "train",
+          "sample_id": 10,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 4.212374687194824
+        },
+        {
+          "question_index": 9,
+          "question_id": "27",
+          "split": "train",
+          "sample_id": 11,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 5.991250038146973
+        },
+        {
+          "question_index": 9,
+          "question_id": "27",
+          "split": "train",
+          "sample_id": 12,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 5.906660795211792
+        },
+        {
+          "question_index": 9,
+          "question_id": "27",
+          "split": "train",
+          "sample_id": 13,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 3.7890968322753906
+        },
+        {
+          "question_index": 9,
+          "question_id": "27",
+          "split": "train",
+          "sample_id": 14,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 5.571029186248779
+        },
+        {
+          "question_index": 9,
+          "question_id": "27",
+          "split": "train",
+          "sample_id": 15,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 5.6451804637908936
+        }
+      ]
+    },
+    {
+      "question_index": 10,
+      "question_id": "28",
+      "pass_at_1": 1.0,
+      "samples": [
+        {
+          "question_index": 10,
+          "question_id": "28",
+          "split": "train",
+          "sample_id": 0,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 19.4586181640625
+        },
+        {
+          "question_index": 10,
+          "question_id": "28",
+          "split": "train",
+          "sample_id": 1,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 15.094730138778687
+        },
+        {
+          "question_index": 10,
+          "question_id": "28",
+          "split": "train",
+          "sample_id": 2,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 14.23711347579956
+        },
+        {
+          "question_index": 10,
+          "question_id": "28",
+          "split": "train",
+          "sample_id": 3,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 16.875133514404297
+        },
+        {
+          "question_index": 10,
+          "question_id": "28",
+          "split": "train",
+          "sample_id": 4,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 17.320321321487427
+        },
+        {
+          "question_index": 10,
+          "question_id": "28",
+          "split": "train",
+          "sample_id": 5,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 22.596620082855225
+        },
+        {
+          "question_index": 10,
+          "question_id": "28",
+          "split": "train",
+          "sample_id": 6,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 18.87339973449707
+        },
+        {
+          "question_index": 10,
+          "question_id": "28",
+          "split": "train",
+          "sample_id": 7,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 19.246172428131104
+        },
+        {
+          "question_index": 10,
+          "question_id": "28",
+          "split": "train",
+          "sample_id": 8,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 15.814472675323486
+        },
+        {
+          "question_index": 10,
+          "question_id": "28",
+          "split": "train",
+          "sample_id": 9,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 30.553329467773438
+        },
+        {
+          "question_index": 10,
+          "question_id": "28",
+          "split": "train",
+          "sample_id": 10,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 18.954472064971924
+        },
+        {
+          "question_index": 10,
+          "question_id": "28",
+          "split": "train",
+          "sample_id": 11,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 14.666749000549316
+        },
+        {
+          "question_index": 10,
+          "question_id": "28",
+          "split": "train",
+          "sample_id": 12,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 18.500624418258667
+        },
+        {
+          "question_index": 10,
+          "question_id": "28",
+          "split": "train",
+          "sample_id": 13,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 54.49338150024414
+        },
+        {
+          "question_index": 10,
+          "question_id": "28",
+          "split": "train",
+          "sample_id": 14,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 14.869739055633545
+        },
+        {
+          "question_index": 10,
+          "question_id": "28",
+          "split": "train",
+          "sample_id": 15,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 18.014868021011353
+        }
+      ]
+    },
+    {
+      "question_index": 11,
+      "question_id": "29",
+      "pass_at_1": 0.0,
+      "samples": [
+        {
+          "question_index": 11,
+          "question_id": "29",
+          "split": "train",
+          "sample_id": 0,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 67.28449153900146
+        },
+        {
+          "question_index": 11,
+          "question_id": "29",
+          "split": "train",
+          "sample_id": 1,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 57.51064920425415
+        },
+        {
+          "question_index": 11,
+          "question_id": "29",
+          "split": "train",
+          "sample_id": 2,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 75.70465040206909
+        },
+        {
+          "question_index": 11,
+          "question_id": "29",
+          "split": "train",
+          "sample_id": 3,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 68.80474781990051
+        },
+        {
+          "question_index": 11,
+          "question_id": "29",
+          "split": "train",
+          "sample_id": 4,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 74.89824748039246
+        },
+        {
+          "question_index": 11,
+          "question_id": "29",
+          "split": "train",
+          "sample_id": 5,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 79.49817967414856
+        },
+        {
+          "question_index": 11,
+          "question_id": "29",
+          "split": "train",
+          "sample_id": 6,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 64.38808417320251
+        },
+        {
+          "question_index": 11,
+          "question_id": "29",
+          "split": "train",
+          "sample_id": 7,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 49.69913029670715
+        },
+        {
+          "question_index": 11,
+          "question_id": "29",
+          "split": "train",
+          "sample_id": 8,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 52.495646715164185
+        },
+        {
+          "question_index": 11,
+          "question_id": "29",
+          "split": "train",
+          "sample_id": 9,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 73.21421074867249
+        },
+        {
+          "question_index": 11,
+          "question_id": "29",
+          "split": "train",
+          "sample_id": 10,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 70.41255259513855
+        },
+        {
+          "question_index": 11,
+          "question_id": "29",
+          "split": "train",
+          "sample_id": 11,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 63.70478534698486
+        },
+        {
+          "question_index": 11,
+          "question_id": "29",
+          "split": "train",
+          "sample_id": 12,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 46.78986644744873
+        },
+        {
+          "question_index": 11,
+          "question_id": "29",
+          "split": "train",
+          "sample_id": 13,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 68.11811351776123
+        },
+        {
+          "question_index": 11,
+          "question_id": "29",
+          "split": "train",
+          "sample_id": 14,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 57.417412519454956
+        },
+        {
+          "question_index": 11,
+          "question_id": "29",
+          "split": "train",
+          "sample_id": 15,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 53.61915564537048
+        }
+      ]
+    },
+    {
+      "question_index": 12,
+      "question_id": "35",
+      "pass_at_1": 1.0,
+      "samples": [
+        {
+          "question_index": 12,
+          "question_id": "35",
+          "split": "train",
+          "sample_id": 0,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 7.625267028808594
+        },
+        {
+          "question_index": 12,
+          "question_id": "35",
+          "split": "train",
+          "sample_id": 1,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 11.687203168869019
+        },
+        {
+          "question_index": 12,
+          "question_id": "35",
+          "split": "train",
+          "sample_id": 2,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 14.611558675765991
+        },
+        {
+          "question_index": 12,
+          "question_id": "35",
+          "split": "train",
+          "sample_id": 3,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 10.301421165466309
+        },
+        {
+          "question_index": 12,
+          "question_id": "35",
+          "split": "train",
+          "sample_id": 4,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 11.296428680419922
+        },
+        {
+          "question_index": 12,
+          "question_id": "35",
+          "split": "train",
+          "sample_id": 5,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 8.209063529968262
+        },
+        {
+          "question_index": 12,
+          "question_id": "35",
+          "split": "train",
+          "sample_id": 6,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 11.29591679573059
+        },
+        {
+          "question_index": 12,
+          "question_id": "35",
+          "split": "train",
+          "sample_id": 7,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 6.417212009429932
+        },
+        {
+          "question_index": 12,
+          "question_id": "35",
+          "split": "train",
+          "sample_id": 8,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 8.983349084854126
+        },
+        {
+          "question_index": 12,
+          "question_id": "35",
+          "split": "train",
+          "sample_id": 9,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 8.304072856903076
+        },
+        {
+          "question_index": 12,
+          "question_id": "35",
+          "split": "train",
+          "sample_id": 10,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 10.506924867630005
+        },
+        {
+          "question_index": 12,
+          "question_id": "35",
+          "split": "train",
+          "sample_id": 11,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 10.105905294418335
+        },
+        {
+          "question_index": 12,
+          "question_id": "35",
+          "split": "train",
+          "sample_id": 12,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 8.778370141983032
+        },
+        {
+          "question_index": 12,
+          "question_id": "35",
+          "split": "train",
+          "sample_id": 13,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 8.63122010231018
+        },
+        {
+          "question_index": 12,
+          "question_id": "35",
+          "split": "train",
+          "sample_id": 14,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 8.097801923751831
+        },
+        {
+          "question_index": 12,
+          "question_id": "35",
+          "split": "train",
+          "sample_id": 15,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 8.880241632461548
+        }
+      ]
+    },
+    {
+      "question_index": 13,
+      "question_id": "43",
+      "pass_at_1": 0.0625,
+      "samples": [
+        {
+          "question_index": 13,
+          "question_id": "43",
+          "split": "train",
+          "sample_id": 0,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 43.280510902404785
+        },
+        {
+          "question_index": 13,
+          "question_id": "43",
+          "split": "train",
+          "sample_id": 1,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 42.577821254730225
+        },
+        {
+          "question_index": 13,
+          "question_id": "43",
+          "split": "train",
+          "sample_id": 2,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 45.50572347640991
+        },
+        {
+          "question_index": 13,
+          "question_id": "43",
+          "split": "train",
+          "sample_id": 3,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 42.29517340660095
+        },
+        {
+          "question_index": 13,
+          "question_id": "43",
+          "split": "train",
+          "sample_id": 4,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 42.20113134384155
+        },
+        {
+          "question_index": 13,
+          "question_id": "43",
+          "split": "train",
+          "sample_id": 5,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 33.70014262199402
+        },
+        {
+          "question_index": 13,
+          "question_id": "43",
+          "split": "train",
+          "sample_id": 6,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 37.21595120429993
+        },
+        {
+          "question_index": 13,
+          "question_id": "43",
+          "split": "train",
+          "sample_id": 7,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 42.10962414741516
+        },
+        {
+          "question_index": 13,
+          "question_id": "43",
+          "split": "train",
+          "sample_id": 8,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 28.10904550552368
+        },
+        {
+          "question_index": 13,
+          "question_id": "43",
+          "split": "train",
+          "sample_id": 9,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 32.313369035720825
+        },
+        {
+          "question_index": 13,
+          "question_id": "43",
+          "split": "train",
+          "sample_id": 10,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 43.265366315841675
+        },
+        {
+          "question_index": 13,
+          "question_id": "43",
+          "split": "train",
+          "sample_id": 11,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 36.700878381729126
+        },
+        {
+          "question_index": 13,
+          "question_id": "43",
+          "split": "train",
+          "sample_id": 12,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 46.31179714202881
+        },
+        {
+          "question_index": 13,
+          "question_id": "43",
+          "split": "train",
+          "sample_id": 13,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 31.899860620498657
+        },
+        {
+          "question_index": 13,
+          "question_id": "43",
+          "split": "train",
+          "sample_id": 14,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 42.1010422706604
+        },
+        {
+          "question_index": 13,
+          "question_id": "43",
+          "split": "train",
+          "sample_id": 15,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 38.38638949394226
+        }
+      ]
+    },
+    {
+      "question_index": 14,
+      "question_id": "53",
+      "pass_at_1": 0.5,
+      "samples": [
+        {
+          "question_index": 14,
+          "question_id": "53",
+          "split": "train",
+          "sample_id": 0,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 54.00869131088257
+        },
+        {
+          "question_index": 14,
+          "question_id": "53",
+          "split": "train",
+          "sample_id": 1,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 21.904211282730103
+        },
+        {
+          "question_index": 14,
+          "question_id": "53",
+          "split": "train",
+          "sample_id": 2,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 44.45401668548584
+        },
+        {
+          "question_index": 14,
+          "question_id": "53",
+          "split": "train",
+          "sample_id": 3,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 43.43999195098877
+        },
+        {
+          "question_index": 14,
+          "question_id": "53",
+          "split": "train",
+          "sample_id": 4,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 37.008042097091675
+        },
+        {
+          "question_index": 14,
+          "question_id": "53",
+          "split": "train",
+          "sample_id": 5,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 70.34965872764587
+        },
+        {
+          "question_index": 14,
+          "question_id": "53",
+          "split": "train",
+          "sample_id": 6,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 53.58784556388855
+        },
+        {
+          "question_index": 14,
+          "question_id": "53",
+          "split": "train",
+          "sample_id": 7,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 13.696324825286865
+        },
+        {
+          "question_index": 14,
+          "question_id": "53",
+          "split": "train",
+          "sample_id": 8,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 18.409709453582764
+        },
+        {
+          "question_index": 14,
+          "question_id": "53",
+          "split": "train",
+          "sample_id": 9,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 18.205493450164795
+        },
+        {
+          "question_index": 14,
+          "question_id": "53",
+          "split": "train",
+          "sample_id": 10,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 38.11425018310547
+        },
+        {
+          "question_index": 14,
+          "question_id": "53",
+          "split": "train",
+          "sample_id": 11,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 42.424072265625
+        },
+        {
+          "question_index": 14,
+          "question_id": "53",
+          "split": "train",
+          "sample_id": 12,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 42.77473187446594
+        },
+        {
+          "question_index": 14,
+          "question_id": "53",
+          "split": "train",
+          "sample_id": 13,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 16.592085361480713
+        },
+        {
+          "question_index": 14,
+          "question_id": "53",
+          "split": "train",
+          "sample_id": 14,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 30.710736751556396
+        },
+        {
+          "question_index": 14,
+          "question_id": "53",
+          "split": "train",
+          "sample_id": 15,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 42.94974374771118
+        }
+      ]
+    },
+    {
+      "question_index": 15,
+      "question_id": "54",
+      "pass_at_1": 0.8125,
+      "samples": [
+        {
+          "question_index": 15,
+          "question_id": "54",
+          "split": "train",
+          "sample_id": 0,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 39.06046915054321
+        },
+        {
+          "question_index": 15,
+          "question_id": "54",
+          "split": "train",
+          "sample_id": 1,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 33.69072723388672
+        },
+        {
+          "question_index": 15,
+          "question_id": "54",
+          "split": "train",
+          "sample_id": 2,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 35.289308309555054
+        },
+        {
+          "question_index": 15,
+          "question_id": "54",
+          "split": "train",
+          "sample_id": 3,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 14.61177682876587
+        },
+        {
+          "question_index": 15,
+          "question_id": "54",
+          "split": "train",
+          "sample_id": 4,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 21.211796045303345
+        },
+        {
+          "question_index": 15,
+          "question_id": "54",
+          "split": "train",
+          "sample_id": 5,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 38.588855504989624
+        },
+        {
+          "question_index": 15,
+          "question_id": "54",
+          "split": "train",
+          "sample_id": 6,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 24.999050855636597
+        },
+        {
+          "question_index": 15,
+          "question_id": "54",
+          "split": "train",
+          "sample_id": 7,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 11.41510558128357
+        },
+        {
+          "question_index": 15,
+          "question_id": "54",
+          "split": "train",
+          "sample_id": 8,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 22.434783697128296
+        },
+        {
+          "question_index": 15,
+          "question_id": "54",
+          "split": "train",
+          "sample_id": 9,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 11.507577180862427
+        },
+        {
+          "question_index": 15,
+          "question_id": "54",
+          "split": "train",
+          "sample_id": 10,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 10.810557842254639
+        },
+        {
+          "question_index": 15,
+          "question_id": "54",
+          "split": "train",
+          "sample_id": 11,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 19.909409046173096
+        },
+        {
+          "question_index": 15,
+          "question_id": "54",
+          "split": "train",
+          "sample_id": 12,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 11.207735300064087
+        },
+        {
+          "question_index": 15,
+          "question_id": "54",
+          "split": "train",
+          "sample_id": 13,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 12.000542879104614
+        },
+        {
+          "question_index": 15,
+          "question_id": "54",
+          "split": "train",
+          "sample_id": 14,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 28.772986888885498
+        },
+        {
+          "question_index": 15,
+          "question_id": "54",
+          "split": "train",
+          "sample_id": 15,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 22.563061237335205
+        }
+      ]
+    },
+    {
+      "question_index": 16,
+      "question_id": "57",
+      "pass_at_1": 1.0,
+      "samples": [
+        {
+          "question_index": 16,
+          "question_id": "57",
+          "split": "train",
+          "sample_id": 0,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 8.405810594558716
+        },
+        {
+          "question_index": 16,
+          "question_id": "57",
+          "split": "train",
+          "sample_id": 1,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 8.199806213378906
+        },
+        {
+          "question_index": 16,
+          "question_id": "57",
+          "split": "train",
+          "sample_id": 2,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 8.012746095657349
+        },
+        {
+          "question_index": 16,
+          "question_id": "57",
+          "split": "train",
+          "sample_id": 3,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 8.00966739654541
+        },
+        {
+          "question_index": 16,
+          "question_id": "57",
+          "split": "train",
+          "sample_id": 4,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 7.103970050811768
+        },
+        {
+          "question_index": 16,
+          "question_id": "57",
+          "split": "train",
+          "sample_id": 5,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 6.714345216751099
+        },
+        {
+          "question_index": 16,
+          "question_id": "57",
+          "split": "train",
+          "sample_id": 6,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 7.202777862548828
+        },
+        {
+          "question_index": 16,
+          "question_id": "57",
+          "split": "train",
+          "sample_id": 7,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 5.806501388549805
+        },
+        {
+          "question_index": 16,
+          "question_id": "57",
+          "split": "train",
+          "sample_id": 8,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 8.205912113189697
+        },
+        {
+          "question_index": 16,
+          "question_id": "57",
+          "split": "train",
+          "sample_id": 9,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 6.20015025138855
+        },
+        {
+          "question_index": 16,
+          "question_id": "57",
+          "split": "train",
+          "sample_id": 10,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 6.3970160484313965
+        },
+        {
+          "question_index": 16,
+          "question_id": "57",
+          "split": "train",
+          "sample_id": 11,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 6.715663433074951
+        },
+        {
+          "question_index": 16,
+          "question_id": "57",
+          "split": "train",
+          "sample_id": 12,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 7.723830699920654
+        },
+        {
+          "question_index": 16,
+          "question_id": "57",
+          "split": "train",
+          "sample_id": 13,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 6.308632135391235
+        },
+        {
+          "question_index": 16,
+          "question_id": "57",
+          "split": "train",
+          "sample_id": 14,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 6.801339864730835
+        },
+        {
+          "question_index": 16,
+          "question_id": "57",
+          "split": "train",
+          "sample_id": 15,
+          "final_reward": 1.0,
+          "passed": true,
+          "elapsed_seconds": 7.502163887023926
+        }
+      ]
+    },
+    {
+      "question_index": 17,
+      "question_id": "62",
+      "pass_at_1": 0.0,
+      "samples": [
+        {
+          "question_index": 17,
+          "question_id": "62",
+          "split": "train",
+          "sample_id": 0,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 32.1397659778595
+        },
+        {
+          "question_index": 17,
+          "question_id": "62",
+          "split": "train",
+          "sample_id": 1,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 37.394219160079956
+        },
+        {
+          "question_index": 17,
+          "question_id": "62",
+          "split": "train",
+          "sample_id": 2,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 37.44140696525574
+        },
+        {
+          "question_index": 17,
+          "question_id": "62",
+          "split": "train",
+          "sample_id": 3,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 48.92079830169678
+        },
+        {
+          "question_index": 17,
+          "question_id": "62",
+          "split": "train",
+          "sample_id": 4,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 37.79660677909851
+        },
+        {
+          "question_index": 17,
+          "question_id": "62",
+          "split": "train",
+          "sample_id": 5,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 47.12810397148132
+        },
+        {
+          "question_index": 17,
+          "question_id": "62",
+          "split": "train",
+          "sample_id": 6,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 34.34290361404419
+        },
+        {
+          "question_index": 17,
+          "question_id": "62",
+          "split": "train",
+          "sample_id": 7,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 40.79402303695679
+        },
+        {
+          "question_index": 17,
+          "question_id": "62",
+          "split": "train",
+          "sample_id": 8,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 56.12924098968506
+        },
+        {
+          "question_index": 17,
+          "question_id": "62",
+          "split": "train",
+          "sample_id": 9,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 49.32394742965698
+        },
+        {
+          "question_index": 17,
+          "question_id": "62",
+          "split": "train",
+          "sample_id": 10,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 35.89677596092224
+        },
+        {
+          "question_index": 17,
+          "question_id": "62",
+          "split": "train",
+          "sample_id": 11,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 26.480364322662354
+        },
+        {
+          "question_index": 17,
+          "question_id": "62",
+          "split": "train",
+          "sample_id": 12,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 33.17661905288696
+        },
+        {
+          "question_index": 17,
+          "question_id": "62",
+          "split": "train",
+          "sample_id": 13,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 45.58992147445679
+        },
+        {
+          "question_index": 17,
+          "question_id": "62",
+          "split": "train",
+          "sample_id": 14,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 29.68391728401184
+        },
+        {
+          "question_index": 17,
+          "question_id": "62",
+          "split": "train",
+          "sample_id": 15,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 42.18383860588074
+        }
+      ]
+    },
+    {
+      "question_index": 18,
+      "question_id": "64",
+      "pass_at_1": 0.0,
+      "samples": [
+        {
+          "question_index": 18,
+          "question_id": "64",
+          "split": "train",
+          "sample_id": 0,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 41.206676721572876
+        },
+        {
+          "question_index": 18,
+          "question_id": "64",
+          "split": "train",
+          "sample_id": 1,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 43.099257469177246
+        },
+        {
+          "question_index": 18,
+          "question_id": "64",
+          "split": "train",
+          "sample_id": 2,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 42.41268014907837
+        },
+        {
+          "question_index": 18,
+          "question_id": "64",
+          "split": "train",
+          "sample_id": 3,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 45.407057762145996
+        },
+        {
+          "question_index": 18,
+          "question_id": "64",
+          "split": "train",
+          "sample_id": 4,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 45.736411571502686
+        },
+        {
+          "question_index": 18,
+          "question_id": "64",
+          "split": "train",
+          "sample_id": 5,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 50.38285040855408
+        },
+        {
+          "question_index": 18,
+          "question_id": "64",
+          "split": "train",
+          "sample_id": 6,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 43.640464305877686
+        },
+        {
+          "question_index": 18,
+          "question_id": "64",
+          "split": "train",
+          "sample_id": 7,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 39.55215573310852
+        },
+        {
+          "question_index": 18,
+          "question_id": "64",
+          "split": "train",
+          "sample_id": 8,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 72.95362377166748
+        },
+        {
+          "question_index": 18,
+          "question_id": "64",
+          "split": "train",
+          "sample_id": 9,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 58.25379729270935
+        },
+        {
+          "question_index": 18,
+          "question_id": "64",
+          "split": "train",
+          "sample_id": 10,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 55.97813320159912
+        },
+        {
+          "question_index": 18,
+          "question_id": "64",
+          "split": "train",
+          "sample_id": 11,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 50.33343553543091
+        },
+        {
+          "question_index": 18,
+          "question_id": "64",
+          "split": "train",
+          "sample_id": 12,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 45.327948808670044
+        },
+        {
+          "question_index": 18,
+          "question_id": "64",
+          "split": "train",
+          "sample_id": 13,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 51.422523498535156
+        },
+        {
+          "question_index": 18,
+          "question_id": "64",
+          "split": "train",
+          "sample_id": 14,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 50.403969526290894
+        },
+        {
+          "question_index": 18,
+          "question_id": "64",
+          "split": "train",
+          "sample_id": 15,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 55.67809796333313
+        }
+      ]
+    },
+    {
+      "question_index": 19,
+      "question_id": "130",
+      "pass_at_1": 0.0,
+      "samples": [
+        {
+          "question_index": 19,
+          "question_id": "130",
+          "split": "train",
+          "sample_id": 0,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 58.7600417137146
+        },
+        {
+          "question_index": 19,
+          "question_id": "130",
+          "split": "train",
+          "sample_id": 1,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 53.40120244026184
+        },
+        {
+          "question_index": 19,
+          "question_id": "130",
+          "split": "train",
+          "sample_id": 2,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 50.78365874290466
+        },
+        {
+          "question_index": 19,
+          "question_id": "130",
+          "split": "train",
+          "sample_id": 3,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 62.676379680633545
+        },
+        {
+          "question_index": 19,
+          "question_id": "130",
+          "split": "train",
+          "sample_id": 4,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 36.93871307373047
+        },
+        {
+          "question_index": 19,
+          "question_id": "130",
+          "split": "train",
+          "sample_id": 5,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 50.89420175552368
+        },
+        {
+          "question_index": 19,
+          "question_id": "130",
+          "split": "train",
+          "sample_id": 6,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 32.75968050956726
+        },
+        {
+          "question_index": 19,
+          "question_id": "130",
+          "split": "train",
+          "sample_id": 7,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 54.65105700492859
+        },
+        {
+          "question_index": 19,
+          "question_id": "130",
+          "split": "train",
+          "sample_id": 8,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 53.009644985198975
+        },
+        {
+          "question_index": 19,
+          "question_id": "130",
+          "split": "train",
+          "sample_id": 9,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 43.33102202415466
+        },
+        {
+          "question_index": 19,
+          "question_id": "130",
+          "split": "train",
+          "sample_id": 10,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 42.571990728378296
+        },
+        {
+          "question_index": 19,
+          "question_id": "130",
+          "split": "train",
+          "sample_id": 11,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 59.52928113937378
+        },
+        {
+          "question_index": 19,
+          "question_id": "130",
+          "split": "train",
+          "sample_id": 12,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 33.03877806663513
+        },
+        {
+          "question_index": 19,
+          "question_id": "130",
+          "split": "train",
+          "sample_id": 13,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 45.52754211425781
+        },
+        {
+          "question_index": 19,
+          "question_id": "130",
+          "split": "train",
+          "sample_id": 14,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 58.30719971656799
+        },
+        {
+          "question_index": 19,
+          "question_id": "130",
+          "split": "train",
+          "sample_id": 15,
+          "final_reward": 0.0,
+          "passed": false,
+          "elapsed_seconds": 40.71599721908569
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772528834",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 3,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 17.81665015220642,
+  "response": "```python\nimport heapq\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:N+1]))\n    \n    # Create a list of tuples (-score, index, original index) to simulate max heap\n    # Using negative score to simulate max heap with min heap\n    people = [(-P[i], i, i+1) for i in range(N)]\n    heapq.heapify(people)\n    \n    rank = [0] * N\n    current_rank = 1\n    determined = [False] * N\n    \n    while people:\n        score_neg, idx, original_idx = heapq.heappop(people)\n        score = -score_neg\n        \n        # Check if this person's rank is already determined\n        if determined[idx]:\n            continue\n        \n        # Find all people with the same score\n        same_score = []\n        while people and -people[0][0] == score:\n            s_neg, i, o_i = heapq.heappop(people)\n            same_score.append((s_neg, i, o_i))\n        \n        # Add the current person to the same_score list\n        same_score.append((score_neg, idx, original_idx))\n        \n        # Assign rank to these people\n        for s_neg, i, o_i in same_score:\n            rank[o_i - 1] = current_rank\n            determined[i] = True\n        \n        # Update current_rank\n        current_rank += len(same_score)\n    \n    for r in rank:\n        print(r)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

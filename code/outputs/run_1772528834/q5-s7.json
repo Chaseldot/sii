@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772528834",
+  "question_index": 5,
+  "question_id": "13",
+  "split": "train",
+  "sample_id": 7,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 62.65766644477844,
+  "response": "```python\nimport sys\nimport bisect\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    idx = 0\n    N = int(data[idx])\n    idx += 1\n    Q = int(data[idx])\n    idx += 1\n    \n    A = list(map(int, data[idx:idx+N]))\n    idx += N\n    \n    queries = []\n    for _ in range(Q):\n        R = int(data[idx])\n        idx += 1\n        X = int(data[idx])\n        idx += 1\n        queries.append((R, X))\n    \n    # Preprocessing for each prefix\n    # For each position i, we maintain a sorted list of unique values and their corresponding maximum LIS length\n    # Use a list to store sorted_values and lis_lengths for each prefix\n    preprocessed = []\n    sorted_values = []\n    lis_lengths = []\n    \n    for i in range(N):\n        val = A[i]\n        pos = bisect.bisect_left(sorted_values, val)\n        \n        if pos < len(sorted_values) and sorted_values[pos] == val:\n            # Update the LIS length for this value\n            new_length = lis_lengths[pos] + 1\n            if new_length > lis_lengths[-1]:\n                lis_lengths[-1] = new_length\n        else:\n            # Insert new value\n            sorted_values.insert(pos, val)\n            if pos == 0:\n                lis_lengths.insert(pos, 1)\n            else:\n                # Find the maximum LIS length among elements less than val\n                max_len = 1\n                for j in range(pos):\n                    if sorted_values[j] < val:\n                        max_len = max(max_len, lis_lengths[j] + 1)\n                lis_lengths.insert(pos, max_len)\n        preprocessed.append((sorted_values, lis_lengths))\n    \n    # Process each query using binary search\n    results = []\n    for R, X in queries:\n        sorted_values, lis_lengths = preprocessed[R - 1]\n        pos = bisect.bisect_right(sorted_values, X) - 1\n        if pos >= 0:\n            results.append(lis_lengths[pos])\n        else:\n            results.append(0)\n    \n    print('\\n'.join(map(str, results)))\n\nif __name__ == '__main__':\n    main()\n```"
+}

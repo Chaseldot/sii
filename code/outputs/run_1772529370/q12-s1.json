@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772529370",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 1,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 11.687203168869019,
+  "response": "I'll solve this problem step by step.\n\n### Thought Process:\n1. **Input/Output Format:**\n   - Input: Integer N followed by a sequence of N integers.\n   - Output: \"Yes\" if there exists a triplet of consecutive equal elements, otherwise \"No\".\n\n2. **Constraints:**\n   - $3 \\leq N \\leq 100$\n   - Each element in the sequence is between 1 and 100.\n   - Our solution needs to be efficient enough to handle the maximum input size (N=100) within the time limit.\n\n3. **Approach:**\n   - Iterate through the list from index 0 to $N-3$.\n   - For each index $i$, check if $A[i] = A[i+1] = A[i+2]$.\n   - If such a triplet is found, immediately return \"Yes\".\n   - If no triplet is found after checking all possibilities, return \"No\".\n\n4. **Edge Cases:**\n   - The entire sequence may consist of the same number (e.g., [1,1,1,1], which should return \"Yes\").\n   - Sequences with exactly 3 elements (e.g., [1,1,1], which should return \"Yes\").\n\nNow, here's the complete code:\n\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three consecutive equal elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        found = True\n        break\n\n# Print result\nprint(\"Yes\" if found else \"No\")\n```"
+}

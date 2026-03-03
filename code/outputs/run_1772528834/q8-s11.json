@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772528834",
+  "question_index": 8,
+  "question_id": "25",
+  "split": "train",
+  "sample_id": 11,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 71.20536231994629,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    X = int(data[1])\n    \n    U = []\n    D = []\n    for i in range(N):\n        u = int(data[2 + 2*i])\n        d = int(data[2 + 2*i + 1])\n        U.append(u)\n        D.append(d)\n    \n    # Generate candidate H values based on the initial U_i + D_i and their neighbors\n    candidate_H = set()\n    for i in range(N):\n        candidate_H.add(U[i] + D[i])\n        candidate_H.add(U[i] + D[i] - 1)\n        candidate_H.add(U[i] + D[i] + 1)\n    \n    min_cost = float('inf')\n    \n    for H in candidate_H:\n        cost = 0\n        for i in range(N):\n            total = U[i] + D[i]\n            diff = total - H\n            if diff < 0:\n                # Need to increase either U or D, choose the one with lower value to minimize cost\n                if U[i] >= D[i]:\n                    cost += -diff  # Increase D by -diff\n                else:\n                    cost += -diff  # Increase U by -diff\n            elif diff > 0:\n                # Need to decrease either U or D, choose the one with higher value to minimize cost\n                if U[i] >= D[i]:\n                    cost += diff  # Decrease U by diff\n                else:\n                    cost += diff  # Decrease D by diff\n        min_cost = min(min_cost, cost)\n    \n    print(min_cost)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

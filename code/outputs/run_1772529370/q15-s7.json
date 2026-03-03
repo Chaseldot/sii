@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772529370",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 7,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 11.41510558128357,
+  "response": "To solve this problem, we need to determine the rank of each person based on their scores according to a specific rule. \n\n### Key Observations:\n- **Ranking Rule**: \n  - Start with `r = 1`.\n  - In each iteration, find the maximum score among those whose ranks are not yet determined.\n  - Assign the current value of `r` to all people with this maximum score.\n  - Increment `r` by the number of people who received this rank.\n\n### Steps To solve:\n1. Read input values: the number of people `N` and their respective scores.\n2. Sort people by their scores, keeping track of their original indices for output.\n3. Use a priority queue (or sorting with tracking) to efficiently get the highest unassigned score and its count.\n4. Iterate through the sorted scores, assigning ranks and updating the rank counter accordingly.\n5. Output the ranks in the order of the original indices.\n\n### Implementation:\nThis approach will be efficient given the constraints (up to N=100), so we can use a simple approach with sorting and tracking counts.\n\nHere is the complete code:\n\n```python\n# Read input\nN = int(input())\nP = list(map(int, input().split()))\n\n# Create a list of tuples containing (score, original index)\npeople = [(P[i], i+1) for i in range(N)]\n\n# Sort people by score in descending order\npeople.sort(reverse=True)\n\n# Initialize variables\nrank = 1\nresult = [0] * (N + 1)  # Using 1-based indexing\n\n# Track which people have been assigned a rank\nassigned = [False] * (N + 1)\n\n# Process each person in descending order of score\ni = 0\nwhile i < N:\n    current_score = people[i][0]\n    current_index = people[i][1]\n    \n    # Count how many people have the same score\n    count = 0\n    while i < N and people[i][0] == current_score:\n        count += 1\n        i += 1\n    \n    # Assign rank to these people\n    for j in range(i - count, i):\n        result[people[j][1]] = rank\n    \n    # Update the rank\n    rank += count\n\n# Print the results\nfor i in range(1, N + 1):\n    print(result[i])\n```"
+}

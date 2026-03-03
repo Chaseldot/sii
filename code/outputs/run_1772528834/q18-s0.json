@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772528834",
+  "question_index": 18,
+  "question_id": "64",
+  "split": "train",
+  "sample_id": 0,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 32.6962571144104,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    A = list(map(int, data[1:]))\n    \n    if all(a == 1 for a in A):\n        print(\"Yes\")\n        return\n    \n    zero_count = sum(1 for x in A if x == 0)\n    \n    # If the number of zeros is odd, it's impossible to convert them all to 1s\n    if zero_count % 2 != 0:\n        print(\"No\")\n        return\n    \n    # We need to check whether we can cover all zero positions using the allowed operations\n    # Each operation converts exactly two zeros to ones. So even count is necessary, but not sufficient.\n    \n    # Try to find a pattern that can convert all zeros\n    a = A.copy()\n    \n    # Simulate applying the operations greedily\n    # First try the first type of operation (A-R-C)\n    for i in range(N):\n        if a[i] == 0 and i + 1 < N and a[(i + 1) % N] == 0 and i + 2 < N and a[(i + 2) % N] == 0:\n            a[i] = 1\n            a[(i + 1) % N] = 1\n            a[(i + 2) % N] = 1\n        if all(x == 1 for x in a):\n            break\n    \n    if all(x == 1 for x in a):\n        print(\"Yes\")\n        return\n    \n    # Try the second type of operation (C-R-A)\n    a = A.copy()\n    for i in range(N):\n        if a[i] == 0 and i - 1 >= 0 and a[(i - 1) % N] == 0 and i - 2 >= 0 and a[(i - 2) % N] == 0:\n            a[i] = 1\n            a[(i - 1) % N] = 1\n            a[(i - 2) % N] = 1\n        if all(x == 1 for x in a):\n            break\n    \n    if all(x == 1 for x in a):\n        print(\"Yes\")\n    else:\n        print(\"No\")\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772529370",
+  "question_index": 7,
+  "question_id": "20",
+  "split": "train",
+  "sample_id": 3,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 4.713507652282715,
+  "response": "To solve this problem, we need to process a string of digits and remove all characters that are not '2', then concatenate the remaining characters to form the final output string.\n\n### **Approach**\n1. Take the input string `S`.\n2. Iterate through each character in the string.\n3. Keep only the characters that are equal to '2'.\n4. Concatenate these characters to form the result.\n\nThis approach ensures that the time complexity is O(n), where n is the length of the input string, which is efficient given the constraint that the length is up to 100.\n\n### **Edge Cases**\n- The input string may contain only '2's.\n- The input string may have other digits but at least one '2' (as guaranteed by the constraints).\n- The input string may be empty (but per the constraints, it has at least one '2').\n\n### **Python Code**\n```python\n# Read the input from standard input\nS = input().strip()\n\n# Filter out all characters except '2' and concatenate them\nresult = ''.join([ch for ch in S if ch == '2'])\n\n# Print the result\nprint(result)\n```"
+}

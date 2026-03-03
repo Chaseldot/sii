@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772529370",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 15,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 8.880241632461548,
+  "response": "I'll solve this problem by checking if there are three or more consecutive identical elements in the given sequence.\n\n### Thought Process:\n1. **Input Format**: We get an integer N followed by a list of N integers.\n2. **Output Format**: Print \"Yes\" if there exists a subsequence of 3 or more identical elements, otherwise print \"No\".\n3. **Constraints**:\n   - N ranges from 3 to 100\n   - Each element is between 1 and 100\n4. **Approach**:\n   - Traverse the list and check for any triplet of consecutive elements that are the same.\n   - If found, print \"Yes\"; otherwise, print \"No\".\n\n### Solution Code:\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three or more consecutive identical elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        found = True\n        break\n\n# Output the result\nprint(\"Yes\" if found else \"No\")\n```\n\n### Explanation:\n- We iterate through the list of length N, checking each triplet of consecutive elements (from index `i` to `i+2`).\n- If any such triplet is found where all three elements are equal, we set the flag `found` to `True`.\n- Finally, we print \"Yes\" if `found` is `True`, otherwise we print \"No\"."
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772529370",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 14,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 8.097801923751831,
+  "response": "I'll solve this problem step-by-step.\n\n### Problem Analysis\n\nWe need to determine if there exists a triplet of consecutive elements in the sequence that are the same. This means we need to check for any `i` such that `A[i] == A[i+1] == A[i+2]`.\n\n### Constraints\n\n- The length of the sequence `N` is between 3 and 100.\n- Each element `A[i]` is between 1 and 100.\n- We can use a simple, linear scan approach since the constraints are small.\n\n### Approach\n\n- Traverse the array from the start to the third last element.\n- For each index `i`, check if `A[i] == A[i+1] == A[i+2]`.\n- If we find such a triplet, print \"Yes\" and exit.\n- If we complete the loop without finding such a triplet, print \"No\".\n\n### Full Python Code\n\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three consecutive equal elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        found = True\n        break\n\n# Output the result\nprint(\"Yes\" if found else \"No\")\n```"
+}

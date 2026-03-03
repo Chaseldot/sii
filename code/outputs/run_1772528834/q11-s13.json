@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772528834",
+  "question_index": 11,
+  "question_id": "29",
+  "split": "train",
+  "sample_id": 13,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 54.61029815673828,
+  "response": "```python\nimport sys\nfrom itertools import product\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    \n    H = int(data[0])\n    W = int(data[1])\n    grid = []\n    index = 2\n    for _ in range(H):\n        row = list(map(int, list(data[index])))\n        grid.append(row)\n        index += 1\n    \n    # Precompute the sum of each row and column\n    row_sum = [sum(row) for row in grid]\n    col_sum = [0] * W\n    for i in range(H):\n        for j in range(W):\n            col_sum[j] += grid[i][j]\n    \n    # Try all possible combinations of flipping columns (since W is small)\n    min_total = float('inf')\n    for flip_col in product([0, 1], repeat=W):\n        # Calculate the new row sums after flipping some columns\n        total = 0\n        for i in range(H):\n            row_sum_curr = 0\n            for j in range(W):\n                if flip_col[j]:\n                    row_sum_curr += 1 - grid[i][j]\n                else:\n                    row_sum_curr += grid[i][j]\n            # Choose to flip or not flip the row to minimize contribution\n            if row_sum_curr > H - row_sum_curr:\n                total += H - row_sum_curr\n            else:\n                total += row_sum_curr\n        min_total = min(min_total, total)\n    \n    print(min_total)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

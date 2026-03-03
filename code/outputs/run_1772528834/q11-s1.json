@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772528834",
+  "question_index": 11,
+  "question_id": "29",
+  "split": "train",
+  "sample_id": 1,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 55.08894157409668,
+  "response": "```python\nimport sys\nfrom itertools import product\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    H = int(data[0])\n    W = int(data[1])\n    grid = data[2:2+H]\n    \n    # Convert each row to a list of integers\n    grid = [list(map(int, list(row))) for row in grid]\n    \n    # Since W is small (<= 18), we can use bitmasking for columns\n    # For each row, we can represent it as a bitmask\n    rows = []\n    for row in grid:\n        mask = 0\n        for val in row:\n            mask = (mask << 1) | val\n        rows.append(mask)\n    \n    min_sum = float('inf')\n    \n    # Try all possible combinations of flipping columns (since W <= 18)\n    for flip_cols in product([0, 1], repeat=W):\n        # Apply column flips\n        new_rows = []\n        for row in rows:\n            new_row = 0\n            for i in range(W):\n                if flip_cols[i]:\n                    new_row = (new_row << 1) | (1 - ((row >> i) & 1))\n                else:\n                    new_row = (new_row << 1) | ((row >> i) & 1)\n            new_rows.append(new_row)\n        \n        # For each row, compute the number of 1s after column flips\n        row_ones = []\n        for row in new_rows:\n            count = 0\n            for i in range(W):\n                count += (row >> i) & 1\n            row_ones.append(count)\n        \n        # Calculate the total number of 1s\n        total_ones = sum(row_ones)\n        \n        # Decide which rows to flip to minimize the total ones\n        # Flip rows where the number of 1s is greater than half the width\n        flip_rows = [i for i in range(H) if row_ones[i] > W // 2]\n        total_ones = total_ones - 2 * sum(row_ones[i] for i in flip_rows)\n        \n        min_sum = min(min_sum, total_ones)\n    \n    print(min_sum)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

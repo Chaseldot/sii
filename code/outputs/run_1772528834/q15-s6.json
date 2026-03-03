@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772528834",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 6,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 24.20967674255371,
+  "response": "```python\nimport sys\nimport heapq\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    P = list(map(int, data[1:N+1]))\n    \n    # Create a list of tuples (-score, index) to simulate a max-heap\n    heap = [(-P[i], i) for i in range(N)]\n    heapq.heapify(heap)\n    \n    rank = [0] * N\n    r = 1\n    \n    while heap:\n        # Get the person with the highest score\n        current = heapq.heappop(heap)\n        score = -current[0]\n        index = current[1]\n        \n        # Check if there are other people with the same score\n        count = 1\n        while heap and -heap[0][0] == score:\n            next_person = heapq.heappop(heap)\n            count += 1\n        # Assign rank to all people with the same score\n        for _ in range(count):\n            # Re-add the people with the same score back into the heap\n            # (we need to track their indices to assign ranks)\n            # This approach is incorrect; instead, we should process all\n            # people with the same score before updating r\n            pass\n        \n        # Correct approach: Collect all people with the same score first\n        # Before processing, store all the people with the maximum score\n        temp = []\n        while heap and -heap[0][0] == score:\n            temp.append(heapq.heappop(heap))\n        # Assign rank to all these people\n        for person in temp:\n            rank[person[1]] = r\n        # Add the current person (the one we initially popped)\n        rank[index] = r\n        # Update r\n        r += len(temp) + 1  # add 1 for the current person and len(temp) for others\n        \n    for i in range(N):\n        print(rank[i])\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

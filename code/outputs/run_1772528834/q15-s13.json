@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772528834",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 13,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 13.031959295272827,
+  "response": "```python\nimport heapq\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:N+1]))\n    \n    # Create a list of tuples (-score, index) to simulate a max heap\n    # Using negative scores because Python's heapq is a min-heap\n    heap = [(-P[i], i) for i in range(N)]\n    heapq.heapify(heap)\n    \n    rank = [0] * N\n    r = 1\n    \n    while heap:\n        # Get the person with the highest score\n        current = heapq.heappop(heap)\n        score = -current[0]\n        index = current[1]\n        \n        # Find all people with the same score\n        same_score = []\n        while heap and -heap[0][0] == score:\n            same_score.append(heapq.heappop(heap))\n        same_score.append((score, index))  # Include the first person\n        \n        # Assign rank to all people with the same score\n        for person in same_score:\n            rank[person[1]] = r\n        \n        # Update r\n        r += len(same_score)\n    \n    for i in range(N):\n        print(rank[i])\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

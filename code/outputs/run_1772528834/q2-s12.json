@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772528834",
+  "question_index": 2,
+  "question_id": "4",
+  "split": "train",
+  "sample_id": 12,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 29.606191158294678,
+  "response": "```python\nimport sys\n\nMOD = 998244353\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    M = int(data[1])\n    S = data[2]\n    \n    # dp[m][n] represents the number of strings of length m that can form a LCS of length n with S\n    dp = [[0] * (N + 1) for _ in range(M + 1)]\n    \n    # Initialize: for 0-length string, LCS is 0\n    dp[0][0] = 1\n    \n    for m in range(M):\n        for n in range(N + 1):\n            # Case 1: add a character not in S\n            if n <= N:\n                dp[m+1][n] = (dp[m+1][n] + dp[m][n] * 25) % MOD\n            \n            # Case 2: add a character equal to S[n-1]\n            if n <= N:\n                dp[m+1][n+1] = (dp[m+1][n+1] + dp[m][n]) % MOD\n    \n    # Now, compute the answer for each k from 0 to N\n    ans = [0] * (N + 1)\n    for k in range(N + 1):\n        total = 0\n        for l in range(M + 1):\n            # For each possible length l of the generated string, count how many strings have LCS exactly k\n            # This requires inclusion-exclusion: count all strings with LCS >=k and subtract those with LCS >=k+1\n            if k + 1 <= N:\n                total = (total + dp[l][k] - dp[l][k+1]) % MOD\n            else:\n                total = (total + dp[l][k]) % MOD\n        ans[k] = total % MOD\n    \n    print(' '.join(map(str, ans)))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

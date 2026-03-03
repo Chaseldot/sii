@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772528834",
+  "question_index": 8,
+  "question_id": "25",
+  "split": "train",
+  "sample_id": 12,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 66.41501379013062,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    X = int(data[1])\n    U = []\n    D = []\n    for i in range(N):\n        U.append(int(data[2 + 2*i]))\n        D.append(int(data[2 + 2*i + 1]))\n    \n    # Adjust U to satisfy the second condition |U_i - U_{i+1}| <= X\n    cost = 0\n    prev = U[0]\n    for i in range(1, N):\n        if U[i] < prev:\n            cost += prev - U[i]\n            U[i] = prev\n        elif U[i] > prev + X:\n            cost += U[i] - (prev + X)\n            U[i] = prev + X\n        prev = U[i]\n    \n    # Now, for each position, we can calculate the required H for D[i] = H - U[i]\n    # We need to find H such that D[i] = H - U[i] >= 0 and minimize the total cost\n    \n    # Compute the minimum and maximum possible values of H from current U and D\n    min_H = max(U[i] for i in range(N))\n    max_H = max(U[i] + D[i] for i in range(N))\n    \n    # The cost function is sum(max(0, H - (U[i] + D[i])) for all i)\n    # We can use ternary search on H since the function is convex\n    \n    def get_cost(H):\n        total = 0\n        for i in range(N):\n            required = H - (U[i] + D[i])\n            if required > 0:\n                total += required\n        return total\n    \n    # Perform ternary search between min_H and max_H\n    left = min_H\n    right = max_H\n    for _ in range(100):\n        mid1 = left + (right - left) // 3\n        mid2 = right - (right - left) // 3\n        c1 = get_cost(mid1)\n        c2 = get_cost(mid2)\n        if c1 < c2:\n            right = mid2\n        else:\n            left = mid1\n    \n    # Check all H in [left, right] to find the minimum cost\n    min_total_cost = float('inf')\n    for H in range(left, right + 1):\n        total_cost = get_cost(H)\n        if total_cost < min_total_cost:\n            min_total_cost = total_cost\n    \n    print(min_total_cost + cost)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

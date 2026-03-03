@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772529370",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 4,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 11.296428680419922,
+  "response": "I'll solve this problem step by step. \n\n### Problem Analysis:\n\nWe are given an integer sequence of length N and we must determine if there is a place where the same element appears **three or more times in a row**.\n\n- We need to check whether there exists an index `i` (with $1 \\le i \\le N-2$) such that $A_i = A_{i+1} = A_{i+2}$.\n- If such a triplet exists, output \"Yes\"; otherwise, output \"No\".\n- The constraints allow for efficient checking by simply iterating through the list once.\n\n---\n\n### Solution Strategy:\n\n1. Iterate through the list from index 0 to $N-3$.\n2. For each index `i`, check if $A[i] = A[i+1] = A[i+2]$.\n3. If any such triplet is found, print \"Yes\" and terminate.\n4. If no such triplet is found after the loop, print \"No\".\n\nThis solution runs in O(N) time complexity, which is acceptable given the constraints ($N \\le 100$).\n\n---\n\n### Complete Python Code:\n\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three consecutive equal elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        found = True\n        break\n\n# Output result\nprint(\"Yes\" if found else \"No\")\n```\n\n---\n\n### Example Test Runs:\n\n**Sample Input 1:**\n```\n5\n1 4 4 4 2\n```\n**Output:** `Yes`\n\n**Sample Input 2:**\n```\n6\n2 4 4 2 2 4\n```\n**Output:** `No`\n\n**Sample Input 3:**\n```\n8\n1 4 2 5 7 7 7 2\n```\n**Output:** `Yes`\n\n**Sample Input 4:**\n```\n10\n1 2 3 4 5 6 7 8 9 10\n```\n**Output:** `No`\n\n**Sample Input 5:**\n```\n13\n1 1 1 1 1 1 1 1 1 1 1 1 1\n```\n**Output:** `Yes`\n\nThis code handles all edge cases and constraints cleanly and efficiently."
+}

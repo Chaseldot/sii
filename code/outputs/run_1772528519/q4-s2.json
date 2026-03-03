@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772528519",
+  "question_index": 4,
+  "question_id": "11",
+  "split": "train",
+  "sample_id": 2,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 14.56592607498169,
+  "response": "```python\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:N+1]))\n    Q = list(map(int, data[N+1:2*N+1]))\n    \n    # Create a dictionary to map bib numbers to person indices\n    bib_to_person = {q: i for i, q in enumerate(Q)}\n    \n    # Prepare the result array\n    result = [0] * N\n    for i in range(N):\n        target_person = P[i] - 1  # Convert to 0-based index\n        result[i] = Q[bib_to_person[target_person]]\n    \n    print(' '.join(map(str, result)))\n\nif __name__ == '__main__':\n    main()\n```"
+}

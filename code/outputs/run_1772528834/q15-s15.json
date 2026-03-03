@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772528834",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 15,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 11.516499280929565,
+  "response": "```python\nimport sys\nimport heapq\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    P = list(map(int, data[1:N+1]))\n    \n    # Create a max-heap with negative values to simulate max-heap behavior\n    # Each element is (-score, index) to maintain the max score and track original indices\n    heap = [(-P[i], i) for i in range(N)]\n    heapq.heapify(heap)\n    \n    rank = [0] * N\n    r = 1\n    \n    while heap:\n        current = heapq.heappop(heap)\n        score = -current[0]\n        index = current[1]\n        # Collect all elements with the same score\n        temp_heap = []\n        while heap and -heap[0][0] == score:\n            temp_heap.append(heapq.heappop(heap))\n        temp_heap.append(current)\n        # Assign rank to all collected elements\n        for elem in temp_heap:\n            rank[elem[1]] = r\n        r += len(temp_heap)\n    \n    for i in range(N):\n        print(rank[i])\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

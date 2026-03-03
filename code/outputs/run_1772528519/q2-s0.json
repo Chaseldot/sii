@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772528519",
+  "question_index": 2,
+  "question_id": "4",
+  "split": "train",
+  "sample_id": 0,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 19.971641302108765,
+  "response": "```python\nimport sys\ninput = sys.stdin.read\n\nMOD = 998244353\n\ndef main():\n    data = input().split()\n    N = int(data[0])\n    M = int(data[1])\n    S = data[2]\n    \n    # dp[m][lcs_len] will store the number of strings of length m with LCS length lcs_len\n    dp = [[0] * (N + 1) for _ in range(M + 1)]\n    dp[0][0] = 1\n    \n    for m in range(1, M + 1):\n        new_dp = [0] * (N + 1)\n        for lcs_len in range(N + 1):\n            # Case 1: current character is not in S\n            # There are 25 choices for this character\n            new_dp[lcs_len] = (new_dp[lcs_len] + dp[m - 1][lcs_len] * 25) % MOD\n            \n            # Case 2: current character is in S\n            # Try each character in S\n            for ch in set(S):\n                if lcs_len < N and dp[m - 1][lcs_len] > 0:\n                    # If the character matches any occurrence in S, we can increase LCS by 1\n                    if lcs_len + 1 <= N:\n                        new_dp[lcs_len + 1] = (new_dp[lcs_len + 1] + dp[m - 1][lcs_len]) % MOD\n        dp[m] = new_dp\n    \n    # The result is dp[M]\n    print(' '.join(map(str, dp[M])))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

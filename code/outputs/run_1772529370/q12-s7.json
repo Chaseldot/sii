@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772529370",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 7,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.417212009429932,
+  "response": "I'll solve this problem by checking if there are three or more identical consecutive elements in the sequence.\n\n### Thought process:\n- The input is a sequence of integers.\n- I need to check if there exists any triplet of consecutive elements that are equal.\n- This can be done by iterating through the sequence and comparing each element with its next two neighbors.\n- If such a triplet is found, output \"Yes\"; otherwise, output \"No\".\n- Since the constraints allow for N up to 100, a simple linear scan is efficient enough.\n\nNow, here's the complete solution:\n\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three or more consecutive equal elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        found = True\n        break\n\n# Output the result\nprint(\"Yes\" if found else \"No\")\n```"
+}

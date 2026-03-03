@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772528834",
+  "question_index": 0,
+  "question_id": "0",
+  "split": "train",
+  "sample_id": 8,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 57.19818663597107,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    idx = 0\n    N = int(data[idx])\n    idx += 1\n    W = int(data[idx])\n    idx += 1\n    \n    pos = []\n    for _ in range(N):\n        X = int(data[idx])\n        idx += 1\n        Y = int(data[idx])\n        idx += 1\n        pos.append((X, Y))\n    \n    Q = int(data[idx])\n    idx += 1\n    \n    queries = []\n    for _ in range(Q):\n        T = int(data[idx])\n        idx += 1\n        A = int(data[idx]) - 1  # 0-based index\n        idx += 1\n        queries.append((T, A))\n    \n    # Sort blocks by their initial Y-coordinate (from bottom to top)\n    sorted_blocks = sorted([(Y, X, i) for i, (X, Y) in enumerate(pos)], key=lambda x: x[0])\n    \n    # For each block, we need to compute how many times it can fall before hitting a block or the bottom\n    # We use a list to track the number of blocks in each row\n    # Rows are 0-based from bottom to top\n    # Since Y can be up to 1e9, we cannot use a direct array.\n    # So we use a dictionary to store row counts for rows that actually have blocks.\n    row_count = {}\n    \n    # Simulate falling for all blocks\n    removed_at = [0] * N  # time at which the block is removed\n    for i in range(N):\n        Y, X, block_idx = sorted_blocks[i]\n        current_Y = Y\n        time = 0\n        while True:\n            if current_Y == 0:\n                break\n            lower_row = current_Y - 1\n            if lower_row in row_count and row_count[lower_row] >= 1:\n                break\n            # Move block down\n            row_count[current_Y] = row_count.get(current_Y, 0) - 1\n            current_Y -= 1\n            row_count[current_Y] = row_count.get(current_Y, 0) + 1\n            time += 1\n        removed_at[block_idx] = time\n    \n    # Process queries\n    res = []\n    for T, A in queries:\n        if removed_at[A] < T:\n            res.append(\"Yes\")\n        else:\n            res.append(\"No\")\n    \n    for ans in res:\n        print(ans)\n\nmain()\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772528834",
+  "question_index": 11,
+  "question_id": "29",
+  "split": "train",
+  "sample_id": 0,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 53.813634157180786,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    H = int(data[0])\n    W = int(data[1])\n    grid = data[2:2+H]\n    \n    # Convert each row to a list of integers\n    grid = [list(map(int, list(row))) for row in grid]\n    \n    # Precompute the sum for each row\n    row_sums = [sum(row) for row in grid]\n    \n    # For each possible combination of flipping columns (since W is small <= 18)\n    min_total = float('inf')\n    for mask in range(1 << W):\n        # Calculate the total sum after column flips and optimal row flips\n        total = 0\n        \n        for i in range(H):\n            # Calculate the current row's contribution after potential column flips\n            row_sum = 0\n            for j in range(W):\n                if mask & (1 << j):\n                    val = 1 - grid[i][j]\n                else:\n                    val = grid[i][j]\n                row_sum += val\n            \n            # If we flip this row, it's better if the row has more 1s\n            if row_sum > H - row_sum:\n                row_sum = H - row_sum\n            \n            total += row_sum\n        \n        min_total = min(min_total, total)\n    \n    print(min_total)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

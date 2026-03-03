@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772528834",
+  "question_index": 5,
+  "question_id": "13",
+  "split": "train",
+  "sample_id": 12,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 60.237812519073486,
+  "response": "```python\nimport sys\nimport bisect\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    idx = 0\n    N = int(data[idx])\n    idx += 1\n    Q = int(data[idx])\n    idx += 1\n    \n    A = list(map(int, data[idx:idx+N]))\n    idx += N\n    \n    queries = []\n    for _ in range(Q):\n        R = int(data[idx])\n        idx += 1\n        X = int(data[idx])\n        idx += 1\n        queries.append((R, X))\n    \n    # Precompute LIS for all prefixes using O(n log n) algorithm\n    lis_prefix = [0] * N\n    tails = []\n    for i in range(N):\n        val = A[i]\n        # Find the first index in tails where value >= val\n        idx = bisect.bisect_left(tails, val)\n        if idx == len(tails):\n            tails.append(val)\n        else:\n            tails[idx] = val\n        lis_prefix[i] = idx + 1\n    \n    # For each query, perform a binary search to find the maximum length of LIS with elements <= X in A[:R]\n    results = []\n    for R, X in queries:\n        max_len = 0\n        tails = []\n        for i in range(R):\n            if A[i] <= X:\n                idx = bisect.bisect_left(tails, A[i])\n                if idx == len(tails):\n                    tails.append(A[i])\n                else:\n                    tails[idx] = A[i]\n                max_len = max(max_len, idx + 1)\n        results.append(str(max_len))\n    \n    print('\\n'.join(results))\n\nmain()\n```"
+}

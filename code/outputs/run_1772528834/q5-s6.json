@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772528834",
+  "question_index": 5,
+  "question_id": "13",
+  "split": "train",
+  "sample_id": 6,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 55.3744170665741,
+  "response": "```python\nimport sys\nimport bisect\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    idx = 0\n    N = int(data[idx])\n    idx += 1\n    Q = int(data[idx])\n    idx += 1\n    \n    A = list(map(int, data[idx:idx+N]))\n    idx += N\n    \n    # Preprocess the array to store sorted values up to each position\n    sorted_lists = []\n    current_sorted = []\n    for num in A:\n        bisect.insort(current_sorted, num)\n        sorted_lists.append(current_sorted)\n    \n    results = []\n    for _ in range(Q):\n        R = int(data[idx])\n        idx += 1\n        X = int(data[idx])\n        idx += 1\n        \n        # Get the subarray up to R-th element (0-based index)\n        subarray = sorted_lists[R-1]\n        \n        # Find the largest index where value <= X\n        left, right = 0, len(subarray)\n        while left < right:\n            mid = (left + right) // 2\n            if subarray[mid] <= X:\n                left = mid + 1\n            else:\n                right = mid\n        elements = subarray[:left]\n        \n        # Compute LIS using binary search on tails\n        tails = []\n        for num in elements:\n            i = bisect.bisect_left(tails, num)\n            if i == len(tails):\n                tails.append(num)\n            else:\n                tails[i] = num\n        results.append(len(tails))\n    \n    print('\\n'.join(map(str, results)))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

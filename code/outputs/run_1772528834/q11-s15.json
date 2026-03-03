@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772528834",
+  "question_index": 11,
+  "question_id": "29",
+  "split": "train",
+  "sample_id": 15,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 55.02178978919983,
+  "response": "```python\nimport sys\nfrom itertools import product\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    H = int(data[0])\n    W = int(data[1])\n    grid = data[2:2+H]\n    \n    # Convert each row to a list of integers\n    for i in range(H):\n        grid[i] = [int(c) for c in grid[i]]\n    \n    min_sum = float('inf')\n    \n    # Generate all possible flip patterns for columns (each bit represents whether to flip the column)\n    for mask in product([0, 1], repeat=W):\n        # Precompute the row values after column flips\n        row_values = []\n        for row in grid:\n            val = 0\n            for j in range(W):\n                if mask[j]:\n                    val += 1 - row[j]\n                else:\n                    val += row[j]\n            row_values.append(val)\n        \n        # For each row, decide whether to flip it\n        total = 0\n        for val in row_values:\n            if val > W // 2:\n                total += W - val\n            else:\n                total += val\n        \n        min_sum = min(min_sum, total)\n    \n    print(min_sum)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

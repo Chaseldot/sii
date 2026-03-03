@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772529370",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 6,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 11.29591679573059,
+  "response": "I'll solve the problem step-by-step.\n\n### Analysis:\n\nWe need to determine whether there is a place in the sequence where the same element appears **three or more times consecutively**. This means we are looking for any triplet (or longer) of equal consecutive elements.\n\n### Approach:\n\n1. Iterate through the list from index `0` to `N-3`.\n2. For each index `i`, check if `A[i] == A[i+1] == A[i+2]`.\n3. If such a triplet is found, print \"Yes\".\n4. If no such triplet is found after checking all possibilities, print \"No\".\n\nThis approach has a time complexity of **O(N)**, which is efficient given the constraint `3 ≤ N ≤ 100`.\n\n### Solution Code:\n\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three consecutive equal elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        found = True\n        break\n\n# Output result\nprint(\"Yes\" if found else \"No\")\n```\n\n### Explanation:\n\n- We first read the input values for `N` and the sequence `A`.\n- We loop through the array up to the third last element (`N-3`) to ensure we can check triplets.\n- For each element, we check if it is equal to the next two elements.\n- If we find such a triplet, we immediately stop the loop and print \"Yes\", otherwise we print \"No\" at the end.\n\nThis code handles all edge cases and constraints efficiently."
+}

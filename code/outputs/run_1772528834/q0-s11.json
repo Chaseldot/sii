@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772528834",
+  "question_index": 0,
+  "question_id": "0",
+  "split": "train",
+  "sample_id": 11,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 41.28608012199402,
+  "response": "```python\nimport sys\nimport bisect\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    idx = 0\n    N = int(data[idx])\n    idx += 1\n    W = int(data[idx])\n    idx += 1\n    \n    positions = []\n    for _ in range(N):\n        X = int(data[idx])\n        idx += 1\n        Y = int(data[idx])\n        idx += 1\n        positions.append((X, Y))\n    \n    Q = int(data[idx])\n    idx += 1\n    \n    queries = []\n    for _ in range(Q):\n        T = int(data[idx])\n        idx += 1\n        A = int(data[idx]) - 1  # Convert to 0-based index\n        idx += 1\n        queries.append((T, A))\n    \n    # Sort blocks by their initial Y coordinate\n    sorted_blocks = sorted(enumerate(positions), key=lambda x: x[1][1])\n    \n    # Create a map of Y to the count of blocks with that Y coordinate\n    from collections import defaultdict\n    y_counts = defaultdict(int)\n    for x, y in positions:\n        y_counts[y] += 1\n    \n    # Sort the unique Y's\n    sorted_unique_Y = sorted(y_counts.keys())\n    \n    # Function to find the number of blocks with Y <= target\n    def count_below_or_equal(target_y):\n        return bisect.bisect_right(sorted_unique_Y, target_y)\n    \n    # Process each query\n    results = []\n    for T, A in queries:\n        original_X, original_Y = positions[A]\n        \n        # Determine how many blocks are initially at or below the original Y\n        num_block_below = count_below_or_equal(original_Y)\n        \n        # The block will fall T - (num_block_below) steps\n        effective_Y = original_Y + T - num_block_below\n        \n        # Check if the block still exists after falling T times\n        # If the effective_Y is less than or equal to zero, it means the block has fallen out of the grid\n        if effective_Y <= 0:\n            results.append(\"No\")\n        else:\n            results.append(\"Yes\")\n    \n    # Output results\n    print(\"\\n\".join(results))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

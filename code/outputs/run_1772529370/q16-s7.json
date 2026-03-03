@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772529370",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 7,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 5.806501388549805,
+  "response": "To solve this problem, we must find a positive integer B such that A × B = 400. This means we are looking for a divisor of 400 that is greater than or equal to 1.\n\nHere's the step-by-step reasoning:\n- We need to find a divisor `B` of `400` such that `A × B = 400`.\n- Iterate through all integers from `1` to `400` and check if `400 % A == 0`. If it does, then `B = 400 // A` is our answer.\n- If no such integer exists, print `-1`.\n\nNow, let's implement this logic in Python:\n\n```python\n# Read input\nA = int(input())\n\n# Check if A divides 400 evenly\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```"
+}

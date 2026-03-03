@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772529370",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 11,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.715663433074951,
+  "response": "To solve this problem, we need to find a positive integer B such that the product of A and B equals 400. If no such B exists, we should return -1.\n\n### Step-by-step Explanation:\n\n1. **Understanding the Problem**:  \n   We are given an integer A, and the total number of people is fixed at 400. So, we are looking for a valid B such that:\n   $$\n   A \\times B = 400\n   $$\n\n2. **Finding B**:  \n   Given A, we can directly calculate B as $ B = \\frac{400}{A} $. For B to be a positive integer, 400 must be divisible by A. Otherwise, it's not possible to arrange the people in a rectangular formation with the given A rows.\n\n3. **Handling Edge Cases**:  \n   - If A is 0 (though A is constrained between 1 and 400, inclusive), it would not be valid.\n   - If 400 % A != 0, then B is not an integer, so we print -1.\n\n4. **Time and Space Complexity**:  \n   - Time Complexity: $ O(1) $, since we only perform a few arithmetic operations.\n   - Space Complexity: $ O(1) $, since we use constant space.\n\n---\n\nHere is the complete Python code to solve the problem:\n\n```python\n# Read input\nA = int(input())\n\n# Check if A is within bounds\nif A < 1 or A > 400:\n    print(-1)\nelse:\n    # Calculate B\n    if 400 % A == 0:\n        B = 400 // A\n        print(B)\n    else:\n        print(-1)\n```"
+}

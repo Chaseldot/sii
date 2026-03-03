@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772529370",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 13,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 8.63122010231018,
+  "response": "I'll solve this problem step-by-step.\n\n### Problem Analysis\n\nWe are given an integer sequence $ A $ of length $ N $. We need to determine if there exists any position $ i $ (with $ 1 \\leq i \\leq N-2 $) such that:\n$$ A_i = A_{i+1} = A_{i+2} $$\n\nIn other words, we are looking for a subsequence of three or more identical consecutive elements in the array.\n\n### Approach\n\n- Iterate through the array from index $ 0 $ to $ N-3 $.\n- For each index $ i $, check if $ A[i] $, $ A[i+1] $, and $ A[i+2] $ are all equal.\n- If we find such a triplet, print \"Yes\" and exit.\n- If we finish checking all possible triplets and none are found, print \"No\".\n\n### Edge Cases\n\n- The minimum value of $ N $ is 3. So, we always have at least one possible triplet to check.\n- All values in the array can be the same. For example, if the array is filled with 1s, we should still detect the triplet.\n\n### Time and Space Complexity\n\n- **Time Complexity:** $ O(N) $, since we iterate through the array once.\n- **Space Complexity:** $ O(1) $, constant space used.\n\nNow, I'll write the complete Python code:\n\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three consecutive equal elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        found = True\n        break\n\n# Output result\nprint(\"Yes\" if found else \"No\")\n```"
+}

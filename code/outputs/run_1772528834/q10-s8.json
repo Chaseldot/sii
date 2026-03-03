@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772528834",
+  "question_index": 10,
+  "question_id": "28",
+  "split": "train",
+  "sample_id": 8,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 10.001021146774292,
+  "response": "```python\nimport sys\nimport heapq\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    M = int(data[1])\n    X = int(data[2])\n    \n    edges = [[] for _ in range(N + 1)]\n    reversed_edges = [[] for _ in range(N + 1)]\n    \n    index = 3\n    for _ in range(M):\n        u = int(data[index])\n        v = int(data[index + 1])\n        edges[u].append(v)\n        reversed_edges[v].append(u)\n        index += 2\n    \n    INF = float('inf')\n    dist = [INF] * (N + 1)\n    dist[1] = 0\n    heap = []\n    heapq.heappush(heap, (0, 1))\n    \n    while heap:\n        cost, node = heapq.heappop(heap)\n        if node == N:\n            break\n        if cost > dist[node]:\n            continue\n        \n        # Move along normal edges\n        for neighbor in edges[node]:\n            if dist[neighbor] > cost + 1:\n                dist[neighbor] = cost + 1\n                heapq.heappush(heap, (dist[neighbor], neighbor))\n        \n        # Reverse edges and move\n        for neighbor in reversed_edges[node]:\n            if dist[neighbor] > cost + X:\n                dist[neighbor] = cost + X\n                heapq.heappush(heap, (dist[neighbor], neighbor))\n    \n    print(dist[N])\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772528834",
+  "question_index": 2,
+  "question_id": "4",
+  "split": "train",
+  "sample_id": 13,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 32.48986268043518,
+  "response": "```python\nMOD = 998244353\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    M = int(data[1])\n    S = data[2]\n\n    # dp[i][j]: the number of ways to form a string of length i with LCS length j\n    dp = [[0] * (N + 1) for _ in range(M + 1)]\n    dp[0][0] = 1  # base case: empty string has LCS 0 with S\n\n    for m in range(1, M + 1):\n        new_dp = [0] * (N + 1)\n        for lcs_len in range(N + 1):\n            # Add a character that is not in S\n            cnt_not_in_S = 26 - len(set(S))\n            new_dp[lcs_len] = (new_dp[lcs_len] + dp[m - 1][lcs_len] * cnt_not_in_S) % MOD\n\n            # Add a character that is in S and increases LCS\n            for c in set(S):\n                # If we add this character, does it improve the LCS?\n                # Compute the maximum possible LCS if we add this character to the current sequence\n                max_new_lcs = lcs_len\n                for i in range(N):\n                    if S[i] == c:\n                        max_new_lcs = min(max_new_lcs + 1, N)\n                        break\n                if max_new_lcs > lcs_len:\n                    new_dp[max_new_lcs] = (new_dp[max_new_lcs] + dp[m - 1][lcs_len]) % MOD\n        dp[m] = new_dp\n\n    # Calculate the final answer\n    ans = [0] * (N + 1)\n    for lcs_len in range(N + 1):\n        total = 0\n        for m in range(M + 1):\n            total = (total + dp[m][lcs_len]) % MOD\n        ans[lcs_len] = total\n\n    print(' '.join(map(str, ans)))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772528834",
+  "question_index": 6,
+  "question_id": "17",
+  "split": "train",
+  "sample_id": 3,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 1.8518006801605225,
+  "response": "```python\ndef main():\n    import sys\n    input = sys.stdin.read\n    S = input().strip()\n    \n    while True:\n        index = S.find('WA')\n        if index == -1:\n            break\n        S = S[:index] + 'AC' + S[index+2:]\n    \n    print(S)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

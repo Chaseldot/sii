@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772529370",
+  "question_index": 6,
+  "question_id": "17",
+  "split": "train",
+  "sample_id": 4,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 8.164225816726685,
+  "response": "To solve this problem, we need to repeatedly replace the leftmost occurrence of the substring \"WA\" with \"AC\" until no more such substrings exist. The main goal is to efficiently process the string while adhering to the given constraints.\n\n### Key Observations:\n- Replacing \"WA\" with \"AC\" may create new \"WA\" substrings that were not originally present.\n- The replacement should always be done on the **leftmost** occurrence of \"WA\".\n- We must ensure that after each replacement, we check for any new occurrences introduced by the replacement.\n\n### Efficient Strategy:\nA naive approach would involve scanning the string repeatedly and replacing the leftmost \"WA\". However, for large input strings (up to $3 \\times 10^5$ characters), a brute-force approach can become inefficient or even exceed the time limit.\n\nWe use the following efficient strategy:\n1. Convert the string into a list for easy manipulation (since strings are immutable in Python).\n2. Use a loop to search for the first occurrence of \"WA\".\n3. Replace it with \"AC\" and continue checking from the beginning again since earlier replacements could create new \"WA\" occurrences.\n4. Stop when no more \"WA\" substrings are found.\n\nThis approach works within the time constraints because every operation reduces the string length at least by 1 (since \"WA\" is replaced by \"AC\"), and there's a finite number of operations.\n\n### Final Code:\n\n```python\ndef replace_wa_with_ac(s):\n    s = list(s)\n    i = 0\n    while i <= len(s) - 2:\n        if s[i] == 'W' and s[i+1] == 'A':\n            s[i] = 'A'\n            s[i+1] = 'C'\n            i = 0  # Reset index to check from the start again as we might have created a new WA\n        else:\n            i += 1\n    return ''.join(s)\n\n# Read the input\nS = input().strip()\n\n# Process and print the result\nprint(replace_wa_with_ac(S))\n```\n\nThis code ensures that we always replace the **leftmost** occurrence of \"WA\" with \"AC\" and continues doing so until there are no more \"WA\" substrings. It is both correct and efficient for the given constraints."
+}

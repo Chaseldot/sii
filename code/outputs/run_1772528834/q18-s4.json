@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772528834",
+  "question_index": 18,
+  "question_id": "64",
+  "split": "train",
+  "sample_id": 4,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 29.120081663131714,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    A = list(map(int, data[1:N+1]))\n    \n    # If there are no 0s, output is always Yes\n    if sum(A) == N:\n        print(\"Yes\")\n        return\n    \n    # We need to check whether all zeros can be converted to 1 using allowed operations.\n    # Each operation converts two adjacent elements of A to 1 under specific patterns.\n\n    # The key observation: each operation covers exactly one position and potentially overlaps with previous positions.\n    # We'll try to greedily cover zeros using these operations.\n\n    i = 0\n    while i < N:\n        if A[i] == 0:\n            # Try to apply operation 1 (i, i+1, i+2): A, R, C -> convert A[i] and A[i+1] to 1\n            if i + 2 < N:\n                # Apply operation 1\n                A[i] = 1\n                A[i + 1] = 1\n                i += 3\n            elif i + 1 < N:\n                # Apply operation 2 (i, i+1, i+2): C, R, A -> convert A[i] and A[i+1] to 1\n                # This requires checking if the pattern allows for it\n                # Since we can choose characters freely, assume this is possible (but only if i+2 exists)\n                # But here we're only modifying A[i] and A[i+1]\n                A[i] = 1\n                A[i + 1] = 1\n                i += 2\n            else:\n                # Only one position left which is zero; cannot apply any operation\n                print(\"No\")\n                return\n        else:\n            i += 1\n\n    # After processing, check if all elements of A are 1\n    if all(x == 1 for x in A):\n        print(\"Yes\")\n    else:\n        print(\"No\")\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772529370",
+  "question_index": 6,
+  "question_id": "17",
+  "split": "train",
+  "sample_id": 13,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.5299437046051025,
+  "response": "To solve this problem, we need to repeatedly replace the leftmost occurrence of \"WA\" with \"AC\" until there are no more occurrences of \"WA\" in the string. The challenge is to ensure that after each replacement, we check for new occurrences of \"WA\" and continue replacing them in the same order.\n\n### Approach:\n1. **Identify Occurrences**: Use a loop to find all occurrences of \"WA\".\n2. **Replace Leftmost First**: Replace the leftmost occurrence of \"WA\" with \"AC\".\n3. **Repeat Until No More WA**: Continue this process until no more \"WA\" substrings are found.\n\n### Implementation Details:\n- We can use the string method `replace` with the `count` parameter to handle this operation efficiently.\n- However, since the replacement modifies the string and may introduce new \"WA\" substrings, we must repeat this process iteratively until no more replacements are needed.\n\n### Time Complexity:\n- Each replacement takes $O(n)$ time, where $n$ is the length of the string.\n- In the worst case, this could result in $O(n^2)$ time, but given the problem's constraints, it is efficient enough for the specified input limits.\n\n### Final Code:\n\n```python\n# Read input from standard input\nS = input().strip()\n\n# Keep replacing 'WA' with 'AC' until no more 'WA' are left\nwhile 'WA' in S:\n    # Replace the leftmost occurrence of 'WA' with 'AC'\n    S = S.replace('WA', 'AC', 1)\n\n# Output the resulting string\nprint(S)\n```"
+}

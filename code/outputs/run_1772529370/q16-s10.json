@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772529370",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 10,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.3970160484313965,
+  "response": "To solve this problem, we need to find a positive integer $ B $ such that the product of $ A $ and $ B $ equals 400. This means we are looking for a divisor of 400 that is greater than or equal to 1 and less than or equal to 400.\n\n### Steps:\n1. We iterate over all possible values of $ B $ from 1 to 400.\n2. For each $ B $, we check whether $ A \\times B = 400 $. If this condition is satisfied, we return $ B $.\n3. If no such $ B $ is found, we print -1.\n\n### Time Complexity:\n- Since we are iterating through at most 400 numbers, the time complexity is $ O(400) $, which is efficient for the given constraints.\n\n### Edge Cases:\n- If $ A = 400 $, then $ B = 1 $ is the only valid solution.\n- If $ A = 1 $, then $ B = 400 $ is the solution.\n- If $ A $ is a prime number (e.g., 11), there is no integer $ B $ such that $ A \\times B = 400 $, so the result is -1.\n\nHere's the full Python code:\n\n```python\n# Read input\nA = int(input())\n\n# Check if A divides 400\nfor B in range(1, 401):\n    if A * B == 400:\n        print(B)\n        break\nelse:\n    print(-1)\n```"
+}

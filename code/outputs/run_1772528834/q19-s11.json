@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772528834",
+  "question_index": 19,
+  "question_id": "130",
+  "split": "train",
+  "sample_id": 11,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 37.699081897735596,
+  "response": "```python\nfrom typing import List\n\ndef minimumCost(nums: List[int], cost: List[int], k: int) -> int:\n    n = len(nums)\n    prefix_sum = [0] * (n + 1)\n    cost_prefix_sum = [0] * (n + 1)\n\n    for i in range(n):\n        prefix_sum[i + 1] = prefix_sum[i] + nums[i]\n        cost_prefix_sum[i + 1] = cost_prefix_sum[i] + cost[i]\n\n    dp = [float('inf')] * (n + 1)\n    dp[0] = 0\n\n    for i in range(1, n + 1):\n        for j in range(i):\n            subarray_num_sum = prefix_sum[i] - prefix_sum[j]\n            subarray_cost_sum = cost_prefix_sum[i] - cost_prefix_sum[j]\n            subarray_index = i - j\n            current_cost = (subarray_num_sum + k * subarray_index) * subarray_cost_sum\n            dp[i] = min(dp[i], dp[j] + current_cost)\n\n    return dp[n]\n```"
+}

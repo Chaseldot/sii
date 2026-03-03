@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772528834",
+  "question_index": 11,
+  "question_id": "29",
+  "split": "train",
+  "sample_id": 7,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 56.21484088897705,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    H = int(data[0])\n    W = int(data[1])\n    grid = data[2:H+2]\n    \n    # Convert each row to a list of integers\n    grid = [list(map(int, list(row))) for row in grid]\n    \n    # Since W is small (<= 18), we can try all possible combinations of column flips\n    min_total = float('inf')\n    \n    # For each possible combination of column flips (each bit represents whether to flip that column)\n    for mask in range(1 << W):\n        # Calculate the number of 1's in each row after column flips\n        row_sums = []\n        for i in range(H):\n            row_sum = 0\n            for j in range(W):\n                if (mask >> j) & 1:\n                    row_sum += 1 - grid[i][j]\n                else:\n                    row_sum += grid[i][j]\n            row_sums.append(row_sum)\n        \n        # Now decide which rows to flip to minimize the total sum\n        total = 0\n        for rs in row_sums:\n            total += min(rs, H - rs)\n        \n        min_total = min(min_total, total)\n    \n    print(min_total)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

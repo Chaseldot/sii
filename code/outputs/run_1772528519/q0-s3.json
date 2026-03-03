@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772528519",
+  "question_index": 0,
+  "question_id": "0",
+  "split": "train",
+  "sample_id": 3,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 34.580601930618286,
+  "response": "```python\nimport sys\nimport bisect\nfrom collections import defaultdict\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    \n    idx = 0\n    N = int(data[idx])\n    idx += 1\n    W = int(data[idx])\n    idx += 1\n    \n    blocks = []\n    for i in range(N):\n        x = int(data[idx])\n        idx += 1\n        y = int(data[idx])\n        idx += 1\n        blocks.append((x, y, i + 1))  # Store (x, y, block_id)\n    \n    # Sort blocks by their initial Y coordinate\n    blocks.sort(key=lambda x: x[1])\n    \n    # For each column, maintain a sorted list of Y's\n    col_y = defaultdict(list)\n    for x, y, _ in blocks:\n        bisect.insort(col_y[x], y)\n    \n    # Precompute the time when each block will be removed\n    res_time = [0] * (N + 1)  # 1-based indexing for block IDs\n    \n    # Process each column\n    for x in col_y:\n        ys = col_y[x]\n        # Create a list of blocks in this column along with their indices\n        column_blocks = []\n        for y_val, block_id in zip(ys, range(len(ys))):\n            # Find the block with this (x, y_val, block_id) in the original list\n            # Since blocks are sorted, we can track their indexes\n            for b in blocks:\n                if b[0] == x and b[1] == y_val:\n                    column_blocks.append((y_val, b[2]))\n                    break\n        \n        # Process from bottom to top\n        for i in range(len(column_blocks)-1, -1, -1):\n            y_val, block_id = column_blocks[i]\n            count_below = i  # Number of blocks below in the same column\n            res_time[block_id] = count_below\n    \n    Q = int(data[idx])\n    idx += 1\n    queries = []\n    for _ in range(Q):\n        t = int(data[idx])\n        idx += 1\n        a = int(data[idx])\n        idx += 1\n        queries.append((t, a))\n    \n    # Process queries\n    for t, a in queries:\n        if res_time[a] <= t:\n            print(\"No\")\n        else:\n            print(\"Yes\")\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

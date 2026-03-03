@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772528834",
+  "question_index": 10,
+  "question_id": "28",
+  "split": "train",
+  "sample_id": 6,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 13.514319658279419,
+  "response": "```python\nimport sys\nimport heapq\nfrom collections import defaultdict\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    M = int(data[1])\n    X = int(data[2])\n    \n    edges = defaultdict(list)\n    for i in range(M):\n        u = int(data[3 + 2*i])\n        v = int(data[3 + 2*i + 1])\n        edges[u].append(v)\n    \n    # Using Dijkstra's algorithm with priority queue\n    # Each state is (cost, node, reversed_edges)\n    # reversed_edges is a boolean indicating whether edges are reversed\n    INF = float('inf')\n    dist = [[INF] * 2 for _ in range(N + 1)]\n    dist[1][0] = 0  # Starting at node 1 with normal edges\n    \n    heap = []\n    heapq.heappush(heap, (0, 1, 0))  # (cost, node, reversed_edges)\n    \n    while heap:\n        cost, u, rev = heapq.heappop(heap)\n        \n        if u == N:\n            break\n        \n        if cost > dist[u][rev]:\n            continue\n        \n        # Option 1: Move along an edge\n        for v in edges[u]:\n            if cost + 1 < dist[v][rev]:\n                dist[v][rev] = cost + 1\n                heapq.heappush(heap, (dist[v][rev], v, rev))\n        \n        # Option 2: Reverse all edges (cost X)\n        if rev == 0:\n            new_rev = 1\n            for v in edges[u]:\n                if cost + X < dist[v][new_rev]:\n                    dist[v][new_rev] = cost + X\n                    heapq.heappush(heap, (dist[v][new_rev], v, new_rev))\n        else:\n            new_rev = 0\n            # If edges are reversed, we can move to nodes that had incoming edges before reversal\n            for v in edges[u]:\n                # Since edges were reversed, v has an edge to u now\n                # So we can reverse again to go from u to v\n                if cost + X < dist[v][new_rev]:\n                    dist[v][new_rev] = cost + X\n                    heapq.heappush(heap, (dist[v][new_rev], v, new_rev))\n    \n    print(min(dist[N][0], dist[N][1]))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

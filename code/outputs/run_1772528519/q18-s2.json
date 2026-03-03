@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772528519",
+  "question_index": 18,
+  "question_id": "64",
+  "split": "train",
+  "sample_id": 2,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 25.710530519485474,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    A = list(map(int, data[1:N+1]))\n    \n    if all(a == 1 for a in A):\n        print(\"Yes\")\n        return\n    \n    # The key observation is that each operation can change two adjacent elements of A from 0 to 1.\n    # So, if there is at least one occurrence of any configuration that allows one of the operations to be applied,\n    # then it's possible to eliminate all 0s from A. We need to check for configurations where S_i, S_{i+1}, S_{i+2} (with wrap-around)\n    # could allow either of the two operations.\n\n    # We check for valid patterns:\n    # 1. S_i = A (0), S_{i+1} = R (1), S_{i+2} = C (1) => replace A_i and A_{i+1} with 1\n    # 2. S_{i+2} = A (0), S_{i+1} = R (1), S_i = C (1) => replace A_i and A_{i+1} with 1\n\n    # For pattern 1: A[i] == 0 and A[(i+1)%N] == 1 and A[(i+2)%N] == 1\n    # For pattern 2: A[(i+2)%N] == 0 and A[(i+1)%N] == 1 and A[i] == 1\n\n    found = False\n    for i in range(N):\n        j = (i + 1) % N\n        k = (i + 2) % N\n        if (A[i] == 0 and A[j] == 1 and A[k] == 1) or (A[k] == 0 and A[j] == 1 and A[i] == 1):\n            found = True\n            break\n    \n    print(\"Yes\" if found else \"No\")\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

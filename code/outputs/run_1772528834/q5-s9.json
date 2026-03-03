@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772528834",
+  "question_index": 5,
+  "question_id": "13",
+  "split": "train",
+  "sample_id": 9,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 57.925055742263794,
+  "response": "```python\nimport bisect\nimport sys\ninput = sys.stdin.read\n\ndef main():\n    data = input().split()\n    idx = 0\n    N = int(data[idx])\n    idx += 1\n    Q = int(data[idx])\n    idx += 1\n    A = list(map(int, data[idx:idx+N]))\n    idx += N\n    \n    # Preprocess for each index i, the sorted list of elements up to i\n    sorted_lists = []\n    current_list = []\n    for i in range(N):\n        current_list.append(A[i])\n        current_list.sort()\n        sorted_lists.append(current_list)\n    \n    # For each query, find the maximum length of strictly increasing subsequence with elements <= X\n    results = []\n    for _ in range(Q):\n        R = int(data[idx])\n        idx += 1\n        X = int(data[idx])\n        idx += 1\n        \n        # Get the sorted list up to R-1 (since it's 0-based)\n        sorted_sub = sorted_lists[R-1]\n        \n        # Use binary search to find all elements <= X\n        max_idx = bisect.bisect_right(sorted_sub, X)\n        filtered = sorted_sub[:max_idx]\n        \n        # Find LIS in O(n log n) on the filtered list\n        lis = []\n        for num in filtered:\n            idx2 = bisect.bisect_left(lis, num)\n            if idx2 == len(lis):\n                lis.append(num)\n            else:\n                lis[idx2] = num\n        results.append(len(lis))\n    \n    print(\"\\n\".join(map(str, results)))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

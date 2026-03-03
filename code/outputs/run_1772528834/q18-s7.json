@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772528834",
+  "question_index": 18,
+  "question_id": "64",
+  "split": "train",
+  "sample_id": 7,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 30.02612066268921,
+  "response": "```python\nimport sys\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    A = list(map(int, data[1:N+1]))\n    \n    if all(a == 1 for a in A):\n        print(\"Yes\")\n        return\n    \n    # Try to find a valid sequence by using a greedy approach\n    # We can look for the patterns that can change A[i] and A[i+1] to 1\n    # The two operations allowed are:\n    # 1. S_i = 'A', S_{i+1} = 'R', S_{i+2} = 'C' => replace A[i] and A[i+1] with 1\n    # 2. S_{i+2} = 'A', S_{i+1} = 'R', S_i = 'C' => replace A[i] and A[i+1] with 1\n    \n    # Since we can choose any string of uppercase letters, we can try to set\n    # positions such that these patterns occur and modify the A array as needed.\n    # Let's simulate this process greedily.\n    \n    # Create a copy of A\n    A_mod = A[:]\n    \n    # We need to ensure that we apply the operations in a way that covers all possible positions\n    # Use a greedy approach to find where to apply the operations.\n    for i in range(N):\n        # Check for first operation: S_i = A, S_{i+1} = R, S_{i+2} = C\n        # Replace A[i] and A[i+1] with 1\n        j = (i + 1) % N\n        k = (i + 2) % N\n        \n        if A_mod[i] == 0 and A_mod[j] == 0:\n            # If the third character is 0, we can trigger the first operation\n            if A_mod[k] == 0:\n                A_mod[i] = 1\n                A_mod[j] = 1\n            else:\n                # Try second operation: S_{i+2} = A, S_{i+1} = R, S_i = C\n                A_mod[i] = 1\n                A_mod[j] = 1\n                \n    if all(a == 1 for a in A_mod):\n        print(\"Yes\")\n    else:\n        print(\"No\")\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

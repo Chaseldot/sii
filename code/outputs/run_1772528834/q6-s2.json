@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772528834",
+  "question_index": 6,
+  "question_id": "17",
+  "split": "train",
+  "sample_id": 2,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 3.263597249984741,
+  "response": "```python\ndef main():\n    import sys\n    S = sys.stdin.readline().strip()\n    s = list(S)\n    i = 0\n    while i <= len(s) - 2:\n        if s[i] == 'W' and s[i+1] == 'A':\n            s[i] = 'A'\n            s[i+1] = 'C'\n            i = max(0, i - 1)  # Reset to check from the beginning again after replacement\n        else:\n            i += 1\n    print(''.join(s))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

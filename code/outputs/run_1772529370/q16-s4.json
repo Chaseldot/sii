@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772529370",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 4,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 7.103970050811768,
+  "response": "To solve this problem, we need to find a positive integer $ B $ such that the product of $ A $ and $ B $ equals 400. This is because the total number of people is fixed at 400, and we are arranging them into a rectangular formation with $ A $ rows and $ B $ columns.\n\n### Key Observations:\n- For a valid arrangement, $ A \\times B = 400 $\n- Therefore, $ B = \\frac{400}{A} $\n- $ B $ must be an integer and greater than 0\n- If $ 400 \\mod A \\neq 0 $, then no such $ B $ exists\n\n### Approach:\n1. Input the value of $ A $\n2. Check if $ 400 \\mod A \\neq 0 $. If yes, output `-1`\n3. Otherwise, compute $ B = \\frac{400}{A} $ and print it\n\nThis is a very simple algorithm that runs in constant time $ O(1) $, which is efficient for all constraints.\n\n### Edge Cases:\n- If $ A = 1 $, then $ B = 400 $\n- If $ A = 400 $, then $ B = 1 $\n- Any $ A $ that does not divide 400 will result in `-1`\n\nNow, here is the full code:\n\n```python\n# Read input\nA = int(input())\n\n# Check if 400 is divisible by A\nif 400 % A != 0:\n    print(-1)\nelse:\n    B = 400 // A\n    print(B)\n```"
+}

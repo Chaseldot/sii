@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772528834",
+  "question_index": 18,
+  "question_id": "64",
+  "split": "train",
+  "sample_id": 12,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 42.588149070739746,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    A = list(map(int, data[1:]))\n    \n    if all(x == 1 for x in A):\n        print(\"Yes\")\n        return\n    \n    # The key is to check if there exists a way to apply the given operations so that all 0s can be turned into 1s.\n    # To do that, we need at least one occurrence of the pattern \"ARC\" or \"CRA\" (in terms of the characters of S).\n    # Since S can be chosen freely, we only need to check if it's possible to find positions where such patterns would allow us to convert 0s to 1s.\n\n    # We'll simulate applying operations greedily:\n    result = [1] * N\n    i = 0\n    while i < N:\n        # Check if we can perform the first operation (ARC)\n        if i + 2 < N and result[i] == 0 and result[i+1] == 1 and result[i+2] == 0:\n            result[i] = 1\n            result[i+1] = 1\n            i += 1\n        elif i + 2 < N and result[i] == 0 and result[i+1] == 1 and result[i+2] == 1:\n            result[i] = 1\n            result[i+1] = 1\n            i += 1\n        # Check if we can perform the second operation (CRA)\n        elif i >= 2 and result[i-2] == 0 and result[i-1] == 1 and result[i] == 0:\n            result[i-2] = 1\n            result[i-1] = 1\n            i += 1\n        else:\n            # If no operation is possible, try to move forward\n            i += 1\n    \n    if all(x == 1 for x in result):\n        print(\"Yes\")\n    else:\n        print(\"No\")\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772528834",
+  "question_index": 5,
+  "question_id": "13",
+  "split": "train",
+  "sample_id": 13,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 63.84641671180725,
+  "response": "```python\nimport sys\nimport bisect\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    \n    idx = 0\n    N = int(data[idx])\n    idx += 1\n    Q = int(data[idx])\n    idx += 1\n    \n    A = list(map(int, data[idx:idx+N]))\n    idx += N\n    \n    queries = []\n    for _ in range(Q):\n        R = int(data[idx])\n        idx += 1\n        X = int(data[idx])\n        idx += 1\n        queries.append((R, X))\n    \n    # Preprocess coordinate compression for all values in A\n    sorted_unique = sorted(set(A))\n    coord_map = {v: i+1 for i, v in enumerate(sorted_unique)}\n    max_coord = len(sorted_unique)\n    \n    results = []\n    \n    for R, X in queries:\n        arr = A[:R]\n        filtered = [x for x in arr if x <= X]\n        if not filtered:\n            results.append(\"0\")\n            continue\n        \n        # Coordinate compression for current query\n        sorted_filtered = sorted(set(filtered))\n        coord_map_filtered = {v: i+1 for i, v in enumerate(sorted_filtered)}\n        max_coord_filtered = len(sorted_filtered)\n        \n        # Initialize BIT for this query\n        bit_q = [0] * (max_coord_filtered + 2)\n        \n        lis_length = 0\n        for num in filtered:\n            pos = coord_map_filtered[num]\n            # Find the maximum value in the BIT up to pos - 1\n            max_val = 0\n            i = pos - 1\n            while i > 0:\n                if bit_q[i]:\n                    max_val = max(max_val, bit_q[i])\n                i -= i & -i\n            lis_length = max(lis_length, max_val + 1)\n            # Update BIT at position pos\n            i = pos\n            while i < len(bit_q):\n                if bit_q[i] < max_val + 1:\n                    bit_q[i] = max_val + 1\n                i += i & -i\n        \n        results.append(str(lis_length))\n    \n    print('\\n'.join(results))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

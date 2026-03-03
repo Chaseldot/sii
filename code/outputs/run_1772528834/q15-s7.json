@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772528834",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 7,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 9.104693412780762,
+  "response": "```python\nimport heapq\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:N+1]))\n    \n    # Create a max heap with negative values to simulate max heap behavior\n    # Each element is (-score, index)\n    max_heap = [(-P[i], i) for i in range(N)]\n    heapq.heapify(max_heap)\n    \n    rank = [0] * N\n    r = 1\n    \n    while max_heap:\n        current = heapq.heappop(max_heap)\n        score = -current[0]\n        index = current[1]\n        \n        # Check if there are other people with the same score\n        # Find all people with the same score\n        same_score_indices = []\n        while max_heap and -max_heap[0][0] == score:\n            same_score_indices.append(heapq.heappop(max_heap))\n        \n        # Add the current person to the list of same score indices\n        same_score_indices.append((score, index))\n        \n        # Assign rank to all same score people\n        for idx in range(len(same_score_indices)):\n            person_index = same_score_indices[idx][1]\n            rank[person_index] = r\n        \n        # Update r\n        r += len(same_score_indices)\n    \n    for i in range(N):\n        print(rank[i])\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

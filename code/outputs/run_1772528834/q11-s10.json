@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772528834",
+  "question_index": 11,
+  "question_id": "29",
+  "split": "train",
+  "sample_id": 10,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 58.80491828918457,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    H = int(data[0])\n    W = int(data[1])\n    grid = data[2:2+H]\n    \n    # Convert grid to integers\n    grid = [list(map(int, list(row))) for row in grid]\n    \n    # Since W is small (<= 18), we can try all possible combinations of column flips (Y operations)\n    min_sum = float('inf')\n    \n    # Precompute the contribution of each column to each row\n    # For each column j, compute the number of 1s in that column (original and flipped)\n    col_ones = [0] * W\n    for i in range(H):\n        for j in range(W):\n            col_ones[j] += grid[i][j]\n    \n    # For each possible combination of column flips (each bit represents whether to flip the column)\n    for mask in range(1 << W):\n        # Compute the number of 1s in each row after applying column flips\n        row_counts = [0] * H\n        for j in range(W):\n            if (mask >> j) & 1:\n                # Column is flipped, so the contribution is (H - col_ones[j])\n                contrib = H - col_ones[j]\n            else:\n                # Column is not flipped, so the contribution is col_ones[j]\n                contrib = col_ones[j]\n            for i in range(H):\n                row_counts[i] += contrib\n        \n        # For each row, decide whether to flip it (X operation)\n        current_sum = 0\n        for i in range(H):\n            row_sum = row_counts[i]\n            flip_cost = H - row_sum\n            current_sum += min(row_sum, flip_cost)\n        \n        min_sum = min(min_sum, current_sum)\n    \n    print(min_sum)\n\nif __name__ == '__main__':\n    main()\n```"
+}

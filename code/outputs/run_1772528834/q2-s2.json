@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772528834",
+  "question_index": 2,
+  "question_id": "4",
+  "split": "train",
+  "sample_id": 2,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 27.597628355026245,
+  "response": "```python\nMOD = 998244353\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    M = int(data[1])\n    S = data[2]\n    \n    from collections import defaultdict\n\n    # dp[i][j] represents the number of strings of length i with LCS length j\n    dp = [[0] * (N + 1) for _ in range(M + 1)]\n    dp[0][0] = 1\n\n    for i in range(1, M + 1):\n        new_dp = [0] * (N + 1)\n        for lcs_len in range(N + 1):\n            for ch in 'abcdefghijklmnopqrstuvwxyz':\n                # Try adding character ch to the string\n                # Find the new LCS length when ch is appended\n                # We use a temporary array to track the LCS lengths\n                temp = [0] * (N + 2)  # Increase size to avoid index out of range\n                for pos in range(N):\n                    if S[pos] == ch:\n                        temp[pos + 1] = max(temp[pos + 1], dp[i - 1][lcs_len] + 1)\n                    temp[pos + 1] = max(temp[pos + 1], dp[i - 1][lcs_len])\n                for pos in range(N, -1, -1):\n                    temp[pos] = max(temp[pos], temp[pos + 1])\n                new_dp[temp[0]] = (new_dp[temp[0]] + dp[i - 1][lcs_len]) % MOD\n        dp[i] = new_dp\n    \n    # The answer for each k is dp[M][k]\n    print(' '.join(map(str, dp[M])))\n\nif __name__ == '__main__':\n    main()\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772529370",
+  "question_index": 3,
+  "question_id": "6",
+  "split": "train",
+  "sample_id": 7,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.543484926223755,
+  "response": "To solve this problem, we need to determine if any permutation of the given sequence $ A = (A_1, A_2, A_3) $ satisfies the condition $ B_1 \\times B_2 = B_3 $, where $ B $ is a permutation of $ A $.\n\n### Key Steps:\n1. Since there are only 3 elements, there are $ 3! = 6 $ permutations to check.\n2. For each permutation, verify whether the condition $ B_1 \\times B_2 = B_3 $ holds true.\n3. If any permutation satisfies this, the answer is \"Yes\"; otherwise, it's \"No\".\n\n### Time Complexity:\n- The number of permutations is fixed at 6, so the time complexity is constant and acceptable for all constraints.\n\n### Sample Case Analysis:\n- **Sample Input 1 (3, 15, 5):** We can rearrange as (3, 5, 15), and $ 3 \\times 5 = 15 $, so output is \"Yes\".\n- **Sample Input 2 (5, 3, 2):** No permutation gives a product that equals the third element, so output is \"No\".\n\nNow here is the complete Python code to handle this:\n\n```python\nfrom itertools import permutations\n\n# Read input values\nA = list(map(int, input().split()))\n\n# Check all permutations of the input\nfor perm in permutations(A):\n    if perm[0] * perm[1] == perm[2]:\n        print(\"Yes\")\n        break\nelse:\n    print(\"No\")\n```"
+}

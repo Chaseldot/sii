@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772528834",
+  "question_index": 18,
+  "question_id": "64",
+  "split": "train",
+  "sample_id": 6,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 38.81147909164429,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    A = list(map(int, data[1:]))\n    \n    if all(a == 1 for a in A):\n        print(\"Yes\")\n        return\n    \n    # We need to determine if there exists a string S such that applying the operations can turn all 0s into 1s.\n    \n    # The two valid patterns to apply the operation are:\n    # 1. \"ARC\" at positions i, i+1, i+2 (i.e., S[i] = 'A', S[i+1] = 'R', S[i+2] = 'C') and replace A[i] and A[i+1] with 1.\n    # 2. \"CRA\" at positions i, i+1, i+2 (i.e., S[i] = 'C', S[i+1] = 'R', S[i+2] = 'A') and replace A[i] and A[i+1] with 1.\n    \n    # Since the string is circular, indices should be handled modulo N.\n\n    # Create a copy of the array so we can modify it\n    A_copy = A[:]\n    n = N\n    \n    # Greedy algorithm: iterate through the array and apply the operations whenever possible\n    i = 0\n    while i < n:\n        # Check for 'ARC' pattern\n        j = (i + 1) % n\n        k = (i + 2) % n\n        if A_copy[i] == 0 and A_copy[j] == 1 and A_copy[k] == 0:\n            A_copy[i] = 1\n            A_copy[j] = 1\n            i += 1\n        # Check for 'CRA' pattern\n        elif A_copy[i] == 0 and A_copy[j] == 1 and A_copy[k] == 1:\n            A_copy[i] = 1\n            A_copy[j] = 1\n            i += 1\n        else:\n            i += 1\n    \n    if all(a == 1 for a in A_copy):\n        print(\"Yes\")\n    else:\n        print(\"No\")\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

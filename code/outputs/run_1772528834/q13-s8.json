@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772528834",
+  "question_index": 13,
+  "question_id": "43",
+  "split": "train",
+  "sample_id": 8,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 24.107088804244995,
+  "response": "```python\ndef compute_prefix_function(s):\n    n = len(s)\n    pi = [0] * n\n    for i in range(1, n):\n        j = pi[i - 1]\n        while j > 0 and s[i] != s[j]:\n            j = pi[j - 1]\n        if s[i] == s[j]:\n            j += 1\n        pi[i] = j\n    return pi\n\ndef shortest_palindrome(s):\n    rev_s = s[::-1]\n    combined = s + '#' + rev_s\n    pi = compute_prefix_function(combined)\n    max_overlap = pi[-1]\n    return s + rev_s[:len(s) - max_overlap]\n\ndef main():\n    import sys\n    input_str = sys.stdin.read().strip()\n    print(shortest_palindrome(input_str))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

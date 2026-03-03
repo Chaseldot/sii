@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772529370",
+  "question_index": 7,
+  "question_id": "20",
+  "split": "train",
+  "sample_id": 7,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 3.668572425842285,
+  "response": "To solve this problem, we need to process a string consisting of digits and construct a new string that only contains the digit '2'. This involves simply filtering out all characters from the input string that are not '2' and concatenating the remaining characters.\n\n### Steps:\n1. Read the input string `S`.\n2. Filter the string to include only characters equal to '2'.\n3. Concatenate the filtered characters to form the resulting string.\n4. Print the final string.\n\nThis approach is straightforward and efficient for the given constraints (string length between 1 and 100).\n\nHere's the complete solution:\n\n```python\n# Read the input string\nS = input().strip()\n\n# Filter the string to include only '2's\nresult = ''.join(char for char in S if char == '2')\n\n# Print the result\nprint(result)\n```"
+}

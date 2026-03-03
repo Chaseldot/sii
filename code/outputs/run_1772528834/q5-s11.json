@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772528834",
+  "question_index": 5,
+  "question_id": "13",
+  "split": "train",
+  "sample_id": 11,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 40.73903131484985,
+  "response": "```python\nimport bisect\nimport sys\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    \n    idx = 0\n    N = int(data[idx])\n    idx += 1\n    Q = int(data[idx])\n    idx += 1\n    \n    A = list(map(int, data[idx:idx+N]))\n    idx += N\n    \n    # Preprocess the array to create a structure for efficient queries\n    # For each i, we'll store the sorted list of elements up to index i\n    sorted_prefix = []\n    current_sorted = []\n    for num in A:\n        bisect.insort(current_sorted, num)\n        sorted_prefix.append(current_sorted.copy())\n    \n    # Process each query\n    results = []\n    for _ in range(Q):\n        R = int(data[idx]) - 1  # Convert to 0-based index\n        idx += 1\n        X = int(data[idx])\n        idx += 1\n        \n        # Get the sorted list of elements up to R\n        if R < 0:\n            results.append(0)\n            continue\n        sorted_list = sorted_prefix[R]\n        \n        # Use binary search to find the maximum length of strictly increasing subsequence <= X\n        # Since the sorted list is non-decreasing, the longest strictly increasing subsequence with elements <= X is the count of elements <= X\n        \n        # Find the rightmost element <= X\n        pos = bisect.bisect_right(sorted_list, X) - 1\n        \n        # The maximum length is (pos + 1)\n        results.append(pos + 1)\n    \n    print('\\n'.join(map(str, results)))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

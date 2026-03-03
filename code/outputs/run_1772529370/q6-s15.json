@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772529370",
+  "question_index": 6,
+  "question_id": "17",
+  "split": "train",
+  "sample_id": 15,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 8.951488018035889,
+  "response": "To solve this problem, we simulate the process of replacing occurrences of `\"WA\"` with `\"AC\"` in a string, always replacing the **leftmost** occurrence at each step. This must be done repeatedly until no more `\"WA\"` substrings are left.\n\n### Key Observations:\n1. We need to replace the **leftmost** occurrence of `\"WA\"` each time.\n2. After replacement, new `\"WA\"` substrings might form due to the replacement. For example, if we have `\"WWA\"`, replacing the right `\"WA\"` gives `\"WAC\"`, which contains `\"WA\"` again at the same index.\n3. We should continue this process until there are no more `\"WA\"` strings to replace.\n4. The worst-case complexity is O(n^2), but for the given constraints (up to 300,000 characters), this would be too slow. To handle this efficiently, we can use a queue or a list to track the positions where `\"WA\"` occurs and update accordingly while scanning the string from left to right.\n\nHere's my solution:\n\n```python\ndef main():\n    import sys\n    input = sys.stdin.read\n    S = input().strip()\n    \n    # Convert the string into a list for easier manipulation\n    chars = list(S)\n    n = len(chars)\n    i = 0\n    \n    while i <= n - 2:\n        # Check if \"WA\" appears starting at position i\n        if chars[i] == 'W' and chars[i+1] == 'A':\n            # Replace \"WA\" with \"AC\"\n            chars[i] = 'A'\n            chars[i+1] = 'C'\n            # Move i back by 1 because the next character could be part of a new \"WA\"\n            i = max(0, i - 1)\n        else:\n            i += 1\n    \n    print(''.join(chars))\n\nif __name__ == '__main__':\n    main()\n```\n\n### Explanation:\n- We iterate through the string using an index `i`.\n- At each position, we check if `\"WA\"` starts at `i`. If so, we replace it with `\"AC\"`.\n- After replacement, we decrement `i` (by 1) to ensure we recheck the updated location, as changes might create new `\"WA\"` substrings.\n- This ensures we always replace the leftmost `\"WA\"` first, meeting the problem's requirement.\n\nThis solution is efficient in practice and performs within the constraints."
+}

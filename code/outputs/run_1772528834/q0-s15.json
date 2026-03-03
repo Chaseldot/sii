@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772528834",
+  "question_index": 0,
+  "question_id": "0",
+  "split": "train",
+  "sample_id": 15,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 38.11316752433777,
+  "response": "```python\nimport sys\nfrom collections import defaultdict, deque\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    \n    idx = 0\n    N = int(data[idx])\n    idx += 1\n    W = int(data[idx])\n    idx += 1\n    \n    X = [0] * (N + 1)\n    Y = [0] * (N + 1)\n    blocks = []  # To store (X_i, Y_i, index)\n    for i in range(1, N + 1):\n        X[i] = int(data[idx])\n        idx += 1\n        Y[i] = int(data[idx])\n        idx += 1\n        blocks.append((X[i], Y[i], i))\n    \n    Q = int(data[idx])\n    idx += 1\n    \n    queries = []\n    for _ in range(Q):\n        T = int(data[idx])\n        idx += 1\n        A = int(data[idx])\n        idx += 1\n        queries.append((T, A))\n    \n    # For each block, track when it disappears\n    disappear_time = [0] * (N + 1)\n    \n    # For each column, track the blocks in that column sorted by Y in increasing order\n    col_blocks = defaultdict(list)\n    for i in range(1, N + 1):\n        col_blocks[X[i]].append((Y[i], i))  # Store (Y, block index)\n    \n    # Process each column to determine when blocks disappear\n    for x in col_blocks:\n        ys = sorted(col_blocks[x])  # Sorted by Y in increasing order\n        m = len(ys)\n        queue = deque()\n        for y, idx_block in ys:\n            queue.append((y, idx_block))  # (y, block index)\n        \n        t = 0\n        while queue:\n            y, idx_block = queue.popleft()\n            if t == m - 1:\n                # The last block of this column is always there\n                disappear_time[idx_block] = float('inf')\n            else:\n                # This block will be removed at time t+1\n                disappear_time[idx_block] = t + 1\n            t += 1\n    \n    # Process queries\n    results = []\n    for T, A in queries:\n        if disappear_time[A] > T:\n            results.append(\"Yes\")\n        else:\n            results.append(\"No\")\n    \n    print('\\n'.join(results))\n\nif __name__ == '__main__':\n    main()\n```"
+}

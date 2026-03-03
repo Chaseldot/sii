@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772528834",
+  "question_index": 18,
+  "question_id": "64",
+  "split": "train",
+  "sample_id": 13,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 41.81380653381348,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    A = list(map(int, data[1:N+1]))\n    \n    if all(a == 1 for a in A):\n        print(\"Yes\")\n        return\n    \n    # We need to determine if there exists a good string.\n    # The operations allow us to turn A_i and A_{i+1} into 1 under certain patterns in the string.\n    # Since we can choose any string, our task is to check whether we can eliminate all 0s by choosing an appropriate pattern of letters.\n\n    # To do this, we will use a greedy approach to try covering each 0 with one of the two allowed operations. \n    # We simulate this on the circular array of A (with indices wrapping around).\n\n    new_A = A[:]\n    pos = 0\n    while pos < N:\n        if new_A[pos] == 0:\n            # Try to apply Operation 1: S[i] = A, S[i+1] = R, S[i+2] = C\n            # So we need to check if A[pos], A[pos+1], A[pos+2] can be turned into 1\n            if (pos + 1) % N != pos and (pos + 2) % N != pos and new_A[(pos + 1) % N] == 0 and new_A[(pos + 2) % N] == 0:\n                new_A[pos] = 1\n                new_A[(pos + 1) % N] = 1\n                pos += 1\n            elif (pos - 1) % N != pos and (pos - 2) % N != pos and new_A[(pos - 1) % N] == 0 and new_A[(pos - 2) % N] == 0:\n                new_A[pos] = 1\n                new_A[(pos - 1) % N] = 1\n                pos += 1\n            else:\n                # Cannot cover current 0; return No\n                print(\"No\")\n                return\n        else:\n            pos += 1\n    \n    print(\"Yes\")\n\nif __name__ == \"__main__\":\n    main()\n```"
+}
