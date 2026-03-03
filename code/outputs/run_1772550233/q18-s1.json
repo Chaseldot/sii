@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772550233",
+  "question_index": 18,
+  "question_id": "64",
+  "split": "train",
+  "sample_id": 1,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 23.74612784385681,
+  "response": "```python\nimport sys\n\ndef solve():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    A = list(map(int, data[1:]))\n    \n    if all(a == 1 for a in A):\n        print(\"Yes\")\n        return\n    \n    # We need to find a string S such that we can apply the operations to turn all A into 1.\n    # The key is to find patterns of \"ARC\" or \"CRA\" sequences in A and determine whether they can be used to flip 0s to 1s.\n    \n    # We will iterate through the array and try to apply operations greedily.\n    i = 0\n    while i < N:\n        if A[i] == 0:\n            # Check for possible pattern around i\n            # For \"ARC\" (A[i], A[i+1], A[i+2]) or \"CRA\" (A[i], A[i-1], A[i-2])\n            # Considering wrap-around\n            j1 = (i + 1) % N\n            k1 = (i + 2) % N\n            j2 = (i - 1) % N\n            k2 = (i - 2) % N\n            \n            # Check for \"ARC\" pattern: A[i] = 0, A[j1] = 1, A[k1] = 1\n            if A[i] == 0 and A[j1] == 1 and A[k1] == 1:\n                A[i] = 1\n                A[j1] = 1\n                i += 1  # Move forward as this position is processed\n            # Check for \"CRA\" pattern: A[i] = 1, A[j2] = 0, A[k2] = 1\n            elif A[i] == 1 and A[j2] == 0 and A[k2] == 1:\n                A[i] = 1\n                A[j2] = 1\n                i += 1  # Move forward as this position is processed\n            else:\n                # No applicable pattern, impossible to convert to all 1s\n                print(\"No\")\n                return\n        else:\n            i += 1\n    \n    print(\"Yes\")\n\nsolve()\n```"
+}

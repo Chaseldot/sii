@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772552001",
+  "question_index": 7,
+  "question_id": "20",
+  "split": "train",
+  "sample_id": 12,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 7.973114013671875,
+  "response": "### 1. 分析题目\n- **输入**：一个由数字组成的字符串 `S`。\n- **要求**：从字符串 `S` 中移除所有不是 `'2'` 的字符，然后将剩下的字符按原顺序连接成一个新的字符串。\n- **输出**：新字符串。\n- **约束条件**：\n  - `S` 的长度在 `1` 到 `100` 之间。\n  - `S` 至少包含一个 `'2'`，所以最终结果不会是空字符串。\n\n### 2. 解题思路\n- 遍历字符串中的每个字符。\n- 如果字符等于 `'2'`，就保留它。\n- 最后用 `.join()` 方法将所有保留的 `'2'` 字符拼接起来。\n- 这是一个非常基础且高效的算法，时间复杂度为 $O(n)$，适用于本题的限定范围。\n\n---\n\n### 3. 完整代码\n\n```python\n# Read input from standard input\nS = input().strip()\n\n# Filter the string to include only '2's and join them\nresult = ''.join([char for char in S if char == '2'])\n\n# Print the result\nprint(result)\n```\n\n---\n\n### 示例测试\n#### 输入\n```\n20250222\n```\n\n#### 输出\n```\n22222\n```\n\n#### 输入\n```\n2\n```\n\n#### 输出\n```\n2\n```\n\n#### 输入\n```\n22222000111222222\n```\n\n#### 输出\n```\n22222222222\n```\n\n这个代码能够正确处理所有给定的边界情况，并符合时间限制和空间复杂度的要求。"
+}

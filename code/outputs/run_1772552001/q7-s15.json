@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772552001",
+  "question_index": 7,
+  "question_id": "20",
+  "split": "train",
+  "sample_id": 15,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 4.55917763710022,
+  "response": "### 分析问题\n\n- 我们需要从输入字符串 `S` 中提取所有字符 `'2'`，然后将这些字符按原始顺序拼接成一个新字符串。\n- 输入约束：\n  - `S` 是由数字组成的字符串，长度在 `1` 到 `100` 之间。\n  - `S` 至少包含一个 `'2'`。\n- 相关观察：\n  - 只需遍历字符串 `S`，选出 `'2'` 的字符即可，无需考虑其他操作。\n\n### 算法设计\n\n- 遍历字符串 `S`，逐个检查每个字符是否为 `'2'`。\n- 如果是 `'2'`，则将其加入结果字符串中。\n- 最后输出结果字符串。\n\n该算法的复杂度为 `O(n)`，其中 `n` 是字符串 `S` 的长度（最多为 100），完全满足时间限制。\n\n---\n\n### Python代码实现\n\n```python\n# Read the input string\nS = input().strip()\n\n# Filter out all characters that are not '2'\nresult = ''.join([c for c in S if c == '2'])\n\n# Print the result\nprint(result)\n```"
+}

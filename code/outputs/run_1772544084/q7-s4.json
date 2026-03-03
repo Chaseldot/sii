@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772544084",
+  "question_index": 7,
+  "question_id": "20",
+  "split": "train",
+  "sample_id": 4,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 5.705097198486328,
+  "response": "```python\n# 1. 深度解析\n# 约束条件：\n# - S是一个由数字组成的字符串，长度在1到100之间\n# - S包含至少一个'2'\n# \n# 理论时间复杂度：O(N)，其中N是字符串长度。遍历整个字符串一次即可完成操作。\n# \n# 特殊性分析：此问题简单直接，无需复杂的数学规律或算法，只需遍历字符串并选择符合条件的字符。\n\n# 2. 逻辑推演\n# 数学推导过程:\n# 题目要求我们从输入字符串S中移除所有非'2'的字符，然后将剩余的'2'按原顺序连接。因此，我们可以直接遍历字符串，收集所有'2'字符，最后将它们拼接成结果字符串。\n# \n# DP状态转移方程：无需要DP，因为这是简单的字符串处理。\n# \n# 边界情况处理: \n# - 如果S全是'2'，则直接输出原字符串。\n# - 如果S中只有部分字符是'2'，只需保留这些字符即可。\n\n# 3. 高效实现\nimport sys\n\ndef main():\n    S = sys.stdin.readline().strip()\n    result = ''.join([c for c in S if c == '2'])\n    print(result)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772553091",
+  "question_index": 14,
+  "question_id": "53",
+  "split": "train",
+  "sample_id": 5,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 13.545693159103394,
+  "response": "### 分析\n\n我们的问题是计算所有子数组的和的 $K$ 次方之和，并对结果取模 $998244353$。\n\n#### 问题分解\n\n- **输入**：整数 $N, K$，以及一个长度为 $N$ 的整数数组 $A$。\n- **输出**：所有子数组的和的 $K$ 次方之和，结果对 $998244353$ 取模。\n- **目标**：快速计算 $\\sum_{1 \\leq l \\leq r \\leq N} (\\sum_{i=l}^{r} A_i)^K \\mod 998244353$。\n\n---\n\n#### 算法思路\n\n直接枚举所有的子数组 (共 $O(N^2)$ 种)，计算每个子数组的和，再计算其 $K$ 次方并累加起来，在时间上是无法接受的（因为 $N$ 最大可以达到 $2 \\times 10^5$，这时候 $O(N^2)$ 是超时的）。\n\n所以我们需要寻找更高效的解法：\n\n#### 关键点：\n\n- 子数组的和可以用 **前缀和** 快速计算。\n- 对于固定 $K$，我们可以尝试利用递推或某种方式快速计算 $(\\text{sum})^K$。\n- 注意到 $K$ 的范围只有 $1$ 到 $10$，那么我们可以通过预处理所有可能的子数组的和来加速计算。\n\n#### 处理方案：\n\n1. 使用前缀和数组 $S$ 来快速计算任意子数组之和。\n2. 枚举所有可能的子数组之和 $s = S[r] - S[l-1]$，然后计算 $s^K$。\n3. 因为 $K$ 很小（<=10），我们可以快速计算幂次（即使对 $s$ 不同的值也只需做 $K$ 次乘法），这不会造成性能瓶颈。\n4. 结果最终对 $998244353$ 取模。\n\n#### 时间复杂度分析：\n\n- 前缀和计算为 $O(N)$\n- 遍历所有子数组为 $O(N^2)$，但考虑到 $K$ 很小，总体时间应该是可接受的。\n\n---\n\n### 代码\n\n```python\nMOD = 998244353\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    K = int(data[1])\n    A = list(map(int, data[2:]))\n    \n    # 前缀和数组\n    prefix = [0] * (N + 1)\n    for i in range(N):\n        prefix[i + 1] = (prefix[i] + A[i]) % MOD\n    \n    result = 0\n    for l in range(N):\n        current_sum = 0\n        for r in range(l, N):\n            current_sum = (current_sum + A[r]) % MOD\n            result = (result + pow(current_sum, K, MOD)) % MOD\n    \n    print(result)\n\nif __name__ == \"__main__\":\n    main()\n```\n\n---\n\n### 总结\n\n该算法使用滑动窗口的方式来计算子数组的和，并在每次计算时快速求出其 $K$ 次方。由于 $K$ 较小，因此计算效率较高，适合题目给定的时间限制。此外，通过模运算避免了数值溢出。"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772553091",
+  "question_index": 14,
+  "question_id": "53",
+  "split": "train",
+  "sample_id": 3,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 10.28186559677124,
+  "response": "### 分析\n\n这道题的核心是计算所有子数组的和的 K 次方之和，并对结果取模 998244353。具体要求是：\n\n- 遍历所有满足 $1 \\leq l \\leq r \\leq N$ 的区间 [l, r]\n- 对于每个区间，求出它的和 sum = A_l + A_{l+1} + ... + A_r\n- 将 sum 的 K 次方加起来\n- 最后将结果对 998244353 取模\n\n由于 N 可以达到 $2 \\times 10^5$，直接枚举所有子数组是不可能的（复杂度为 O(N^2)），因此我们需要寻找一个更优化的方法。\n\n考虑到 K 很小（最大为 10），我们可以使用组合数学的方法来处理。关键点如下：\n\n1. 枚举每一个可能的子数组的起始位置 l。\n2. 使用前缀和数组 pre_sum 来快速计算任意区间的和。\n3. 对于从 l 开始的所有 r，我们可以在 O(K) 的时间内计算 (sum)^K 的值，利用快速幂或者牛顿展开法展开。\n\n具体实现步骤如下：\n- 预处理前缀和数组 pre_sum。\n- 对于每个起点 l，从 l 到 N 中的每个 r，计算当前区间 [l, r] 的和 sum = pre_sum[r] - pre_sum[l - 1]。\n- 然后根据公式 $(\\text{sum})^K$ 来累加结果，注意要取模。\n\n为了加快计算，可以使用快速幂算法或者直接用 pow 函数并加上 mod。\n\n最终的时间复杂度是 O(N*K)，因为对于每个 l，最多有 N-l 个 r，每一步计算一次 (sum)^K，而 K 最大是 10。\n\n---\n\n### 代码\n\n```python\nimport sys\ninput = sys.stdin.read\n\nMOD = 998244353\n\ndef main():\n    data = input().split()\n    N = int(data[0])\n    K = int(data[1])\n    A = list(map(int, data[2:2+N]))\n    \n    # 前缀和数组\n    pre_sum = [0] * (N + 1)\n    for i in range(N):\n        pre_sum[i+1] = (pre_sum[i] + A[i]) % MOD\n    \n    result = 0\n    for l in range(1, N+1):\n        current_sum = 0\n        for r in range(l, N+1):\n            current_sum = (current_sum + A[r-1]) % MOD\n            # 计算 current_sum^K\n            power = pow(current_sum, K, MOD)\n            result = (result + power) % MOD\n    print(result)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772547596",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 0,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 22.40949058532715,
+  "response": "### 错误分析及改进方案\n1. **错误定位**：在 `sys.exit()` 调用时，程序会抛出一个异常，导致运行时错误。这是因为在某些环境中（如某些在线评测平台），直接使用 `sys.exit()` 可能不被允许或无法正常执行。\n2. **边界情况检查**：当输入为 `3` 个元素且全部相同时，循环应该能正确检测到这一情况，并输出 `\"Yes\"`。\n3. **改进方案**：避免使用 `sys.exit()`，而是通过控制流程直接返回结果，比如使用标志变量来标记是否找到了符合条件的情况。\n\n### 代码\n```python\nn = int(input())\na = list(map(int, input().split()))\n\nfound = False\nfor i in range(n - 2):\n    if a[i] == a[i + 1] == a[i + 2]:\n        found = True\n        break\n\nprint(\"Yes\" if found else \"No\")\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772551042",
+  "question_index": 2,
+  "question_id": "4",
+  "split": "train",
+  "sample_id": 11,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 25.154008388519287,
+  "response": "```python\nimport sys\ninput = sys.stdin.read\n\nMOD = 998244353\n\ndef main():\n    data = input().split()\n    N = int(data[0])\n    M = int(data[1])\n    S = data[2]\n\n    # dp[i][j] represents the number of ways to have a LCS of length j with the first i characters of S\n    dp = [[0] * (N + 1) for _ in range(M + 1)]\n    dp[0][0] = 1\n\n    # Precompute positions of each character in S\n    char_positions = {}\n    for idx, c in enumerate(S):\n        if c not in char_positions:\n            char_positions[c] = []\n        char_positions[c].append(idx)\n\n    for i in range(1, M + 1):\n        for j in range(N + 1):\n            # Case 1: The new character does not contribute to LCS\n            dp[i][j] = dp[i-1][j]\n            # Case 2: The new character contributes to LCS\n            if j > 0:\n                # For each possible character that can extend the LCS\n                prev = dp[i-1][j-1]\n                # The new character must match the (j-th) character in the LCS\n                # Count how many times the (j-th) character appears in S\n                count = len(char_positions.get(S[j-1], []))\n                dp[i][j] = (dp[i][j] + prev * count) % MOD\n\n    ans = [0] * (N + 1)\n    for k in range(N + 1):\n        ans[k] = dp[M][k]\n\n    print(' '.join(map(str, ans)))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

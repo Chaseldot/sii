@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772550233",
+  "question_index": 19,
+  "question_id": "130",
+  "split": "train",
+  "sample_id": 8,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 26.99210548400879,
+  "response": "```python\nimport sys\nfrom typing import List\n\ndef minimumCost(nums: List[int], cost: List[int], k: int) -> int:\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    n = len(nums)\n    prefix_sum = [0] * (n + 1)\n    for i in range(n):\n        prefix_sum[i + 1] = prefix_sum[i] + nums[i]\n    \n    # Precompute prefix sums of cost\n    prefix_cost = [0] * (n + 1)\n    for i in range(n):\n        prefix_cost[i + 1] = prefix_cost[i] + cost[i]\n    \n    dp = [float('inf')] * (n + 1)\n    dp[0] = 0\n    \n    for i in range(1, n + 1):\n        for j in range(i):\n            total_nums = prefix_sum[i] - prefix_sum[j]\n            total_cost = prefix_cost[i] - prefix_cost[j]\n            subarray_count = i - j\n            cost_i = (total_nums + k * subarray_count) * total_cost\n            dp[i] = min(dp[i], dp[j] + cost_i)\n    \n    return dp[n]\n```"
+}

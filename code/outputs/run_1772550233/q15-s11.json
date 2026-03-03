@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772550233",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 11,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 11.198606252670288,
+  "response": "```python\nimport sys\n\ndef solve():\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    P = list(map(int, data[1:N+1]))\n    \n    # Create a list of tuples (score, index)\n    people = [(P[i], i+1) for i in range(N)]\n    \n    # Sort the people by score in descending order\n    people.sort(reverse=True)\n    \n    # Initialize rank and a set to track determined ranks\n    rank = 1\n    current_score = None\n    group_size = 0\n    \n    for i in range(N):\n        if people[i][0] != current_score:\n            current_score = people[i][0]\n            group_size = 1\n            rank = i + 1\n        else:\n            group_size += 1\n        \n        # Assign the current rank to this person\n        people[i] = (people[i][0], people[i][1], rank)\n    \n    # Prepare result\n    result = [0] * (N + 1)  # 1-based indexing\n    for idx in range(N):\n        result[people[idx][1]] = people[idx][2]\n    \n    for i in range(1, N+1):\n        print(result[i])\n\nif __name__ == \"__main__\":\n    solve()\n```"
+}

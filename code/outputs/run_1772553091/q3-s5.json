@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772553091",
+  "question_index": 3,
+  "question_id": "6",
+  "split": "train",
+  "sample_id": 5,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.001640796661377,
+  "response": "### 分析\n\n题目要求我们判断一个给定的整数序列 $ A = (A_1, A_2, A_3) $，是否存在其任意排列 $ B = (B_1, B_2, B_3) $ 满足条件：$ B_1 \\times B_2 = B_3 $。\n\n由于这是一个三元组的排列问题，我们可以枚举所有可能的排列，共有 $ 3! = 6 $ 种可能。对于每一种排列，检查是否满足乘积等于第三个元素的条件。\n\n具体来说：\n\n- 枚举所有 3 个数字的全排列。\n- 对每个排列，计算前两个数的乘积，判断是否等于第三个数。\n- 若存在符合条件的排列，输出 \"Yes\"；否则输出 \"No\"。\n\n注意：无需担心数值溢出，因为输入范围是 $ 1 $ 到 $ 100 $，最大值为 $ 100 \\times 100 = 10^4 $，远小于 Python 的整数范围。\n\n---\n\n### 代码\n```python\nfrom itertools import permutations\n\n# Read input as a list of integers\nA = list(map(int, input().split()))\n\n# Generate all permutations of the list\nfor perm in permutations(A):\n    if perm[0] * perm[1] == perm[2]:\n        print(\"Yes\")\n        break\nelse:\n    print(\"No\")\n```"
+}

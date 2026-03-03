@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772550233",
+  "question_index": 8,
+  "question_id": "25",
+  "split": "train",
+  "sample_id": 6,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 44.61739754676819,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    X = int(data[1])\n    U = []\n    D = []\n    for i in range(N):\n        u = int(data[2 + 2*i])\n        d = int(data[2 + 2*i + 1])\n        U.append(u)\n        D.append(d)\n    \n    # Precompute the possible H values from min to max of U_i + D_i\n    min_H = min(U[i] + D[i] for i in range(N))\n    max_H = max(U[i] + D[i] for i in range(N))\n    \n    # Precompute the cost for each H in [min_H, max_H]\n    min_cost = float('inf')\n    for H in range(min_H, max_H + 1):\n        # For upper teeth, adjust to H - D[i]\n        # For lower teeth, adjust to H - U[i]\n        # If H - D[i] < 0 or H - U[i] < 0, it's invalid\n        cost = 0\n        for i in range(N):\n            cost += (U[i] - (H - D[i]))  # Adjust upper teeth\n            cost += (D[i] - (H - U[i]))  # Adjust lower teeth\n        min_cost = min(min_cost, cost)\n    \n    print(min_cost)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

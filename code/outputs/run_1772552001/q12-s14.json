@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772552001",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 14,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.987781286239624,
+  "response": "### 分析与思考：\n\n#### 输入输出格式：\n- **输入**：\n  - 第一行是整数 `N`（序列长度）。\n  - 第二行是 `N` 个整数组成的序列 `A`。\n- **输出**：\n  - 如果存在连续三个或以上相同元素，输出 `\"Yes\"`。\n  - 否则，输出 `\"No\"`。\n\n#### 约束条件：\n- $3 \\le N \\le 100$。\n- 每个元素 $A_i$ 是一个整数，且 $1 \\le A_i \\le 100$。\n  \n#### 解决思路：\n- 我们只需遍历整个序列，检查是否存在**连续三个相同**的元素。只要在遍历过程中发现连续三个相同的元素，即可立即返回 `\"Yes\"`。\n- 遍历时间复杂度为 $O(N)$，满足题目中的时间限制（1秒）。\n\n#### 边界情况处理：\n- 当 $N = 3$ 时，只需判断整个序列是否全是相同元素。\n- 当 $N > 3$ 时，需遍历每个位置（从索引 0 到 $N-3$）进行检查。\n\n---\n\n### Python代码实现如下：\n\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three consecutive equal elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        found = True\n        break\n\n# Output result\nprint(\"Yes\" if found else \"No\")\n```\n\n---\n\n### 代码说明：\n- 使用了简单的循环来迭代每个可能的位置，判断是否有连续三个相等的元素。\n- 对于所有边界情况都进行了覆盖（例如 N=3、全相同元素、完全无重复等）。\n\n此代码符合题意，能够通过所有测试用例。"
+}

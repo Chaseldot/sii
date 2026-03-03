@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772552001",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 10,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 4.354516267776489,
+  "response": "### 思路分析\n\n- **输入格式**: 第一行是整数 N，表示序列的长度；第二行是包含 N 个整数的数组 A。\n- **输出要求**: 如果数组中存在三个或更多相同元素连续出现，输出 `Yes`，否则输出 `No`。\n- **解法思路**: 遍历数组，判断是否有三个连续相同的元素。可以逐个比较当前元素、下一项和下下项，判断是否相等即可。\n- **时间复杂度**: O(N)，遍历一次数组就可以完成任务。\n- **边界情况处理**: 当 N=3 时，只需判断整个数组是否相同；当 N>3 时，检查所有可能的连续三个元素。\n\n---\n\n### Python代码实现\n\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three consecutive equal elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        found = True\n        break\n\n# Print result\nprint(\"Yes\" if found else \"No\")\n```"
+}

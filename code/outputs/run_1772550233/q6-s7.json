@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772550233",
+  "question_index": 6,
+  "question_id": "17",
+  "split": "train",
+  "sample_id": 7,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 5.539660930633545,
+  "response": "```python\nimport sys\n\ndef solve():\n    S = sys.stdin.read().strip()\n    result = []\n    i = 0\n    while i < len(S):\n        if i + 1 < len(S) and S[i] == 'W' and S[i+1] == 'A':\n            result.append('AC')\n            i += 2\n        else:\n            result.append(S[i])\n            i += 1\n    print(''.join(result))\n\nsolve()\n```"
+}

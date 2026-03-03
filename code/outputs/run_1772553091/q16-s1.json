@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772553091",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 1,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 4.856978178024292,
+  "response": "### 分析\n我们需要找出一个正整数 B，使得 A × B = 400。换句话说，B 必须是 400 的因数，并且大于 0。\n\n所以问题可以转化为：给定一个整数 A，判断是否存在一个正整数 B，使得 A × B = 400。如果存在，输出这个 B；否则输出 -1。\n\n解题步骤如下：\n1. 找出所有可能的因数对 (A, B) 满足 A × B = 400。\n2. 如果输入的 A 是其中一个因数，则对应的 B 就是 400 // A。\n3. 否则输出 -1。\n\n对于 A 来说，最大的可能是 400（此时 B = 1），而最小可能是 1（此时 B = 400）。\n\n因为 A 的取值范围是 [1, 400]，我们可以直接计算 B = 400 // A，并验证是否是整数（即 400 % A == 0）。\n\n---\n\n### 代码\n```python\n# Read input\nA = int(input())\n\n# Check if A is a divisor of 400\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```"
+}

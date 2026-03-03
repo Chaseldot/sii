@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772547596",
+  "question_index": 3,
+  "question_id": "6",
+  "split": "train",
+  "sample_id": 4,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.324108600616455,
+  "response": "### 分析\n这道题要求判断给定的三个整数是否可以重新排列为一个排列 $B = (B_1, B_2, B_3)$，使得满足条件 $B_1 \\times B_2 = B_3$。\n\n#### 关键约束\n- 三个输入值均为正整数，范围在 $1 \\leq A_i \\leq 100$。\n- 时间限制为 $1$ 秒，由于数据量较小，我们可以尝试所有可能的排列方式。\n\n#### 问题类型\n该问题属于**模拟**和**枚举**类型，因为我们需要检查所有可能的排列，并验证是否存在一种排列满足特定条件。\n\n#### 数学推导和规律\n对于输入的三个数字组成的所有排列 $(B_1, B_2, B_3)$，共有 $3! = 6$ 种可能。对于每个排列，我们只需检查其中是否有一个排列满足 $B_1 \\times B_2 = B_3$。\n\n#### 算法设计与复杂度分析\n- **算法设计**：枚举三种元素的所有排列（共6种），对每种排列检查是否满足 $B_1 \\times B_2 = B_3$。\n- **复杂度分析**：每个测试用例的处理时间为 $O(1)$，因为固定有6种排列需要检查。\n\n综上所述，只要穷举所有排列并检查条件即可解决问题。\n\n---\n\n### 代码\n```python\nfrom itertools import permutations\n\n# Read input values\nA = list(map(int, input().split()))\n\n# Check all permutations of the three numbers\nfor perm in permutations(A):\n    if perm[0] * perm[1] == perm[2]:\n        print(\"Yes\")\n        break\nelse:\n    print(\"No\")\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772544084",
+  "question_index": 3,
+  "question_id": "6",
+  "split": "train",
+  "sample_id": 2,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.023035049438477,
+  "response": "```python\nimport sys\n\ndef main():\n    # Read input\n    A = list(map(int, sys.stdin.readline().split()))\n    \n    # Check all permutations of A\n    from itertools import permutations\n    \n    for perm in permutations(A):\n        if perm[0] * perm[1] == perm[2]:\n            print(\"Yes\")\n            return\n    \n    print(\"No\")\n\nif __name__ == \"__main__\":\n    main()\n```\n\n### 思维过程：\n\n1. **深度解析**：\n   - 我们有三个整数 $A_1, A_2, A_3$。\n   - 我们需要检查是否存在一个排列 $B_1, B_2, B_3$，使得 $B_1 \\times B_2 = B_3$。\n   - 约束条件：每个输入值在 1 到 100 之间，因此所有可能的乘积和组合都很小。\n\n2. **逻辑推演**：\n   - 由于只有三个元素，我们可以枚举所有可能的排列（6 种）并检查是否满足条件 $B_1 \\times B_2 = B_3$。\n   - 使用 `itertools.permutations` 来生成所有可能的排列。\n   - 如果任意一种排列满足这个条件，则输出 \"Yes\"；否则输出 \"No\"。\n\n3. **高效实现**：\n   - 使用 `sys.stdin.readline()` 快速读取输入。\n   - 使用 `itertools.permutations` 来生成所有可能的排列，这是高效的枚举方式。\n   - 枚举所有排列并在一次遍历中检查条件，时间复杂度为 $O(6)$，完全适用于该问题。"
+}

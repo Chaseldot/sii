@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772553091",
+  "question_index": 9,
+  "question_id": "27",
+  "split": "train",
+  "sample_id": 15,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.0116167068481445,
+  "response": "### 分析  \n我们需要判断一个整数序列是否是**严格递增**的。严格递增的定义是：对于每一个 i (1 ≤ i < N)，必须满足 A[i] < A[i+1]。\n\n#### 步骤\n1. **输入处理**：首先读取整数 N 和数组 A。\n2. **遍历比较**：从第一个元素开始，逐个比较相邻两个元素，看是否满足严格递增条件。\n3. **输出结果**：如果所有相邻对都满足 A[i] < A[i+1]，则输出 \"Yes\"；否则，输出 \"No\"。\n4. **边界情况处理**：\n   - N 最小为 2，因此至少有两个元素；\n   - 元素值范围为 [1, 1000]，不会超出整数范围。\n\n由于 N 的最大值是 100，这题可以使用 O(N) 的算法轻松完成。\n\n---\n\n### 代码\n```python\n# 读取输入\nN = int(input())\nA = list(map(int, input().split()))\n\n# 判断是否严格递增\nis_strictly_increasing = True\nfor i in range(N - 1):\n    if A[i] >= A[i + 1]:\n        is_strictly_increasing = False\n        break\n\n# 输出结果\nprint(\"Yes\" if is_strictly_increasing else \"No\")\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772553091",
+  "question_index": 6,
+  "question_id": "17",
+  "split": "train",
+  "sample_id": 11,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 7.702723026275635,
+  "response": "### 分析\n这道题要求我们对字符串进行一系列操作：只要字符串中包含 \"WA\" 作为连续子串，就将最左边的 \"WA\" 替换为 \"AC\"。这个过程要重复直到字符串中不再包含 \"WA\"。\n\n#### 思路：\n1. **问题分析**：\n   - 需要不断查找并替换左侧第一个出现的 \"WA\"。\n   - 每次替换会影响后续查找的位置，所以需要逐个处理。\n\n2. **如何高效实现**：\n   - 用一个指针从左向右扫描字符串。\n   - 每次检查当前与下一个字符是否为 \"WA\"。\n   - 如果是，则替换为 \"AC\"，并将指针跳过这两个位置（因为这两个字符已经被替换）。\n   - 否则，指针向右移动一位继续查找。\n\n3. **时间复杂度考虑**：\n   - 每个字符最多被访问一次。\n   - 所以总的时间复杂度为 O(n)，其中 n 是字符串长度。\n\n4. **边界情况**：\n   - 字符串中没有 \"WA\"，直接返回原字符串。\n   - 输入为空或长度为 1，不会发生替换。\n\n#### 总体策略：\n- 使用一个循环遍历字符串。\n- 检查当前位置和下一位是否为 \"WA\"。\n- 如果是，则替换，并且跳过后面一个字符（因为替换为 \"AC\"，所以不需要再往前检查）。\n- 否则，继续向前。\n\n---\n\n### 代码\n```python\ndef main():\n    import sys\n    S = sys.stdin.readline().strip()\n    i = 0\n    n = len(S)\n    while i < n - 1:\n        if S[i] == 'W' and S[i + 1] == 'A':\n            # Found WA, replace it with AC\n            S = S[:i] + 'AC' + S[i + 2:]\n            n = len(S)  # Update the length after replacement\n            i = max(0, i - 1)  # Move back to check if there's a new WA created\n        else:\n            i += 1\n    print(S)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772553091",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 12,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 5.129063844680786,
+  "response": "### 分析\n题目要求我们根据输入的整数 A，找出一个正整数 B，使得 A × B = 400（即可以将 400 人排成 A 行 B 列的矩形）。如果不存在这样的 B，则输出 -1。\n\n因此，我们需要找到所有满足 A × B = 400 的正整数 B。由于 A 是已知的，所以 B 应该是 400 ÷ A 的商，并且这个商必须是整数。\n\n具体步骤如下：\n1. 首先判断 A 是否为 400 的因数。\n2. 如果是，则 B = 400 // A。\n3. 否则，输出 -1。\n\n注意：A 范围为 1 到 400，所以我们可以直接枚举所有可能的 A 值，计算对应的 B。\n\n### 代码\n```python\n# 读取输入\nA = int(input())\n\n# 检查 A 是否为 400 的因数\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```"
+}

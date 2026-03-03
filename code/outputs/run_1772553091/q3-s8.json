@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772553091",
+  "question_index": 3,
+  "question_id": "6",
+  "split": "train",
+  "sample_id": 8,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 10.207736730575562,
+  "response": "### 分析\n之前的错误是因为 `sys.exit()` 在某些 Python 环境中（如在线评测系统）无法正常工作，或者触发了异常。为了避免依赖系统退出函数，我们可以使用更简单的逻辑：一旦发现符合条件的排列组合，就打印 `\"Yes\"` 并直接跳出循环，而不使用 `sys.exit()`。\n\n此外，在当前的输入条件下（三个数字），我们始终可以检查所有排列组合，不会出现索引越界或类型不匹配的问题。\n\n---\n\n### 代码\n```python\nfrom itertools import permutations\n\n# Read input\nA = list(map(int, input().split()))\n\n# Check all permutations of A\nfound = False\nfor perm in permutations(A):\n    if perm[0] * perm[1] == perm[2]:\n        found = True\n        break\n\nprint(\"Yes\" if found else \"No\")\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772544084",
+  "question_index": 7,
+  "question_id": "20",
+  "split": "train",
+  "sample_id": 0,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 5.104214906692505,
+  "response": "```python\n# 1. 深度解析\n# 约束条件：\n# - S is a string consisting of digits with length between 1 and 100, inclusive.\n# - S contains at least one '2'.\n# 所以我们只需要处理字符串，去除所有不是'2'的字符，然后将剩下的字符连接起来即可。\n\n# 时间复杂度：O(N)，因为我们需要遍历整个字符串一次。\n\n# 2. 逻辑推演\n# 数学推导过程：\n# - 遍历输入字符串S中的每个字符。\n# - 如果字符是'2'，就保留；否则丢弃。\n# - 将保留的字符按原顺序拼接成新的字符串。\n\n# DP状态转移方程：不需要DP，直接遍历字符串即可。\n\n# 边界情况处理方案：\n# - 如果输入字符串只有'2'，则直接输出该字符串。\n# - 当输入字符串有多个'2'时，按照原顺序保留。\n\n# 3. 高效实现\nimport sys\n\ndef main():\n    # 使用sys.stdin.readline读取输入，提高I/O效率\n    S = sys.stdin.readline().strip()\n    \n    # 使用列表推导式过滤出所有'2'\n    result = ''.join([c for c in S if c == '2'])\n    \n    # 输出结果\n    print(result)\n\nif __name__ == '__main__':\n    main()\n```"
+}

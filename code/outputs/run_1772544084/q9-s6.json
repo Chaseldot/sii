@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772544084",
+  "question_index": 9,
+  "question_id": "27",
+  "split": "train",
+  "sample_id": 6,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 3.329273223876953,
+  "response": "```python\n# 思路解析:\n# 题目要求判断序列A是否严格递增。这意味着对于每个i (1 ≤ i < N),必须满足A[i] < A[i+1]\n# 因为N的范围在2到100之间,我们可以采用暴力方法遍历数组比较相邻元素\n# 时间复杂度为O(N)，完全符合要求\n\n# 代码实现:\nimport sys\n\ndef main():\n    # 读取输入\n    N = int(sys.stdin.readline())\n    A = list(map(int, sys.stdin.readline().split()))\n    \n    # 判断是否严格递增\n    for i in range(N - 1):\n        if A[i] >= A[i + 1]:\n            print(\"No\")\n            return\n    \n    print(\"Yes\")\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

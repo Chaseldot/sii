@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772550233",
+  "question_index": 9,
+  "question_id": "27",
+  "split": "train",
+  "sample_id": 4,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 2.1006863117218018,
+  "response": "```python\nimport sys\n\ndef solve():\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    A = list(map(int, data[1:N+1]))\n    for i in range(N-1):\n        if A[i] >= A[i+1]:\n            print(\"No\")\n            return\n    print(\"Yes\")\n\nif __name__ == \"__main__\":\n    solve()\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772544084",
+  "question_index": 9,
+  "question_id": "27",
+  "split": "train",
+  "sample_id": 13,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 5.057842016220093,
+  "response": "```python\n# 思路分析:\n# 本题的核心是判断给定整数序列是否严格递增。我们可以采用线性扫描的方式，逐个比较相邻元素。\n\n# 高效实现:\n# 由于N的范围较小(2<=N<=100)，可以采用O(N)的时间复杂度进行线性扫描。\n\n# 逻辑推演:\n# 我们需要遍历数组A，从第一个元素开始，依次检查A[i] < A[i+1]是否成立。\n# 如果所有相邻元素都满足这个条件，则输出Yes；否则输出No。\n\nimport sys\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    A = list(map(int, data[1:N+1]))\n    \n    for i in range(N-1):\n        if A[i] >= A[i+1]:\n            print(\"No\")\n            return\n    print(\"Yes\")\n\nif __name__ == \"__main__\":\n    main()\n```\n\n这段代码首先读取输入数据，然后通过一个简单的循环检查相邻元素是否严格递增。由于时间复杂度为O(N)，因此完全可以在给定的时间限制下处理最大规模的数据。"
+}

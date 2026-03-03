@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772553091",
+  "question_index": 11,
+  "question_id": "29",
+  "split": "train",
+  "sample_id": 6,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 42.08927321434021,
+  "response": "### 修复说明\n\n报错 `NameError: name 'bin' is not defined` 表明在代码中使用了 `bin()` 函数，但在某些环境中该函数没有被正确导入或调用。实际上，在 Python 中 `bin()` 是一个内置函数，无需显式导入。\n\n但是在本次问题中，我们发现：\n\n1. `bin()` 被用于统计某个整数二进制表示中的 `'1'` 的个数，这其实是多余的。\n2. 直接使用 `bit_count()` 方法（Python 3.10+）来统计二进制中 `1` 的数量更高效和简洁。\n\n此外，为了防止不必要的错误，我们对输入的每行数据进行严格的格式检查，并统一将每行字符串转换为整数。\n\n---\n\n### 修正后的完整代码\n\n```python\nimport sys\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    \n    H = int(data[0])\n    W = int(data[1])\n    \n    grid = []\n    for i in range(H):\n        row_str = data[2 + i]\n        # Ensure the string length is exactly W, and parse to integer (binary)\n        if len(row_str) != W:\n            raise ValueError(f\"Invalid row length: {len(row_str)}\")\n        row_int = int(row_str, 2)\n        grid.append(row_int)\n\n    min_total = float('inf')\n\n    # Try all possible column flip masks (0 to 2^W - 1)\n    for mask in range(1 << W):\n        total = 0\n        for row in grid:\n            row_after_flip = row ^ mask\n            total += row_after_flip.bit_count()  # Count of 1s in binary representation\n        min_total = min(min_total, total)\n\n    print(min_total)\n\nif __name__ == '__main__':\n    main()\n```\n\n---\n\n### 说明\n\n- 使用了 `int(row_str, 2)` 来将二进制字符串转为整数。\n- 使用了 `row_after_flip.bit_count()` 代替 `bin(row_after_flip).count('1')`，更加高效且简洁（尤其适用于 Python 3.10+）。\n- 对于边界情况，确保每个行字符串长度与 W 一致，避免因输入不规范导致错误。\n\n此版本应该能通过所有测试用例，并解决之前提到的所有问题。"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772550233",
+  "question_index": 2,
+  "question_id": "4",
+  "split": "train",
+  "sample_id": 6,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 25.61955761909485,
+  "response": "```python\nimport sys\nimport bisect\n\nMOD = 998244353\n\ndef solve():\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    M = int(data[1])\n    S = data[2]\n    \n    # Precompute powers of 26 modulo MOD up to M\n    pow26 = [1] * (M + 1)\n    for i in range(1, M + 1):\n        pow26[i] = (pow26[i - 1] * 26) % MOD\n    \n    # Precompute unique characters in S\n    unique_chars = sorted(set(S))\n    \n    # dp[i][j] represents the number of strings of length i that can form a LCS of length j with S\n    dp = [[0] * (N + 1) for _ in range(M + 1)]\n    dp[0][0] = 1\n    \n    for m in range(1, M + 1):\n        for l in range(N + 1):\n            # Case 1: current character is not in S\n            # We subtract the number of strings that could contribute to LCS >= l\n            # from total strings of length m-1\n            dp[m][l] = (pow26[m - 1] - (dp[m - 1][l] if l <= N else 0)) % MOD\n            # Case 2: current character matches a character in S at position l-1\n            if l > 0:\n                # Find the index of S[l-1] in unique_chars for bisect\n                idx = bisect.bisect_left(unique_chars, S[l - 1])\n                # Add the number of ways to form LCS of length l-1 with m-1 length strings\n                dp[m][l] = (dp[m][l] + dp[m - 1][l - 1]) % MOD\n            # Case 3: current character does not extend the LCS beyond l\n            if l > 0:\n                dp[m][l] = (dp[m][l] + dp[m - 1][l]) % MOD\n    \n    # Compute the answer for each k\n    ans = [0] * (N + 1)\n    for k in range(N + 1):\n        ans[k] = dp[M][k]\n    \n    print(' '.join(map(str, ans)))\n\nif __name__ == '__main__':\n    solve()\n```"
+}

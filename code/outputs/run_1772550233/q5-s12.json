@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772550233",
+  "question_index": 5,
+  "question_id": "13",
+  "split": "train",
+  "sample_id": 12,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 25.39423632621765,
+  "response": "```python\nimport sys\nimport bisect\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    Q = int(data[1])\n    A = list(map(int, data[2:2+N]))\n    \n    # Preprocess for each position, the minimum value up to that position\n    min_prefix = [0] * N\n    min_prefix[0] = A[0]\n    for i in range(1, N):\n        min_prefix[i] = min(min_prefix[i-1], A[i])\n    \n    # Preprocess for each position, the sorted list of elements up to that position\n    sorted_prefix = []\n    for i in range(N):\n        sorted_prefix.append(sorted(A[:i+1]))\n    \n    # Process queries\n    result = []\n    idx = 2 + N\n    for _ in range(Q):\n        R = int(data[idx])\n        X = int(data[idx+1])\n        idx += 2\n        \n        # Extract subsequence up to R\n        subseq = A[:R]\n        \n        # Use a greedy approach to find the longest strictly increasing subsequence <= X\n        length = 0\n        curr = -1\n        for num in subseq:\n            if num > X:\n                continue\n            if num > curr:\n                curr = num\n                length += 1\n        result.append(str(length))\n    \n    print('\\n'.join(result))\n\nif __name__ == '__main__':\n    main()\n```"
+}

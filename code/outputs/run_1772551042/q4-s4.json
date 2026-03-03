@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772551042",
+  "question_index": 4,
+  "question_id": "11",
+  "split": "train",
+  "sample_id": 4,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 11.664323329925537,
+  "response": "```python\nimport sys\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:N+1]))\n    Q = list(map(int, data[N+1:2*N+1]))\n    \n    # Create a mapping from bib number to person index (1-based)\n    bib_to_person = [0] * (N + 1)\n    for idx in range(N):\n        bib_to_person[Q[idx]] = idx + 1  # person index is 1-based\n    \n    # For each bib number i, find the bib of the person it is staring at\n    result = []\n    for i in range(1, N + 1):\n        target_person = P[i - 1]\n        result.append(str(Q[bib_to_person[target_person] - 1]))\n    \n    print(' '.join(result))\n\nif __name__ == '__main__':\n    main()\n```"
+}

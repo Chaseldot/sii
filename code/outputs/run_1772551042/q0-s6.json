@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772551042",
+  "question_index": 0,
+  "question_id": "0",
+  "split": "train",
+  "sample_id": 6,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 30.946165084838867,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    W = int(data[1])\n    positions = []\n    for i in range(N):\n        x = int(data[2 + 2*i])\n        y = int(data[3 + 2*i])\n        positions.append((x, y))\n    \n    Q = int(data[2 + 2*N])\n    queries = []\n    for i in range(Q):\n        t = int(data[2 + 2*N + 2*i])\n        a = int(data[2 + 2*N + 2*i + 1])\n        queries.append((t, a - 1))\n    \n    # Sort blocks by Y coordinate (initial position)\n    blocks = sorted([(y, x, i) for i, (x, y) in enumerate(positions)], key=lambda x: x[0])\n    block_ys = [b[0] for b in blocks]\n    block_xs = [b[1] for b in blocks]\n    block_indices = [b[2] for b in blocks]\n    \n    # For each block, track when it will be removed\n    remove_time = [0] * N\n    \n    # Process blocks from bottom to top\n    for i in range(N):\n        y, x, idx = blocks[i]\n        # The number of blocks below this one is i\n        # Each such block will make the current block move down\n        # So the time it takes for this block to fall is equal to the number of blocks below it\n        remove_time[idx] = i\n    \n    # Answer queries\n    for t, idx in queries:\n        if t >= remove_time[idx]:\n            print(\"No\")\n        else:\n            print(\"Yes\")\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

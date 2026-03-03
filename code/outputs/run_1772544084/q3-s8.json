@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772544084",
+  "question_index": 3,
+  "question_id": "6",
+  "split": "train",
+  "sample_id": 8,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.727073907852173,
+  "response": "```python\nimport sys\n\ndef main():\n    # Read the input\n    A = list(map(int, sys.stdin.readline().split()))\n    \n    # Check all permutations of A to see if any satisfy B_1 * B_2 == B_3\n    # Since there are only 3 elements, we can check all 6 permutations manually\n    \n    # Generate all permutations of A\n    from itertools import permutations\n    \n    for perm in permutations(A):\n        b1, b2, b3 = perm\n        if b1 * b2 == b3:\n            print(\"Yes\")\n            return\n    \n    # If no permutation satisfies the condition\n    print(\"No\")\n\nif __name__ == \"__main__\":\n    main()\n```\n\n### 解析：\n- **约束条件**：题目中给定的数组 `A` 有三个整数，范围为 1 到 100。\n- **理论时间复杂度**：由于只需要检查所有 3! = 6 种排列方式，因此时间和空间复杂度都很低，均为 O(1)。\n- **特殊性分析**：该问题本质上是检查一个三元组是否可以通过重排使得其中两个数的乘积等于第三个数。这可以通过简单枚举所有排列并检查条件来解决。\n\n### 逻辑推演：\n- **数学推导过程**：我们只需要判断是否存在一种排列方式，使得其中一个元素是其他两个元素的乘积。\n- **DP状态转移方程**：本题不需要动态规划，而是直接通过排列检查即可。\n- **边界情况处理方案**：由于元素值范围较小，直接遍历所有可能的排列即可。\n\n### 高效实现：\n- 使用了 `itertools.permutations` 来生成所有排列。\n- 因为输入规模小，没有使用任何优化手段，直接暴力检查所有排列即可解决问题。"
+}

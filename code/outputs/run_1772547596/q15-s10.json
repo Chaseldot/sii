@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772547596",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 10,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 11.573312759399414,
+  "response": "### 分析\n这道题要求根据每个人的分数确定其排名。排名的规则是：每次找到当前未确定排名的所有人中分数最高的分数，将所有获得该分数的人的排名设为当前的r，然后r增加这些人的数量。\n\n我们可以用如下思路解决此问题：\n\n1. **关键约束分析**：\n   - N（人数）的范围是 1 到 100。\n   - 每个人的分数 P_i 的范围是 1 到 100。\n   - 输入数据量较小，因此可以直接使用较为直观的方法处理。\n\n2. **问题类型与推导**：\n   - 该问题可以归类为模拟问题。我们需要按照步骤逐个处理，直到所有人的排名都确定。\n   - 排名的规则类似于“按分数降序处理”，相同分数的人具有相同的排名，但他们的排名会使得后续排名跳过这些人数。\n\n3. **算法设计**：\n   - 使用一个数组或字典保存每个人当前的排名状态（初始时都是 `None`）。\n   - 维护一个优先队列（如最大堆），用于快速取出当前最高的分数。\n   - 逐步确定每组同分者的排名，并更新当前的 r 值。\n   - 在每一步操作中，确保每个分数只被处理一次。\n   - 对于相同分数的多人，他们得到相同的排名，但 r 会被加上该组人数后继续处理。\n\n4. **复杂度分析**：\n   - 每次处理最多需要遍历整个列表来找到最高分（O(N)），最多进行 N 次这样的操作，因此总的复杂度为 O(N^2)。\n   - 对于 N = 100，N² = 10000，在 Python 中是可以轻松处理的。\n\n### 代码\n```python\nimport sys\nimport heapq\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:]))\n    \n    # 初始化 rank 数组，None 表示尚未确定排名\n    rank = [None] * N\n    r = 1\n    \n    # 使用最大堆，存储元组(-score, index)，以实现最大堆\n    heap = [(-P[i], i) for i in range(N)]\n    heapq.heapify(heap)\n    \n    while heap:\n        # 取出当前最高分\n        current_score_neg, index = heapq.heappop(heap)\n        current_score = -current_score_neg\n        \n        # 找到所有当前未确定排名且分数等于 current_score 的人\n        same_scores = []\n        while heap and -heap[0][0] == current_score:\n            score_neg, idx = heapq.heappop(heap)\n            same_scores.append(idx)\n        \n        # 添加当前处理的人\n        same_scores.append(index)\n        \n        # 确定这些人的排名\n        for idx in same_scores:\n            rank[idx] = r\n        \n        # 更新 r\n        r += len(same_scores)\n    \n    for rnk in rank:\n        print(rnk)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772552001",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 12,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 4.596137523651123,
+  "response": "### 思路分析\n\n我们需要找到一个正整数 `B`，使得总人数为 400 的人可以排列成一个 `A` 行 `B` 列的矩形，也就是说必须满足以下等式：\n\n$$\nA \\times B = 400\n$$\n\n因此，我们只需要找出 `400` 的所有因数，并选择其中一个是 `A` 的因数。对于给定的 `A`，如果 `400 % A == 0`，那么我们可以令 $ B = \\frac{400}{A} $；否则输出 `-1`。\n\n---\n\n### Python代码实现\n\n```python\n# Read input from standard input\nA = int(input())\n\n# Check if A divides 400 exactly\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```"
+}

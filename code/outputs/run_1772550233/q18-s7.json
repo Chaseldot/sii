@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772550233",
+  "question_index": 18,
+  "question_id": "64",
+  "split": "train",
+  "sample_id": 7,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 20.999201774597168,
+  "response": "```python\nimport sys\n\ndef solve():\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    A = list(map(int, data[1:]))\n    \n    if all(a == 1 for a in A):\n        print(\"Yes\")\n        return\n    \n    # Check if there's at least one 0\n    has_zero = any(a == 0 for a in A)\n    if not has_zero:\n        print(\"No\")\n        return\n    \n    # Check if there's a way to form \"ARC\" or \"CRA\" pattern in the string S\n    # We can always construct such patterns unless the positions are fixed in a way that makes it impossible.\n    # However, there is a special case when all A are 0 and the number of 0s is not enough to allow operations.\n    # Let's count the number of zeros and see if we can use them to apply the operation.\n    # Each operation requires exactly two zeros (since we replace two elements with ones).\n    # So, the number of zeros must be at least 2.\n    count_zero = A.count(0)\n    if count_zero < 2:\n        print(\"No\")\n        return\n    \n    # Also, the pattern needs to be formed. For example, if the sequence is 0 0 1 1 1 1, but no position allows the operation, then output No.\n    # To detect this, check if there exists an index i where A[i] is 0 and either A[i+1] or A[i+2] is also 0, considering wrap-around.\n    found = False\n    for i in range(N):\n        j = (i + 1) % N\n        k = (i + 2) % N\n        if A[i] == 0 and A[j] == 0:\n            found = True\n            break\n        if A[i] == 0 and A[k] == 0:\n            found = True\n            break\n    if not found:\n        print(\"No\")\n    else:\n        print(\"Yes\")\n\nsolve()\n```"
+}

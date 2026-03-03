@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772550233",
+  "question_index": 18,
+  "question_id": "64",
+  "split": "train",
+  "sample_id": 3,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 34.92145347595215,
+  "response": "```python\nimport sys\n\ndef solve():\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    A = list(map(int, data[1:]))\n    \n    if all(a == 1 for a in A):\n        print(\"Yes\")\n        return\n    \n    # We need to determine if there exists a good string such that we can perform the operations to turn all A_i to 1.\n    # The two operations are triggered by specific patterns in the string S. Since S is arbitrary, our focus is on the positions of 0s in A.\n\n    # The operations:\n    # 1. If there's a pattern \"ARC\" in S (i.e., S[i] = 'A', S[i+1] = 'R', S[i+2] = 'C'), then A[i] and A[i+1] become 1.\n    # 2. If there's a pattern \"CRA\" in S (i.e., S[i] = 'C', S[i+1] = 'R', S[i+2] = 'A'), then A[i] and A[i+1] become 1.\n\n    # These operations can be thought of as transforming the 0s in A when certain conditions are met.\n\n    # Let's simulate the process greedily. We will try to cover the zeros using the allowed operations.\n    # For each zero, we check both operations and see if we can apply them. We simulate this in a loop.\n\n    # To manage wrap-around, we use modulo arithmetic.\n\n    # Convert A to a mutable list\n    A = [a for a in A]\n    zero_positions = [i for i in range(N) if A[i] == 0]\n\n    i = 0\n    while i < len(A):\n        if A[i] == 0:\n            # Check operation 1: Look for \"ARC\" pattern\n            if (i + 1) % N != i and A[(i + 1) % N] == 1 and (i + 2) % N != i and A[(i + 2) % N] == 1:\n                A[i] = 1\n                A[(i + 1) % N] = 1\n                i += 1\n            # Check operation 2: Look for \"CRA\" pattern\n            elif (i - 1) % N != i and A[(i - 1) % N] == 1 and (i - 2) % N != i and A[(i - 2) % N] == 1:\n                A[i] = 1\n                A[(i - 1) % N] = 1\n                i += 1\n            else:\n                # No applicable operation found for this position\n                print(\"No\")\n                return\n        else:\n            i += 1\n\n    print(\"Yes\")\n\nsolve()\n```"
+}

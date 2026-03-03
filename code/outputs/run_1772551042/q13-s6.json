@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772551042",
+  "question_index": 13,
+  "question_id": "43",
+  "split": "train",
+  "sample_id": 6,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 13.194679260253906,
+  "response": "```python\nimport sys\n\ndef shortest_palindrome(s):\n    n = len(s)\n    max_len = 0\n    center = 0\n    # Find the longest palindromic prefix\n    for i in range(n):\n        # Odd length palindrome\n        l, r = i, i\n        while l >= 0 and r < n and s[l] == s[r]:\n            l -= 1\n            r += 1\n        if r - l - 1 > max_len:\n            max_len = r - l - 1\n            center = i\n        # Even length palindrome\n        l, r = i, i + 1\n        while l >= 0 and r < n and s[l] == s[r]:\n            l -= 1\n            r += 1\n        if r - l - 1 > max_len:\n            max_len = r - l - 1\n            center = i\n    # Calculate the part to reverse\n    start = n - max_len\n    return s + s[start:][::-1]\n\ndef main():\n    import sys\n    input = sys.stdin.read().strip()\n    if not input:\n        print(input)\n        return\n    print(shortest_palindrome(input))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772550233",
+  "question_index": 0,
+  "question_id": "0",
+  "split": "train",
+  "sample_id": 1,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 27.402406215667725,
+  "response": "```python\nimport sys\nimport bisect\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    idx = 0\n    N = int(data[idx])\n    idx += 1\n    W = int(data[idx])\n    idx += 1\n    \n    blocks = []\n    for i in range(N):\n        x = int(data[idx])\n        idx += 1\n        y = int(data[idx])\n        idx += 1\n        blocks.append((x, y, i))  # (x, y, original index)\n    \n    Q = int(data[idx])\n    idx += 1\n    \n    queries = []\n    for _ in range(Q):\n        t = int(data[idx])\n        idx += 1\n        a = int(data[idx])\n        idx += 1\n        queries.append((t, a - 1))  # (time, index in blocks list)\n    \n    # Sort blocks by Y and then X\n    blocks.sort(key=lambda b: (b[1], b[0]))\n    \n    # For each column, sort the positions and calculate how many times each block falls\n    from collections import defaultdict\n    col_blocks = defaultdict(list)\n    for x, y, _ in blocks:\n        col_blocks[x].append(y)\n    \n    # For each column, sort and determine how many blocks fall before each one\n    drop_counts = [0] * N\n    for x in col_blocks:\n        ys = sorted(col_blocks[x])\n        for i in range(len(ys)):\n            # For the block at position ys[i], there are (len(ys) - i - 1) blocks below it\n            # The block will fall that many times before being removed\n            # Find the index of the block in blocks\n            for j in range(len(blocks)):\n                if blocks[j][0] == x and blocks[j][1] == ys[i]:\n                    drop_counts[j] = len(ys) - i - 1\n                    break\n    \n    # Process queries\n    output = []\n    for t, a in queries:\n        if drop_counts[a] < t:\n            output.append(\"Yes\")\n        else:\n            output.append(\"No\")\n    \n    print(\"\\n\".join(output))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772553091",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 15,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 8.62400770187378,
+  "response": "### 分析\n我们需要根据每个人的得分来确定他们的排名。题目的核心逻辑是不断选择当前未确定排名的人中最高分的那些人，给它们分配当前的排名 `r`，然后将 `r` 增加这些人的数量。\n\n具体步骤如下：\n1. 初始化一个数组 `rank` 来保存每个人的结果。\n2. 使用一个优先队列（堆）或排序方法来维护当前未确定排名的人员的数据。\n3. 每次从剩余人员中选出最大值，并记录有多少人获得了相同的最大值。\n4. 将这些人的排名设为当前的 `r`。\n5. 将 `r` 更新为 `r + count`。\n6. 重复直到所有人的排名都被确定。\n\n由于 N 的范围较小（≤ 100），所以我们可以使用简单的排序和遍历方式。\n\n算法复杂度约为 O(N^2)，这在给定的约束下是可以接受的。\n\n### 代码\n```python\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:]))\n    \n    # Initialize rank array with 0s (to represent undetermined)\n    rank = [0] * N\n    \n    # Create a list of tuples (score, index) to track person's score and position\n    people = [(P[i], i) for i in range(N)]\n    \n    r = 1  # current rank\n    \n    while people:\n        # Find the max score\n        max_score = max(p[0] for p in people)\n        # Filter all people with this max score\n        max_people = [p for p in people if p[0] == max_score]\n        \n        # Assign rank to these people\n        for p in max_people:\n            rank[p[1]] = r\n        \n        # Update r for the next group\n        r += len(max_people)\n        \n        # Remove processed people from the list\n        people = [p for p in people if p[0] != max_score]\n    \n    for rnk in rank:\n        print(rnk)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

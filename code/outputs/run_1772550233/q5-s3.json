@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772550233",
+  "question_index": 5,
+  "question_id": "13",
+  "split": "train",
+  "sample_id": 3,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 27.059690475463867,
+  "response": "```python\nimport sys\nimport bisect\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    Q = int(data[1])\n    A = list(map(int, data[2:2+N]))\n    queries = []\n    idx = 2 + N\n    for _ in range(Q):\n        R = int(data[idx])\n        X = int(data[idx+1])\n        queries.append((R, X))\n        idx += 2\n    \n    # Preprocess the array for each prefix\n    # For each position i, we'll store a sorted list of elements up to that point\n    sorted_prefixes = []\n    current_sorted = []\n    for num in A:\n        bisect.insort(current_sorted, num)\n        sorted_prefixes.append(current_sorted.copy())\n    \n    # Now for each query\n    results = []\n    for R, X in queries:\n        # Extract the elements up to R-1\n        subarray = sorted_prefixes[R-1]\n        # Filter elements <= X\n        # Since the subarray is sorted, we can use bisect to find the upper bound\n        max_index = bisect.bisect_right(subarray, X)\n        filtered = subarray[:max_index]\n        \n        # The longest strictly increasing subsequence in a sorted list is the number of unique elements\n        # So, we count the number of unique elements in the filtered list\n        unique_count = 0\n        prev = -1\n        for num in filtered:\n            if num > prev:\n                unique_count += 1\n                prev = num\n        results.append(unique_count)\n    \n    print('\\n'.join(map(str, results)))\n\nif __name__ == '__main__':\n    main()\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772547596",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 14,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 10.360201835632324,
+  "response": "### 分析\n本题要求我们根据每位参赛者的得分来确定他们的排名。题目中给出的排名规则是：按分数从高到低依次为当前未确定排名的人分配排名。对于相同分数的人，他们获得相同的排名，且下一个人的排名等于该组人数加上当前排名。\n\n#### 关键约束\n- N 的范围是 1 ≤ N ≤ 100。\n- 每个 P_i 的取值范围是 1 ≤ P_i ≤ 100。\n- 时间限制是 1 秒，所以我们需要一个线性或对数级别的算法。\n\n#### 题型分析\n这是一道模拟题，核心思想是按照分数从高到低排序，并跟踪每个分数对应的排名变化。\n\n#### 推导数学规律\n1. 我们首先将所有人的成绩和索引（编号）存入列表。\n2. 我们需要按成绩从高到低对所有人进行排序。注意，当多个成绩相同时，它们的排名应该相同。\n3. 我们维护一个变量 r，初始为 1。它表示下一个要分配的排名。\n4. 在每一步中，找出所有未被分配排名的人中最高分，然后统计有多少人拥有这个最高分。\n5. 这些人的排名都设置为 r，r 然后增加这些人的数量。\n\n#### 算法设计\n我们可以用如下步骤实现：\n1. 读取输入，并构造一个包含 (P_i, i) 的列表，其中 i 表示人的编号。\n2. 将该列表按 P_i 降序排序。\n3. 初始化一个数组 `rank` 来保存每个人的排名。\n4. 遍历排序后的列表，按分组处理相同分数的人。\n5. 对于每个分数分组，计算其对应的排名并更新数组。\n\n#### 复杂度分析\n- 排序的时间复杂度是 O(N log N)。\n- 遍历过程的时间复杂度是 O(N)。\n- 总体时间复杂度满足题目的要求。\n\n### 代码\n```python\nn = int(input())\np = list(map(int, input().split()))\npeople = [(p[i], i + 1) for i in range(n)]\npeople.sort(reverse=True)\n\nrank = [0] * (n + 1)  # 1-based indexing for people\ncurrent_rank = 1\n\ni = 0\nwhile i < n:\n    current_score = people[i][0]\n    j = i\n    while j < n and people[j][0] == current_score:\n        j += 1\n    count = j - i\n    for k in range(i, j):\n        rank[people[k][1]] = current_rank\n    current_rank += count\n    i = j\n\nfor i in range(1, n + 1):\n    print(rank[i])\n```"
+}

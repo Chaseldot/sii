@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772544084",
+  "question_index": 7,
+  "question_id": "20",
+  "split": "train",
+  "sample_id": 11,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 3.6468448638916016,
+  "response": "```python\n# Step 1: Depth Analysis\n# - The input string S consists of digits and can be up to length 100.\n# - We need to remove all characters except '2' and concatenate the remaining ones.\n# - Time complexity is O(N), where N is the length of the string, which is acceptable for the given constraints.\n\n# Step 2: Logic Deduction\n# - Iterate through each character in the input string.\n# - Collect all occurrences of '2'.\n# - Concatenate these '2's to form the resulting string.\n# - Boundary case: Ensure the string contains at least one '2', which is guaranteed by the problem constraints.\n\n# Step 3: Efficient Implementation\nimport sys\n\ndef main():\n    S = sys.stdin.readline().strip()\n    result = ''.join([c for c in S if c == '2'])\n    print(result)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

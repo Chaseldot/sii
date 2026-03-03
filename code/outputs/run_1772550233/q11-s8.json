@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772550233",
+  "question_index": 11,
+  "question_id": "29",
+  "split": "train",
+  "sample_id": 8,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 44.56395626068115,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    H = int(data[0])\n    W = int(data[1])\n    grid = data[2:H+2]\n    \n    # Convert each row to a tuple of integers\n    rows = []\n    for row in grid:\n        rows.append(tuple(map(int, row)))\n    \n    # Precompute the number of 1s in each row\n    row_ones = [sum(row) for row in rows]\n    \n    # Try all possible combinations of Y operations (since W is small)\n    min_sum = float('inf')\n    for mask in range(1 << W):\n        # Calculate the number of 1s in each row after applying Y operations\n        new_row_ones = []\n        for i in range(H):\n            total = 0\n            for j in range(W):\n                if (mask >> j) & 1:\n                    total += (1 - rows[i][j])\n                else:\n                    total += rows[i][j]\n            new_row_ones.append(total)\n        \n        # Apply X operations optimally\n        # For each row, decide whether to flip it based on the number of 1s\n        total = 0\n        for ones in new_row_ones:\n            if ones > H - ones:\n                total += (H - ones)\n            else:\n                total += ones\n        \n        min_sum = min(min_sum, total)\n    \n    print(min_sum)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772551042",
+  "question_index": 2,
+  "question_id": "4",
+  "split": "train",
+  "sample_id": 2,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 27.612043142318726,
+  "response": "```python\nimport sys\n\nMOD = 998244353\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    M = int(data[1])\n    S = data[2]\n\n    # Precompute the positions of each character in S\n    char_pos = {}\n    for i, c in enumerate(S):\n        if c not in char_pos:\n            char_pos[c] = []\n        char_pos[c].append(i)\n\n    # Initialize dp table: dp[m][l] = number of strings of length m with LCS length l\n    dp = [[0] * (N + 1) for _ in range(M + 1)]\n    dp[0][0] = 1\n\n    # Fill the DP table\n    for m in range(1, M + 1):\n        for l in range(N + 1):\n            # Case 1: current character is not in S\n            dp[m][l] = (dp[m][l] + (26 - len(char_pos)) * dp[m - 1][l]) % MOD\n            # Case 2: current character is in S, and we can extend a subsequence\n            for c in char_pos:\n                for pos in char_pos[c]:\n                    if l > 0:\n                        dp[m][l] = (dp[m][l] + dp[m - 1][l - 1]) % MOD\n                    else:\n                        dp[m][l] = (dp[m][l] + dp[m - 1][l]) % MOD\n\n    # Compute the answer for each k from 0 to N\n    ans = [0] * (N + 1)\n    for k in range(N + 1):\n        # Count number of strings with LCS length exactly k\n        cnt_k = dp[M][k]\n        for i in range(k + 1, N + 1):\n            cnt_k = (cnt_k - dp[M][i]) % MOD\n        ans[k] = cnt_k\n\n    print(' '.join(map(str, ans)))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

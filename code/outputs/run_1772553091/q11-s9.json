@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772553091",
+  "question_index": 11,
+  "question_id": "29",
+  "split": "train",
+  "sample_id": 9,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 44.811387062072754,
+  "response": "### 分析\n\n在之前的尝试中，时间复杂度过高，主要原因是对于每个列翻转状态（mask）我们逐行地重新计算当前行的总和。这在最坏情况下会导致 H × 2^W 的运算量。\n\n我们可以通过以下优化手段来减少时间消耗：\n\n1. **预处理每行对不同列翻转状态的贡献**  \n   我们可以预先生成一个值，表示每一行在没有翻转行的情况下，对于每一个可能的列翻转状态（mask）的“当前总和”。\n   - 考虑到每一列是否被翻转（即mask的第j位是0或1），那么对应的每一位的值应该是 `grid[i][j] ^ ((mask >> j) & 1)`。\n   - 因此，我们可以将每一行转换为一个整数形式的二进制数，并利用位运算快速计算出该行在某个掩码下的总和。\n\n2. **快速计算当前行总和的方法**  \n   对于每个mask，计算该行的总和可以通过一个快速公式：\n   - 对于该行的原始二进制表示 `row_num`，其在mask下反转对应列后的总和 = `bin( row_num ^ mask ).count('1')`\n   - 然后判断是否要翻转该行，即：总和是否超过W - 总和？\n\n---\n\n### 代码\n```python\nimport sys\n\ndef main():\n    input = sys.stdin.read().split()\n    H = int(input[0])\n    W = int(input[1])\n    grid_rows = []\n    idx = 2\n    for _ in range(H):\n        row_str = input[idx]\n        row_num = int(row_str, 2)\n        grid_rows.append(row_num)\n        idx += 1\n\n    min_total = float('inf')\n\n    # 枚举所有列翻转的状态（mask）\n    for mask in range(1 << W):\n        total_row_sum = 0\n        for row in grid_rows:\n            # 计算反转该行后的总和（当前列翻转方式）\n            row_after_mask = row ^ mask\n            current_row_sum = bin(row_after_mask).count('1')\n            # 判断是否翻转该行\n            if current_row_sum > (W - current_row_sum):\n                current_row_sum = W - current_row_sum\n            total_row_sum += current_row_sum\n        min_total = min(min_total, total_row_sum)\n\n    print(min_total)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772550233",
+  "question_index": 11,
+  "question_id": "29",
+  "split": "train",
+  "sample_id": 2,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 27.630491495132446,
+  "response": "```python\nimport sys\n\ndef solve():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    H = int(data[0])\n    W = int(data[1])\n    grid = data[2:2+H]\n    \n    # Convert each row to a list of integers\n    grid = [list(map(int, row)) for row in grid]\n    \n    # Since W is small (≤ 18), we can use bitmasking and dynamic programming\n    # We'll represent each row as a bitmask (integer)\n    rows = []\n    for i in range(H):\n        mask = 0\n        for j in range(W):\n            mask = (mask << 1) | grid[i][j]\n        rows.append(mask)\n    \n    # For each row, we can choose to flip it or not (since flipping is equivalent to XOR with a bit mask)\n    # The goal is to minimize the total sum, which is equivalent to minimizing the number of 1s\n    # We can precompute the number of 1s in each row for both states (flipped and not flipped)\n    \n    # Precompute the number of 1s in each row for both states (flipped and not flipped)\n    row_ones = []\n    for mask in rows:\n        cnt = bin(mask).count('1')\n        row_ones.append(cnt)\n    \n    # For each column, we can decide whether to flip it or not\n    # But since flipping a column affects all rows, we need to try all combinations of column flips\n    # There are 2^W possible combinations of column flips, which is manageable for W ≤ 18\n    \n    min_total = float('inf')\n    # Try all possible column flip combinations\n    for col_flip in range(1 << W):\n        current_total = 0\n        # For each row, calculate the number of 1s considering possible column flips\n        for i in range(H):\n            mask = rows[i]\n            # Apply column flips\n            flipped_mask = mask\n            for j in range(W):\n                if (col_flip >> j) & 1:\n                    flipped_mask ^= (1 << j)\n            current_total += bin(flipped_mask).count('1')\n        min_total = min(min_total, current_total)\n    \n    print(min_total)\n\nsolve()\n```"
+}

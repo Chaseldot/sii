@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772552001",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 4,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 4.231771230697632,
+  "response": "### 思路分析：\n\n- 题目要求我们找到一个正整数 `B` 使得 `A * B = 400`。\n- 因此，我们需要找出 `400` 的因数对 `(A, B)`，其中 `A` 是输入的值，`B` 是我们要找的结果。\n- 如果 `A` 不是 `400` 的因数，则输出 `-1`。\n\n### 算法步骤：\n\n1. 输入一个正整数 `A`。\n2. 判断 `400 % A == 0` 是否成立。如果成立，计算 `B = 400 // A`。\n3. 否则，输出 `-1`。\n\n该算法的时间复杂度为 $O(1)$，因为 `A` 的范围很小（最多是 400），所以可以直接判断。\n\n---\n\n```python\n# Read input from standard input\nA = int(input())\n\n# Check if A is a divisor of 400\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```"
+}

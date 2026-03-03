@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772550233",
+  "question_index": 8,
+  "question_id": "25",
+  "split": "train",
+  "sample_id": 3,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 26.416354656219482,
+  "response": "```python\nimport sys\n\ndef solve():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    X = int(data[1])\n    \n    U = []\n    D = []\n    \n    idx = 2\n    for _ in range(N):\n        u = int(data[idx])\n        d = int(data[idx + 1])\n        U.append(u)\n        D.append(d)\n        idx += 2\n    \n    # For each i, U[i] + D[i] = H. So H can be any value, and we need to adjust U or D.\n    # The cost is the sum of |U[i] - (H - D[i])| + |D[i] - (H - U[i])| for all i\n    # Which simplifies to 2 * sum(|U[i] + D[i] - H|) for all i\n    # Because |U[i] - (H - D[i])| = |U[i] + D[i] - H| and same for D[i]\n    \n    # To minimize the total cost, H should be chosen such that it's the median of all U[i] + D[i]\n    H_values = [U[i] + D[i] for i in range(N)]\n    H_values.sort()\n    optimal_H = H_values[N // 2]\n    \n    total_cost = 0\n    for i in range(N):\n        total_cost += abs(U[i] + D[i] - optimal_H)\n    \n    print(total_cost)\n\nsolve()\n```"
+}

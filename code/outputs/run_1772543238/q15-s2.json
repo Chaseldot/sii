@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772543238",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 2,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 7.9304773807525635,
+  "response": "To solve this problem, we need to determine the rank of each person based on their scores according to the provided procedure. The key idea is to repeatedly find the maximum score among the people whose ranks are still undetermined, assign them the current rank `r`, and then update `r` by adding the number of people with that score.\n\nHere's how we can approach the solution:\n\n1. **Read Input:** Read the number of people and their scores.\n2. **Track Undetermined Ranks:** Use a boolean array or list to track which people have been assigned ranks.\n3. **Find Maximum Score:** For each iteration, find the maximum score among those with undetermined ranks.\n4. **Assign Ranks:** Assign the current rank `r` to all people with that maximum score, and increment `r` accordingly.\n5. **Repeat Until All Ranks Are Assigned:** Continue the process until all people have their ranks determined.\n\nNow, here’s the complete Python code implementing the above logic:\n\n```python\n# Read input\nN = int(input())\nP = list(map(int, input().split()))\n\n# Initialize variables to keep track of undetermined ranks and ranks\nundetermined = [True] * N  # True means rank is undetermined\nrank = [0] * N  # To store the final rank of each person\ncurrent_rank = 1\n\n# Process until all ranks are determined\nwhile True:\n    # Find the maximum score among undetermined people\n    max_score = -1\n    for i in range(N):\n        if undetermined[i] and P[i] > max_score:\n            max_score = P[i]\n    \n    # If there are no more undetermined people, break\n    if max_score == -1:\n        break\n    \n    # Count how many people have this max score and are undetermined\n    count = 0\n    for i in range(N):\n        if undetermined[i] and P[i] == max_score:\n            count += 1\n    \n    # Assign the current_rank to these people\n    for i in range(N):\n        if undetermined[i] and P[i] == max_score:\n            rank[i] = current_rank\n            undetermined[i] = False\n    \n    # Update current_rank\n    current_rank += count\n\n# Print the rank of each person\nfor r in rank:\n    print(r)\n```"
+}

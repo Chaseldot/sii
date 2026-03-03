@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772547596",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 5,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.773468494415283,
+  "response": "### 分析\n1. **关键约束**：\n   - N的范围是3到100，这意味着我们可以使用O(N)复杂度的算法来解决问题。\n   - 时间限制为1秒，因此可以接受线性时间算法。\n   \n2. **问题类型**：\n   - 该问题属于模拟类型。我们只需要遍历数组，检查是否存在连续三个相同的元素。\n\n3. **数学推导与规律**：\n   - 题目的核心是判断是否有连续三个相同的元素。\n   - 对于数组A，我们可以通过遍历数组，从第1个元素开始，依次比较当前元素、下两个元素是否相等。\n   - 如果发现有三个连续相等的元素（即A[i] == A[i+1] == A[i+2]），则返回“Yes”；否则，遍历完成后返回“No”。\n\n4. **算法设计**：\n   - 遍历数组，从i = 0开始，直到i = N-3。\n   - 对每个i，检查A[i], A[i+1], A[i+2]是否相同。\n   - 若存在这样的i，则输出\"**Yes**\"。\n   - 否则，输出\"**No**\"。\n\n5. **复杂度分析**：\n   - 时间复杂度为O(N)，因为我们只需遍历数组一次。\n   - 空间复杂度为O(1)，因为不需要额外存储数据。\n\n### 代码\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three consecutive equal elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        found = True\n        break\n\n# Output the result\nprint(\"Yes\" if found else \"No\")\n```"
+}

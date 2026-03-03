@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772550233",
+  "question_index": 11,
+  "question_id": "29",
+  "split": "train",
+  "sample_id": 3,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 40.09420847892761,
+  "response": "```python\nimport sys\nimport itertools\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    H = int(data[0])\n    W = int(data[1])\n    grid = data[2:H+2]\n    \n    # Convert each row to a list of integers\n    for i in range(H):\n        grid[i] = [int(c) for c in grid[i]]\n    \n    # For each column, calculate the number of 1s\n    col_counts = [0] * W\n    for i in range(H):\n        for j in range(W):\n            col_counts[j] += grid[i][j]\n    \n    min_sum = float('inf')\n    \n    # Try all possible combinations of flipping columns (since W <= 18, this is feasible)\n    for bits in itertools.product([0, 1], repeat=W):\n        # Calculate the total sum after flipping columns and optimally flipping rows\n        total = 0\n        for j in range(W):\n            if bits[j]:\n                total += H - col_counts[j]\n            else:\n                total += col_counts[j]\n        \n        # For each row, determine if it should be flipped based on current column flips\n        for i in range(H):\n            row_sum = 0\n            for j in range(W):\n                if bits[j]:\n                    row_sum += 1 - grid[i][j]\n                else:\n                    row_sum += grid[i][j]\n            total += row_sum\n        \n        if total < min_sum:\n            min_sum = total\n    \n    print(min_sum)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

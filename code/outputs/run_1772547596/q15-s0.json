@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772547596",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 0,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 13.324597835540771,
+  "response": "### 分析\n这道题的核心在于模拟排名的设定规则：对于每个未被分配排名的人，找到当前最高分的若干人，并将他们的排名设为当前的 `r`，然后将 `r` 增加这些人的数量。\n\n#### 1. 题目关键约束\n- 输入规模是 $ N \\leq 100 $，这意味着我们可以直接使用一个 $ O(N^2) $ 的算法。\n- 输出要求我们为每个参与者分配一个排名。\n\n#### 2. 问题类型\n本题属于**模拟型问题**。我们需要按照给定的规则进行逐步操作，直到所有参与者都被分配了排名。\n\n#### 3. 数学规律与推导\n观察题目给出的规则：\n1. 每次找到当前未确定排名中分数最高的值 `max_score`。\n2. 找出所有分数等于 `max_score` 的人（个数为 `k`）。\n3. 将这些人的排名设为当前的 `r`。\n4. 并更新 `r` 为 `r + k`。\n\n通过这样的重复步骤，我们能为每个人分配合适的排名。\n\n为了实现这个规则：\n- 我们可以维护一个布尔数组 `assigned` 来跟踪哪些人的排名已经被分配。\n- 每轮遍历所有未被分配排名的人，找出它们的最大分数 `max_score`。\n- 找到所有得分等于 `max_score` 的人。\n- 将这些人的排名设置为当前的 `r`，并更新 `r`。\n\n#### 4. 算法设计\n步骤概要：\n1. 初始化一个空的 `ranks` 数组来存储每个参与者的排名。\n2. 使用 `assigned` 数组来记录哪些人的排名已经被确定。\n3. 循环直到所有人的排名都被确定：\n   a. 遍历所有未被分配排名的人，找出它们的最大分数 `max_score`。\n   b. 找出所有得分等于 `max_score` 的人。\n   c. 设置这些人的排名为当前的 `r`。\n   d. 更新 `r` 为 `r + k`。\n4. 最终输出每个人的排名。\n\n#### 5. 复杂度分析\n- 环的次数最多是 $ N $。\n- 每次环内需要遍历 $ N $ 个元素。\n- 内部处理的时间复杂度是 $ O(N) $。\n- 整体时间复杂度是 $ O(N^2) $，对于 $ N = 100 $ 是完全可行的。\n\n---\n\n### 代码\n```python\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:N+1]))\n    ranks = [0] * N\n    assigned = [False] * N\n    r = 1\n    \n    while sum(assigned) < N:\n        max_score = -1\n        max_indices = []\n        \n        # Find the maximum score and its indices among unassigned people\n        for i in range(N):\n            if not assigned[i] and P[i] > max_score:\n                max_score = P[i]\n                max_indices = [i]\n            elif not assigned[i] and P[i] == max_score:\n                max_indices.append(i)\n        \n        # Assign rank to these people\n        for idx in max_indices:\n            ranks[idx] = r\n            assigned[idx] = True\n        \n        # Update rank\n        r += len(max_indices)\n    \n    for rank in ranks:\n        print(rank)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

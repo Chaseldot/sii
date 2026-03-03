@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772551042",
+  "question_index": 11,
+  "question_id": "29",
+  "split": "train",
+  "sample_id": 9,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 26.70807194709778,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    H = int(data[0])\n    W = int(data[1])\n    grid = data[2:H+2]\n    \n    # Convert each row to a list of integers\n    grid = [list(map(int, list(row))) for row in grid]\n    \n    # Precompute the sum for each row\n    row_sums = [sum(row) for row in grid]\n    \n    # For each column, compute how many rows have 1 in that column\n    col_counts = [0] * W\n    for row in grid:\n        for j in range(W):\n            col_counts[j] += row[j]\n    \n    # Try all possible combinations of flipping columns (since W is small)\n    min_total = float('inf')\n    for mask in range(1 << W):\n        total = 0\n        # Apply column flips based on the mask\n        for j in range(W):\n            if mask & (1 << j):\n                # Flip the column, which affects all rows\n                # The contribution of this column is H - 2*col_counts[j]\n                total += H - 2 * col_counts[j]\n            else:\n                # No flip, contribution is col_counts[j]\n                total += col_counts[j]\n        \n        # After column flips, we can decide whether to flip rows\n        # Each row's contribution depends on whether it has an even or odd number of 1s\n        # After column flips, the row sum is (original_row_sum - 2*number_of_flipped_columns_in_row)\n        # So check if flipping the row would reduce the total\n        \n        # Calculate row sums after column flips\n        new_row_sums = []\n        for i in range(H):\n            row_sum = row_sums[i]\n            flipped_columns = bin(mask).count('1')\n            new_row_sum = row_sum - 2 * flipped_columns\n            new_row_sums.append(new_row_sum)\n        \n        # For each row, decide to flip or not based on parity\n        for i in range(H):\n            if new_row_sums[i] % 2 == 1:\n                total += 1  # Flip the row to reduce the sum by 1\n        min_total = min(min_total, total)\n    \n    print(min_total)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

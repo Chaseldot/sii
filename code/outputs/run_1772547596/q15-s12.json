@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772547596",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 12,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 10.251140356063843,
+  "response": "### 分析\n1. **关键约束**：\n   - N 的范围是 1 到 100，时间限制为 1 秒。由于 N 最大是 100，直接模拟整个过程是可行的。\n   - 每个选手的得分 P_i 是一个整数，取值范围是 1 到 100。\n   \n2. **问题类型**：这是一道模拟类问题，涉及到对分数进行排序并计算名次。\n\n3. **数学推导**：\n   - 名次 r 是从 1 开始的。\n   - 每一次操作中，找到当前未确定名次的人中最高分 x，并记录所有得分为 x 的人。\n   - 这些人的名次被设为当前的 r，r 增加这些人数。\n   - 重复这个过程直到所有人都有确定的名次。\n\n4. **算法设计**：\n   - 使用一个数组或字典来跟踪每个人是否已经确定名次。\n   - 使用一个优先队列（最大堆）或者每次遍历所有未处理的人来找到最高的分数。\n   - 每次找到最高分数后，处理所有得分为该分数的人，设置他们的名次，并更新 r。\n   - 使用一个列表来保存每个人的最终名次。\n\n5. **复杂度分析**：\n   - 时间复杂度为 O(N^2)，因为每次遍历所有人查找最大值（最多 N 次），总共 N 次操作，所以总的时间复杂度是 O(N^2)。对于 N=100 来说，这是完全可接受的。\n\n### 代码\n```python\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:N+1]))\n    \n    rank = [0] * N\n    determined = [False] * N\n    r = 1\n    \n    while True:\n        max_score = -1\n        max_indices = []\n        \n        # Find the maximum score among undetermined people\n        for i in range(N):\n            if not determined[i] and P[i] > max_score:\n                max_score = P[i]\n                max_indices = [i]\n            elif not determined[i] and P[i] == max_score:\n                max_indices.append(i)\n        \n        # Assign rank to these people\n        for idx in max_indices:\n            rank[idx] = r\n            determined[idx] = True\n        \n        # Update r\n        r += len(max_indices)\n        \n        # Check if all ranks are determined\n        if all(determined):\n            break\n    \n    for rnk in rank:\n        print(rnk)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772550233",
+  "question_index": 0,
+  "question_id": "0",
+  "split": "train",
+  "sample_id": 15,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 39.47007870674133,
+  "response": "```python\nimport sys\nimport bisect\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    idx = 0\n    N = int(data[idx])\n    idx += 1\n    W = int(data[idx])\n    idx += 1\n    \n    blocks = []\n    for i in range(N):\n        X = int(data[idx])\n        idx += 1\n        Y = int(data[idx])\n        idx += 1\n        blocks.append((X, Y, i + 1))\n    \n    Q = int(data[idx])\n    idx += 1\n    \n    queries = []\n    for _ in range(Q):\n        T = int(data[idx])\n        idx += 1\n        A = int(data[idx])\n        idx += 1\n        queries.append((T, A))\n    \n    # Sort blocks by Y-coordinate\n    blocks.sort(key=lambda x: x[1])\n    \n    # Group blocks by column, and sort their Y-coordinates\n    col_data = {}\n    for X, Y, idx_block in blocks:\n        if X not in col_data:\n            col_data[X] = []\n        col_data[X].append(Y)\n    \n    # Sort the Y values within each column\n    for X in col_data:\n        col_data[X].sort()\n    \n    # For each block, compute the number of blocks below it in the same column\n    # This will give the time at which it disappears\n    result = [0] * N\n    for i in range(N):\n        X, Y, idx_block = blocks[i]\n        if X in col_data:\n            count = bisect.bisect_left(col_data[X], Y)\n            result[idx_block - 1] = count\n    \n    # Answer queries\n    for T_j, A_j in queries:\n        if result[A_j - 1] < T_j:\n            print(\"Yes\")\n        else:\n            print(\"No\")\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772550233",
+  "question_index": 18,
+  "question_id": "64",
+  "split": "train",
+  "sample_id": 2,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 26.72642993927002,
+  "response": "```python\nimport sys\n\ndef solve():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    A = list(map(int, data[1:]))\n    \n    if all(a == 1 for a in A):\n        print(\"Yes\")\n        return\n    \n    # Create a copy of A to modify\n    A_mod = A[:]\n    \n    # Iterate through all positions\n    for i in range(N):\n        # Check for pattern \"ARC\" (i, i+1, i+2)\n        if i + 2 < N:\n            if A_mod[i] == 0 and A_mod[i+1] == 1 and A_mod[i+2] == 1:\n                A_mod[i] = 1\n        # Check for pattern \"CRA\" (i-2, i-1, i)\n        if i - 2 >= 0:\n            if A_mod[i-2] == 1 and A_mod[i-1] == 1 and A_mod[i] == 0:\n                A_mod[i-2] = 1\n        # Check for pattern \"RAC\" (i, i+1, i+2) with wrap-around\n        if i + 2 < N:\n            if A_mod[i] == 0 and A_mod[i+1] == 1 and A_mod[i+2] == 1:\n                A_mod[i] = 1\n        else:\n            if A_mod[i] == 0 and A_mod[(i+1)%N] == 1 and A_mod[(i+2)%N] == 1:\n                A_mod[i] = 1\n        # Check for pattern \"ARC\" (i-2, i-1, i) with wrap-around\n        if i - 2 >= 0:\n            if A_mod[i-2] == 1 and A_mod[i-1] == 1 and A_mod[i] == 0:\n                A_mod[i-2] = 1\n        else:\n            if A_mod[i-2 + N] == 1 and A_mod[i-1 + N] == 1 and A_mod[i] == 0:\n                A_mod[i-2 + N] = 1\n    \n    if all(a == 1 for a in A_mod):\n        print(\"Yes\")\n    else:\n        print(\"No\")\n\nif __name__ == '__main__':\n    solve()\n```"
+}

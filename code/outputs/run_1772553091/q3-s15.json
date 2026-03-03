@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772553091",
+  "question_index": 3,
+  "question_id": "6",
+  "split": "train",
+  "sample_id": 15,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 14.339044094085693,
+  "response": "### 分析\n错误信息 `SystemExit:` 表示程序已经正常退出，但系统可能在某些运行环境（例如在线评测平台）中对 `sys.exit()` 的使用有特殊处理。\n\n实际上，问题不在于 `sys.exit()` 的使用，而是我们可以更简洁地处理逻辑，在找到符合条件的排列后直接输出 `\"Yes\"` 并终止程序。为了确保代码兼容所有运行环境，我们可以通过一个标志位来判断是否满足条件，从而避免使用 `sys.exit()`。\n\n最终优化方案为：\n- 使用一个标志变量 `found` 来跟踪是否找到了满足条件的排列。\n- 如果找到，则直接打印 `\"Yes\"` 并退出循环。\n- 最后如果未找到则输出 `\"No\"`。\n\n这种方法不会引发任何运行时错误，并且符合题意。\n\n---\n\n### 代码\n```python\nfrom itertools import permutations\n\n# 读取输入\nA = list(map(int, input().split()))\n\n# 检查所有排列是否有满足条件的\nfound = False\nfor perm in permutations(A):\n    if perm[0] * perm[1] == perm[2]:\n        found = True\n        break\n\nprint(\"Yes\" if found else \"No\")\n```"
+}

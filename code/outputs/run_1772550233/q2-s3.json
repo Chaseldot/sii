@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772550233",
+  "question_index": 2,
+  "question_id": "4",
+  "split": "train",
+  "sample_id": 3,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 24.724068641662598,
+  "response": "```python\nimport sys\n\nMOD = 998244353\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    M = int(data[1])\n    S = data[2]\n\n    # dp[i][j] = number of strings of length j with LCS length i\n    dp = [[0] * (M + 1) for _ in range(N + 1)]\n    dp[0][0] = 1  # base case: empty string has LCS 0 with any string\n\n    for i in range(N):\n        for j in range(M + 1):\n            if dp[i][j] == 0:\n                continue\n            # Add a new character to the string\n            # Case 1: new character is not in S\n            # The LCS remains the same, so we can add 25 possibilities\n            dp[i][j] = (dp[i][j] * 25) % MOD\n            # Case 2: new character is in S\n            # We can increase LCS by 1 if it's a new character not previously used\n            # So for each position in S, we can choose that character\n            # However, we must avoid counting duplicates\n            # We will use a set to track unique characters at each step\n            unique_chars = set(S[:i+1])\n            for c in unique_chars:\n                # If we add c and it's not already in the current LCS, increase LCS by 1\n                # So we add to dp[i+1][j+1]\n                dp[i+1][j+1] = (dp[i+1][j+1] + dp[i][j]) % MOD\n\n    # Calculate answers for each k from 0 to N\n    ans = [0] * (N + 1)\n    for k in range(N + 1):\n        total = 0\n        for j in range(M + 1):\n            total = (total + dp[k][j]) % MOD\n        ans[k] = total\n\n    print(' '.join(map(str, ans)))\n\nif __name__ == '__main__':\n    main()\n```"
+}

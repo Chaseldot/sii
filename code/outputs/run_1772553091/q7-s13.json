@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772553091",
+  "question_index": 7,
+  "question_id": "20",
+  "split": "train",
+  "sample_id": 13,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 3.84175443649292,
+  "response": "### 分析  \n这道题的要求是：从输入的字符串中移除所有非 `'2'` 的字符，然后将剩下的 `'2'` 按照原来的顺序拼接成一个新字符串输出。\n\n我们可以通过以下步骤来实现该功能：\n1. 读取输入字符串 `S`。\n2. 遍历字符串中的每一个字符，只保留 `'2'`。\n3. 将这些 `'2'` 字符重新拼接成一个新的字符串。\n4. 输出最终的结果。\n\n由于字符串长度最多为100，且只进行一次遍历，所以时间复杂度为 O(n)，完全满足题目要求。\n\n需要注意的是题目保证了输入字符串包含至少一个 `'2'`，因此无需处理空字符串的情况。\n\n---\n\n### 代码\n```python\n# Read input\nS = input().strip()\n\n# Filter out all characters except '2'\nresult = ''.join([c for c in S if c == '2'])\n\n# Output the result\nprint(result)\n```"
+}

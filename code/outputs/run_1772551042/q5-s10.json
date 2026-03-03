@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772551042",
+  "question_index": 5,
+  "question_id": "13",
+  "split": "train",
+  "sample_id": 10,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 39.50935363769531,
+  "response": "```python\nimport sys\nimport bisect\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    Q = int(data[1])\n    A = list(map(int, data[2:2+N]))\n    \n    # Preprocess for each position, the minimum value up to that position\n    min_vals = [float('inf')] * (N + 1)\n    for i in range(1, N+1):\n        min_vals[i] = min(min_vals[i-1], A[i-1])\n    \n    # Precompute LIS for all prefixes\n    lis = [0] * (N + 1)\n    dp = []\n    for i in range(N):\n        idx = bisect.bisect_left(dp, A[i])\n        if idx == len(dp):\n            dp.append(A[i])\n        else:\n            dp[idx] = A[i]\n        lis[i+1] = len(dp)\n    \n    # Process queries\n    output = []\n    idx = 2 + N\n    for _ in range(Q):\n        R = int(data[idx])\n        X = int(data[idx+1])\n        idx += 2\n        \n        # Find the maximum position where min_vals is <= X\n        left, right = 0, R\n        while left < right:\n            mid = (left + right) // 2\n            if min_vals[mid] <= X:\n                left = mid + 1\n            else:\n                right = mid\n        max_pos = left - 1\n        \n        # Extract elements up to max_pos and filter those <= X\n        filtered = []\n        for i in range(max_pos):\n            if A[i] <= X:\n                filtered.append(A[i])\n        \n        # Compute LIS on filtered list\n        dp_filtered = []\n        for num in filtered:\n            idx = bisect.bisect_left(dp_filtered, num)\n            if idx == len(dp_filtered):\n                dp_filtered.append(num)\n            else:\n                dp_filtered[idx] = num\n        output.append(str(len(dp_filtered)))\n    \n    print('\\n'.join(output))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772551042",
+  "question_index": 8,
+  "question_id": "25",
+  "split": "train",
+  "sample_id": 10,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 54.88808608055115,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    X = int(data[1])\n    \n    U = []\n    D = []\n    for i in range(N):\n        u = int(data[2 + 2 * i])\n        d = int(data[3 + 2 * i])\n        U.append(u)\n        D.append(d)\n    \n    # Try all possible H values derived from U[i] + D[i]\n    possible_H = set()\n    for i in range(N):\n        possible_H.add(U[i] + D[i])\n    \n    min_cost = float('inf')\n    \n    for H in possible_H:\n        cost = 0\n        adjusted_U = [max(0, H - D[0])]\n        for i in range(1, N):\n            low = adjusted_U[-1] - X\n            high = adjusted_U[-1] + X\n            if low < U[i]:\n                low = U[i]\n            if high > U[i]:\n                high = U[i]\n            if low > high:\n                break\n            adjusted_U.append(max(low, min(high, U[i])))\n        \n        if len(adjusted_U) != N:\n            continue\n        \n        for i in range(N):\n            cost += max(0, U[i] - (H - D[i]))\n            cost += max(0, D[i] - (H - U[i]))\n        \n        min_cost = min(min_cost, cost)\n    \n    print(min_cost)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772551042",
+  "question_index": 5,
+  "question_id": "13",
+  "split": "train",
+  "sample_id": 7,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 43.34049105644226,
+  "response": "```python\nimport sys\nimport bisect\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    Q = int(data[1])\n    A = list(map(int, data[2:2+N]))\n    \n    # Preprocess the array by creating a sorted list of unique values\n    sorted_unique = []\n    prev = None\n    for val in A:\n        if val != prev:\n            sorted_unique.append(val)\n            prev = val\n    \n    # Precompute prefix lengths of the longest strictly increasing subsequence\n    # using the sorted unique array\n    prefix_lengths = [0] * len(sorted_unique)\n    current_length = 0\n    for i in range(len(sorted_unique)):\n        if i == 0 or sorted_unique[i] > sorted_unique[i - 1]:\n            current_length += 1\n        prefix_lengths[i] = current_length\n    \n    # For each query\n    result = []\n    index = 2 + N\n    for _ in range(Q):\n        R = int(data[index])\n        X = int(data[index + 1])\n        index += 2\n        \n        # Extract first R elements and sort them, then get unique values\n        subarray = A[:R]\n        subarray_sorted = sorted(subarray)\n        unique_subarray = []\n        prev_sub = None\n        for val in subarray_sorted:\n            if val != prev_sub:\n                unique_subarray.append(val)\n                prev_sub = val\n        \n        # Use binary search to find the largest value <= X\n        pos = bisect.bisect_right(unique_subarray, X) - 1\n        if pos >= 0:\n            result.append(str(prefix_lengths[pos]))\n        else:\n            result.append(\"0\")\n    \n    print(\"\\n\".join(result))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

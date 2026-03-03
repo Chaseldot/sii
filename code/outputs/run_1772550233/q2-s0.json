@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772550233",
+  "question_index": 2,
+  "question_id": "4",
+  "split": "train",
+  "sample_id": 0,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 30.174160718917847,
+  "response": "```python\nimport sys\n\nMOD = 998244353\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    M = int(data[1])\n    S = data[2]\n    \n    # dp[i][j] is the number of strings of length i with LCS length j with S\n    dp = [[0] * (N + 1) for _ in range(M + 1)]\n    dp[0][0] = 1\n    \n    # Precompute the set of characters in S for quick lookup\n    chars_in_S = set(S)\n    \n    for i in range(1, M + 1):\n        for j in range(N + 1):\n            # Case 1: current character is not in S's characters\n            cnt = 26 - len(chars_in_S)\n            dp[i][j] = (dp[i][j] + dp[i-1][j] * cnt) % MOD\n            \n            # Case 2: current character is in S's characters\n            for c in chars_in_S:\n                # Find the first occurrence of c in S\n                pos = S.find(c)\n                if pos < N and j > 0:\n                    # If we add this character, it can increase the LCS length by 1\n                    dp[i][j] = (dp[i][j] + dp[i-1][j-1]) % MOD\n                else:\n                    # If no position is found or j is 0, it's same as adding a new character\n                    dp[i][j] = (dp[i][j] + dp[i-1][j]) % MOD\n    \n    # To find ans[k], we need to count all strings of length M whose LCS with S is exactly k\n    ans = [0] * (N + 1)\n    for k in range(N + 1):\n        # Calculate total strings with LCS >=k\n        total_ge_k = 0\n        for j in range(k, N + 1):\n            total_ge_k = (total_ge_k + dp[M][j]) % MOD\n        \n        # Calculate total strings with LCS >=k+1\n        total_ge_k_plus_1 = 0\n        for j in range(k + 1, N + 1):\n            total_ge_k_plus_1 = (total_ge_k_plus_1 + dp[M][j]) % MOD\n        \n        ans[k] = (total_ge_k - total_ge_k_plus_1) % MOD\n    \n    print(' '.join(map(str, ans)))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

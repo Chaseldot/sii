@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772551042",
+  "question_index": 4,
+  "question_id": "11",
+  "split": "train",
+  "sample_id": 8,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 13.792152643203735,
+  "response": "```python\nimport sys\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    P = list(map(int, data[1:N+1]))\n    Q = list(map(int, data[N+1:2*N+1]))\n    \n    # Create a mapping from bib number to person index (1-based)\n    bib_to_person = [0] * (N + 1)\n    for idx in range(N):\n        bib_to_person[Q[idx]] = idx + 1  # Person indices are 1-based\n    \n    # For each person, find the bib of the person they are staring at\n    result = [0] * N\n    for i in range(N):\n        person = P[i]\n        # Find the bib number of the person that person is staring at\n        # Look up the bib number of the person (person) and find the person who is staring at them\n        # Since Q maps person index to bib number, we use bib_to_person to get the person index\n        # Then retrieve the bib number of that person\n        result[i] = Q[bib_to_person[person] - 1]\n    \n    print(' '.join(map(str, result)))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

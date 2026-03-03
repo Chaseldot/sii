@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772553091",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 6,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 10.275970935821533,
+  "response": "### 分析\n\n你之前提交的代码在使用 `sys.exit()` 时仍然报错，原因是该函数可能被某些评测系统屏蔽或者与程序流控制存在兼容性问题。\n\n更好的做法是 **避免提前退出**，而是 **在遍历完成后判断是否满足条件**，这样能更兼容各种环境和评测系统。\n\n另外，当输入为 3 的时候，`range(n - 2)` 将变成 `range(1)`，即只执行一次循环，可以正确判断三个元素是否相同。\n\n---\n\n### 修正代码\n```python\nn = int(input())\na = list(map(int, input().split()))\n\nfound = False\nfor i in range(n - 2):\n    if a[i] == a[i + 1] == a[i + 2]:\n        found = True\n        break\n\nprint(\"Yes\" if found else \"No\")\n```"
+}

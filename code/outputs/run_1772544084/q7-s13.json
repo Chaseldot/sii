@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772544084",
+  "question_index": 7,
+  "question_id": "20",
+  "split": "train",
+  "sample_id": 13,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 4.5209245681762695,
+  "response": "```python\n# 1. 深度解析\n# - 约束条件：S是长度在1到100之间的数字字符串，且至少包含一个'2'\n# - 理论时间复杂度上限：O(N)，因为我们要遍历整个字符串一次\n# - 特殊性分析：该问题非常简单，只需提取所有'2'并连接起来即可\n\n# 2. 逻辑推演\n# - 数学推导过程：只需将输入字符串中的所有'2'字符提取出来，并按原顺序连接\n# - DP状态转移方程：无需DP，直接遍历字符串即可\n# - 边界情况处理方案：当输入字符串中全是'2'时，直接返回原字符串；即使只有一个'2'也能正确输出\n\n# 3. 高效实现\nimport sys\n\ndef main():\n    S = sys.stdin.readline().strip()\n    result = ''.join([c for c in S if c == '2'])\n    print(result)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772547596",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 8,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 9.690723180770874,
+  "response": "### 分析\n这道题的任务是根据给定的分数，为每个人分配相应的排名。排名是由一个特定的过程决定的：首先找出当前未确定排名的人中的最高分，并将所有得分等于该最高分的人的排名设置为当前的r值，然后将r增加该组人数。这个过程直到所有人都获得排名。\n\n#### 关键约束\n- N ≤ 100，因此对于N=100的数据规模，我们可以使用O(N^2)的时间复杂度算法。\n\n#### 问题类型\n这是一个排序与评分的问题，需要对数据进行处理并计算出每个人的排名。\n\n#### 数学推导与规律\n1. 我们需要按分数从高到低排序。\n2. 遇到多个相同分数时，这些人的排名相同，排名数增加。\n3. 具体来说，我们首先按分数降序排序，然后在相同的分数中，给所有人同样的排名r，并将r增加该组人数k。\n\n#### 算法步骤\n1. 按照分数从高到低对选手进行排序。\n2. 遍历排序后的数组，记录每个不同的分数对应的起始排名r。\n3. 将同一分数的人的排名设为当前r，并更新r为r + k（k为当前相同分数的出现次数）。\n4. 最后按照原始索引输出每个人的排名。\n\n#### 时间复杂度\n排序的操作时间复杂度是O(N log N)，遍历和处理的时间复杂度是O(N)，总体复杂度为O(N log N)，满足时间限制。\n\n### 代码\n```python\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:N+1]))\n    \n    # 创建列表，保存原始索引和分数\n    people = [(P[i], i) for i in range(N)]\n    \n    # 按分数从大到小排序\n    people.sort(reverse=True)\n    \n    ranks = [0] * N\n    r = 1\n    \n    i = 0\n    while i < N:\n        current_score = people[i][0]\n        j = i\n        while j < N and people[j][0] == current_score:\n            j += 1\n        k = j - i\n        for idx in range(i, j):\n            ranks[people[idx][1]] = r\n        r += k\n        i = j\n    \n    for rank in ranks:\n        print(rank)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772550233",
+  "question_index": 2,
+  "question_id": "4",
+  "split": "train",
+  "sample_id": 12,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 23.338424921035767,
+  "response": "```python\nimport sys\n\nMOD = 998244353\n\ndef solve():\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    M = int(data[1])\n    S = data[2]\n    \n    # Precompute powers of 26 modulo MOD\n    pow26 = [1] * (M + 1)\n    for i in range(1, M + 1):\n        pow26[i] = (pow26[i-1] * 26) % MOD\n    \n    # dp[i][j] will store the number of strings of length j with LCS length i\n    # We use a list of dictionaries to optimize space and avoid index out of range\n    dp = [{} for _ in range(N + 1)]\n    dp[0][0] = 1  # Base case: empty string and empty string have LCS length 0\n    \n    # Fill dp using dynamic programming\n    for i in range(N):\n        for j in dp[i]:\n            count = dp[i][j]\n            # Add a new character to the generated string\n            for c in range(26):\n                # Try adding character 'a' + c\n                if c != ord(S[i]) - ord('a'):\n                    new_lcs = j\n                else:\n                    new_lcs = j + 1\n                if new_lcs <= N:\n                    if new_lcs not in dp[i+1]:\n                        dp[i+1][new_lcs] = 0\n                    dp[i+1][new_lcs] = (dp[i+1][new_lcs] + count) % MOD\n    \n    # Calculate the answer for each k from 0 to N\n    ans = [0] * (N + 1)\n    for k in range(N + 1):\n        # Total number of strings of length M\n        total = pow26[M]\n        # Subtract the number of strings whose LCS is at least k+1\n        subtract = 0\n        for l in range(k + 1, N + 1):\n            if l in dp[N]:\n                subtract = (subtract + dp[N][l]) % MOD\n        ans[k] = (total - subtract) % MOD\n    \n    # Print the answer\n    print(' '.join(map(str, ans)))\n\nsolve()\n```"
+}

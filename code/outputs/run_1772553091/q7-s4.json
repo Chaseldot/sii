@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772553091",
+  "question_index": 7,
+  "question_id": "20",
+  "split": "train",
+  "sample_id": 4,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 4.349424839019775,
+  "response": "### 分析\n该问题要求我们从给定的字符串 S 中删除所有不是 '2' 的字符，然后将剩下的字符按原顺序拼接成一个新的字符串。\n\n具体步骤如下：\n1. 输入一个由数字组成的字符串 S。\n2. 遍历字符串中的每个字符。\n3. 如果字符是 '2'，则保留；否则丢弃。\n4. 最终将所有保留的字符按原顺序拼接成新的字符串并输出。\n\n由于字符串长度约束为 1 到 100，我们可以使用简单的方法（如列表推导或循环）来实现。\n\n对于边界情况的处理：\n- 输入字符串中至少包含一个 '2'，因此不需要考虑空结果的情况。\n- 输入字符串可能全是 '2'，这种情况下直接返回原字符串即可。\n\n时间复杂度是 O(N)，其中 N 是字符串长度，空间复杂度也是 O(N)，在允许范围内。\n\n---\n\n### 代码\n```python\n# Read input\nS = input().strip()\n\n# Filter only the characters that are '2'\nresult = ''.join([char for char in S if char == '2'])\n\n# Print the result\nprint(result)\n```"
+}

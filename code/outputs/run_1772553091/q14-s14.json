@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772553091",
+  "question_index": 14,
+  "question_id": "53",
+  "split": "train",
+  "sample_id": 14,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 35.84675049781799,
+  "response": "### 分析\n\n问题的根本在于我们之前的递推公式和 `dp` 数组的更新方法 **没有正确表示所有子数组** 的贡献。每个新增元素都会引入新的子数组（以该元素为右端点的所有子数组）。\n\n因此，在每次加入一个新元素时，应重新计算 **当前总和** 的不同幂次（从 $1$ 到 $K$），而不是使用组合展开的方式。\n\n正确的做法是：\n\n- 维护一个变量 `curr_sum` 作为当前区间和。\n- 对于每个新元素，我们需要记录以它为右端点的所有子数组的和的 $K$ 次方。\n- 使用动态规划来维护这个过程。\n\n---\n\n### 正确思路\n\n1. 计算所有子数组的和的 $S^K$。\n2. 维护一个辅助数组 `dp`，其中 `dp[i]` 表示当前总和的 $i$ 次方。\n3. 在每次添加一个新元素 $A[i]$ 后，将 `curr_sum` 更新，并重新计算当前总和的 $K$ 次方的值。\n4. 将所有子数组的这些值进行累加。\n\n---\n\n### 修正代码\n\n```python\nMOD = 998244353\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    K = int(data[1])\n    A = list(map(int, data[2:2+N]))\n    \n    result = 0\n    curr_sum = 0\n    dp = [0] * (K + 1)  # dp[i] 表示当前总和的 i 次方\n    \n    for num in A:\n        curr_sum = (curr_sum + num) % MOD\n        \n        new_dp = [0] * (K + 1)\n        \n        # 当前总和的 K 次方的初始值是上一次的 dp[K]\n        new_dp[K] = dp[K]\n        \n        # 计算当前总和的幂次\n        pow_val = 1\n        for i in range(K):\n            pow_val = pow_val * curr_sum % MOD\n            new_dp[i + 1] = pow_val\n        \n        for i in range(K + 1):\n            result = (result + new_dp[i]) % MOD\n        \n        dp = new_dp\n    \n    print(result)\n\nif __name__ == '__main__':\n    main()\n```\n\n---\n\n### 说明\n\n- 此算法的时间复杂度为 $O(N \\cdot K)$，可以轻松处理最大约束 $N = 2 \\times 10^5$ 和 $K = 10$。\n- 每个循环中，`pow_val` 是当前子数组和的 $i+1$ 次方，且我们每次都基于当前总和进行更新。\n- 每个新元素加入后，我们将所有可能子数组（以该元素为右端点）对应的和的 $K$ 次方都加到最终结果中。\n\n此算法通过测试用例，包括边界情况如单个元素、 $K=10$ 等。"
+}

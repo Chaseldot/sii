@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772551042",
+  "question_index": 5,
+  "question_id": "13",
+  "split": "train",
+  "sample_id": 0,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 35.61164665222168,
+  "response": "```python\nimport sys\nimport bisect\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    Q = int(data[1])\n    A = list(map(int, data[2:2+N]))\n    \n    # Preprocess the array to get min up to each index\n    min_prefix = [0] * (N + 1)\n    min_val = float('inf')\n    for i in range(1, N+1):\n        min_val = min(min_val, A[i-1])\n        min_prefix[i] = min_val\n    \n    # Preprocess LIS information for each prefix\n    lis_info = [[] for _ in range(N + 1)]\n    \n    for r in range(1, N + 1):\n        val = A[r - 1]\n        if not lis_info[r]:\n            lis_info[r].append((val, 1))\n        else:\n            # Binary search for the first element >= val\n            idx = bisect.bisect_left(lis_info[r], (val, 1))\n            if idx == len(lis_info[r]):\n                lis_info[r].append((val, lis_info[r][-1][1] + 1))\n            else:\n                lis_info[r][idx] = (val, lis_info[r][idx][1] + 1)\n    \n    # Prepare for queries\n    output = []\n    ptr = 2 + N\n    for _ in range(Q):\n        R = int(data[ptr])\n        X = int(data[ptr + 1])\n        ptr += 2\n        \n        # Get the minimal value in the first R elements\n        min_val = min_prefix[R]\n        if min_val > X:\n            output.append(\"0\")\n            continue\n        \n        # Now find the maximum length of strictly increasing subsequence <= X in the first R elements\n        # We need to check all (value, length) pairs where value <= X and keep track of the max length\n        best_len = 0\n        for v, l in lis_info[R]:\n            if v <= X:\n                best_len = max(best_len, l)\n        \n        output.append(str(best_len))\n    \n    print(\"\\n\".join(output))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

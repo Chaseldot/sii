@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772544084",
+  "question_index": 6,
+  "question_id": "17",
+  "split": "train",
+  "sample_id": 10,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 8.848719358444214,
+  "response": "```python\nimport sys\n\ndef replace_wa_with_ac(s):\n    # Convert the string to a list for efficient modifications\n    s_list = list(s)\n    \n    i = 0\n    while i < len(s_list) - 1:\n        # Check for \"WA\" starting at position i\n        if s_list[i] == 'W' and s_list[i+1] == 'A':\n            # Replace \"WA\" with \"AC\"\n            s_list[i] = 'A'\n            s_list[i+1] = 'C'\n            # After replacement, we need to check back one position because replacing \"WA\" might create new \"WA\"s\n            # For example: WWA -> replace WA (positions 1-2) to get WAC. Now, position 0-1 is WA again.\n            i = max(0, i - 1)\n        else:\n            i += 1\n    \n    return ''.join(s_list)\n\ndef main():\n    S = sys.stdin.readline().strip()\n    print(replace_wa_with_ac(S))\n\nif __name__ == \"__main__\":\n    main()\n```\n\n### 思路解析:\n\n1. **约束条件分析**:\n   - 输入字符串长度范围是 1 到 $3 \\times 10^5$。因此，需要一种线性时间复杂度的解决方案。\n\n2. **逻辑推演**:\n   - 题目要求我们不断地找出最左边的 \"WA\" 子串并将其替换为 \"AC\"，直到没有剩余的 \"WA\" 子串为止。\n   - 逐个检查每个字符是否是 \"W\"，然后检查下一个字符是否是 \"A\"。如果找到这样的位置就替换，并且因为替换操作可能会产生新的 \"WA\" 子串，所以替换后要回退一个位置继续检查（防止漏掉新产生的 \"WA\"）。\n\n3. **高效实现**:\n   - 使用列表来存储字符串以便修改。\n   - 线性扫描字符串，一旦发现 \"WA\" 就进行替换并回退一个位置确保覆盖所有可能生成的新 \"WA\"。\n   - 使用 `sys.stdin.readline` 来提高输入效率，避免 I/O 瓶颈。"
+}

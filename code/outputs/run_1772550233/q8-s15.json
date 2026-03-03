@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772550233",
+  "question_index": 8,
+  "question_id": "25",
+  "split": "train",
+  "sample_id": 15,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 46.55519151687622,
+  "response": "```python\nimport sys\n\ndef solve():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    X = int(data[1])\n    U = []\n    D = []\n    for i in range(N):\n        U.append(int(data[2 + 2*i]))\n        D.append(int(data[2 + 2*i + 1]))\n    \n    # For each i, the required H must satisfy U_i + D_i >= H\n    # We can use ternary search on possible H values between min_total and max_total\n    \n    def calculate_cost(H):\n        total_cost = 0\n        for i in range(N):\n            u = U[i]\n            d = D[i]\n            new_u = H - d\n            new_d = H - u\n            # Ensure non-negative lengths\n            cost_u = max(u - new_u, 0)\n            cost_d = max(d - new_d, 0)\n            total_cost += cost_u + cost_d\n        return total_cost\n    \n    min_total = min(U[i] + D[i] for i in range(N))\n    max_total = max(U[i] + D[i] for i in range(N))\n    \n    # Perform ternary search on H to find the minimum cost\n    left = min_total\n    right = max_total\n    \n    for _ in range(100):\n        if right - left <= 3:\n            break\n        mid1 = left + (right - left) // 3\n        mid2 = right - (right - left) // 3\n        c1 = calculate_cost(mid1)\n        c2 = calculate_cost(mid2)\n        if c1 < c2:\n            right = mid2\n        else:\n            left = mid1\n    \n    # Check all values in the narrowed range to find the minimum cost\n    min_cost = float('inf')\n    for H in range(left, right + 1):\n        cost = calculate_cost(H)\n        if cost < min_cost:\n            min_cost = cost\n    \n    print(min_cost)\n\nsolve()\n```"
+}

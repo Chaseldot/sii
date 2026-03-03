@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772552001",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 8,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 5.550265073776245,
+  "response": "### 思路分析\n\n- **问题理解**：我们要找到一个整数 B，使得 A × B = 400。这意味着 A 和 B 是 400 的因数。\n- **关键点**：\n  - 遍历所有可能的因数组合 (A, B)，满足 A × B = 400。\n  - 如果找不到符合条件的 B，则输出 -1。\n  - 注意：B 必须为正整数。\n- **算法设计**：\n  - 遍历从 1 到 400 的所有整数 i（即 B 的值）。\n  - 检查是否有对应的 A = 400 / i，且 A 是给定的一个正整数。\n  - 若存在这样的 A 值，则输出该 i；若不存在则输出 -1。\n- **时间复杂度**：O(N)（N 最大至 400），符合题意的时间限制。\n\n---\n\n### 最终代码\n\n```python\n# Read input from standard input\nA = int(input())\n\n# Find a positive integer B such that A * B = 400\nB = -1\nfor i in range(1, 401):\n    if 400 % i == 0 and 400 // i == A:\n        B = i\n        break\n\n# Output the result\nprint(B)\n```"
+}

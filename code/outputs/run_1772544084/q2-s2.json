@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772544084",
+  "question_index": 2,
+  "question_id": "4",
+  "split": "train",
+  "sample_id": 2,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 44.85922908782959,
+  "response": "# 自检步骤\n\n## 1. 定位错误\n- 错误提示是 `NameError: name 'defaultdict' is not defined`\n- 在代码中，我们使用了 `from collections import defaultdict` 但未导入\n- 因此在运行时报错。\n\n## 2. 最小修改修复\n- 在代码的开头引入 `from collections import defaultdict`\n\n## 3. 输出修正后的完整代码\n\n```python\nimport sys\nfrom collections import defaultdict\nMOD = 998244353\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    M = int(data[1])\n    S = data[2]\n    \n    # 求出 S 中每个字符出现的位置索引\n    pos = defaultdict(list)\n    for i, c in enumerate(S):\n        pos[c].append(i)\n    \n    # 动态规划表 dp[m][l] 表示长度为m的字符串T的可能数，使得其与S的LCS为l\n    dp = [[0] * (N + 1) for _ in range(M + 1)]\n    dp[0][0] = 1  # 初始状态\n    \n    for m in range(1, M + 1):  # 构造长度为m的字符串T\n        for l in range(N + 1):  # 当前LCS长度为l\n            # 不选新的字符\n            dp[m][l] = (dp[m][l] + dp[m-1][l]) % MOD\n            \n            # 检查是否能选一个新字符，使LCS增大\n            if l < N:\n                total_options = 0\n                \n                # 计算所有可能选哪个字符可以将 LCS 增大\n                for c in 'abcdefghijklmnopqrstuvwxyz':\n                    if c not in pos:\n                        continue\n                    # c 在 S 中，可以作为新增的字符\n                    for idx in pos[c]:\n                        if idx >= l:  # 新增字符刚好是第l+1个\n                            total_options += 1\n                    # 现在 total_options 是有多少种方式让 LCS 增加\n                dp[m][l+1] = (dp[m][l+1] + dp[m-1][l] * total_options) % MOD\n    \n    # 输出答案\n    print(' '.join(str(dp[M][k]) for k in range(N + 1)))\n\nmain()\n```\n\n---\n\n### ✅ 总结：\n- 此次错误是由于忘记引入 `defaultdict` 模块，导致代码无法正常执行。\n- 所以我们在代码最开始处导入 `defaultdict` 即可解决问题。"
+}

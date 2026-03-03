@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772551042",
+  "question_index": 18,
+  "question_id": "64",
+  "split": "train",
+  "sample_id": 4,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 30.635387182235718,
+  "response": "```python\nimport sys\n\ndef solve():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    A = list(map(int, data[1:N+1]))\n    \n    if all(a == 1 for a in A):\n        print(\"Yes\")\n        return\n    \n    # Check if there's at least one \"ARC\" or \"CAR\" pattern to flip 0s to 1s\n    # Using BFS-like approach to find the minimal steps to flip all zeros\n\n    from collections import deque\n\n    # For each position, check for possible operation\n    # We will represent the positions of 0s and try to eliminate them using operations\n\n    # Convert A into a list for modification\n    A_mod = A.copy()\n    zero_positions = [i for i in range(N) if A_mod[i] == 0]\n    \n    # Try to eliminate zeros using operations\n    queue = deque(zero_positions)\n    visited = [False] * N\n    \n    while queue:\n        pos = queue.popleft()\n        if visited[pos]:\n            continue\n        visited[pos] = True\n        \n        # Check for both operations\n        # Operation 1: ARC -> flip pos and pos+1\n        if pos + 2 < N:\n            if A_mod[pos] == 0 and A_mod[pos+1] == 1 and A_mod[pos+2] == 1:\n                A_mod[pos] = 1\n                A_mod[pos+1] = 1\n                A_mod[pos+2] = 1\n                queue.append(pos+1)\n                queue.append(pos+2)\n        # Operation 2: CAR -> flip pos and pos+1\n        if pos - 1 >= 0:\n            if A_mod[pos-1] == 1 and A_mod[pos] == 0 and A_mod[pos+1] == 1:\n                A_mod[pos-1] = 1\n                A_mod[pos] = 1\n                A_mod[pos+1] = 1\n                queue.append(pos-1)\n                queue.append(pos+1)\n    \n    if all(a == 1 for a in A_mod):\n        print(\"Yes\")\n    else:\n        print(\"No\")\n\nsolve()\n```"
+}

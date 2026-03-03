@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772550233",
+  "question_index": 8,
+  "question_id": "25",
+  "split": "train",
+  "sample_id": 2,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 41.38474655151367,
+  "response": "```python\nimport sys\n\ndef solve():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    X = int(data[1])\n    \n    U = []\n    D = []\n    \n    index = 2\n    for _ in range(N):\n        u = int(data[index])\n        d = int(data[index + 1])\n        U.append(u)\n        D.append(d)\n        index += 2\n    \n    # Calculate the required H for each pair and use the median of these values to minimize cost\n    # Since H must be same for all, we can derive candidate H values from the sum of U[i] and D[i]\n    sums = [U[i] + D[i] for i in range(N)]\n    sums.sort()\n    \n    # The optimal H is around the median of the sums\n    # Try a few candidates around the median to find the minimum cost\n    min_cost = float('inf')\n    mid = N // 2\n    for h_candidate in range(sums[mid] - 100000, sums[mid] + 100000):\n        cost = 0\n        for i in range(N):\n            target = h_candidate\n            diff = abs(U[i] + D[i] - target)\n            cost += diff\n        min_cost = min(min_cost, cost)\n    \n    print(min_cost)\n\nif __name__ == \"__main__\":\n    solve()\n```"
+}

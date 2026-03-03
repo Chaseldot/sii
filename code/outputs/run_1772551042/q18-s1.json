@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772551042",
+  "question_index": 18,
+  "question_id": "64",
+  "split": "train",
+  "sample_id": 1,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 30.135865449905396,
+  "response": "```python\nimport sys\n\ndef solve():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    A = list(map(int, data[1:]))\n\n    if all(a == 1 for a in A):\n        print(\"Yes\")\n        return\n\n    # Check if there is at least one 0 in A\n    has_zero = any(a == 0 for a in A)\n    if not has_zero:\n        print(\"Yes\")\n        return\n\n    # We need to determine if there's a way to perform operations to eliminate all 0s.\n    # The key is to check if there exists a valid configuration of the string S such that we can apply the allowed operations.\n\n    # Since the problem allows any uppercase string S, we must find if the pattern of A allows operations to turn all 0s into 1s.\n\n    # Try to simulate the process for a pattern that ensures operations can be applied.\n    # We will try constructing a string S and simulate operations to see if all zeros can be removed.\n\n    # Create a copy of A to modify\n    temp_A = A.copy()\n\n    # Simulate the possible operations: try both operation types where applicable\n    # Operation 1: i where S_i = 'A', S_{i+1} = 'R', S_{i+2} = 'C'\n    # Operation 2: i where S_{i+2} = 'A', S_{i+1} = 'R', S_i = 'C'\n\n    # Use a greedy approach to apply these operations in a circular fashion\n    for _ in range(N * 2):  # Prevent infinite loop\n        found = False\n        for i in range(N):\n            # Check for operation 1 (i, i+1, i+2)\n            if temp_A[i] == 0 and temp_A[(i + 1) % N] == 1 and temp_A[(i + 2) % N] == 1:\n                temp_A[i] = 1\n                found = True\n            # Check for operation 2 (i+2, i+1, i)\n            if temp_A[(i + 2) % N] == 0 and temp_A[(i + 1) % N] == 1 and temp_A[i] == 1:\n                temp_A[(i + 2) % N] = 1\n                found = True\n        if not found:\n            break\n\n    if all(a == 1 for a in temp_A):\n        print(\"Yes\")\n    else:\n        print(\"No\")\n\nsolve()\n```"
+}

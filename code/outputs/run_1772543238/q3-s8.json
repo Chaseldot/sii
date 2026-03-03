@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772543238",
+  "question_index": 3,
+  "question_id": "6",
+  "split": "train",
+  "sample_id": 8,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 4.287692308425903,
+  "response": "To solve this problem, we need to check if there exists any permutation of the given sequence of integers such that the product of the first two elements equals the third.\n\n### Approach:\n1. Input the three integers.\n2. Generate all permutations of the three numbers.\n3. For each permutation, check whether the product of the first two elements equals the third.\n4. If at least one valid permutation exists, print \"Yes\", otherwise print \"No\".\n\n### Edge Cases:\n- All numbers are positive (since constraints specify $ 1 \\le A_1, A_2, A_3 \\le 100 $).\n- There may be duplicates in the input.\n- Zero can't be part of the input since the constraint says all values are at least 1.\n\nNow here is the complete and clean Python code:\n\n```python\nfrom itertools import permutations\n\n# Read input\nA = list(map(int, input().split()))\n\n# Generate all permutations of A\nperms = permutations(A)\n\n# Check if any permutation satisfies B_1 * B_2 == B_3\nfor perm in perms:\n    if perm[0] * perm[1] == perm[2]:\n        print(\"Yes\")\n        break\nelse:\n    print(\"No\")\n```"
+}

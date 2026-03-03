@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772543238",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 14,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 3.5851402282714844,
+  "response": "To solve this problem, we need to find a positive integer $ B $ such that the product of $ A \\times B = 400 $. This is equivalent to finding a divisor of 400 that is greater than zero and does not equal $ A $ (to ensure the formation has both rows and columns).\n\n### Steps:\n1. Find all divisors of 400.\n2. For each divisor $ B $, check if $ A \\times B = 400 $, and whether $ B > 0 $.\n3. If there is a valid $ B $, print it. Otherwise, return -1.\n\n### Edge Cases:\n- If $ A = 400 $, then $ B = 1 $.\n- If $ A $ is a prime number and doesn't divide 400 evenly, output -1.\n\nHere is the complete code:\n\n```python\ndef find_b(A):\n    target = 400\n    for B in range(1, target + 1):\n        if A * B == target:\n            return B\n    return -1\n\n# Read input\nA = int(input())\n# Compute and print result\nprint(find_b(A))\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772553091",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 6,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 5.483393907546997,
+  "response": "### 分析\n题目要求我们找到一个正整数 $ B $，使得 $ A \\times B = 400 $。换句话说，我们需要找出 $ 400 $ 的因数，且这个因数必须大于等于1，并且满足 $ A \\times B = 400 $。\n\n具体来说：\n- 输入是正整数 $ A $\n- 输出是一个满足条件的正整数 $ B $，如果不存在这样的 $ B $，输出 -1\n\n**关键点：**\n- 我们需要判断 $ A $ 能否整除 400。\n- 如果能整除，则 $ B = 400 / A $。\n- 否则，输出 -1。\n\n对于边界情况：\n- 当 $ A = 1 $，那么 $ B = 400 $\n- 当 $ A = 400 $，那么 $ B = 1 $\n- 只有当 $ A $ 是 400 的因数时，才会有解。\n\n因此，我们只需要判断是否 $ 400 \\% A == 0 $，如果是，则输出 $ 400 // A $，否则输出 -1。\n\n---\n\n### 代码\n```python\n# Read input from standard input\nA = int(input())\n\n# Check if A is a divisor of 400\nif 400 % A == 0:\n    print(400 // A)\nelse:\n    print(-1)\n```"
+}

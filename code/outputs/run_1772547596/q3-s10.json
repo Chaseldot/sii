@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772547596",
+  "question_index": 3,
+  "question_id": "6",
+  "split": "train",
+  "sample_id": 10,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 10.002625465393066,
+  "response": "### 分析\n这道题的目的是判断一个包含三个整数的序列 $ A = (A_1, A_2, A_3) $ 是否可以通过重新排列为某个排列 $ B = (B_1, B_2, B_3) $，使得满足条件 $ B_1 \\times B_2 = B_3 $。  \n由于这是一个有三个元素的选择问题，我们只需考虑所有可能的排列组合，并逐一验证是否有一种可以满足该等式。\n\n#### 关键约束\n- 三个整数的取值范围是 $ 1 \\leq A_i \\leq 100 $\n- 只需要枚举所有可能的排列，最多只有 $ 3! = 6 $ 种排列\n\n#### 问题类型分析\n该问题是**枚举排列并验证条件**的问题，因此可以采用直接暴力枚举方法解决。\n\n#### 算法思路\n我们可以列出这三数的所有排列（总共有 6 种），然后对每一种排列验证其是否满足 $ B_1 \\times B_2 = B_3 $。如果至少有一种排列满足，则输出 \"Yes\"；否则输出 \"No\"。\n\n#### 数学推导\n对于给定的三个数，我们需要检查以下六种排列：\n1. $ (A_1, A_2, A_3) $\n2. $ (A_1, A_3, A_2) $\n3. $ (A_2, A_1, A_3) $\n4. $ (A_2, A_3, A_1) $\n5. $ (A_3, A_1, A_2) $\n6. $ (A_3, A_2, A_1) $\n\n分别检查这些排列中的每一位是否满足：$ B_1 \\times B_2 = B_3 $。\n\n#### 复杂度分析\n- 枚举所有排列的时间复杂度是 $ O(6) $，为常数时间。\n- 每次检查只需要基本算术运算，时间复杂度过低，适合本题的数据规模和时间限制。\n\n综上，我们可以利用 Python 的 `itertools.permutations` 来枚举所有排列，并逐一验证即可。\n\n### 代码\n```python\nimport sys\nfrom itertools import permutations\n\ndef main():\n    A = list(map(int, sys.stdin.readline().split()))\n    for perm in permutations(A):\n        if perm[0] * perm[1] == perm[2]:\n            print(\"Yes\")\n            return\n    print(\"No\")\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

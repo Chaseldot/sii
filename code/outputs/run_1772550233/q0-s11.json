@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772550233",
+  "question_index": 0,
+  "question_id": "0",
+  "split": "train",
+  "sample_id": 11,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 34.04869484901428,
+  "response": "```python\nimport sys\nimport bisect\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    idx = 0\n    N = int(data[idx])\n    idx += 1\n    W = int(data[idx])\n    idx += 1\n    \n    blocks = []\n    for i in range(N):\n        x = int(data[idx])\n        idx += 1\n        y = int(data[idx])\n        idx += 1\n        blocks.append((x, y, i + 1))  # (x, y, block_id)\n    \n    Q = int(data[idx])\n    idx += 1\n    \n    queries = []\n    for _ in range(Q):\n        t = int(data[idx])\n        idx += 1\n        a = int(data[idx])\n        idx += 1\n        queries.append((t, a))\n    \n    # Sort blocks by their initial y-coordinate\n    blocks.sort(key=lambda x: x[1])\n    \n    # For each column, track the positions of blocks\n    from collections import defaultdict\n    col_positions = defaultdict(list)\n    for x, y, block_id in blocks:\n        bisect.insort(col_positions[x], y)\n    \n    # Prepare sorted y positions for each column to help with binary search\n    col_sorted = {}\n    for x in col_positions:\n        col_sorted[x] = sorted(col_positions[x])\n    \n    # Precompute for each block how many blocks are below it in its column\n    count_below = []\n    for x, y, block_id in blocks:\n        ys = col_sorted[x]\n        pos = bisect.bisect_left(ys, y)\n        # Number of blocks strictly below this block\n        count_below.append(pos)\n    \n    # Now answer queries\n    results = []\n    for t, a in queries:\n        block_index = a - 1\n        if count_below[block_index] > t:\n            results.append(\"Yes\")\n        else:\n            results.append(\"No\")\n    \n    print('\\n'.join(results))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

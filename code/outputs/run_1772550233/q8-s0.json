@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772550233",
+  "question_index": 8,
+  "question_id": "25",
+  "split": "train",
+  "sample_id": 0,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 30.164480447769165,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    X = int(data[1])\n    \n    U = []\n    D = []\n    for i in range(N):\n        u = int(data[2 + 2*i])\n        d = int(data[2 + 2*i + 1])\n        U.append(u)\n        D.append(d)\n    \n    # Calculate the required H for each pair and count how many are valid\n    possible_H = set()\n    for u, d in zip(U, D):\n        possible_H.add(u + d)\n    \n    if not possible_H:\n        print(0)\n        return\n    \n    # Try each possible H and compute the cost\n    min_cost = float('inf')\n    for H in possible_H:\n        cost = 0\n        prev_u = U[0]\n        valid = True\n        for i in range(N):\n            u = U[i]\n            d = D[i]\n            new_u = H - d\n            new_d = H - u\n            if new_u < 0 or new_d < 0:\n                valid = False\n                break\n            cost += abs(u - new_u) + abs(d - new_d)\n            if i > 0:\n                if abs(new_u - prev_u) > X:\n                    valid = False\n                    break\n            prev_u = new_u\n        if valid:\n            min_cost = min(min_cost, cost)\n    \n    print(min_cost)\n\nif __name__ == '__main__':\n    main()\n```"
+}

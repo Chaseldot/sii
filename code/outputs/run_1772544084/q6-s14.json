@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772544084",
+  "question_index": 6,
+  "question_id": "17",
+  "split": "train",
+  "sample_id": 14,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 3.5885367393493652,
+  "response": "```python\nimport sys\n\ndef main():\n    S = sys.stdin.readline().strip()\n    \n    # Create a list for efficient modifications\n    chars = list(S)\n    n = len(chars)\n    \n    # Traverse the string from left to right\n    i = 0\n    while i < n - 1:\n        # Check if current and next character form \"WA\"\n        if chars[i] == 'W' and chars[i + 1] == 'A':\n            # Replace \"WA\" with \"AC\"\n            chars[i] = 'A'\n            chars[i + 1] = 'C'\n            # After replacement, we need to check again from i - 1 because previous characters may now form \"WA\"\n            i = max(0, i - 1)\n        else:\n            i += 1\n    \n    print(''.join(chars))\n\nif __name__ == '__main__':\n    main()\n```"
+}

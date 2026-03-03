@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772551042",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 9,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 3.5449838638305664,
+  "response": "```python\nimport sys\nimport math\n\ndef solve():\n    A = int(sys.stdin.read())\n    total = 400\n    for b in range(1, total + 1):\n        if total % b == 0:\n            a = total // b\n            if a == A:\n                print(b)\n                return\n    print(-1)\n\nsolve()\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772547596",
+  "question_index": 3,
+  "question_id": "6",
+  "split": "train",
+  "sample_id": 15,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 7.679014444351196,
+  "response": "### 分析\n我们的问题是判断给定的三个整数 $A = (A_1, A_2, A_3)$ 是否可以重新排列成一个序列 $B = (B_1, B_2, B_3)$，使得 $B_1 \\times B_2 = B_3$ 成立。\n\n#### 关键约束分析\n- 输入为3个整数，范围在1到100之间。\n- 时间复杂度限制为1秒，对于本题这样的小规模数据（最多 $3! = 6$ 种排列），暴力枚举所有可能的排列是完全可行的。\n  \n#### 问题类型\n这个问题属于**模拟/枚举**类型。我们需要检查所有可能的排列组合，并验证是否有满足条件的组合。\n\n#### 数学推导与规律\n由于序列长度非常短，我们可以直接枚举所有可能的排列组合。对于 $A$ 的每个排列 $B$，只需验证以下条件是否成立：\n$$\nB_1 \\times B_2 = B_3\n$$\n我们有如下3种排列方式：\n1. $B_1 = A[0], B_2 = A[1], B_3 = A[2]$\n2. $B_1 = A[0], B_2 = A[2], B_3 = A[1]$\n3. $B_1 = A[1], B_2 = A[0], B_3 = A[2]$\n4. $B_1 = A[1], B_2 = A[2], B_3 = A[0]$\n5. $B_1 = A[2], B_2 = A[0], B_3 = A[1]$\n6. $B_1 = A[2], B_2 = A[1], B_3 = A[0]$\n\n对每一种情况进行判断即可。\n\n#### 算法设计\n遍历3个元素的所有排列（共6种情况），然后判断是否存在某一种排列使得 $B_1 \\times B_2 = B_3$ 成立。\n\n#### 复杂度分析\n时间复杂度为 $O(1)$，因为只进行常数次计算。\n\n---\n\n### 代码\n```python\nfrom itertools import permutations\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    A = list(map(int, input().split()))\n    for perm in permutations(A):\n        if perm[0] * perm[1] == perm[2]:\n            print(\"Yes\")\n            return\n    print(\"No\")\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

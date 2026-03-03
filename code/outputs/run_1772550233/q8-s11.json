@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772550233",
+  "question_index": 8,
+  "question_id": "25",
+  "split": "train",
+  "sample_id": 11,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 47.834863901138306,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    X = int(data[1])\n    \n    U = []\n    D = []\n    for i in range(N):\n        u = int(data[2 + 2*i])\n        d = int(data[3 + 2*i])\n        U.append(u)\n        D.append(d)\n    \n    # Determine the possible H values based on the first pair and constraints\n    # The valid H must be such that H - U[0] is between 0 and D[0], inclusive\n    # So H ranges from U[0] to U[0] + D[0]\n    min_cost = float('inf')\n    \n    # Try all possible H values based on the first pair\n    for h in range(U[0], U[0] + D[0] + 1):\n        cost = 0\n        prev_u = U[0]\n        prev_d = D[0]\n        if prev_u + prev_d != h:\n            continue\n        \n        # Check for the upper teeth differences\n        for i in range(1, N):\n            current_u = U[i]\n            current_d = D[i]\n            new_d = h - current_u\n            cost += max(0, current_d - new_d)\n            \n            # Check the difference condition between consecutive upper teeth\n            if abs(current_u - U[i-1]) > X:\n                cost = float('inf')\n                break\n            \n            new_u = h - new_d\n            cost += max(0, current_u - new_u)\n        \n        if cost < min_cost:\n            min_cost = cost\n    \n    print(min_cost)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

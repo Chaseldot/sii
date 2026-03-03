@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772551042",
+  "question_index": 18,
+  "question_id": "64",
+  "split": "train",
+  "sample_id": 13,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 24.077987670898438,
+  "response": "```python\nimport sys\n\ndef solve():\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    A = list(map(int, data[1:N+1]))\n    \n    if all(x == 1 for x in A):\n        print(\"Yes\")\n        return\n    \n    from collections import deque\n    \n    q = deque()\n    for i in range(N):\n        if A[i] == 0:\n            q.append(i)\n    \n    while q:\n        pos = q.popleft()\n        # Check first operation: S_i = A, S_{i+1} = R, S_{i+2} = C\n        if pos + 2 < N:\n            if A[pos] == 0 and A[pos+1] == 1 and A[pos+2] == 1:\n                A[pos] = 1\n                if A[pos] == 0:\n                    q.append(pos)\n        # Check second operation: S_{i+2} = A, S_{i+1} = R, S_i = C\n        if pos - 2 >= 0:\n            if A[pos-2] == 1 and A[pos-1] == 1 and A[pos] == 0:\n                A[pos] = 1\n                if A[pos] == 0:\n                    q.append(pos)\n        # Also check the wrap-around cases\n        if pos + 2 == N:\n            if A[pos] == 0 and A[pos+1] == 1 and A[pos+2] == A[0]:\n                A[pos] = 1\n                if A[pos] == 0:\n                    q.append(pos)\n        if pos - 2 < 0:\n            if A[pos-2 + N] == 1 and A[pos-1 + N] == 1 and A[pos] == 0:\n                A[pos] = 1\n                if A[pos] == 0:\n                    q.append(pos)\n    \n    if all(x == 1 for x in A):\n        print(\"Yes\")\n    else:\n        print(\"No\")\n\nsolve()\n```"
+}

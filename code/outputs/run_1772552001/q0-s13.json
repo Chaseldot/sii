@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772552001",
+  "question_index": 0,
+  "question_id": "0",
+  "split": "train",
+  "sample_id": 13,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 43.600614070892334,
+  "response": "```python\nimport sys\nimport heapq\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    W = int(data[1])\n    \n    blocks = []\n    idx = 2\n    for i in range(N):\n        X = int(data[idx])\n        Y = int(data[idx+1])\n        idx += 2\n        blocks.append((Y, X, i))  # (Y, X, index)\n\n    blocks.sort()  # 按 Y 升序排序，即从底向上\n    \n    Q = int(data[idx])\n    queries = []\n    for _ in range(Q):\n        T = int(data[idx+1])\n        A = int(data[idx+2])\n        queries.append((T, A-1))  # 转成0-based索引\n        idx += 3\n\n    # 构建优先队列（每个块的位置是 (Y, X, block_index)）\n    heap = []\n    for Y, X, i in blocks:\n        heapq.heappush(heap, (Y, X, i))\n\n    # 预处理结果：记录每个块何时消失\n    time_map = {}  # key: block index, value: time it disappears\n    row_count = [0] * (W + 2)  # 统计每行中有多少块\n    removed = set()\n\n    while heap:\n        cur_time, X, i = heapq.heappop(heap)\n        if i in removed:\n            continue\n\n        # 判断该块是否在某个时间步被移除\n        if row_count[X] >= 1:\n            # 此块在当前行已经有其他块，不会掉落\n            time_map[i] = cur_time + 1  # 标记为在下一个时间步被移出\n        else:\n            # 块可以往下掉\n            new_Y = cur_time + 1\n            row_count[X] += 1\n            # 检查下一行是否有空位\n            down_available = False\n            next_X = X\n            while True:\n                next_X += 1\n                if next_X > W:\n                    break\n                if row_count[next_X] == 0:\n                    down_available = True\n                    break\n            if down_available:\n                # 下一行有空位\n                # 在下一个时间步尝试下移到下一行\n                heapq.heappush(heap, (new_Y, next_X, i))\n            else:\n                # 没有空位，则当前块留在原位置\n                time_map[i] = new_Y  # 标记为在 new_Y 时间步被移除\n\n    # 处理查询\n    output = []\n    for T, A in queries:\n        if A in time_map and time_map[A] <= T:\n            output.append(\"No\")\n        else:\n            output.append(\"Yes\")\n\n    print(\"\\n\".join(output))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

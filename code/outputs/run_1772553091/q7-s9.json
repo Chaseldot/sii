@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772553091",
+  "question_index": 7,
+  "question_id": "20",
+  "split": "train",
+  "sample_id": 9,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 3.6738479137420654,
+  "response": "### 分析\n这个问题要求我们从一个由数字组成的字符串中移除所有不是 '2' 的字符，然后将剩余的字符按原顺序拼接成一个新的字符串输出。根据题目描述，输入是一个只包含数字的字符串，并且保证至少有一个 '2' 存在。\n\n我们的思路是：\n1. 遍历输入字符串中的每个字符。\n2. 如果字符等于 '2'，保留它。\n3. 最后将所有保留下来的 '2' 拼接成一个新的字符串输出。\n\n这个过程可以通过 Python 的列表推导式或者过滤函数轻松实现。由于输入长度上限为 100，时间复杂度不会很高，因此不需要担心性能问题。\n\n---\n\n### 代码\n```python\n# Read the input string\nS = input().strip()\n\n# Filter out all characters except '2'\nresult = ''.join([c for c in S if c == '2'])\n\n# Print the result\nprint(result)\n```"
+}

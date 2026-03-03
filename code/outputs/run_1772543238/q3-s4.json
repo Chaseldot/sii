@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772543238",
+  "question_index": 3,
+  "question_id": "6",
+  "split": "train",
+  "sample_id": 4,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 5.267933368682861,
+  "response": "To solve this problem, we need to check if there exists any permutation of the given sequence of integers $ A = (A_1, A_2, A_3) $ such that when rearranged into $ B = (B_1, B_2, B_3) $, it satisfies the condition $ B_1 \\times B_2 = B_3 $. \n\n### Key Observations:\n- There are only 6 permutations of a 3-element list.\n- We can generate all possible permutations of $ A $ and check each one for the condition.\n\n### Steps:\n1. Read the input values as a list.\n2. Generate all permutations of the list.\n3. For each permutation, check if the product of the first two elements equals the third.\n4. If any permutation satisfies the condition, print \"Yes\"; otherwise, print \"No\".\n\n### Edge Cases Considered:\n- All values are positive since the constraints say $ 1 \\leq A_1, A_2, A_3 \\leq 100 $.\n- The multiplication must be exact, not floating-point approximation.\n\nNow, here is the complete Python code:\n\n```python\nfrom itertools import permutations\n\n# Read input\nA = list(map(int, input().split()))\n\n# Generate all permutations of A\nfor perm in permutations(A):\n    B1, B2, B3 = perm\n    if B1 * B2 == B3:\n        print(\"Yes\")\n        exit()\n\nprint(\"No\")\n```"
+}

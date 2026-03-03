@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772553091",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 1,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 9.380847692489624,
+  "response": "### 分析\n\n这道题的核心是根据每个人的分数，按照特定的规则确定他们的排名。规则如下：\n\n1. 初始时，所有人的排名都是未确定的。\n2. 维护一个变量 `r`，初始值为 `1`。\n3. 每次找出当前未确定排名的人中分数最高的那个人（或几个人），把他们的排名设为 `r`，然后将 `r` 增加相应的数量（即这些人的个数）。\n4. 重复此过程直到所有人都有排名。\n\n我们需要注意以下几点：\n\n- 必须持续跟踪哪些人的排名是未确定的。\n- 每次找出当前最高分的人，并判断有多少人拥有这个分数。\n- 对于相同分数的人，他们将获得相同的排名，并且 `r` 的值会根据人数进行递增。\n\n为了实现这一逻辑，可以采取如下策略：\n- 使用一个布尔数组 `is_ranked` 来记录每个人的排名状态。\n- 使用优先队列或者直接遍历的方式找到当前未确定的最高分。\n- 每次计算当前最高分以及对应的未确定人数，然后更新这些人的排名并更新 `r`。\n\n整个算法的时间复杂度为 O(N²)，对于 N <= 100 来说没有问题。\n\n---\n\n### 代码\n```python\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:N+1]))\n    \n    rank = [0] * N\n    is_ranked = [False] * N\n    r = 1\n    \n    while True:\n        max_score = -1\n        count = 0\n        \n        # Find the maximum score among people with undetermined ranks\n        for i in range(N):\n            if not is_ranked[i]:\n                if P[i] > max_score:\n                    max_score = P[i]\n                    count = 1\n                elif P[i] == max_score:\n                    count += 1\n        \n        # If all are ranked, break\n        if count == 0:\n            break\n        \n        # Assign rank to those with max_score\n        for i in range(N):\n            if not is_ranked[i] and P[i] == max_score:\n                rank[i] = r\n                is_ranked[i] = True\n        \n        r += count\n    \n    for i in range(N):\n        print(rank[i])\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

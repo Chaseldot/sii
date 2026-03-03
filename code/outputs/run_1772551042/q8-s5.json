@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772551042",
+  "question_index": 8,
+  "question_id": "25",
+  "split": "train",
+  "sample_id": 5,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 62.23073410987854,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    X = int(data[1])\n    \n    U = []\n    D = []\n    for i in range(N):\n        u = int(data[2 + 2*i])\n        d = int(data[2 + 2*i + 1])\n        U.append(u)\n        D.append(d)\n    \n    # For each tooth, the sum of upper and lower teeth must be the same H\n    # So we can calculate the possible H values based on the initial sums\n    # But since we can adjust the lengths, we need to find an optimal H\n    \n    # Find the minimal and maximal possible H that can satisfy the constraints\n    min_h = max(D[i] - U[i] for i in range(N))\n    max_h = min(U[i] + D[i] for i in range(N))\n    \n    if min_h > max_h:\n        print(-1)\n        return\n    \n    # Now find optimal H in [min_h, max_h]\n    # Try adjusting the upper teeth with H chosen such that they are as close as possible to the original U[i]\n    # We'll use ternary search on H since the cost function is unimodal\n\n    def calc_cost(H):\n        total_cost = 0\n        prev_u = H - D[0]\n        total_cost += (U[0] - prev_u)\n        for i in range(1, N):\n            curr_u = H - D[i]\n            diff = abs(prev_u - curr_u)\n            if diff > X:\n                return float('inf')\n            total_cost += (U[i] - curr_u)\n            prev_u = curr_u\n        return total_cost\n    \n    left = min_h\n    right = max_h\n    \n    # Ternary search\n    while left < right:\n        mid1 = left + (right - left) // 3\n        mid2 = right - (right - left) // 3\n        cost1 = calc_cost(mid1)\n        cost2 = calc_cost(mid2)\n        if cost1 < cost2:\n            right = mid2\n        else:\n            left = mid1\n    \n    # Check all H in [left, right] to find the minimum cost\n    min_cost = float('inf')\n    for h in range(left, right + 1):\n        cost = calc_cost(h)\n        if cost < min_cost:\n            min_cost = cost\n    \n    print(min_cost)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

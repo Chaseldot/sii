@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772543238",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 0,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.045271635055542,
+  "response": "To solve this problem, we need to determine if there exists a positive integer B such that the product of A and B equals 400. In other words, we are looking for a factor of 400 that is greater than or equal to 1.\n\n### Thought Process:\n\n- We are given an integer A.\n- We must find a positive integer B such that `A * B = 400`.\n- This means B must be a divisor of 400.\n- We can iterate through all possible values of B starting from 1 up to 400 and check if 400 % A == 0.\n- If such a B is found, print it. Otherwise, print -1.\n\n### Edge Cases:\n- If A is 0, it’s not valid since we're only given positive integers.\n- If A is larger than 400, then B won't be a positive integer.\n\n### Efficient Approach:\nWe can compute B as `B = 400 // A`, but we must verify that A divides 400 exactly (i.e., the remainder is zero). If so, B is valid. Otherwise, return -1.\n\nHere's the clean and efficient implementation:\n\n```python\n# Read input\nA = int(input())\n\n# Check if A is a valid divisor of 400\nif 400 % A == 0:\n    print(400 // A)\nelse:\n    print(-1)\n```"
+}

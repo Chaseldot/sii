@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772543238",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 3,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 7.181989908218384,
+  "response": "To solve this problem, we need to determine the rank of each person in a contest based on their scores using a specific ranking procedure. The key idea is to repeatedly find the highest score among undetermined people, assign them the current rank, and then update the rank variable accordingly.\n\n### Approach\n1. **Initialization**: Create a list to store the ranks of each person.\n2. **Track Undetermined People**: Use a boolean list to track whether a person's rank has been determined.\n3. **Find Maximum Scores**: At each step, identify the maximum score among undetermined people.\n4. **Assign Ranks**: Assign the current rank to all people with the maximum score and update the rank variable accordingly.\n5. **Repeat Until All Ranks Are Assigned**: Continue the process until all ranks are determined.\n\nThis approach ensures that we always assign the correct rank in the order described by the problem.\n\nHere is the complete Python code:\n\n```python\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:N+1]))\n    \n    # Initialize rank array with 0s (0 means undetermined)\n    rank = [0] * N\n    # Track which people have their rank determined\n    determined = [False] * N\n    r = 1  # Current rank to assign\n    \n    while sum(determined) < N:\n        # Find the maximum score among undetermined people\n        max_score = -1\n        for i in range(N):\n            if not determined[i] and P[i] > max_score:\n                max_score = P[i]\n        \n        # Assign rank to all people with max_score\n        for i in range(N):\n            if not determined[i] and P[i] == max_score:\n                rank[i] = r\n                determined[i] = True\n        \n        r += len([i for i in range(N) if not determined[i] and P[i] == max_score])\n    \n    for rnk in rank:\n        print(rnk)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

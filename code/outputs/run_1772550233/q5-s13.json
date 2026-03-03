@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772550233",
+  "question_index": 5,
+  "question_id": "13",
+  "split": "train",
+  "sample_id": 13,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 28.595929384231567,
+  "response": "```python\nimport sys\nimport bisect\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    idx = 0\n    N = int(data[idx])\n    idx += 1\n    Q = int(data[idx])\n    idx += 1\n    \n    A = list(map(int, data[idx:idx+N]))\n    idx += N\n    \n    queries = []\n    for _ in range(Q):\n        R = int(data[idx])\n        X = int(data[idx+1])\n        queries.append((R, X))\n        idx += 2\n    \n    # Preprocess the array to have prefix arrays\n    # For each position i, we'll store a sorted list of values up to i and their corresponding LIS lengths\n    lis_info = []\n    current_values = []\n    current_lengths = []\n    for val in A:\n        # Find the first index in current_values where value >= val\n        idx_val = bisect.bisect_left(current_values, val)\n        if idx_val == len(current_values):\n            # Add new value to the end\n            current_values.append(val)\n            current_lengths.append(1)\n        else:\n            # Update the length at idx_val to be one more than the previous length at idx_val - 1\n            if idx_val > 0:\n                current_lengths[idx_val] = current_lengths[idx_val - 1] + 1\n            else:\n                current_lengths[idx_val] = 1\n        # Append a copy of current_values and current_lengths to lis_info\n        lis_info.append((current_values.copy(), current_lengths.copy()))\n    \n    # Now process queries\n    results = []\n    for R, X in queries:\n        # Get the list up to R\n        current_values, current_lengths = lis_info[R-1]\n        # Find the rightmost index where value <= X\n        idx_x = bisect.bisect_right(current_values, X) - 1\n        if idx_x >= 0:\n            results.append(current_lengths[idx_x])\n        else:\n            results.append(0)\n    \n    print('\\n'.join(map(str, results)))\n\nif __name__ == '__main__':\n    main()\n```"
+}

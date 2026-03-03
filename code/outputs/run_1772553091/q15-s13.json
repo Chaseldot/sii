@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772553091",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 13,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 8.199771165847778,
+  "response": "### 分析\n\n我们需要根据每个人的得分来确定他们的排名。排名规则是这样的：\n\n1. 初始时，所有人都未确定排名。\n2. 每次找出当前未确定排名中得分最高的分数 `x`。\n3. 找出所有得分等于 `x` 的人，并将他们的排名设为当前的 `r`，然后将 `r` 增加这些人的数量。\n\n这类似于按照降序处理得分，同时按得分相同的组来分配相同的排名，并跳过相同排名的后续计算。\n\n**具体步骤如下：**\n\n- 将每个人及其得分保存在一个列表中。\n- 根据得分从高到低对所有人进行排序。\n- 遍历这个排序后的列表，并使用一个变量 `rank` 来跟踪当前的排名。\n- 对于相同得分的人，分配相同的排名，并且在处理完这一组之后，将 `rank` 加上该组的人数。\n- 最终，我们记录每个人的最终排名。\n\n需要注意，输入规模较小（N <= 100），因此可以采用较为直观的做法，例如排序和遍历即可。\n\n---\n\n### 代码\n```python\n# Read input\nN = int(input())\nP = list(map(int, input().split()))\n\n# Create a list of tuples (score, index) for each person\npeople = [(P[i], i + 1) for i in range(N)]\n\n# Sort the people by score in descending order\npeople.sort(reverse=True, key=lambda x: x[0])\n\n# Initialize rank and result list\nrank = 1\nresult = [0] * N\n\n# Assign rank to each person based on scores\nfor i in range(N):\n    # If it's the first element or the current person's score is different from the previous\n    if i == 0 or people[i][0] != people[i - 1][0]:\n        rank = i + 1  # Adjust rank based on position in sorted list\n\n    # Assign the current rank to this person\n    result[people[i][1] - 1] = rank\n\n# Print the result\nfor r in result:\n    print(r)\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772551042",
+  "question_index": 8,
+  "question_id": "25",
+  "split": "train",
+  "sample_id": 9,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 58.3062858581543,
+  "response": "```python\nimport sys\n\ndef solve():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    X = int(data[1])\n    \n    U = []\n    D = []\n    \n    index = 2\n    for _ in range(N):\n        U.append(int(data[index]))\n        D.append(int(data[index + 1]))\n        index += 2\n    \n    H_list = [U[i] + D[i] for i in range(N)]\n    H_list.sort()\n    \n    min_cost = float('inf')\n    \n    for i in range(N):\n        j = i\n        while j < N and H_list[j] - H_list[i] <= X:\n            j += 1\n        j -= 1\n        \n        if j < i:\n            continue\n        \n        # For the window [i, j], we need to find the optimal H\n        # to minimize the cost of adjusting teeth to have sum H\n        \n        # The optimal H is such that it minimizes the total cost of adjustment\n        # We use the median of the window as the best estimate for H\n        mid = (i + j) // 2\n        H = H_list[mid]\n        \n        cost = 0\n        for k in range(i, j + 1):\n            current_sum = U[k] + D[k]\n            if current_sum > H:\n                cost += current_sum - H\n        \n        min_cost = min(min_cost, cost)\n    \n    print(min_cost)\n\nsolve()\n```"
+}

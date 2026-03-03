@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772551042",
+  "question_index": 18,
+  "question_id": "64",
+  "split": "train",
+  "sample_id": 0,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 46.29573392868042,
+  "response": "```python\nimport sys\n\ndef solve():\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    A = list(map(int, data[1:N+1]))\n    \n    if all(a == 1 for a in A):\n        print(\"Yes\")\n        return\n    \n    # Check if there exists any position where either pattern can be used to eliminate a 0\n    # We need to check if every 0 can be covered by these two patterns.\n    # We'll use a greedy approach with double pointers to ensure coverage.\n\n    i = 0\n    while i < N:\n        if A[i] == 0:\n            # Try first operation (A, R, C)\n            if i + 2 < N and A[i + 1] == 0 and A[i + 2] == 0:\n                A[i], A[i + 1] = 1, 1\n                i += 1\n            # Try second operation (C, R, A)\n            elif i - 1 >= 0 and A[i - 1] == 0 and i + 1 < N and A[i + 1] == 0:\n                A[i - 1], A[i] = 1, 1\n                i -= 1\n            else:\n                print(\"No\")\n                return\n        else:\n            i += 1\n    \n    print(\"Yes\")\n\nsolve()\n```"
+}

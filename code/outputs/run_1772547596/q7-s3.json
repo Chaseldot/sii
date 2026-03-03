@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772547596",
+  "question_index": 7,
+  "question_id": "20",
+  "split": "train",
+  "sample_id": 3,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 4.577101469039917,
+  "response": "### 分析\n1. **关键约束**：\n   - 输入字符串 S 长度为 1 到 100。\n   - 字符串中至少包含一个 `'2'`。\n   - 输出是将字符串中所有非 `'2'` 的字符删除后，剩下的 `'2'` 拼接成的字符串。\n\n2. **问题类型**：\n   - 这是一个简单的字符串处理问题，可以通过遍历或过滤操作解决。\n\n3. **数学公式或规律**：\n   - 无需复杂的数学推导，只需要按顺序保留 `'2'`，移除其他字符即可。\n\n4. **算法设计与复杂度分析**：\n   - 算法思路：遍历字符串中的每个字符，如果该字符是 `'2'`，则保留；否则丢弃。\n   - 时间复杂度：O(n)，其中 n 是字符串长度。由于 n 最大为 100，因此时间效率完全满足要求。\n\n### 代码\n```python\n# Read the input string\nS = input().strip()\n\n# Filter the string to keep only '2's\nresult = ''.join([char for char in S if char == '2'])\n\n# Print the result\nprint(result)\n```"
+}

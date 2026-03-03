@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772550233",
+  "question_index": 1,
+  "question_id": "3",
+  "split": "train",
+  "sample_id": 13,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 37.800246715545654,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    A = data[1]\n    \n    length = 3 ** N\n    target = '0' if A.count('1') < length // 2 else '1'\n    \n    def get_majority(s):\n        count = {'0': 0, '1': 0}\n        for c in s:\n            count[c] += 1\n        return '0' if count['0'] > count['1'] else '1'\n    \n    def apply_operation(s):\n        res = []\n        for i in range(0, len(s), 3):\n            group = s[i:i+3]\n            res.append(get_majority(group))\n        return ''.join(res)\n    \n    current = A\n    for _ in range(N):\n        current = apply_operation(current)\n    \n    min_changes = float('inf')\n    for i in range(length):\n        if A[i] == target:\n            continue\n        temp = A[:i] + ('1' if A[i] == '0' else '0') + A[i+1:]\n        temp_str = temp\n        for _ in range(N):\n            temp_str = apply_operation(temp_str)\n        if temp_str[0] != target:\n            min_changes = min(min_changes, 1)\n    \n    print(min_changes)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772543238",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 5,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 3.4837355613708496,
+  "response": "To solve this problem, we need to find a positive integer `B` such that the product of `A` and `B` equals 400. This is because we want to arrange exactly 400 people in `A` rows and `B` columns without any gaps.\n\n### Steps:\n1. Given a value `A`, compute the corresponding `B` as $ B = \\frac{400}{A} $.\n2. Check if `B` is an integer and greater than zero.\n3. If valid, print `B`; otherwise, print `-1`.\n\n### Edge Cases:\n- If `A` is 0 (but since the input constraints state that `A` is between 1 and 400, this is not possible).\n- If $ \\frac{400}{A} $ is not an integer or results in a non-positive value, then output `-1`.\n\nHere is the complete Python code:\n\n```python\n# Read input\nA = int(input())\n\n# Calculate B\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772551042",
+  "question_index": 13,
+  "question_id": "43",
+  "split": "train",
+  "sample_id": 12,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 8.588717937469482,
+  "response": "```python\nimport sys\n\ndef shortest_palindrome(s):\n    n = len(s)\n    lps = [0] * n\n    length = 0\n\n    for i in range(1, n):\n        while length > 0 and s[i] != s[length]:\n            length = lps[length - 1]\n        if s[i] == s[length]:\n            length += 1\n            lps[i] = length\n        else:\n            lps[i] = 0\n\n    max_length = lps[-1]\n    return s + s[:max_length::-1]\n\ndef solve():\n    s = sys.stdin.read().strip()\n    print(shortest_palindrome(s))\n\nif __name__ == \"__main__\":\n    solve()\n```"
+}

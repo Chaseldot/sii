@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772553091",
+  "question_index": 3,
+  "question_id": "6",
+  "split": "train",
+  "sample_id": 10,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 4.8657732009887695,
+  "response": "### 分析\n\n我们的问题是给定一个由三个整数组成的序列 `A = (A1, A2, A3)`，要求判断是否存在一种排列方式 `B = (B1, B2, B3)`（即 `B` 是 `A` 的一个排列），使得满足 `B1 * B2 == B3`。\n\n由于只有三个元素，所以我们可以通过枚举所有排列的方式检查条件是否成立。总共可能的排列有 3! = 6 种。我们可以遍历所有这些排列情况，检查是否有任意一种满足 `B1 * B2 == B3`。\n\n对于每个排列，我们计算 `B1 * B2` 并判断是否等于 `B3`。如果有任意一个排列满足该等式，则输出 \"Yes\"，否则输出 \"No\"。\n\n考虑到输入的数值范围较小（1 到 100），且排列数固定为 6，这种暴力枚举方法在时间上是完全可行的。\n\n---\n\n### 代码\n```python\nfrom itertools import permutations\n\n# 读取输入\nA = list(map(int, input().split()))\n\n# 枚举所有排列\nfor perm in permutations(A):\n    if perm[0] * perm[1] == perm[2]:\n        print(\"Yes\")\n        break\nelse:\n    print(\"No\")\n```"
+}

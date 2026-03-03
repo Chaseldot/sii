@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772551042",
+  "question_index": 2,
+  "question_id": "4",
+  "split": "train",
+  "sample_id": 8,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 27.56946611404419,
+  "response": "```python\nimport sys\n\nMOD = 998244353\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    M = int(data[1])\n    S = data[2]\n    \n    # Precompute the positions of each character in S\n    from collections import defaultdict\n    pos = defaultdict(list)\n    for i, c in enumerate(S):\n        pos[c].append(i)\n    \n    # dp[i][j] will represent the number of ways to have a LCS of length j with the first i characters of S\n    # We use a 2D DP where dp[i][j] is the count of strings of length M with LCS exactly j with the first i characters of S\n    dp = [[0] * (M + 1) for _ in range(N + 1)]\n    dp[0][0] = 1  # Base case: empty string has LCS of length 0\n    \n    for i in range(1, N + 1):\n        for j in range(M + 1):\n            # Case 1: Do not take the current character of S\n            dp[i][j] = dp[i-1][j]\n            \n            # Case 2: Take the current character of S\n            if j > 0:\n                # For each possible position to place this character in the target string\n                # We need to multiply by the number of ways to choose positions in the target string\n                # that are after the previous occurrence of this character in S\n                # We can use a precomputed matrix of transitions\n                dp[i][j] += dp[i-1][j-1] * (26 ** (M - j))\n                dp[i][j] %= MOD\n    \n    # Now calculate for each k, the number of strings of length M with LCS exactly k with S\n    ans = [0] * (N + 1)\n    for k in range(N + 1):\n        # Count all strings of length M with LCS >= k and subtract those with LCS >= k+1\n        cnt = 0\n        for lcs_len in range(k, M + 1):\n            cnt += dp[N][lcs_len]\n            cnt %= MOD\n        ans[k] = cnt\n    \n    print(' '.join(map(str, ans)))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

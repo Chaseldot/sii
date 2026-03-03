@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772547596",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 1,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 11.100745677947998,
+  "response": "### 分析\n这道题的目的是根据给定的分数，按照特定的规则为每个人的排名。具体来说，我们需要按以下步骤确定每个人的成绩排名：\n\n1. 初始时，所有人排名未定。\n2. 每次从所有未确定排名的人中找到当前最高分，并记录其出现的次数。\n3. 将这些人的排名设置为当前的 `r`，并增加 `r` 的值（每次增加与该分值人数相同）。\n4. 重复该过程直到所有人都有排名。\n\n**关键约束分析：**\n- N (人数) 范围是 1 ≤ N ≤ 100。\n- 每个 P_i (分数) 的范围是 1 ≤ P_i ≤ 100。\n- 时间复杂度要求较低，因为最多 100 人，因此 O(N^2) 的算法是可以接受的。\n\n**问题类型分析：**\n这是一个模拟题目，我们只需要按照题目中给出的规则逐步处理即可。\n\n**算法思路：**\n1. 我们维护两个数组或字典：\n   - `scores` 用于存储每个人的得分。\n   - `ranks` 用于存储每个人的排名。\n2. 使用一个集合或布尔数组表示哪些人还没有被分配排名。\n3. 在每一轮中：\n   - 寻找当前未分配排名的人中的最大得分 `current_max`。\n   - 计算具有这个得分的所有人的数量 `count`。\n   - 增加当前的排名 `r` 为 `r + count`。\n   - 将这些人分配为当前的排名 `r`。\n4. 重复上述过程直到所有人都被分配了排名。\n\n**复杂度分析：**\n- 每轮我们需要扫描所有未分配排名的人，寻找最大得分：最坏情况为 O(N^2)。\n- 总共有 N 轮，所以时间复杂度为 O(N^2)，这对于 N=100 是可接受的。\n\n### 代码\n```python\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:N+1]))\n    \n    ranks = [0] * N\n    unassigned = [True] * N\n    r = 1\n    \n    while True:\n        max_score = -1\n        for i in range(N):\n            if unassigned[i] and P[i] > max_score:\n                max_score = P[i]\n        \n        if max_score == -1:\n            break\n        \n        count = 0\n        for i in range(N):\n            if unassigned[i] and P[i] == max_score:\n                count += 1\n        \n        for i in range(N):\n            if unassigned[i] and P[i] == max_score:\n                ranks[i] = r\n                unassigned[i] = False\n        \n        r += count\n    \n    for rank in ranks:\n        print(rank)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

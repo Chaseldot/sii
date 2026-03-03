@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772543238",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 7,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 8.843711137771606,
+  "response": "To solve this problem, we need to determine the rank of each person based on their score in a specific way. The key idea is to repeatedly find the maximum score among the remaining people and assign the current rank `r` to all people with that score. After assigning ranks, we increment `r` by the number of people who received the same score.\n\n### Strategy:\n1. Create a list of tuples containing each person's score and index.\n2. Sort this list in descending order of scores.\n3. Traverse the sorted list and assign ranks:\n   - If the current score is the same as the previous one, assign the same rank.\n   - If the current score is different, assign the next available rank `r`.\n4. Keep track of the current rank `r` and update it accordingly.\n\n### Edge Cases:\n- All scores are the same (e.g., sample input 3).\n- Only one person (N = 1).\n- Multiple people with the same score and others with lower scores.\n\nHere is the complete Python code for the solution:\n\n```python\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:N+1]))\n    \n    # Create a list of tuples (score, index)\n    people = [(P[i], i) for i in range(N)]\n    \n    # Sort the list in descending order of scores\n    people.sort(reverse=True, key=lambda x: x[0])\n    \n    rank = 1\n    prev_score = None\n    result = [0] * N\n    \n    for score, idx in people:\n        if score != prev_score:\n            rank = 1\n            prev_score = score\n        result[idx] = rank\n        rank += 1\n    \n    for r in result:\n        print(r)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

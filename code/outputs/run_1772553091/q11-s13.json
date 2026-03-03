@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772553091",
+  "question_index": 11,
+  "question_id": "29",
+  "split": "train",
+  "sample_id": 13,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 27.512177228927612,
+  "response": "### 分析\n\n此次错误仍然是由于变量名与内置函数冲突导致的。我们使用了 `bin(row).count('1')` 来统计二进制中 1 的个数，但误将该行的变量命名为 `bin`，导致了 `NameError`。我们需要纠正这个变量名，避免与 Python 内置函数冲突。\n\n此外，为了确保代码稳定性，建议在所有可能的地方避免使用与内置函数相同的变量名。\n\n---\n\n### 修正代码\n\n```python\nimport sys\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    \n    H = int(data[0])\n    W = int(data[1])\n    grid = data[2:2+H]\n    \n    # 将每行转为二进制数（便于快速计算）\n    rows = []\n    for row in grid:\n        bit = 0\n        for ch in row:\n            bit = (bit << 1) | int(ch)\n        rows.append(bit)\n    \n    min_total = float('inf')\n    \n    # 枚举所有可能的列翻转模式（W<=18，最多2^18=262144种）\n    for mask in range(1 << W):\n        total = 0\n        for i in range(H):\n            row = rows[i]\n            # 对当前行，根据mask决定是否翻转该行\n            if (row ^ mask) < row:\n                # 如果翻转该行后的总和更小，则翻转\n                row ^= mask\n            # 正确统计1的个数，避免使用内置函数bin作为变量名\n            count_ones = bin(row).count('1')\n            total += count_ones\n        min_total = min(min_total, total)\n    \n    print(min_total)\n\nif __name__ == '__main__':\n    main()\n```"
+}

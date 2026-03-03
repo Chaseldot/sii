@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772552001",
+  "question_index": 7,
+  "question_id": "20",
+  "split": "train",
+  "sample_id": 13,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 4.49204158782959,
+  "response": "### 分析问题\n\n- **输入**：一个只包含数字的字符串 `S`。\n- **输出**：将字符串中所有的非 `'2'` 的字符删除，剩下的字符按原始顺序拼接成的新字符串。\n- **约束条件**：\n  - 字符串长度在 `1` 到 `100` 之间。\n  - 字符串中至少有一个 `'2'`。\n\n---\n\n### 解题思路\n\n- 遍历输入字符串 `S` 中的每个字符。\n- 如果字符是 `'2'`，就保留它。\n- 否则忽略。\n- 最终，将所有保留的 `'2'` 按原顺序拼接起来形成新字符串。\n\n因为题目中的操作非常简单（只需过滤出 `'2'`），所以可以轻松实现。时间复杂度为 `O(n)`，其中 `n` 是输入字符串的长度，满足题目中的时间限制要求。\n\n---\n\n### Python代码实现\n\n```python\n# Read the input string from standard input\nS = input().strip()\n\n# Filter out all characters that are not '2'\nresult = ''.join([char for char in S if char == '2'])\n\n# Print the result\nprint(result)\n```"
+}

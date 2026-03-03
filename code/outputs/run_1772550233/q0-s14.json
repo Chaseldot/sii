@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772550233",
+  "question_index": 0,
+  "question_id": "0",
+  "split": "train",
+  "sample_id": 14,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 32.65105104446411,
+  "response": "```python\nimport sys\nimport bisect\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    idx = 0\n    N = int(data[idx])\n    idx += 1\n    W = int(data[idx])\n    idx += 1\n    \n    blocks = []\n    for i in range(N):\n        x = int(data[idx])\n        idx += 1\n        y = int(data[idx])\n        idx += 1\n        blocks.append((x, y, i + 1))  # (x, y, original index)\n    \n    Q = int(data[idx])\n    idx += 1\n    \n    queries = []\n    for _ in range(Q):\n        T = int(data[idx])\n        idx += 1\n        A = int(data[idx])\n        idx += 1\n        queries.append((T, A))\n    \n    # Sort blocks by y-coordinate\n    blocks.sort(key=lambda b: b[1])\n    \n    # For each column, store the positions of blocks sorted by y\n    # We use a dictionary where key is x (column index) and value is a list of y's\n    col_y = {}\n    col_count = {}  # To track the number of blocks in each column\n    for x, y, idx_block in blocks:\n        if x not in col_count:\n            col_count[x] = 0\n        if x not in col_y:\n            col_y[x] = []\n        bisect.insort(col_y[x], y)\n    \n    # Precompute the time when each block falls out\n    # For each block, determine the earliest time it will fall out\n    # The fall time is determined by the number of blocks in its column that are below it\n    # We sort the blocks in increasing order of y\n    blocks_sorted = sorted(blocks, key=lambda b: b[1])\n    \n    fall_time = [0] * (N + 1)  # 1-based indexing for blocks\n    \n    for x, y, idx_block in blocks_sorted:\n        fall_time[idx_block] = col_count[x]\n        col_count[x] += 1\n    \n    # Now process the queries\n    results = []\n    for T, A in queries:\n        if fall_time[A] < T:\n            results.append(\"Yes\")\n        else:\n            results.append(\"No\")\n    \n    print(\"\\n\".join(results))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

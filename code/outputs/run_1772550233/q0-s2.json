@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772550233",
+  "question_index": 0,
+  "question_id": "0",
+  "split": "train",
+  "sample_id": 2,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 29.631314516067505,
+  "response": "```python\nimport sys\nimport bisect\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    idx = 0\n    N = int(data[idx])\n    idx += 1\n    W = int(data[idx])\n    idx += 1\n    \n    blocks = []\n    for i in range(N):\n        x = int(data[idx])\n        idx += 1\n        y = int(data[idx])\n        idx += 1\n        blocks.append((x, y, i + 1))\n    \n    Q = int(data[idx])\n    idx += 1\n    \n    queries = []\n    for _ in range(Q):\n        T = int(data[idx])\n        idx += 1\n        A = int(data[idx])\n        idx += 1\n        queries.append((T, A))\n    \n    # Sort blocks by Y coordinate and then by X to handle same Y\n    sorted_blocks = sorted(blocks, key=lambda x: (x[1], x[0]))\n    \n    # For each block, compute the time when it would be removed\n    removal_time = [0] * N\n    \n    # Create a list of (y, x, original_index) and sort by y\n    sorted_y = sorted([(y, x, i) for i, (x, y, _) in enumerate(blocks)], key=lambda x: x[0])\n    \n    # Use a dictionary to track column counts\n    from collections import defaultdict\n    col_block_counts = defaultdict(int)\n    \n    # Process blocks in order of increasing y\n    for y, x, original_idx in sorted_y:\n        col_block_counts[x] += 1\n        \n        # The number of blocks in this column that are above this one is col_block_counts[x] - 1\n        # So the block will be removed at time y + (col_block_counts[x] - 1)\n        removal_time[original_idx] = y + (col_block_counts[x] - 1)\n    \n    # Process queries\n    results = []\n    for T, A in queries:\n        if T < removal_time[A - 1]:\n            results.append(\"Yes\")\n        else:\n            results.append(\"No\")\n    \n    print(\"\\n\".join(results))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

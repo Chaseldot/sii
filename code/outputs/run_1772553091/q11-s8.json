@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772553091",
+  "question_index": 11,
+  "question_id": "29",
+  "split": "train",
+  "sample_id": 8,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 43.049110412597656,
+  "response": "### 分析\n\n在之前的代码中，错误的根源是 `bin` 函数没有被正确导入。`bin` 是 Python 内置函数，用于将整数转换成其二进制字符串形式，但在某些环境中（如某些在线 judge 或特定 Python 版本）可能因为上下文原因未被识别。\n\n为了避免此类问题，我们应当确保使用标准方式处理所有运算，并且避免对内置函数依赖过强。\n\n此外，还可以进一步优化算法：\n\n- 将每行表示为一个整数而不是列表，提高效率；\n- 使用位操作进行列翻转；\n- 在计算时直接统计当前行经过列翻转后的 1 的个数。\n\n---\n\n### 修正并优化后的完整代码如下：\n\n```python\nimport sys\nfrom itertools import product\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    \n    H = int(data[0])\n    W = int(data[1])\n    \n    # 将每一行转换为整数形式，便于后续处理\n    rows = []\n    for i in range(H):\n        row_str = data[i + 2]\n        row_int = int(row_str, 2)\n        rows.append(row_int)\n    \n    min_total = float('inf')\n    \n    # 枚举所有的列翻转组合\n    for cols_flip_mask in product([0, 1], repeat=W):\n        # 计算列翻转的掩码\n        col_mask = 0\n        for j, flip in enumerate(cols_flip_mask):\n            if flip:\n                col_mask |= (1 << j)\n        \n        # 计算每行经过列翻转后的值\n        total = 0\n        for row in rows:\n            new_row_val = row ^ col_mask\n            cnt = bin(new_row_val).count('1')  # 统计新行中的 1 的个数\n            if cnt > H - cnt:\n                total += (H - cnt)  # 如果翻转该行可以减少总和，则翻转\n            else:\n                total += cnt\n        \n        if total < min_total:\n            min_total = total\n    \n    print(min_total)\n\nif __name__ == '__main__':\n    main()\n```\n\n---\n\n### 注意事项：\n- `bin()` 是 Python 标准库中的内置函数，无需额外导入。\n- 我们通过逐位异或操作，快速完成对列的反转。\n- 每次枚举列翻转组合时，只进行必要计算，不复制完整矩阵，节省内存与时间。\n\n这个版本的代码应该能够准确运行并通过所有测试用例。"
+}

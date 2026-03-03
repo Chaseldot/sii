@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772547596",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 15,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 7.037137269973755,
+  "response": "### 分析\n这道题的要求是判断一个整数序列中是否存在三个或更多连续相同的元素。换句话说，我们需要检查是否存在一个位置 i（1 ≤ i ≤ N-2），使得 A[i] = A[i+1] = A[i+2]。\n\n#### 关键约束\n- **N的范围**：3 ≤ N ≤ 100\n- **时间限制**：1秒\n- **数据规模**：由于N的上限为100，算法复杂度可以承受O(N)的线性扫描。\n\n#### 问题类型与思路\n这是一个简单的**模拟**问题：我们只需要遍历数组，检查是否存在连续的三个相同元素即可。\n\n- 对于每一个索引i（从0到n-3），检查A[i] == A[i+1] == A[i+2]是否成立。\n- 如果存在这样的i，则返回“Yes”，否则返回“No”。\n\n#### 算法设计\n1. 遍历数组，从第0个元素开始，逐个检查当前元素、下一项和下下项是否相等。\n2. 如果发现有三个元素相等，立即返回“Yes”。\n3. 若遍历结束后都没有找到这样的三元组，则返回“No”。\n\n#### 时间复杂度分析\n- 最坏情况下，需要遍历整个数组，时间复杂度为O(N)，对于N=100来说完全可行。\n\n---\n\n### 代码\n```python\nn = int(input())\na = list(map(int, input().split()))\n\nfound = False\nfor i in range(n - 2):\n    if a[i] == a[i + 1] == a[i + 2]:\n        found = True\n        break\n\nprint(\"Yes\" if found else \"No\")\n```"
+}

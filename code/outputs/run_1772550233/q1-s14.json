@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772550233",
+  "question_index": 1,
+  "question_id": "3",
+  "split": "train",
+  "sample_id": 14,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 18.832772970199585,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    A = data[1]\n    \n    length = 3 ** N\n    \n    def min_changes_to_flip(level, target):\n        if level == 0:\n            # At the bottom level, we need to flip the single bit\n            return 1 if A[0] != target else 0\n        size = 3 ** level\n        total = 0\n        for i in range(0, size, 3):\n            group = A[i:i+3]\n            counts = [0, 0]\n            for c in group:\n                counts[int(c)] += 1\n            majority = 1 if counts[1] > counts[0] else 0\n            # To change the majority of this group to target, calculate required changes\n            if majority != target:\n                # Need to change enough bits to make majority target\n                # Minimum changes are (2 - count_of_target_in_group) if count < 2\n                # or (count_of_opposite_in_group) if count >= 2\n                count_target = counts[target]\n                count_opposite = 3 - count_target\n                changes_needed = min(count_opposite, 2 - count_target)\n                total += changes_needed\n        return min_changes_to_flip(level - 1, target)\n    \n    # The final result is the minimum between flipping to 0 or 1\n    result = min(min_changes_to_flip(N, 0), min_changes_to_flip(N, 1))\n    print(result)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

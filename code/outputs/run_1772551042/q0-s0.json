@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772551042",
+  "question_index": 0,
+  "question_id": "0",
+  "split": "train",
+  "sample_id": 0,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 32.07992386817932,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    idx = 0\n    N = int(data[idx])\n    idx += 1\n    W = int(data[idx])\n    idx += 1\n    \n    blocks = []\n    for _ in range(N):\n        x = int(data[idx])\n        idx += 1\n        y = int(data[idx])\n        idx += 1\n        blocks.append((x, y))\n    \n    Q = int(data[idx])\n    idx += 1\n    \n    queries = []\n    for _ in range(Q):\n        T = int(data[idx])\n        idx += 1\n        A = int(data[idx]) - 1  # Convert to 0-based index\n        idx += 1\n        queries.append((T, A))\n    \n    # For each column, track the number of blocks that have fallen through and the earliest time they are removed\n    col_info = []  # For each column, (number of blocks passed, earliest time removed)\n    for _ in range(W):\n        col_info.append([0, float('inf')])\n    \n    # Sort blocks by Y-coordinate for processing\n    sorted_blocks = sorted(blocks, key=lambda b: b[1])\n    \n    # For each block, determine how many blocks are below it and compute its final position\n    for i in range(N):\n        x, y = sorted_blocks[i]\n        col = x - 1\n        # Count the number of blocks that are below this one (initially)\n        count_below = 0\n        for j in range(i + 1, N):\n            if sorted_blocks[j][1] < y:\n                count_below += 1\n        # The block will fall down by count_below positions, so its final Y is y - count_below - 1\n        # The block will be removed at time count_below + 1\n        col_info[col][0] += 1\n        col_info[col][1] = min(col_info[col][1], count_below + 1)\n    \n    # For each query, check if the block is still present at time T+0.5\n    results = []\n    for T, A in queries:\n        x, y = blocks[A]\n        col = x - 1\n        # Check if the block is removed before or at T\n        if T >= col_info[col][1]:\n            results.append(\"No\")\n        else:\n            results.append(\"Yes\")\n    \n    print('\\n'.join(results))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

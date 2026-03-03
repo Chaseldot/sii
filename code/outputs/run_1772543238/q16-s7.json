@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772543238",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 7,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 4.23748254776001,
+  "response": "To solve this problem, we need to find a positive integer `B` such that the product of `A` and `B` equals 400. This means that `B` must be a divisor of 400 and greater than zero.\n\nHere's the step-by-step approach:\n\n1. **Understand the constraints**: The number of rows is given as `A`, and we need to find `B` such that `A * B = 400`. Hence, `B = 400 / A`.\n2. **Check divisibility**: If `400 % A == 0`, then `B` is an integer and valid; otherwise, there is no suitable `B`, and we should print `-1`.\n3. **Handle edge cases**:\n   - For `A = 400`, `B = 1`.\n   - For `A = 1`, `B = 400`.\n\nNow, let's write the complete Python code to solve this problem.\n\n```python\n# Read input\nA = int(input())\n\n# Check if A divides 400 evenly\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772550233",
+  "question_index": 6,
+  "question_id": "17",
+  "split": "train",
+  "sample_id": 6,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 8.07036542892456,
+  "response": "```python\nimport sys\n\ndef solve():\n    input = sys.stdin.read().strip()\n    s = list(input)\n    i = 0\n    while i < len(s) - 1:\n        if s[i] == 'W' and s[i+1] == 'A':\n            s[i] = 'A'\n            s[i+1] = 'C'\n            i += 1  # Move past the replaced characters\n        else:\n            i += 1\n    print(''.join(s))\n\nif __name__ == '__main__':\n    solve()\n```"
+}

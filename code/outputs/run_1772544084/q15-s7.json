@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772544084",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 7,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 8.996641635894775,
+  "response": "```python\nimport sys\nfrom collections import defaultdict\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:]))\n    \n    # Initialize rank for each person\n    rank = [0] * N\n    \n    # Create a dictionary to map scores to the list of indices (people)\n    score_to_indices = defaultdict(list)\n    for i in range(N):\n        score_to_indices[P[i]].append(i)\n    \n    # Sort the scores in descending order to process from highest to lowest\n    sorted_scores = sorted(score_to_indices.keys(), reverse=True)\n    \n    # Initialize rank counter\n    r = 1\n    \n    # Process each score from highest to lowest\n    for score in sorted_scores:\n        indices = score_to_indices[score]\n        # Assign the current rank to all people with this score\n        for i in indices:\n            rank[i] = r\n        # Update the rank counter by adding the number of people with this score\n        r += len(indices)\n    \n    # Print the ranks\n    for rnk in rank:\n        print(rnk)\n\nif __name__ == '__main__':\n    main()\n```\n\n### 逻辑推演（注释）\n\n- **数学推导过程**：我们需要根据每个人的得分来确定他们的排名。排名的规则是，每次找到当前未确定排名的人中得分最高的那些人，并给这些人的排名为当前的 `r` 值，然后再将 `r` 加上这些人的数量。\n  \n- **DP状态转移方程**：没有明确的动态规划状态方程，因为这是一个贪心过程。我们只需要按照每一步的规则处理当前得分最高的一组人。\n\n- **边界情况处理方案**：\n  - 当所有人的得分都相同时（如样例3），所有人都获得相同的排名1。\n  - 当只有一人的得分最高时，他获得排名第一，然后 `r` 增加1。\n\n### 高效实现\n\n- 使用 `defaultdict` 来映射每个分数到对应的人的索引列表。\n- 排序分数，从高到低进行处理。\n- 使用高效的内置函数和结构（如 `defaultdict` 和 `sorted`）以确保代码效率。\n\n这个算法的时间复杂度是 O(N log N)，适用于最大N=100的情况，完全符合题目要求。"
+}

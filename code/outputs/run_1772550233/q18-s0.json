@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772550233",
+  "question_index": 18,
+  "question_id": "64",
+  "split": "train",
+  "sample_id": 0,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 48.40746212005615,
+  "response": "```python\nimport sys\n\ndef solve():\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    A = list(map(int, data[1:]))\n    \n    if all(a == 1 for a in A):\n        print(\"Yes\")\n        return\n    \n    num_zeros = sum(A)\n    if num_zeros % 2 != 0:\n        print(\"No\")\n        return\n    \n    zero_positions = [i for i in range(N) if A[i] == 0]\n    \n    i = 0\n    while i < len(zero_positions):\n        if i + 1 >= len(zero_positions):\n            print(\"No\")\n            return\n        # Check if the first and second zero can be covered by an operation\n        pos1 = zero_positions[i]\n        pos2 = zero_positions[i + 1]\n        \n        # If the two zeros are adjacent, we can cover them\n        if abs(pos1 - pos2) == 1:\n            i += 2\n            continue\n        \n        # If they are not adjacent, check if there's at least one space between them\n        # For example, positions i and i+2 are possible to form a valid pattern\n        if abs(pos1 - pos2) == 2:\n            i += 2\n            continue\n        \n        # If the zeros are more than two apart, it's impossible to pair them\n        print(\"No\")\n        return\n    \n    print(\"Yes\")\n\nsolve()\n```"
+}

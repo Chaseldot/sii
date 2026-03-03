@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772553091",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 2,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 23.121164798736572,
+  "response": "### 分析\n\n之前的实现中，我们使用了一个最大堆，并且每次从堆中弹出所有具有当前最高分的元素进行处理。然而，在每次操作中，我们重复地从堆中移除相同分数的元素，并插入回堆中，这对性能是有损的。\n\n为了提高效率，可以优化这个过程：\n\n- 使用一个优先队列**一次排序**即可确定所有人的排名。\n- 利用Python列表的排序特性，按分数倒序排序，然后处理相同分数的人，批量设置他们的排名。\n- 通过记录哪些人已经分配了排名，避免重复操作。\n\n这样可以将时间复杂度降到 O(N log N)（排序） + O(N)（遍历），符合题目的时间限制。\n\n---\n\n### 代码\n```python\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:]))  # Scores\n    \n    # Pair score with index (0-based)\n    people = [(P[i], i) for i in range(N)]\n    \n    # Sort in descending order of scores\n    people.sort(reverse=True)\n    \n    rank = [0] * N  # To store ranks of each person\n    current_rank = 1\n    \n    i = 0\n    while i < N:\n        current_score = people[i][0]\n        j = i\n        # Find how many people have the same score\n        while j < N and people[j][0] == current_score:\n            j += 1\n        # Assign rank to these people\n        for k in range(i, j):\n            rank[people[k][1]] = current_rank\n        # Update current_rank\n        current_rank += (j - i)\n        i = j\n    \n    for rnk in rank:\n        print(rnk)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772544084",
+  "question_index": 9,
+  "question_id": "27",
+  "split": "train",
+  "sample_id": 11,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 5.637833118438721,
+  "response": "```python\n# 1. 深度解析\n# - 约束条件：N的范围是2到100，每个A_i的范围是1到1000\n# - 理论时间复杂度上限为O(N)，因为我们需要检查每个相邻元素对\n# - 特殊性分析：该问题是一个简单的严格递增判断问题，没有复杂的数学规律或组合数学模型\n\n# 2. 逻辑推演\n# - 数学推导过程：我们只需遍历数组A，并检查每一对相邻的元素是否满足A[i] < A[i+1]\n# - DP状态转移方程：无需DP，直接顺序遍历即可\n# - 边界情况处理方案：当N=2时，只需比较两个元素；其他情况下，依次比较所有相邻元素对\n\n# 3. 高效实现\nimport sys\n\ndef main():\n    # 读取输入\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    A = list(map(int, data[1:N+1]))\n    \n    # 判断是否严格递增\n    for i in range(N-1):\n        if A[i] >= A[i+1]:\n            print(\"No\")\n            return\n    print(\"Yes\")\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

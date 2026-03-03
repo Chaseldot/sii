@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772550233",
+  "question_index": 2,
+  "question_id": "4",
+  "split": "train",
+  "sample_id": 11,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 28.59248638153076,
+  "response": "```python\nimport sys\n\nMOD = 998244353\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    M = int(data[1])\n    S = data[2]\n\n    # Precompute prefix and suffix counts of characters in S\n    from collections import defaultdict\n\n    prefix = [defaultdict(int) for _ in range(N + 1)]\n    suffix = [defaultdict(int) for _ in range(N + 1)]\n\n    for i in range(N):\n        prefix[i + 1] = prefix[i].copy()\n        prefix[i + 1][S[i]] += 1\n\n    for i in range(N - 1, -1, -1):\n        suffix[i] = suffix[i + 1].copy()\n        suffix[i][S[i]] += 1\n\n    # dp[i][j]: number of strings of length j with LCS length i\n    dp = [[0] * (M + 1) for _ in range(N + 1)]\n    dp[0][0] = 1\n\n    for m in range(M):\n        new_dp = [[0] * (N + 1) for _ in range(N + 1)]\n        for lcs_len in range(N + 1):\n            for curr_lcs in range(N + 1):\n                if dp[lcs_len][m] == 0:\n                    continue\n                for c in 'abcdefghijklmnopqrstuvwxyz':\n                    # Add character c to the string\n                    # Compute new_lcs\n                    new_lcs = lcs_len\n                    # Try to extend the LCS\n                    for i in range(N):\n                        if S[i] == c:\n                            if lcs_len > 0:\n                                new_lcs = max(new_lcs, lcs_len + 1)\n                            else:\n                                new_lcs = max(new_lcs, 1)\n                    new_dp[new_lcs][m + 1] = (new_dp[new_lcs][m + 1] + dp[lcs_len][m]) % MOD\n        dp = new_dp\n\n    ans = [0] * (N + 1)\n    for lcs_len in range(N + 1):\n        for m in range(M + 1):\n            ans[lcs_len] = (ans[lcs_len] + dp[lcs_len][m]) % MOD\n\n    print(' '.join(map(str, ans)))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

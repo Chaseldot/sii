@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772551042",
+  "question_index": 11,
+  "question_id": "29",
+  "split": "train",
+  "sample_id": 2,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 51.52902674674988,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    H = int(data[0])\n    W = int(data[1])\n    grid = [list(map(int, list(row))) for row in data[2:]]\n    \n    # Precompute column sums\n    col_ones = [sum(grid[i][j] for i in range(H)) for j in range(W)]\n    \n    # Precompute cost for flipping each column\n    col_cost = [W - col_ones[j] for j in range(W)]\n    \n    min_total = float('inf')\n    \n    # Try all possible combinations of flipping columns (W <= 18)\n    for mask in range(1 << W):\n        total = 0\n        for j in range(W):\n            if (mask >> j) & 1:\n                total += col_cost[j]\n        \n        # Calculate effective row values after column flips\n        row_sum = [0] * H\n        for i in range(H):\n            cnt = 0\n            for j in range(W):\n                if (mask >> j) & 1:\n                    cnt += 1 - grid[i][j]\n                else:\n                    cnt += grid[i][j]\n            row_sum[i] = cnt\n        \n        # Optimal row flips: flip rows with more 1s after column flips\n        row_flips = 0\n        for i in range(H):\n            if row_sum[i] > H - row_sum[i]:\n                row_flips += 1\n        \n        # Final sum calculation\n        final_sum = 0\n        for i in range(H):\n            for j in range(W):\n                val = grid[i][j]\n                if (mask >> j) & 1:\n                    val = 1 - val\n                if row_flips % 2 == 1:\n                    val = 1 - val\n                final_sum += val\n        \n        min_total = min(min_total, final_sum)\n    \n    print(min_total)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

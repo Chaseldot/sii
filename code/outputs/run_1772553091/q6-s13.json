@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772553091",
+  "question_index": 6,
+  "question_id": "17",
+  "split": "train",
+  "sample_id": 13,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.648850917816162,
+  "response": "### 分析\n本题要求我们对一个字符串 S 进行如下操作：只要字符串中存在 \"WA\" 子串，就将最左边的 \"WA\" 替换为 \"AC\"，直到字符串中不再有 \"WA\" 子串。需要注意的是，每次替换操作可能会导致新的 \"WA\" 子串的产生，因此我们需要不断重复这个过程。\n\n由于字符串长度可达到 3×10⁵，直接使用字符串的 `replace` 方法会效率低下，因为每次替换都可能需要重新扫描整个字符串。因此，我们需要一种**高效的方法**来找到并替换所有符合条件的 \"WA\"，尤其是左起第一个。\n\n我们的思路是：\n1. 使用一个指针从左向右遍历字符串。\n2. 每次查找当前位置是否为 \"WA\" 的开始位置。\n3. 若发现，则将其替换为 \"AC\"。\n4. 替换完成后，指针需要回退一步（因为我们替换了一个字符），以防止遗漏相邻的可能出现的新的 \"WA\"。\n5. 重复上述步骤，直到没有 \"WA\" 存在为止。\n\n这种方法可以保证我们总是处理最左边的 \"WA\"，并且时间复杂度与遍历次数相关，最多为 O(n)，非常适合大规模数据。\n\n---\n\n### 代码\n```python\ndef main():\n    import sys\n    input = sys.stdin.read\n    S = input().strip()\n    \n    i = 0\n    n = len(S)\n    \n    while i < n - 1:\n        if S[i] == 'W' and S[i+1] == 'A':\n            # Found a WA, replace with AC\n            S = S[:i] + 'AC' + S[i+2:]\n            # After replacement, we need to check again from this position\n            i = max(0, i - 1)  # Move back one to possibly catch new WA formed by previous replacement\n        else:\n            i += 1\n    \n    print(S)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

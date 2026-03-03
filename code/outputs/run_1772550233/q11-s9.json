@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772550233",
+  "question_index": 11,
+  "question_id": "29",
+  "split": "train",
+  "sample_id": 9,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 41.49123764038086,
+  "response": "```python\nimport sys\n\ndef solve():\n    input = sys.stdin.read\n    data = input().split()\n    \n    H = int(data[0])\n    W = int(data[1])\n    grid = data[2:2+H]\n    \n    # Convert each row to a list of integers\n    grid = [list(map(int, list(row))) for row in grid]\n    \n    # For each column, count the number of 1s and 0s\n    col_counts = [0] * W\n    for i in range(H):\n        for j in range(W):\n            col_counts[j] += grid[i][j]\n    \n    # Precompute the sum of each row with all possible column flips\n    # Each row can be represented as a bitmask (since W <= 18)\n    # For each row, we compute the cost of flipping certain columns\n    row_masks = []\n    for i in range(H):\n        mask = 0\n        for j in range(W):\n            mask = (mask << 1) | grid[i][j]\n        row_masks.append(mask)\n    \n    # Try all possible combinations of flipping columns (since W is small)\n    from itertools import product\n    min_sum = float('inf')\n    for flip_cols in product([0, 1], repeat=W):\n        current_sum = 0\n        for i in range(H):\n            row_sum = 0\n            for j in range(W):\n                if flip_cols[j]:\n                    row_sum += (1 - grid[i][j])\n                else:\n                    row_sum += grid[i][j]\n            current_sum += row_sum\n        min_sum = min(min_sum, current_sum)\n    \n    print(min_sum)\n\nif __name__ == \"__main__\":\n    solve()\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772551042",
+  "question_index": 2,
+  "question_id": "4",
+  "split": "train",
+  "sample_id": 3,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 24.102281093597412,
+  "response": "```python\nimport sys\n\nMOD = 998244353\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    M = int(data[1])\n    S = data[2]\n\n    # dp[i][j]: the number of strings of length i that can form a subsequence of length j in S\n    dp = [[0] * (N + 1) for _ in range(M + 1)]\n    dp[0][0] = 1\n\n    for i in range(1, M + 1):\n        for j in range(N + 1):\n            # Case 1: current character is not part of the subsequence\n            dp[i][j] = dp[i-1][j] * 25 % MOD\n            # Case 2: current character is part of the subsequence\n            if j > 0:\n                # Find all positions in S where the current character matches S[j-1]\n                count = 0\n                for k in range(N):\n                    if S[k] == S[j-1]:\n                        count += 1\n                dp[i][j] = (dp[i][j] + dp[i-1][j-1] * count) % MOD\n\n    ans = [0] * (N + 1)\n    for j in range(N + 1):\n        ans[j] = dp[M][j]\n\n    print(' '.join(map(str, ans)))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

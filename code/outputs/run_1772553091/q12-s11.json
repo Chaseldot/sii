@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772553091",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 11,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 4.924538612365723,
+  "response": "### 分析\n我们需要判断一个整数序列中是否存在三个或更多相同的元素连续出现的情况。具体来说，我们要检查是否存在一个索引 `i`（满足 `1 ≤ i ≤ N-2`），使得 `A[i] = A[i+1] = A[i+2]`。\n\n**思路：**\n1. 读取输入数据：首先读取整数 `N`，然后读取长度为 `N` 的列表 `A`。\n2. 遍历列表：从索引 `0` 到 `N-3`，依次检查当前元素和其后两个元素是否相等。\n3. 如果发现符合条件的三连相同元素，立即返回 `\"Yes\"`。\n4. 如果遍历结束后没有找到符合条件的三连相同元素，则返回 `\"No\"`。\n\n该算法的时间复杂度为 O(N)，因为只需要一次遍历。对于约束条件 `3 ≤ N ≤ 100` 来说，这样的复杂度是完全可行的。\n\n---\n\n### 代码\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three consecutive equal elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        found = True\n        break\n\n# Output the result\nprint(\"Yes\" if found else \"No\")\n```"
+}

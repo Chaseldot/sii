@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772550233",
+  "question_index": 11,
+  "question_id": "29",
+  "split": "train",
+  "sample_id": 5,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 49.97972345352173,
+  "response": "```python\nimport sys\nimport itertools\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    \n    H = int(data[0])\n    W = int(data[1])\n    grid = data[2:H+2]\n    \n    # Convert each row to a list of integers\n    rows = []\n    for row in grid:\n        rows.append([int(c) for c in row])\n    \n    # For each column, compute the number of 1s\n    col_sum = [0] * W\n    for i in range(H):\n        for j in range(W):\n            col_sum[j] += rows[i][j]\n    \n    # Try all possible combinations of flipping columns (since W is at most 18)\n    min_total = float('inf')\n    \n    # Iterate through all possible flip combinations for columns\n    for bits in itertools.product([0, 1], repeat=W):\n        total = 0\n        # For each row, calculate the sum after flipping columns based on bits\n        for i in range(H):\n            row_sum = 0\n            for j in range(W):\n                if bits[j]:\n                    row_sum += 1 - rows[i][j]\n                else:\n                    row_sum += rows[i][j]\n            total += row_sum\n        \n        # Calculate the minimum total by flipping rows as needed\n        # Each row can be flipped or not, but we can optimize\n        # Since flipping a row is equivalent to toggling all its bits,\n        # we can precompute the row's value with and without flipping\n        # and choose the better option for each row\n        current_total = total\n        for i in range(H):\n            row_sum = 0\n            for j in range(W):\n                val = rows[i][j]\n                if bits[j]:\n                    val = 1 - val\n                row_sum += val\n            # Compare original and flipped row\n            row_sum_flip = W - row_sum\n            current_total = min(current_total, total - row_sum + row_sum_flip)\n        \n        min_total = min(min_total, current_total)\n    \n    print(min_total)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

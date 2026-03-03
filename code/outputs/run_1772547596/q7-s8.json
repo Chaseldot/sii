@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772547596",
+  "question_index": 7,
+  "question_id": "20",
+  "split": "train",
+  "sample_id": 8,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 4.146427631378174,
+  "response": "### 分析\n这道题的核心在于处理一个由数字组成的字符串，并从中筛选出所有字符为 '2' 的字符，然后将它们按原顺序拼接成一个新的字符串。\n\n#### 关键约束\n- 输入字符串 S 的长度范围是 1 到 100。\n- 输入字符串 S 中至少包含一个字符 '2'。\n\n#### 问题类型\n这是一道**字符串处理类**的问题，主要涉及字符筛选和字符串拼接操作。\n\n#### 算法思路\n1. 遍历字符串 S，依次检查每个字符是否为 '2'。\n2. 如果字符为 '2'，则将其添加到结果字符串中。\n3. 最终输出结果字符串。\n\n#### 时间复杂度\n- 每个字符只需一次遍历检查，因此时间复杂度为 O(n)，其中 n 是字符串 S 的长度。\n- 由于 n ≤ 100，所以该算法在时间上完全可行。\n\n---\n\n### 代码\n```python\n# Read input\nS = input().strip()\n\n# Filter characters and concatenate\nresult = ''.join([c for c in S if c == '2'])\n\n# Output result\nprint(result)\n```"
+}

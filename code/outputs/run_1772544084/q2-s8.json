@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772544084",
+  "question_index": 2,
+  "question_id": "4",
+  "split": "train",
+  "sample_id": 8,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 48.07483220100403,
+  "response": "# 自检步骤\n\n## 1. 构造小测试用例手动模拟\n考虑输入:\nN = 1, M = 1, S = \"z\"  \n我们期望输出为 [25, 1]，即：\n\n- `ans_0` 是字符串中没有任何字符与 S 的 LCS 长度正好是 0，有 25 种（所有非 'z' 的字母）。\n- `ans_1` 是字符串中刚好有一个 'z'，只有 1 种。\n\n### 算法模拟：\n- 初始状态：空字符串的 LCS 长度为 0，计数为 1。\n- 第一次迭代（构造一个字符）:\n    - 可以选择任意字母，共有 26 种选择。\n    - 如果选的是 'z'，那么 LCS 长度变为 1。\n    - 如果选的是其他字母，则 LCS 长度仍为 0。\n\n所以：\n- 对于选择 'z' 的情况 (1种)：LCS 长度为 1 → 计数 1。\n- 对于不选择 'z' 的情况 (25种)：LCS 长度为 0 → 计数 25。\n\n最终结果应为 `[25, 1]`。\n\n## 2. 检查边界条件\n- 当 M = 0（构造长度为0的字符串），所有 LCS 长度应该是 0。\n- 当 N = 0 （S 空），所有字符串的 LCS 长度也是 0。\n- 单字符的情况如 \"z\", \"r\" 应该得到正确的答案。\n- 当 S 中没有重复字符（如 \"abc\"），则每个字符都可能影响 LCS。\n\n## 3. 算法问题分析\n之前的代码存在两个主要问题：\n- 动态规划设计不够精确，忽略了每个新字符对 LCS 长度的影响。\n- 在状态转移时没有正确统计所有可能的字符选择方式。\n\n# 修正后的完整代码\n\n```python\nimport sys\ninput = sys.stdin.readline\n\nMOD = 998244353\n\ndef main():\n    N, M = map(int, input().split())\n    S = input().strip()\n    \n    # dp[i][j] 表示构造i个字符的字符串，与S前j个字符的LCS为k的情况数\n    # 使用二维数组来保存当前状态下的各种可能性，其中dp[j][k]表示前i字符构造的字符串与S前j个字符的LCS为k的总数\n    \n    # 初始化：当构造0个字符时，与S任何前缀的LCS为0\n    dp = [[0] * (N+1) for _ in range(N+1)]\n    dp[0][0] = 1  # 初始状态：空字符串，LCS为0\n    \n    for m in range(1, M+1):\n        new_dp = [[0] * (N+1) for _ in range(N+1)]\n        for j in range(N+1):  # 遍历S的前j个字符\n            for k in range(N+1):  # 遍历LCS可能的长度\n                count = dp[j][k]\n                if count == 0:\n                    continue\n                # 不匹配的情况：可以选择任意非S[j-1]的字符\n                new_dp[j][k] = (new_dp[j][k] + count * 25) % MOD\n                # 匹配的情况：如果j > 0且当前字符等于S[j-1]\n                if j > 0 and S[j-1] == chr(ord('a') + (m-1) % 26):\n                    new_dp[j][k+1] = (new_dp[j][k+1] + count) % MOD\n        dp = new_dp\n    \n    result = [0] * (N+1)\n    for k in range(N+1):\n        result[k] = sum(dp[N][k]) % MOD\n    \n    print(' '.join(map(str, result)))\n\nmain()\n```\n\n# 解释\n- 我们使用了一个二维动态规划数组 `dp[j][k]` 来记录与S前j个字符的最长公共子序列长度为k的情况数。\n- 处理每个字符时，我们有两种情况：\n  - **不匹配**：可以选择任意25个不是当前字符的字母。\n  - **匹配**：可以增加 LCS 的长度。\n- 最后，对于每个可能的 LCS 长度 `k`，我们汇总所有可能的构造方式，给出最终的答案。"
+}

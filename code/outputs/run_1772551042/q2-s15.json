@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772551042",
+  "question_index": 2,
+  "question_id": "4",
+  "split": "train",
+  "sample_id": 15,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 33.173600912094116,
+  "response": "```python\nimport sys\nMOD = 998244353\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    M = int(data[1])\n    S = data[2]\n    \n    # dp[i][j] represents the number of strings of length i that can form a LCS of length j with S\n    dp = [[0] * (N + 1) for _ in range(M + 1)]\n    dp[0][0] = 1\n    \n    for i in range(1, M + 1):\n        for j in range(N + 1):\n            # Case 1: Adding a character that does not contribute to the LCS\n            # We can add any character except those that match characters in S\n            non_matching_chars = 26 - len(set(S))\n            dp[i][j] = (dp[i-1][j] * non_matching_chars) % MOD\n            \n            # Case 2: Adding a character that matches some character in S and helps increase the LCS\n            for k in range(N):\n                if j > 0 and k == j - 1:\n                    # This character contributes to the LCS\n                    dp[i][j] = (dp[i][j] + dp[i-1][k]) % MOD\n                elif j > 0 and k < j:\n                    # This character can be part of the LCS but not necessarily increase it by 1\n                    dp[i][j] = (dp[i][j] + dp[i-1][k]) % MOD\n    \n    # Final answer\n    ans = [0] * (N + 1)\n    for j in range(N + 1):\n        ans[j] = dp[M][j]\n    \n    print(' '.join(map(str, ans)))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

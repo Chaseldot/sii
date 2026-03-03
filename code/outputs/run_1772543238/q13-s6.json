@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772543238",
+  "question_index": 13,
+  "question_id": "43",
+  "split": "train",
+  "sample_id": 6,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 8.030165195465088,
+  "response": "To solve this problem, we need to find the **shortest palindrome** that has a given string `S` as its prefix. A palindrome reads the same forwards and backwards.\n\n### Strategy:\nInstead of checking all possible palindromes, we can use the concept of **longest prefix which is also a suffix** (a common approach in string algorithms like KMP). The idea is:\n\n1. Concatenate the string `S` with a separator (like `#`) and reverse of `S`.\n   - This new string will look like: `S + '#' + reversed(S)`\n2. Use the Knuth-Morris-Pratt (KMP) algorithm to compute the Longest Prefix Suffix (LPS) array for this concatenated string.\n3. The value at the last index of the LPS array gives the length of the longest prefix of `S` that matches a suffix of the reversed string.\n4. The shortest palindrome can then be formed by appending the **reverse of the remaining part of `S`** to the original string.\n\n### Edge Cases:\n- If the string itself is already a palindrome, no characters need to be appended.\n- If the string is empty, return an empty string.\n\nNow, here is the complete and efficient Python code:\n\n```python\ndef shortest_palindrome(s):\n    if not s:\n        return \"\"\n    \n    reversed_s = s[::-1]\n    concatenated = s + '#' + reversed_s\n    lps = [0] * len(concatenated)\n    \n    for i in range(1, len(concatenated)):\n        j = lps[i - 1]\n        while j > 0 and concatenated[i] != concatenated[j]:\n            j = lps[j - 1]\n        if concatenated[i] == concatenated[j]:\n            j += 1\n        lps[i] = j\n    \n    # Length of the longest prefix which is also a suffix\n    l = lps[-1]\n    \n    # Append the reverse of the remaining part of s\n    return s + reversed_s[:len(s) - l]\n\n# Read input\nimport sys\ninput_str = sys.stdin.readline().strip()\n\n# Compute and print the result\nprint(shortest_palindrome(input_str))\n```\n\n### Example:\nFor input `\"ABC\"`, the output will be `\"ABCBA\"` – the shortest palindrome having \"ABC\" as a prefix."
+}

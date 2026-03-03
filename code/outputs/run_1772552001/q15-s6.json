@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772552001",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 6,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 7.711872577667236,
+  "response": "### **Thought Process**\n\nWe are given N people with their scores, and we need to determine the ranks of each person based on a specific procedure:\n- We start with `r = 1` (the current rank).\n- Find the maximum score among those who have not yet received a rank.\n- Assign this rank `r` to all people with this maximum score.\n- Increase `r` by the number of such people.\n\nFor example, if two people have the maximum score, both get rank `r`, and then `r` is increased by 2.\n\n#### **Step-by-step Plan:**\n1. Read N and the list of scores.\n2. Maintain a list to store the ranks of each person.\n3. Create a loop where we repeatedly find the maximum remaining score.\n4. For that maximum score, find all indices with these scores and assign them the current rank.\n5. Update the rank value.\n6. Repeat until all ranks are assigned.\n\nThis approach should be efficient enough for small N (≤100).\n\n---\n\n### **Python Code**\n\n```python\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:N+1]))\n    \n    # To track which people have been processed\n    processed = [False] * N\n    # To store the final rankings\n    rank = [0] * N\n    \n    r = 1  # Current rank\n\n    while True:\n        # Find maximum score among unprocessed people\n        max_score = -1\n        for i in range(N):\n            if not processed[i] and P[i] > max_score:\n                max_score = P[i]\n        \n        if max_score == -1:\n            break  # All people have been processed\n        \n        # Find all indices with max_score and haven't been processed\n        count = 0\n        for i in range(N):\n            if not processed[i] and P[i] == max_score:\n                processed[i] = True\n                rank[i] = r\n                count += 1\n        \n        r += count  # Update the next rank\n\n    for i in range(N):\n        print(rank[i])\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

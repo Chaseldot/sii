@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772552001",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 7,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 5.523930549621582,
+  "response": "要解决这个问题，我们需要找出一个正整数 $ B $，使得 $ A \\times B = 400 $。也就是说，我们需要找到 $ 400 $ 的一个因数（除了 1 和 400 之外）。\n\n### 思路分析：\n- 输入是一个整数 $ A $，范围是 [1, 400]。\n- 我们需要找出是否存在一个整数 $ B $，满足 $ A \\times B = 400 $，同时 $ B > 0 $。\n- 如果存在这样的 $ B $，我们输出它；否则输出 -1。\n- 因为 $ B = \\frac{400}{A} $，所以判断 $ 400 \\% A == 0 $ 即可。\n\n### 时间复杂度：\n- 对于给定的 $ A $，计算非常简单，时间复杂度为 $ O(1) $。\n\n### 边界情况处理：\n- 当 $ A = 400 $ 时，$ B = 1 $ 是唯一合法解。\n- 当 $ A = 1 $ 时，$ B = 400 $。\n- 当 $ A $ 不是 400 的因数时，输出 -1。\n\n现在，我提供了完整的代码：\n\n```python\n# Read input\nA = int(input())\n\n# Check if 400 is divisible by A\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```"
+}

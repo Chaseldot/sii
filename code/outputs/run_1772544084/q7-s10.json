@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772544084",
+  "question_index": 7,
+  "question_id": "20",
+  "split": "train",
+  "sample_id": 10,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 5.126723766326904,
+  "response": "```python\n# 1. 深度解析\n# 约束条件：\n# - S是一个由数字组成的字符串，长度在1到100之间\n# - S至少包含一个'2'\n# \n# 时间复杂度分析：遍历字符串并过滤字符的操作是O(N)，其中N是字符串的长度。对于最大可能的长度100，这完全符合时间限制。\n# \n# 特殊性分析：本题不是一个数学规律或经典模型的问题，而是简单的字符串处理。\n\n# 2. 逻辑推演\n# 数学推导过程：\n# 所需操作是过滤出所有'2'并将它们按原顺序拼接成新字符串。此操作可通过遍历原始字符串，选择所有'2'字符即可。\n# \n# DP状态转移方程：不需要DP，直接字符串处理即可。\n# \n# 边界情况处理方案：由于题目保证S中至少有一个'2'，因此无需处理空结果的情况。\n\n# 3. 高效实现\nimport sys\n\ndef main():\n    S = sys.stdin.readline().strip()\n    result = ''.join([c for c in S if c == '2'])\n    print(result)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

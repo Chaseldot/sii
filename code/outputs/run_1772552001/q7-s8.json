@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772552001",
+  "question_index": 7,
+  "question_id": "20",
+  "split": "train",
+  "sample_id": 8,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 4.741943597793579,
+  "response": "### 思考过程\n\n1. **输入输出格式**  \n   - 输入是一个字符串 `S`，只包含数字。  \n   - 输出是将 `S` 中所有非字符 `'2'` 的字符移除后得到的字符串。\n\n2. **约束条件和边界情况**  \n   - 字符串长度范围为 1 到 100。\n   - 保证输入字符串中至少有一个 `'2'`。\n\n3. **算法分析**  \n   - 我们只需遍历输入字符串 `S`，并保留其中所有 `'2'` 字符。\n   - 可以直接使用 Python 字符串切片或过滤方法完成该任务。\n\n4. **代码思路**  \n   - 将输入字符串中所有 `'2'` 字符提取出来，并拼接成一个新的字符串。\n   - 如果输入字符串中没有 `'2'`（虽然题目保证这种情况不会发生），则返回一个空字符串。  \n\n5. **时间复杂度**  \n   - 时间复杂度是 O(n)，其中 n 是输入字符串的长度。遍历一次即可完成。\n\n---\n\n### 最终代码\n\n```python\n# Read input\nS = input().strip()\n\n# Filter out all characters except '2'\nresult = ''.join([c for c in S if c == '2'])\n\n# Print the result\nprint(result)\n```"
+}

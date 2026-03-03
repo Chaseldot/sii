@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772550233",
+  "question_index": 18,
+  "question_id": "64",
+  "split": "train",
+  "sample_id": 8,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 28.54191017150879,
+  "response": "```python\nimport sys\nfrom collections import deque\n\ndef solve():\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    A = list(map(int, data[1:N+1]))\n    \n    if all(a == 1 for a in A):\n        print(\"Yes\")\n        return\n    \n    zero_positions = [i for i in range(N) if A[i] == 0]\n    zero_count = len(zero_positions)\n    \n    if zero_count % 2 != 0:\n        print(\"No\")\n        return\n    \n    # We need to find a way to apply the operations to cover all zeros.\n    # Try a greedy strategy by checking possible operation positions and marking affected indices.\n    visited = [False] * N\n    queue = deque()\n    \n    for i in range(N):\n        if A[i] == 0:\n            queue.append(i)\n            visited[i] = True\n    \n    while queue:\n        pos = queue.popleft()\n        \n        # Check for possible operation 1: S_i = A, S_{i+1} = R, S_{i+2} = C\n        next_pos = (pos + 2) % N\n        if not visited[pos] and not visited[(pos + 1) % N] and not visited[next_pos]:\n            # Apply operation 1\n            visited[pos] = True\n            visited[(pos + 1) % N] = True\n            visited[next_pos] = True\n            queue.append(pos)\n            queue.append((pos + 1) % N)\n            queue.append(next_pos)\n        \n        # Check for possible operation 2: S_{i+2} = A, S_{i+1} = R, S_i = C\n        prev_pos = (pos - 2) % N\n        if not visited[prev_pos] and not visited[(pos - 1) % N] and not visited[pos]:\n            # Apply operation 2\n            visited[prev_pos] = True\n            visited[(pos - 1) % N] = True\n            visited[pos] = True\n            queue.append(prev_pos)\n            queue.append((pos - 1) % N)\n            queue.append(pos)\n    \n    if all(visited[i] for i in zero_positions):\n        print(\"Yes\")\n    else:\n        print(\"No\")\n\nif __name__ == '__main__':\n    solve()\n```"
+}

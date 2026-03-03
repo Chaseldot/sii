@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772553091",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 14,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 9.857340812683105,
+  "response": "### 分析\n之前的代码中使用了 `exit()` 函数来提前终止程序，但在 Python 中默认情况下 `exit` 并未被导入。为了避免此类错误，我们可以简单地使用 `return`（如果是函数内部）或直接使用 `sys.exit()` 来终止程序。不过在这个问题中，我们更倾向于使用一个标志变量来控制流程，以避免依赖 `exit`。\n\n---\n\n### 代码\n```python\nn = int(input())\na = list(map(int, input().split()))\n\nfound = False\nfor i in range(n - 2):\n    if a[i] == a[i + 1] == a[i + 2]:\n        found = True\n        break\n\nprint(\"Yes\" if found else \"No\")\n```"
+}

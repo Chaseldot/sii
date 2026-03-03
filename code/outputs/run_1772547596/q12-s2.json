@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772547596",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 2,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.221348285675049,
+  "response": "### 分析\n这道题要求我们判断一个整数序列中是否存在连续的三个相同元素。题目给出的约束条件是序列长度N范围为3到100，因此我们可以使用简单且直接的算法来解决问题。\n\n**关键约束**：\n- N的范围是3 ≤ N ≤ 100，表明数据规模不大。\n- 时间复杂度要求不高，可以使用O(N)的线性扫描方法。\n\n**问题类型**：模拟 / 简单遍历\n\n**算法思路**：\n- 遍历数组A的每个元素，从第一个到最后第三个元素。\n- 对于每一个位置i（i ≤ N - 2），检查A[i]、A[i+1]、A[i+2]是否相等。\n- 如果存在这样的位置，立即返回\"YES\"。\n- 否则，遍历完成后返回\"NO\"。\n\n**复杂度分析**：\n- 时间复杂度：O(N)，因为只需要一次线性遍历即可完成判断。\n- 空间复杂度：O(1)，不依赖额外的数据结构。\n\n综上，该问题可以通过简单的线性扫描实现高效解法。\n\n### 代码\n```python\nn = int(input())\na = list(map(int, input().split()))\n\nfound = False\nfor i in range(n - 2):\n    if a[i] == a[i + 1] == a[i + 2]:\n        found = True\n        break\n\nprint(\"Yes\" if found else \"No\")\n```"
+}

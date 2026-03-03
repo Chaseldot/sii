@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772550233",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 4,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 10.184398412704468,
+  "response": "```python\nimport sys\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    P = list(map(int, data[1:]))\n    \n    # Create a list of tuples (score, index)\n    people = [(P[i], i+1) for i in range(N)]\n    \n    # Sort people by score in descending order, then by index to break ties\n    people.sort(key=lambda x: (-x[0], x[1]))\n    \n    # Initialize rank and a set to track determined ranks\n    rank = 1\n    determined = [False] * (N + 1)  # 1-based indexing\n    \n    # Process people in sorted order\n    i = 0\n    while i < N:\n        current_score = people[i][0]\n        j = i\n        # Group all people with the same score\n        while j < N and people[j][0] == current_score:\n            j += 1\n        # Assign rank to all these people\n        for k in range(i, j):\n            determined[people[k][1]] = rank\n        # Update rank\n        rank += (j - i)\n        i = j\n    \n    # Print the rank for each person\n    for i in range(1, N+1):\n        print(determined[i])\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

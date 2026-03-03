@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772550233",
+  "question_index": 18,
+  "question_id": "64",
+  "split": "train",
+  "sample_id": 6,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 28.685245037078857,
+  "response": "```python\nimport sys\n\ndef solve():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    A = list(map(int, data[1:N+1]))\n\n    if all(a == 1 for a in A):\n        print(\"Yes\")\n        return\n\n    # We need to find if there's a way to perform operations to turn all A_i to 1\n\n    # The key is to simulate the operations that can potentially turn A_i to 1\n    # These operations are based on certain patterns in the string S\n\n    # Note: the actual string S is not known, but we know the operations that can be performed\n    # Based on the problem description, we can simulate the effect of applying these operations\n\n    # Define the valid patterns and their corresponding positions to apply the operation\n    # Pattern 1: \"ARC\" -> replace A_i and A_{i+1} with 1\n    # Pattern 2: \"CRA\" -> replace A_i and A_{i+1} with 1\n\n    # For each position i (0-based), check if the pattern matches\n    # Since the string is circular, we use modulo to wrap around\n\n    changed = True\n    while changed:\n        changed = False\n        for i in range(N):\n            # Check for pattern \"ARC\"\n            if A[i] == 0 and A[(i+1)%N] == 1 and A[(i+2)%N] == 0:\n                A[i] = 1\n                A[(i+1)%N] = 1\n                changed = True\n            # Check for pattern \"CRA\"\n            if A[i] == 0 and A[(i+1)%N] == 1 and A[(i+2)%N] == 0:\n                A[i] = 1\n                A[(i+1)%N] = 1\n                changed = True\n\n    if all(a == 1 for a in A):\n        print(\"Yes\")\n    else:\n        print(\"No\")\n\nif __name__ == \"__main__\":\n    solve()\n```"
+}

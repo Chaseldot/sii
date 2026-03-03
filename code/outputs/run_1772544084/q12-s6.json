@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772544084",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 6,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 4.6645667552948,
+  "response": "```python\nimport sys\n\ndef main():\n    # Read input\n    N = int(sys.stdin.readline())\n    A = list(map(int, sys.stdin.readline().split()))\n    \n    # Check for three consecutive elements\n    for i in range(N - 2):\n        if A[i] == A[i + 1] and A[i + 1] == A[i + 2]:\n            print(\"Yes\")\n            return\n    print(\"No\")\n\nif __name__ == \"__main__\":\n    main()\n```\n\n**Thought Process:**\n\n## 1. Depth Analysis  \n- **Constraints**: \n  - $3 \\leq N \\leq 100$ means the maximum number of elements is manageable.\n  - Each element is an integer between 1 and 100.\n- **Time Complexity**: Since we're checking each triplet only once, the complexity is O(N), which is acceptable even for the maximum size of N.\n\n## 2. Logic Deduction  \n- We need to check every possible triplet in the sequence (i.e., elements at positions $i$, $i+1$, and $i+2$) to see if they are all the same.\n- If any such triplet is found, output \"Yes\". If no such triplets exist after checking all possibilities, output \"No\".\n- The algorithm can be implemented efficiently with a simple linear scan over the array.\n\n## 3. Efficient Implementation  \n- Using `sys.stdin.readline()` ensures efficient input handling.\n- A single loop runs through the list and checks for the condition directly, avoiding unnecessary operations or external libraries."
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772551042",
+  "question_index": 8,
+  "question_id": "25",
+  "split": "train",
+  "sample_id": 12,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 48.69115662574768,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    X = int(data[1])\n    \n    U = list(map(int, data[2::2]))\n    D = list(map(int, data[3::2]))\n    \n    # Calculate the required H for each pair (U_i + D_i)\n    # The possible H values are between min(U_i + D_i) and max(U_i + D_i)\n    H_candidates = set(u + d for u, d in zip(U, D))\n    \n    min_cost = float('inf')\n    \n    for H in H_candidates:\n        cost = 0\n        prev_u = U[0]\n        valid = True\n        for i in range(N):\n            u = U[i]\n            d = D[i]\n            new_u = H - d\n            new_d = H - u\n            \n            if new_u < 0:\n                new_u = 0\n                cost += u - new_u\n            if new_d < 0:\n                new_d = 0\n                cost += d - new_d\n            \n            if i > 0:\n                diff = abs(new_u - prev_u)\n                if diff > X:\n                    valid = False\n                    break\n            prev_u = new_u\n        \n        if valid:\n            min_cost = min(min_cost, cost)\n    \n    print(min_cost)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

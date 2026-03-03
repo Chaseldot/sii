@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772550233",
+  "question_index": 0,
+  "question_id": "0",
+  "split": "train",
+  "sample_id": 3,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 27.406773805618286,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    idx = 0\n    N = int(data[idx])\n    idx += 1\n    W = int(data[idx])\n    idx += 1\n    \n    blocks = []\n    for i in range(N):\n        x = int(data[idx])\n        idx += 1\n        y = int(data[idx])\n        idx += 1\n        blocks.append((x, y, i + 1))  # (x, y, original_index)\n    \n    Q = int(data[idx])\n    idx += 1\n    \n    queries = []\n    for _ in range(Q):\n        t = int(data[idx])\n        idx += 1\n        a = int(data[idx])\n        idx += 1\n        queries.append((t, a))\n    \n    # Sort blocks by y (row) so we can process them in order\n    blocks.sort(key=lambda x: x[1])\n    \n    # For each column, track the number of blocks that fall into it at each level\n    # and determine when a row gets completely filled to trigger removal\n    # We will use a dictionary to map (x, y) to the number of blocks in that column at or above y\n    from collections import defaultdict\n    col_block_counts = defaultdict(lambda: defaultdict(int))\n    \n    # To find the minimum time a block is removed\n    min_time_removed = [float('inf')] * N\n    \n    current_y = 0\n    for i in range(N):\n        x, y, original_idx = blocks[i]\n        \n        # If this block's y is less than current_y, it has already been processed\n        if y < current_y:\n            continue\n        \n        # Count how many blocks in this column are at or above y\n        count = 0\n        for j in range(i, N):\n            xj, yj, _ = blocks[j]\n            if xj == x and yj >= current_y:\n                count += 1\n            if count >= W:\n                break\n        \n        # The block is removed after 'count' steps\n        min_time_removed[original_idx - 1] = count\n    \n    # Answer queries\n    results = []\n    for t, a in queries:\n        if min_time_removed[a - 1] > t:\n            results.append(\"Yes\")\n        else:\n            results.append(\"No\")\n    \n    print(\"\\n\".join(results))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

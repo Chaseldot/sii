@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772553091",
+  "question_index": 9,
+  "question_id": "27",
+  "split": "train",
+  "sample_id": 13,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 9.95127820968628,
+  "response": "### 分析\n要判断一个数组是否是**严格递增**的，我们需要检查数组中的每一个相邻元素对，确保前一个元素小于后一个元素。若所有相邻元素都满足这个条件，则输出\"yes\"（不区分大小写）；否则输出\"no\"。\n\n**步骤如下：**\n1. 从输入中读取整数 `N` 和数组 `A`。\n2. 遍历数组 `A`，从第一个元素到倒数第二个元素，依次比较 `A[i]` 和 `A[i+1]`。\n3. 如果发现存在 `A[i] >= A[i+1]` 的情况，直接返回 \"No\"。\n4. 若遍历完整个数组都没有违反严格递增的情况，返回 \"Yes\"。\n\n**边界情况考虑：**\n- 输入长度为 2 的数组（例如 `[1, 2]`）或 `[2, 1]` 等。\n- 数组中有重复项（例如 `[1, 1, 2]`），应返回 \"No\"。\n- 元素值较大但不超过题目约束（最多 1000）。\n\n根据题目的输入格式和输出要求，我们可以直接通过逐个比较相邻元素的方式完成该问题，时间复杂度为 O(N)，满足 1 秒时间限制。\n\n---\n\n### 代码\n```python\n# Read input from standard input\nn = int(input())\na = list(map(int, input().split()))\n\n# Check if the sequence is strictly increasing\nis_strictly_increasing = True\nfor i in range(n - 1):\n    if a[i] >= a[i + 1]:\n        is_strictly_increasing = False\n        break\n\n# Print the result (case-insensitive)\nprint(\"Yes\" if is_strictly_increasing else \"No\")\n```"
+}

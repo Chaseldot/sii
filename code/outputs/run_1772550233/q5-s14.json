@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772550233",
+  "question_index": 5,
+  "question_id": "13",
+  "split": "train",
+  "sample_id": 14,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 44.51418328285217,
+  "response": "```python\nimport sys\nimport bisect\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    Q = int(data[1])\n    A = list(map(int, data[2:2+N]))\n    \n    # Precompute min prefix array\n    min_prefix = [0] * (N + 1)\n    min_prefix[0] = float('inf')\n    for i in range(1, N+1):\n        min_prefix[i] = min(min_prefix[i-1], A[i-1])\n    \n    # Coordinate compression\n    sorted_unique = sorted(set(A))\n    value_to_rank = {v: i+1 for i, v in enumerate(sorted_unique)}\n    rank_to_value = {i+1: v for i, v in enumerate(sorted_unique)}\n    \n    # Preprocess LIS lengths for each position up to N\n    # We use a list of lists where lis[i][r] represents the maximum length of LIS ending with value <= r at position i\n    max_len = [0] * (len(sorted_unique) + 2)\n    lis = [ [0]*(len(sorted_unique)+2) for _ in range(N+1) ]\n    \n    for i in range(1, N+1):\n        val = A[i-1]\n        rank = value_to_rank[val]\n        max_prev = 0\n        for r in range(1, rank):\n            if lis[i-1][r] > max_prev:\n                max_prev = lis[i-1][r]\n        max_len[rank] = max_prev + 1\n        lis[i] = lis[i-1].copy()\n        lis[i][rank] = max_len[rank]\n    \n    # Process queries\n    output = []\n    ptr = 2 + N\n    for _ in range(Q):\n        R = int(data[ptr])\n        X = int(data[ptr+1])\n        ptr += 2\n        \n        # Get min value up to R\n        min_val_up_to_R = min_prefix[R]\n        \n        # Find the largest value <= X using binary search\n        pos = bisect.bisect_right(sorted_unique, X) - 1\n        if pos < 0:\n            output.append(\"0\")\n            continue\n        \n        # Get maximum length of LIS with values <= X in first R elements\n        max_length = 0\n        for r in range(1, pos+2):\n            if lis[R][r] > max_length:\n                max_length = lis[R][r]\n        output.append(str(max_length))\n    \n    print(\"\\n\".join(output))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

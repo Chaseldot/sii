@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772544084",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 15,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 13.415888786315918,
+  "response": "### 1. 深度解析\n\n#### 约束条件\n- N的范围是1 ≤ N ≤ 100，这允许我们使用O(N²)的算法。\n- P_i的范围是1 ≤ P_i ≤ 100。\n\n#### 时间复杂度\n由于N最大为100，我们可以接受O(N²)的方法，因为对于100，这样的算法在时间上是可行的。\n\n#### 特殊性分析\n这是一个典型的排序和计数问题。我们需要对分数进行排序，并确定相同的分数所对应的排名。这是一个经典的分组排序问题，可以使用排序算法来解决。此外，在处理相同分数时需要考虑它们的排列顺序。\n\n---\n\n### 2. 逻辑推演\n\n#### 数学推导过程\n- 我们需要对每个人按分数从高到低排序。\n- 对于相同分数的人，他们的排名相同。\n- 每次操作中：\n  - 找出当前未确定排名的人中的最高分x。\n  - 找出所有分数等于x的人的数量k。\n  - 将这些人的排名设为当前r值。\n  - 更新r = r + k。\n\n#### DP状态转移方程\n我们可以直接利用排序和计数的方式来代替复杂的DP方法：\n- 使用排序将P数组从高到低排序。\n- 遍历排序后的数组，记录当前的最大分x以及与它相同分数的人的个数cnt。\n- 每当遇到一个新的分值时，更新当前排名r。\n\n#### 边界情况处理方案\n- 当所有分数都相同时（如样例3），所有人的排名都是1。\n- 当某个人是唯一的最高分时，他的排名是当前r值。\n\n---\n\n### 3. 高效实现\n\n下面是按照上述逻辑编写的 Python 代码：\n\n```python\nimport sys\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:N+1]))\n    \n    # 创建一个列表并按分数降序排序\n    people = sorted([(p, i+1) for i, p in enumerate(P)], key=lambda x: (-x[0], x[1]))\n    \n    rank = [0] * (N + 1)  # 1-based indexing\n    current_rank = 1\n    \n    i = 0\n    while i < N:\n        current_score = people[i][0]\n        j = i\n        # 统计相同分数的人数\n        while j < N and people[j][0] == current_score:\n            j += 1\n        count = j - i\n        # 赋予当前rank给所有人\n        for k in range(i, j):\n            rank[people[k][1]] = current_rank\n        # 更新rank\n        current_rank += count\n        i = j\n    \n    # 输出结果\n    for i in range(1, N+1):\n        print(rank[i])\n\nif __name__ == '__main__':\n    main()\n```\n\n### 解释\n- 该代码首先按照分数从高到低排序，若分数相同则按编号排序。\n- 接下来遍历排序后的列表，统计相同分数的连续出现次数。\n- 为每个相同的分数赋予当前的排名，并递增排名。\n- 最后，输出每个人的排名。\n\n这个算法的时间复杂度为O(N log N)，适用于题目中的约束条件。"
+}

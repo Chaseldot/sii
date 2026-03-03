@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772550233",
+  "question_index": 8,
+  "question_id": "25",
+  "split": "train",
+  "sample_id": 9,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 62.841015577316284,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    X = int(data[1])\n    \n    U = []\n    D = []\n    for i in range(N):\n        u = int(data[2 + 2*i])\n        d = int(data[3 + 2*i])\n        U.append(u)\n        D.append(d)\n    \n    # Generate candidate H values from the original U[i] + D[i]\n    candidates = set()\n    for i in range(N):\n        candidates.add(U[i] + D[i])\n    candidates = sorted(candidates)\n    \n    min_cost = float('inf')\n    \n    # Function to check if a given H is valid for upper teeth\n    def is_upper_valid(H):\n        prev = H - D[0]\n        for i in range(1, N):\n            curr = H - D[i]\n            if abs(curr - prev) > X:\n                return False\n            prev = curr\n        return True\n    \n    # Function to check if a given H is valid for lower teeth\n    def is_lower_valid(H):\n        prev = H - U[0]\n        for i in range(1, N):\n            curr = H - U[i]\n            if abs(curr - prev) > X:\n                return False\n            prev = curr\n        return True\n    \n    # Function to calculate cost for a given H\n    def compute_cost(H):\n        cost_upper = sum(max(0, H - U[i]) for i in range(N))\n        cost_lower = sum(max(0, H - D[i]) for i in range(N))\n        return cost_upper + cost_lower\n    \n    # Check all candidate H values\n    for H in candidates:\n        if is_upper_valid(H) and is_lower_valid(H):\n            min_cost = min(min_cost, compute_cost(H))\n    \n    # Also check possible H values around the candidates\n    # Use a window to avoid checking too many values\n    for H in range(min(candidates) - 100000, max(candidates) + 100000):\n        if H < 0:\n            continue\n        if is_upper_valid(H) and is_lower_valid(H):\n            min_cost = min(min_cost, compute_cost(H))\n    \n    print(min_cost)\n\nif __name__ == '__main__':\n    main()\n```"
+}

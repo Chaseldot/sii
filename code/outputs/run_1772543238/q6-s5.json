@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772543238",
+  "question_index": 6,
+  "question_id": "17",
+  "split": "train",
+  "sample_id": 5,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 5.956547260284424,
+  "response": "To solve this problem, we need to repeatedly replace the leftmost occurrence of `\"WA\"` in the string with `\"AC\"` until there are no more such occurrences. The key point is that we must process the string from left to right and only replace the first (leftmost) occurrence at each step.\n\n### Approach:\n1. Convert the string into a list for easier manipulation since strings are immutable in Python.\n2. Traverse the string character by character.\n3. At each position, check if the substring starting at that position is `\"WA\"`.\n4. If it is, replace it with `\"AC\"` and restart the traversal from the beginning of the string (since replacing one occurrence might create a new `WA` further left).\n5. Continue until no more `WA` substrings are found.\n\n### Time Complexity:\n- In the worst case, each replacement may require scanning the entire string again. However, the total number of replacements is limited, making the algorithm efficient enough for the given constraints (`|S| <= 3e5`).\n\n### Edge Cases:\n- No `\"WA\"` in the string initially.\n- Multiple overlapping or nested `\"WA\"` occurrences.\n\nHere's the full Python code:\n\n```python\ndef main():\n    import sys\n    input = sys.stdin.read\n    S = list(input().strip())  # Convert string to list for in-place modifications\n    i = 0\n    while i <= len(S) - 2:\n        if S[i] == 'W' and S[i+1] == 'A':\n            S[i] = 'A'\n            S[i+1] = 'C'\n            i = 0  # Reset index to check from the start again\n        else:\n            i += 1\n    print(''.join(S))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

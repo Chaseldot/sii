@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772550233",
+  "question_index": 2,
+  "question_id": "4",
+  "split": "train",
+  "sample_id": 5,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 35.79183030128479,
+  "response": "```python\nimport sys\n\nMOD = 998244353\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    M = int(data[1])\n    S = data[2]\n\n    # dp[i][j] represents the number of subsequences of length j in the first i characters of S\n    dp = [[0] * (N + 1) for _ in range(N + 1)]\n    dp[0][0] = 1\n    for i in range(1, N + 1):\n        dp[i][0] = 1\n        for j in range(1, i + 1):\n            dp[i][j] = (dp[i - 1][j] + dp[i - 1][j - 1]) % MOD\n\n    # For all possible strings of length M, we calculate the number of strings that have LCS exactly k with S\n    # Use dynamic programming where dp2[m][k] is the number of strings of length m with LCS exactly k\n    # For this, we need to track for each position and current LCS length, how many ways to reach it\n    from collections import defaultdict\n\n    # dp_m[k]: number of strings of length m with LCS exactly k\n    dp_m = [defaultdict(int) for _ in range(M + 1)]\n    dp_m[0][0] = 1\n\n    for m in range(1, M + 1):\n        new_dp = defaultdict(int)\n        for lcs_len in dp_m[m - 1]:\n            count = dp_m[m - 1][lcs_len]\n            # Option 1: add a character not in S or not contributing to LCS\n            new_dp[lcs_len] = (new_dp[lcs_len] + count * 25) % MOD\n            # Option 2: add a character that matches the next character in S\n            # We check if there is a character in S that has not been matched yet\n            # To do this efficiently, we use the LCS table computed earlier\n            # Find the maximum LCS value achievable by extending the subsequence\n            max_possible_lcs = min(lcs_len + 1, N)\n            for i in range(N):\n                if dp[N][max_possible_lcs] - dp[i][max_possible_lcs] != 0:\n                    new_dp[max_possible_lcs] = (new_dp[max_possible_lcs] + count) % MOD\n        dp_m[m] = new_dp\n\n    ans = [0] * (N + 1)\n    for k in range(N + 1):\n        ans[k] = dp_m[M].get(k, 0)\n\n    print(' '.join(map(str, ans)))\n\nif __name__ == '__main__':\n    main()\n```"
+}

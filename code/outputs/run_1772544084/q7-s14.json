@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772544084",
+  "question_index": 7,
+  "question_id": "20",
+  "split": "train",
+  "sample_id": 14,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 5.779365301132202,
+  "response": "```python\n# 1. 深度解析\n# 约束条件：\n# - S 是一个由数字组成的字符串，长度在 1 到 100 之间。\n# - S 至少包含一个 '2'。\n\n# 理论时间复杂度上限：O(N)，其中 N 是字符串的长度。因为只需要遍历一次字符串即可。\n\n# 特殊性分析：\n# 该问题本质上是一个简单的字符串处理任务。需要保留所有 '2' 并删除其他字符。\n\n# 2. 逻辑推演\n# 数学推导过程：\n# - 遍历字符串 S 中的每个字符。\n# - 如果当前字符是 '2'，则将其添加到结果字符串中。\n# - 最终，将所有符合条件的字符按原顺序进行拼接。\n\n# DP状态转移方程：\n# 无适用，因该问题不需要动态规划。\n\n# 边界情况处理方案：\n# - 当字符串 S 的长度为 1 且为 '2' 时，直接输出 '2'。\n# - 异常情况已由约束保证不存在。\n\n# 3. 高效实现\nimport sys\n\ndef main():\n    S = sys.stdin.readline().strip()\n    result = ''.join([c for c in S if c == '2'])\n    print(result)\n\nif __name__ == '__main__':\n    main()\n```"
+}

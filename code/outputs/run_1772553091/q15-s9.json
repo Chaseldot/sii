@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772553091",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 9,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.911360263824463,
+  "response": "### 分析\n\n根据题目描述，我们需要为每个参赛者分配一个排名。排名规则如下：\n\n- 初始时，所有人的排名都是未知的。\n- 从最大得分开始处理，将得分相同的人分配相同的排名。\n- 对于当前最高分的所有人，赋予他们当前的排名 `r`，然后 `r += k`（k是得分等于当前最高分的人数）。\n\n因此，我们可以使用优先队列或排序的方式来组织处理过程。具体逻辑如下：\n\n1. 将所有人按得分从高到低排序。\n2. 依次处理每个人，如果他的得分和前一个人相同，就拥有相同的排名；否则，新的排名是当前计数器 `r` 的值，同时 `r` 增加 1。\n3. 这样处理可以模拟出题目的过程。\n\n由于数据量较小（N ≤ 100），我们可以选择更简单的排序 + 遍历方法来实现。\n\n### 代码\n```python\n# Read input\nn = int(input())\np = list(map(int, input().split()))\n\n# Pair the scores with their original indices (1-based)\npeople = [(p[i], i + 1) for i in range(n)]\n\n# Sort people by score in descending order\npeople.sort(reverse=True, key=lambda x: x[0])\n\n# Initialize rank counter\nrank = 1\nresult = [0] * n\n\n# Assign ranks\nfor i in range(n):\n    if i == 0 or people[i][0] != people[i - 1][0]:\n        rank = i + 1\n    result[people[i][1] - 1] = rank\n\n# Output the result\nfor r in result:\n    print(r)\n```"
+}

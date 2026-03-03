@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772550233",
+  "question_index": 11,
+  "question_id": "29",
+  "split": "train",
+  "sample_id": 12,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 48.60882639884949,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    H = int(data[0])\n    W = int(data[1])\n    grid = []\n    index = 2\n    for _ in range(H):\n        row = data[index]\n        grid.append([int(c) for c in row])\n        index += 1\n    \n    # Precompute the sum of each row\n    row_sums = [sum(row) for row in grid]\n    \n    # Since W is small (<= 18), we can try all possible combinations of flipping columns\n    min_total = float('inf')\n    \n    # Try all possible column flip patterns (each bit represents whether to flip the column)\n    for mask in range(1 << W):\n        current_sum = 0\n        # Flip columns according to the mask\n        for col in range(W):\n            if mask & (1 << col):\n                # Flip the column, which changes the sum of each row by (H - 2 * row[col])\n                for row in range(H):\n                    current_sum += (H - 2 * grid[row][col])\n        # Now, for each row, decide whether to flip it or not to minimize the sum\n        # Each row's value after column flips is row_sum - 2 * flip_row * row_sum\n        # We want to choose flip_row (0 or 1) to minimize the contribution of the row\n        # So, for each row, we choose to flip it if row_sum_after_flips > H/2\n        total = 0\n        for row in range(H):\n            row_sum = row_sums[row]\n            # The sum of the row after column flips is row_sum - 2 * flip_row * row_sum\n            # Where flip_row is 0 or 1\n            # Choose whether to flip the row\n            if row_sum > H - row_sum:\n                total += (H - row_sum)\n            else:\n                total += row_sum\n        min_total = min(min_total, total)\n    \n    print(min_total)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

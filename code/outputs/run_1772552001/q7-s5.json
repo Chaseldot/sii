@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772552001",
+  "question_index": 7,
+  "question_id": "20",
+  "split": "train",
+  "sample_id": 5,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 8.02303671836853,
+  "response": "### 思路分析\n\n1. **题目理解**：\n   - 输入是一个由数字组成的字符串 `S`。\n   - 需要删除所有不是 '2' 的字符，然后将剩下的字符按原顺序拼接起来形成一个新的字符串。\n\n2. **约束条件**：\n   - 输入字符串的长度在 1 到 100 之间。\n   - 输入字符串中至少包含一个 '2'，所以最终输出字符串不会是空。\n\n3. **处理策略**：\n   - 遍历输入字符串 `S`，逐个字符检查是否等于 '2'。\n   - 如果是 '2'，保留该字符；否则，跳过。\n   - 最后将保留的字符按顺序拼接成一个新的字符串输出。\n\n4. **时间复杂度**：\n   - 遍历字符串的时间是线性的，即 $ O(n) $，其中 $ n $ 是输入字符串的长度。\n   - 符合题目给出的 1 秒时间限制。\n\n---\n\n### Python代码实现\n\n```python\n# Read the input string from standard input\nS = input().strip()\n\n# Filter out all characters except '2' and concatenate them\nresult = ''.join([char for char in S if char == '2'])\n\n# Print the result\nprint(result)\n```\n\n---\n\n### 示例验证\n\n- **输入**：`20250222`\n  - **输出**：`22222`\n\n- **输入**：`2`\n  - **输出**：`2`\n\n- **输入**：`22222000111222222`\n  - **输出**：`22222222222`\n\n代码正确实现了题目的要求，并能通过所有边界条件和测试用例。"
+}

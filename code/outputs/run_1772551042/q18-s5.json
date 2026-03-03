@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772551042",
+  "question_index": 18,
+  "question_id": "64",
+  "split": "train",
+  "sample_id": 5,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 28.970765352249146,
+  "response": "```python\nimport sys\n\ndef solve():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    A = list(map(int, data[1:N+1]))\n    \n    if all(a == 1 for a in A):\n        print(\"Yes\")\n        return\n    \n    from collections import deque\n    \n    # We need to find a way to eliminate all zeros using the given operations.\n    # The operations allow us to replace two adjacent elements in A with 1s,\n    # based on the pattern of the string S. We need to find if such a string exists.\n    \n    # Since the operations can be applied multiple times, we can greedily try to eliminate zeros.\n    # Start from position 0 and process each zero, trying to apply the operations.\n    \n    q = deque()\n    for i in range(N):\n        if A[i] == 0:\n            q.append(i)\n    \n    while q:\n        i = q.popleft()\n        \n        # Check first operation: S_i=A, S_{i+1}=R, S_{i+2}=C\n        # This corresponds to A[i] == 0, A[i+1] == 1, A[i+2] == 1\n        if i + 2 < N and A[i] == 0 and A[i+1] == 1 and A[i+2] == 1:\n            A[i] = 1\n            if i > 0 and A[i-1] == 0:\n                q.append(i-1)\n            if i + 1 < N and A[i+1] == 0:\n                q.append(i+1)\n        \n        # Check second operation: S_{i-2}=A, S_{i-1}=R, S_i=C\n        # This corresponds to A[i-2] == 1, A[i-1] == 0, A[i] == 1\n        if i - 2 >= 0 and A[i-2] == 1 and A[i-1] == 0 and A[i] == 1:\n            A[i-1] = 1\n            if i - 2 >= 0 and A[i-2] == 0:\n                q.append(i-2)\n            if i + 1 < N and A[i] == 0:\n                q.append(i)\n    \n    if all(a == 1 for a in A):\n        print(\"Yes\")\n    else:\n        print(\"No\")\n\nsolve()\n```"
+}

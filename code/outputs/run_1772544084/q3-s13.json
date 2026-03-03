@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772544084",
+  "question_index": 3,
+  "question_id": "6",
+  "split": "train",
+  "sample_id": 13,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 5.339125871658325,
+  "response": "```python\nimport sys\n\ndef main():\n    # Read input\n    A = list(map(int, sys.stdin.readline().split()))\n    \n    # Check all permutations of the array A\n    # There are 3! = 6 permutations to check\n    # Since the array size is small (n=3), brute force is acceptable\n    \n    from itertools import permutations\n    \n    for perm in permutations(A):\n        if perm[0] * perm[1] == perm[2]:\n            print(\"Yes\")\n            return\n    \n    print(\"No\")\n\nif __name__ == \"__main__\":\n    main()\n```\n\n### 思路解析：\n**深度解析：**\n- 约束条件：输入三个整数，范围是1到100。\n- 时间复杂度：由于输入规模很小（只有3个元素），使用暴力法完全可行。\n- 特殊性分析：问题可以通过枚举所有排列来解决，因为数组长度很短。\n\n**逻辑推演：**\n- **数学推导过程：** 题目要求我们判断是否可以用A的任意排列B满足B_1 × B_2 = B_3。对于三个元素的排列，最多有3! = 6种情况。\n- **DP状态转移方程：** 不需要动态规划，只需遍历所有可能的排列。\n- **边界情况处理方案：** 所有可能的排列都进行检查，确保没有遗漏的情况。\n\n**高效实现：**\n- 使用`itertools.permutations()`来生成所有可能的排列，这比手动列举要更简洁高效。\n- 利用标准输入和输出，以避免I/O瓶颈。"
+}

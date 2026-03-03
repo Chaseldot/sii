@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772553091",
+  "question_index": 14,
+  "question_id": "53",
+  "split": "train",
+  "sample_id": 11,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 8.384679317474365,
+  "response": "### 分析\n\n这道题的要求是计算所有子数组的和的 K 次方之和，并对结果取模。直接暴力枚举所有子数组然后计算其和的 K 次方是不可行的，因为时间复杂度为 O(N^2)，对于 N = 2×10^5 来说是无法接受的。\n\n考虑到以下几点：\n- K 的最大值为 10（即不大），我们可以利用快速幂算法来优化和的 K 次方的计算。\n- 累加所有子数组的和，可以使用前缀和技术，以 O(N) 时间计算出每个区间的和。\n- 总共有 O(N^2) 个子数组，我们需要在 O(N^2) 的时间内处理这些子数组，但由于 K 很小，我们可以高效地处理每个和的 K 次方。\n\n因此，我们可以：\n1. 使用前缀和数组快速计算任意区间和。\n2. 遍历所有可能的区间 [l, r]，计算和的 K 次方，并将结果累加到答案中。\n3. 对所有结果取模 998244353。\n\n由于 K 最大为 10，每次计算和的 K 次方的时间复杂度很低，整体复杂度为 O(N^2)，适用于题目要求。\n\n---\n\n### 代码\n\n```python\nMOD = 998244353\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    K = int(data[1])\n    A = list(map(int, data[2:2+N]))\n    \n    prefix_sum = [0] * (N + 1)\n    for i in range(N):\n        prefix_sum[i+1] = (prefix_sum[i] + A[i]) % MOD\n    \n    result = 0\n    for l in range(N):\n        current_sum = 0\n        for r in range(l, N):\n            current_sum = (current_sum + A[r]) % MOD\n            power = pow(current_sum, K, MOD)\n            result = (result + power) % MOD\n    \n    print(result)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

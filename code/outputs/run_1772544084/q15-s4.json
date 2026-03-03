@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772544084",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 4,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 11.952003717422485,
+  "response": "### 1. 深度解析  \n#### 约束条件  \n- `N` 的范围是 1 ≤ N ≤ 100，这是一个相对较小的范围，因此可以使用 O(N^2) 的算法。  \n- `P_i` 的最大值为 100，意味着可能有重复分数。  \n\n#### 时间复杂度  \n由于 N 最多是 100，因此即使使用 O(N^2) 的方法也完全可行。  \n\n#### 特殊性分析  \n这个问题涉及对分数进行排序和处理，具有明显的排序逻辑和计数特性。\n\n---\n\n### 2. 逻辑推演  \n\n#### 数学推导  \n我们需要按照分数从高到低处理选手：  \n- 对于每个分数，我们找出其出现的次数。\n- 高分对应较低的排名（如最高分对应排名为 1）。\n- 如果某个分数与其他分数相同，所有拥有该分数的人将获得相同的排名，并且下一个排名会增加这些人的数量。\n\n#### DP状态转移方程  \n我们可以采用一种基于排序的方法：\n- 将选手按分数降序排列。\n- 遍历这个有序列表，维护当前排名和当前分数。\n- 对于每个分数，计算它在当前排序中的位置，并分配相同的排名，然后更新当前排名。\n\n#### 边界情况处理方案  \n- 当所有分数都相同时（如样例 3），所有人都得到相同的排名（1）。\n- 当只有一个分数时，该人排名为 1。\n- 处理重复分数时，确保所有具有相同分数的人都获得相同的排名。\n\n---\n\n### 3. 高效实现  \n\n```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:]))\n    \n    # Create a list of tuples (score, index) and sort in descending order\n    sorted_scores = sorted([(P[i], i + 1) for i in range(N)], key=lambda x: (-x[0], x[1]))\n    \n    result = [0] * (N + 1)  # 1-based indexing\n    rank = 1\n    \n    i = 0\n    while i < N:\n        current_score = sorted_scores[i][0]\n        count = 1\n        # Count how many people have the same score\n        while i + 1 < N and sorted_scores[i+1][0] == current_score:\n            count += 1\n            i += 1\n        # Assign rank to all these people\n        for j in range(i - count + 1, i + 1):\n            result[sorted_scores[j][1]] = rank\n        # Update rank\n        rank += count\n        i += 1\n    \n    for i in range(1, N + 1):\n        print(result[i])\n\nif __name__ == '__main__':\n    main()\n```\n\n该代码首先将分数与索引配对并按降序排序。通过遍历排序后的列表，为具有相同分数的人分配相同的排名。对于每个分数组，我们将它们的所有索引分配相同的排名，并根据组的数量调整排名。这确保了所有具有相同分数的人都获得正确的排名。"
+}

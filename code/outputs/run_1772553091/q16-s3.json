@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772553091",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 3,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 3.8039753437042236,
+  "response": "### 分析\n这道题的核心是找出一个正整数 B，使得 A × B = 400。也就是说，B 应该是 400 的因数，并且大于 0。我们可以通过遍历所有可能的因子来找到一个合适的 B 值。\n\n**具体步骤如下：**\n1. 输入一个正整数 A。\n2. 遍历所有可能的正整数 B（从 1 到 400），判断 A × B 是否等于 400。\n3. 如果找到符合条件的 B，则输出它；否则，输出 -1。\n\n需要注意的是，由于 A 范围是 1 到 400，因此我们可以直接遍历 B 从 1 到 400，无需考虑效率问题，因为 400 是一个较小的数字。\n\n---\n\n### 代码\n```python\nA = int(input())\nfor B in range(1, 401):\n    if A * B == 400:\n        print(B)\n        break\nelse:\n    print(-1)\n```"
+}

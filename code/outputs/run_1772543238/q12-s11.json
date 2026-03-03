@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772543238",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 11,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.901245355606079,
+  "response": "To solve this problem, we need to determine if there is a subsequence of three or more identical elements in a row in the given integer sequence.\n\n### Thought Process:\n1. **Understand the Problem**: We are given an integer sequence `A` of length `N`, and we need to check whether there exists any triplet (or longer) of consecutive equal elements in the array.\n2. **Constraints**:\n   - The length of the sequence `N` is between 3 and 100.\n   - Each element in the sequence is between 1 and 100.\n   - So, it's feasible to iterate through the list and check for such triplets.\n3. **Approach**:\n   - Traverse the list from index `0` to `N-3`.\n   - Check if the current element is the same as the next two elements.\n   - If found, print `\"Yes\"` and terminate the program.\n   - If no such triplet is found after checking all positions, print `\"No\"`.\n4. **Edge Cases**:\n   - All elements are the same (like in sample input 5).\n   - Only one triplet is at the end of the list.\n   - No triplet exists.\n\nNow, here's the complete Python code that implements the above logic:\n\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check if there is any triplet of consecutive equal elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        found = True\n        break\n\n# Output the result\nprint(\"Yes\" if found else \"No\")\n```"
+}

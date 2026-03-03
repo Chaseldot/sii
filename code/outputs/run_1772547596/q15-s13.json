@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772547596",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 13,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 10.944909811019897,
+  "response": "### 分析\n这道题的核心是根据分数给每个人分配排名。排序的规则是：每次找到当前未被确定排名的人中的最高分，将这些人的排名设为当前 `r` 值，并将 `r` 增加这些人的数量。我们需要按照这个规则对所有人员进行排序并给出他们的最终排名。\n\n#### 题目关键约束\n- N 的范围是 1 ≤ N ≤ 100\n- P_i 的取值范围是 1 ≤ P_i ≤ 100\n- 时间限制为 1 秒\n\n#### 问题类型\n此问题属于排序类问题，其中需要根据特定规则处理数据（每次取最大分数并处理相同分数）\n\n#### 推导思路\n1. 我们需要维护一个未被确定排名的人员列表。\n2. 每次从当前未被确定排名的人员中找到最大分数，记录下与该分数对应的所有人数。\n3. 将这些人的排名设为当前的 `r` 值，并更新 `r = r + count`。\n4. 重复以上过程直到处理完所有人。\n\n#### 算法设计\n- 使用一个优先队列（堆）保存当前未被确定排名的人员信息，按分数从高到低排序。\n- 或者，使用一个列表遍历方式模拟上述过程。\n- 更高效的方法是将所有人员的分数和索引存储在一个结构中，然后在每个阶段：\n  - 找出当前未被处理的最大分数；\n  - 将该分数的所有人员标记为已处理，并记录其排名为当前的 `r`；\n  - 更新 `r` 值。\n\n由于 N 最大为 100，采用 O(N^2) 的方法可以直接实现而不会超时。\n\n#### 复杂度估算\n- 时间复杂度：O(N^2)，在最坏情况下要进行最多 N 次操作，每次操作涉及一次线性扫描。\n- 空间复杂度：O(N)，用于存储排名信息和尚未处理的人员列表。\n\n### 代码\n```python\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    P = list(map(int, data[1:]))\n    \n    rank = [0] * N\n    processed = [False] * N\n    r = 1\n    \n    while True:\n        max_score = -1\n        max_indices = []\n        \n        # Find the maximum unprocessed score and its positions\n        for i in range(N):\n            if not processed[i] and P[i] > max_score:\n                max_score = P[i]\n                max_indices = [i]\n            elif not processed[i] and P[i] == max_score:\n                max_indices.append(i)\n        \n        if not max_indices:\n            break\n        \n        # Assign rank to these people\n        for i in max_indices:\n            rank[i] = r\n            processed[i] = True\n        \n        r += len(max_indices)\n    \n    for i in range(N):\n        print(rank[i])\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772551042",
+  "question_index": 18,
+  "question_id": "64",
+  "split": "train",
+  "sample_id": 10,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 36.15595054626465,
+  "response": "```python\nimport sys\n\ndef solve():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    A = list(map(int, data[1:]))\n    \n    if all(a == 1 for a in A):\n        print(\"Yes\")\n        return\n    \n    # To avoid modifying the original array while checking, we'll create a copy\n    arr = A[:]\n    \n    # We can use a greedy approach with two passes to apply operations\n    # Operation 1: S_i = A, S_{i+1} = R, S_{i+2} = C\n    # Operation 2: S_{i+2} = A, S_{i+1} = R, S_i = C\n    \n    # First pass: apply operation 1 wherever possible\n    for i in range(N):\n        if i + 2 < N:\n            if arr[i] == 0 and arr[i+1] == 1 and arr[i+2] == 0:\n                arr[i] = 1\n                arr[i+2] = 1\n    \n    # Second pass: apply operation 2 wherever possible\n    for i in range(N):\n        if i + 2 < N:\n            if arr[i+2] == 0 and arr[i+1] == 1 and arr[i] == 0:\n                arr[i] = 1\n                arr[i+2] = 1\n    \n    # Check if all elements have been converted to 1\n    if all(a == 1 for a in arr):\n        print(\"Yes\")\n    else:\n        print(\"No\")\n\nsolve()\n```"
+}

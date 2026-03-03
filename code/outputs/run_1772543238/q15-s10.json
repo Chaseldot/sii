@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772543238",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 10,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 10.139983415603638,
+  "response": "To solve this problem, we need to determine the rank of each person based on their scores using a specific ranking process.\n\n### Key Steps:\n1. **Understand the Ranking Process**: \n   - Start with rank `r = 1`.\n   - In each iteration, find the maximum score among people whose ranks are not yet determined.\n   - Assign the current rank `r` to all people with this maximum score.\n   - Increment `r` by the number of people who received this rank.\n\n2. **Implementation Strategy**:\n   - Use a priority queue (max heap) to efficiently get the highest score at each step.\n   - Maintain a list to track whether each person has been assigned a rank.\n   - At each iteration, extract all people with the current maximum score and assign them the current rank.\n\n### Edge Cases Considered:\n- All scores are the same.\n- Only one person with the highest score.\n- Multiple people with the same intermediate highest score.\n\nHere is the complete code:\n\n```python\nimport heapq\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:N+1]))\n    \n    # We will use a max heap. Since Python's heapq is a min heap, we store negative scores.\n    max_heap = [(-P[i], i) for i in range(N)]\n    heapq.heapify(max_heap)\n    \n    rank = 1\n    result = [0] * N\n    \n    while max_heap:\n        # Extract all elements with the current max score\n        current_max = -max_heap[0][0]\n        count = 0\n        temp = []\n        while max_heap and -max_heap[0][0] == current_max:\n            score, idx = heapq.heappop(max_heap)\n            temp.append((score, idx))\n            count += 1\n        \n        # Assign rank to all these people\n        for score, idx in temp:\n            result[idx] = rank\n        \n        # Update rank\n        rank += count\n    \n    for r in result:\n        print(r)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

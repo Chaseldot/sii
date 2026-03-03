@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772552001",
+  "question_index": 11,
+  "question_id": "29",
+  "split": "train",
+  "sample_id": 11,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 53.41456365585327,
+  "response": "你遇到的错误 `AttributeError: 'int' object has no attribute 'bit_count'` 是因为 Python 的版本太低（< 3.10），而 `bit_count()` 是从 Python 3.10 开始才引入的。\n\n---\n\n### 解决方案\n\n我们可以改用内置函数 `bin(x).count('1')` 来统计一个整数的二进制中 `1` 的个数。这个方法在所有 Python 版本中都可用。\n\n---\n\n### 修正后的完整代码如下：\n\n```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    H = int(data[0])\n    W = int(data[1])\n    grid = data[2:H + 2]\n    \n    # Precompute each row as an integer (bitwise representation)\n    rows = []\n    for row_str in grid:\n        row = int(row_str, 2)\n        rows.append(row)\n    \n    min_total = float('inf')\n    \n    # Iterate through all possible column flip masks\n    for col_mask in range(1 << W):\n        total = 0\n        for row in rows:\n            flipped_row = row ^ col_mask\n            cnt_flipped = bin(flipped_row).count('1')\n            cnt_not_flipped = bin(row ^ flipped_row).count('1')\n            total += min(cnt_flipped, cnt_not_flipped)\n        \n        if total < min_total:\n            min_total = total\n    \n    print(min_total)\n\nmain()\n```\n\n---\n\n### 说明\n\n- 使用 `bin(x).count('1')` 替换了之前的 `bit_count()`，这样可以在所有 Python 版本中运行。\n- 整体算法逻辑未变，仍然是基于列翻转状态枚举，配合最短行翻转策略。\n- 时间复杂度为 $ O(2^W \\cdot H) $，对于当前约束是可接受的。\n\n---\n\n### 最终答案：使用上述完整代码即可正确运行。"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772550233",
+  "question_index": 11,
+  "question_id": "29",
+  "split": "train",
+  "sample_id": 15,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 41.10001611709595,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    H = int(data[0])\n    W = int(data[1])\n    grid = data[2:2+H]\n    \n    # Convert each row to a list of integers\n    for i in range(H):\n        grid[i] = [int(c) for c in grid[i]]\n    \n    # Precompute the sum of each row and column\n    row_sums = [sum(row) for row in grid]\n    col_sums = [sum(grid[i][j] for i in range(H)) for j in range(W)]\n    \n    # Try all possible combinations of column flips (since W <= 18)\n    min_total = float('inf')\n    for mask in range(1 << W):\n        # Calculate the effect of flipping columns based on mask\n        total = 0\n        for j in range(W):\n            flip = (mask >> j) & 1\n            cnt = sum(grid[i][j] ^ flip for i in range(H))\n            total += min(cnt, H - cnt)\n        min_total = min(min_total, total)\n    \n    print(min_total)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

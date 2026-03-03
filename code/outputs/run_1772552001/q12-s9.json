@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772552001",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 9,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.276805877685547,
+  "response": "### 思维过程\n\n1. **输入输出格式**：\n   - 输入包括两个部分：整数 `N` 和一个长度为 `N` 的整数序列。\n   - 输出是 \"Yes\" 或 \"No\"，表示是否有一个元素连续出现至少 3 次。\n\n2. **约束条件和边界情况**：\n   - `N` 的范围是 `3 ≤ N ≤ 100`，因此我们需要考虑最小的三种元素连续的情况。\n   - 元素值范围是 `1 ≤ A_i ≤ 100`，但这个对算法影响不大。\n   - 最关键的是检查是否有三个连续相同的元素，即是否存在一个索引 `i` 使得 `A[i] == A[i+1] == A[i+2]`。\n\n3. **算法思路**：\n   - 直接暴力遍历数组，依次检查每个可能的三元组。\n   - 一旦发现满足条件的情况，立刻返回 \"Yes\"。\n   - 如果遍历结束都没找到符合条件的三元组，则返回 \"No\"。\n\n4. **时间复杂度**：\n   - 时间复杂度为 `O(N)`，对于最大输入规模（100）是完全可行的。\n\n---\n\n### 完整代码\n\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three consecutive equal elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        found = True\n        break\n\n# Output the result\nprint(\"Yes\" if found else \"No\")\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772551042",
+  "question_index": 0,
+  "question_id": "0",
+  "split": "train",
+  "sample_id": 13,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 43.71926808357239,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    idx = 0\n    N = int(data[idx])\n    idx += 1\n    W = int(data[idx])\n    idx += 1\n    \n    # Store blocks as (x, y, block_id)\n    blocks = []\n    for i in range(N):\n        x = int(data[idx])\n        idx += 1\n        y = int(data[idx])\n        idx += 1\n        blocks.append((x, y, i + 1))  # 1-based block id\n    \n    Q = int(data[idx])\n    idx += 1\n    \n    queries = []\n    for _ in range(Q):\n        T = int(data[idx])\n        idx += 1\n        A = int(data[idx])\n        idx += 1\n        queries.append((T, A))\n    \n    # Preprocess: For each column, track the initial positions of blocks\n    from collections import defaultdict\n    col_positions = defaultdict(list)\n    for x, y, block_id in blocks:\n        col_positions[x].append(y)\n    \n    # Sort the positions in each column to determine how many times a block can fall\n    col_fall_counts = {}\n    for x in col_positions:\n        col_positions[x].sort()\n        cnt = len(col_positions[x])\n        col_fall_counts[x] = cnt\n    \n    # For each block, calculate how many times it can fall before being removed\n    falling_counts = [0] * (N + 1)  # 1-based indexing\n    for x, y, block_id in blocks:\n        cnt = col_fall_counts[x]\n        # The block will fall cnt times if it is not in the bottom row initially\n        # If the block is already in the bottom row, it falls 0 times\n        if y == cnt:\n            falling_counts[block_id] = 0\n        else:\n            falling_counts[block_id] = cnt - y - 1  # number of rows above initial position\n    \n    # Process queries\n    result = []\n    for T, A in queries:\n        if T < falling_counts[A] + 1:\n            result.append(\"Yes\")\n        else:\n            result.append(\"No\")\n    \n    print(\"\\n\".join(result))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

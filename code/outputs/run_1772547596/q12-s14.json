@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772547596",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 14,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 14.68348240852356,
+  "response": "### 错误分析及改进方案\n1. **错误定位**：`sys.exit()` 在某些运行环境中可能无法正确终止程序，特别是在某些在线评测系统中，可能导致系统异常退出。\n2. **边界情况检查**：当输入长度为3时，循环 `range(n - 2)` 的范围是0到0，即只执行一次。在该情况下，代码应能正常判断是否满足三连条件。\n3. **代码修正**：\n   - 可以改用 `break` 语句跳出循环，然后输出结果。\n   - 或者直接通过 `print(\"Yes\")` 并提前终止程序。\n\n---\n\n### 代码\n```python\nn = int(input())\na = list(map(int, input().split()))\nfor i in range(n - 2):\n    if a[i] == a[i+1] == a[i+2]:\n        print(\"Yes\")\n        break\nelse:\n    print(\"No\")\n```"
+}

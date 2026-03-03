@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772543238",
+  "question_index": 6,
+  "question_id": "17",
+  "split": "train",
+  "sample_id": 9,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 5.170593500137329,
+  "response": "To solve this problem, we need to repeatedly replace the leftmost occurrence of the substring \"WA\" with \"AC\" until there are no more occurrences of \"WA\" in the string.\n\n### Key Observations:\n1. The operation must always replace the **leftmost** occurrence of \"WA\".\n2. After replacing \"WA\" with \"AC\", there might be new \"WA\" substrings formed due to overlapping or adjacent characters.\n3. We need an efficient way to find and replace these occurrences without scanning the entire string repeatedly (which would be inefficient for large input sizes).\n\n### Strategy:\n- Use a stack-based approach to process the string character by character.\n- Whenever we encounter a 'W', we push it onto the stack.\n- If the top of the stack is 'W' and the current character is 'A', then we have found a \"WA\" substring. Replace it with \"AC\" by popping the 'W' from the stack and pushing 'A' and 'C'.\n- This ensures that we always replace the leftmost \"WA\" first, as we process the string sequentially.\n\nThis approach is O(n), which is optimal given the constraint that the input string can be up to 300,000 characters long.\n\nHere’s the complete Python code implementing this logic:\n\n```python\ndef main():\n    import sys\n    input = sys.stdin.read\n    S = input().strip()\n    \n    stack = []\n    \n    for char in S:\n        if stack and stack[-1] == 'W' and char == 'A':\n            # Found WA, replace with AC\n            stack.pop()  # Remove the 'W'\n            stack.append('A')\n            stack.append('C')\n        else:\n            stack.append(char)\n    \n    print(''.join(stack))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772551042",
+  "question_index": 18,
+  "question_id": "64",
+  "split": "train",
+  "sample_id": 14,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 51.16607308387756,
+  "response": "```python\nimport sys\n\ndef solve():\n    input = sys.stdin.read().split()\n    N = int(input[0])\n    A = list(map(int, input[1:]))\n    \n    if all(a == 1 for a in A):\n        print(\"Yes\")\n        return\n    \n    count_zeros = sum(1 for x in A if x == 0)\n    if count_zeros % 2 != 0:\n        print(\"No\")\n        return\n    \n    # We can pair zeros using the allowed operations. We need to find pairs of zeros that are at positions i and i+2.\n    # We'll greedily process zeros with their next available partner.\n    processed = [False] * N\n    zero_indices = [i for i in range(N) if A[i] == 0]\n    \n    i = 0\n    while i < len(zero_indices):\n        idx = zero_indices[i]\n        next_next_idx = (idx + 2) % N\n        if not processed[next_next_idx]:\n            processed[idx] = True\n            processed[next_next_idx] = True\n            i += 1\n        else:\n            # Try to find a pair by looking forward\n            j = i + 1\n            while j < len(zero_indices):\n                other_idx = zero_indices[j]\n                if not processed[other_idx]:\n                    if (other_idx - idx) % N in [1, 2]:\n                        processed[idx] = True\n                        processed[other_idx] = True\n                        i += 1\n                        j = len(zero_indices)\n                    else:\n                        j += 1\n                else:\n                    j += 1\n            if i == len(zero_indices):\n                break\n    \n    if all(processed[i] for i in zero_indices):\n        print(\"Yes\")\n    else:\n        print(\"No\")\n\nsolve()\n```"
+}

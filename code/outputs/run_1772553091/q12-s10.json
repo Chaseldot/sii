@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772553091",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 10,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 4.799140930175781,
+  "response": "### 分析\n我们需要判断一个整数序列中是否存在连续三个或更多相同元素的情况。具体来说，只要有一个位置 $ i $ 满足 $ A_i = A_{i+1} = A_{i+2} $ 即可输出 \"Yes\"，否则输出 \"No\"。\n\n**思路如下：**\n- 遍历数组从第一个元素到倒数第三个元素（因为要检查三连）。\n- 对于每个元素 $ A[i] $，比较它是否等于 $ A[i+1] $ 和 $ A[i+2] $。\n- 如果找到符合要求的连续三个相等元素，立即返回 \"Yes\"。\n- 遍历结束仍未找到，则返回 \"No\"。\n\n**时间复杂度：** $ O(N) $，可以满足题目中的时间限制。\n\n---\n\n### 代码\n```python\n# Read input\nn = int(input())\na = list(map(int, input().split()))\n\n# Check for three consecutive equal elements\nfound = False\nfor i in range(n - 2):\n    if a[i] == a[i + 1] == a[i + 2]:\n        found = True\n        break\n\n# Output the result\nprint(\"Yes\" if found else \"No\")\n```"
+}

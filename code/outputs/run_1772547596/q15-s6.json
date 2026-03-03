@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772547596",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 6,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 9.304847240447998,
+  "response": "### 分析\n这道题要求我们根据每个人的成绩来确定他们的排名。排名规则是，每次找到当前尚未确定排名的人中成绩最高的那个人或几个人，将他们的排名设为当前的r值，然后将r增加这些人的数量。\n\n#### **关键约束**\n- N的范围为1到100，因此复杂度较低，我们可以使用暴力方法。\n- 每个P_i的范围是1到100，因此可以使用简单排序和遍历的方式处理。\n\n#### **问题类型**\n这是一个模拟问题，我们需要按照给定的步骤模拟处理每个人的排名。\n\n#### **数学推导**\n每一步操作是：\n1. 找出当前未被分配排名的人中最高分（x）。\n2. 找出所有得分等于x的人。\n3. 将这些人的排名设为当前r，并将r增加这些人数量。\n\n整个过程直到所有人的排名都被分配完毕。\n\n#### **算法设计**\n我们可以按以下步骤实现该算法：\n1. 使用一个数组`rank`来记录每个人对应的排名。\n2. 使用一个布尔数组`determined`来表示某个人是否已经获得了排名。\n3. 在每一步循环中：\n   - 遍历所有未确定排名的人，找出当前的最大分x。\n   - 统计分数等于x的人数k，并将这些人的排名设为r。\n   - 递增r的值。\n4. 直到所有人的排名都被确定为止。\n\n#### **复杂度分析**\n- 内部循环最多执行N次。\n- 每次循环中，需要遍历所有N人检查其状态和分数。\n- 总体时间复杂度为O(N^2)，在N=100的时候是可以接受的。\n\n---\n\n### 代码\n```python\nn = int(input())\np = list(map(int, input().split()))\nrank = [0] * n\ndetermined = [False] * n\nr = 1\n\nwhile sum(determined) < n:\n    max_score = -1\n    candidates = []\n    for i in range(n):\n        if not determined[i]:\n            if p[i] > max_score:\n                max_score = p[i]\n                candidates = [i]\n            elif p[i] == max_score:\n                candidates.append(i)\n    for idx in candidates:\n        rank[idx] = r\n    r += len(candidates)\n    for idx in candidates:\n        determined[idx] = True\n\nfor i in range(n):\n    print(rank[i])\n```"
+}

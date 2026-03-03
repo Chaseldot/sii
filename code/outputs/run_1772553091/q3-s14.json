@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772553091",
+  "question_index": 3,
+  "question_id": "6",
+  "split": "train",
+  "sample_id": 14,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 4.451232433319092,
+  "response": "### 分析\n这个问题要求判断一个包含三个整数的数组 A 是否可以通过某种排列（即全排列）形成一个新的数组 B，使得 B_1 × B_2 = B_3 成立。\n\n由于数组长度只有 3，我们可以枚举其所有可能的排列（共 6 种），然后对每种排列检查是否满足条件。如果存在至少一种排列满足条件，则输出 \"Yes\"，否则输出 \"No\"。\n\n具体步骤如下：\n1. 输入三个整数作为列表。\n2. 生成这三个数的所有排列组合。\n3. 对于每个排列，检查是否满足 B[0] * B[1] == B[2]。\n4. 如果有一个排列符合该条件，则返回 \"Yes\"，否则返回 \"No\"。\n\n注意：本题中不需要考虑负数或零的情况，因为输入值限定在 1 到 100 之间。\n\n### 代码\n```python\nfrom itertools import permutations\n\n# 读取输入\nA = list(map(int, input().split()))\n\n# 检查是否存在一种排列满足条件\nfor perm in permutations(A):\n    if perm[0] * perm[1] == perm[2]:\n        print(\"Yes\")\n        break\nelse:\n    print(\"No\")\n```"
+}

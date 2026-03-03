@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772543238",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 15,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.675142049789429,
+  "response": "To solve this problem, we need to check whether there is a subsequence of three or more identical elements appearing consecutively in the given list. Here's the thought process and the implementation:\n\n### Thought Process\n1. **Understand the Problem**: We are given a sequence of integers `A` of length `N`. We need to determine if there exists at least one position `i` such that `A[i] = A[i+1] = A[i+2]`.\n\n2. **Edge Cases**:\n   - If `N < 3`, it's not possible to have three consecutive elements.\n   - The array may contain multiple repeated sequences, but we only need one occurrence to return `\"Yes\"`.\n\n3. **Approach**:\n   - Traverse through the list from index `0` to `N-3`.\n   - For each index `i`, check if `A[i] == A[i+1] == A[i+2]`.\n   - If found, print `\"Yes\"` and exit.\n   - If after traversing all indices, no such triplet is found, print `\"No\"`.\n\n4. **Efficiency**: This approach runs in *O(N)* time complexity, which is acceptable given the constraints (`N ≤ 100`).\n\nNow, here is the Python code for the problem:\n\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three consecutive equal elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        found = True\n        break\n\n# Output result\nprint(\"Yes\" if found else \"No\")\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772553091",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 10,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 16.417555332183838,
+  "response": "### 分析\n\n错误的根本原因在于 `available` 是一个 `set`，在遍历过程中我们尝试从集合中移除元素，这会导致迭代过程中集合大小发生变化，从而引发 `RuntimeError: Set changed size during iteration`。\n\n我们可以通过使用一个布尔数组 `available` 来代替集合，以避免这一问题。这样我们可以在遍历数组时安全地标记哪些人尚未确定排名，并且可以正确地过滤出当前最大分值的人。\n\n此外，为了更加高效，我们可以考虑用优先队列（堆）来处理最高分数的查找和处理过程。不过因为题目限制较小（最多100个元素），采用直接遍历的方式也是可行的。\n\n---\n\n### 代码\n```python\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:N+1]))\n    \n    rank = [0] * N\n    available = [True] * N  # Boolean array to track undetermined ranks\n    r = 1\n    \n    while True:\n        # Find the maximum score among available people\n        max_score = -1\n        for i in range(N):\n            if available[i] and P[i] > max_score:\n                max_score = P[i]\n        \n        # Count how many people have this score and are available\n        count = 0\n        for i in range(N):\n            if available[i] and P[i] == max_score:\n                count += 1\n        \n        # Assign rank 'r' to these people\n        for i in range(N):\n            if available[i] and P[i] == max_score:\n                rank[i] = r\n                available[i] = False\n        \n        r += count\n        \n        # Check if all people have been ranked\n        if not any(available):\n            break\n    \n    for i in range(N):\n        print(rank[i])\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

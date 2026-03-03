@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772552001",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 7,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 17.182393074035645,
+  "response": "```python\n# Read input from standard input\ndata = list(map(int, input().split()))\nN = data[0]\nA = data[1:]\n\n# Check if there are three consecutive equal elements\nfound = False\nfor i in range(len(A) - 2):\n    if A[i] == A[i+1] == A[i+2]:\n        found = True\n        break\n\n# Output the result\nprint(\"Yes\" if found else \"No\")\n```\n\n### 错误原因分析：\n- 原代码中 `range(N - 2)` 是基于变量 `N` 来计算的，但在某些情况下 `N` 可能不等于 `len(A)`（例如当输入格式错误或者数据未正确分割时）。\n- 更安全的做法是直接使用实际数组长度来判断循环范围。\n\n### 修正说明：\n- 将循环范围设为 `range(len(A) - 2)`，确保不会访问超出数组长度的索引。\n- 这样无论 `N` 的值如何，都可以正确处理数组 `A`，避免了因 `N` 和实际元素数量不一致导致的索引越界问题。"
+}

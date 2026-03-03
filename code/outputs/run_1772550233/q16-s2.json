@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772550233",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 2,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 1.4035923480987549,
+  "response": "```python\nimport sys\nimport math\n\ndef solve():\n    A = int(sys.stdin.read())\n    total_people = 400\n    if total_people % A == 0:\n        B = total_people // A\n        print(B)\n    else:\n        print(-1)\n\nsolve()\n```"
+}

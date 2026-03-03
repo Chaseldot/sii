@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772553091",
+  "question_index": 11,
+  "question_id": "29",
+  "split": "train",
+  "sample_id": 14,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 31.1250319480896,
+  "response": "### 分析\n之前的代码中出现了一个错误：`bin` 函数使用前未导入。在 Python 中，`bin()` 是内置函数，用于将整数转换为二进制字符串，但在某些环境（如某些在线判题系统）下需要确保它被正确访问。\n\n此外，我们还需要确保 `rows` 的处理是正确的，每一行的字符串应该以二进制形式存储，并且没有额外的处理错误。\n\n---\n\n### 修正代码\n```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    H = int(data[0])\n    W = int(data[1])\n    \n    rows = []\n    for i in range(H):\n        row_str = data[2 + i]\n        row = int(row_str, 2)  # 将二进制字符串转换为整数\n        rows.append(row)\n    \n    min_sum = float('inf')\n    # 枚举所有列翻转模式 (2^W 种)\n    for mask in range(1 << W):\n        current_row_sum = 0\n        for row in rows:\n            # 原本的行值与当前列翻转掩码进行按位异或\n            flipped_row = row ^ mask\n            # 计算翻转后行中的1的数量\n            count_ones = bin(flipped_row).count('1')  # 使用内置函数 bin()\n            # 判断是否翻转该行以获得更小的总和\n            if count_ones > H - count_ones:\n                count_ones = H - count_ones\n            current_row_sum += count_ones\n        min_sum = min(min_sum, current_row_sum)\n    \n    print(min_sum)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

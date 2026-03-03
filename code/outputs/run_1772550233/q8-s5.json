@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772550233",
+  "question_index": 8,
+  "question_id": "25",
+  "split": "train",
+  "sample_id": 5,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 55.32380127906799,
+  "response": "```python\nimport sys\n\ndef solve():\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    X = int(data[1])\n    U = []\n    D = []\n    for i in range(N):\n        u = int(data[2 + 2*i])\n        d = int(data[2 + 2*i + 1])\n        U.append(u)\n        D.append(d)\n    \n    # The required H must satisfy U[i] + D[i] = H for all i\n    # So, H must be such that H - U[i] >= 0 and H - D[i] >= 0\n    # Since H must be same for all i, we can compute the required H based on constraints\n    \n    # For each i, H can be in [U[i] + D[i], ...]\n    # We find the optimal H by checking the median of (U[i] + D[i]) to minimize cost\n    \n    sums = [U[i] + D[i] for i in range(N)]\n    sums.sort()\n    median = sums[N // 2]\n    \n    # We need to adjust H to ensure that the differences between consecutive upper teeth <= X\n    # Let's find the valid Hs around the median and choose the one with minimal cost\n    \n    def get_cost(H):\n        cost = 0\n        for i in range(N):\n            cost += max(0, H - U[i])\n            cost += max(0, H - D[i])\n        return cost\n    \n    # We try a few values around the median to find the minimal cost\n    # Since the cost function is convex, we can check a small window around the median\n    min_cost = float('inf')\n    for h in range(max(0, median - 5000), median + 5000):\n        cost = get_cost(h)\n        if cost < min_cost:\n            min_cost = cost\n    print(min_cost)\n\nsolve()\n```"
+}

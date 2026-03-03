@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772551042",
+  "question_index": 8,
+  "question_id": "25",
+  "split": "train",
+  "sample_id": 0,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 42.27813959121704,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    X = int(data[1])\n    \n    U = []\n    D = []\n    \n    index = 2\n    for _ in range(N):\n        u = int(data[index])\n        d = int(data[index + 1])\n        U.append(u)\n        D.append(d)\n        index += 2\n    \n    # Calculate the sums of upper and lower teeth\n    sums = [u + d for u, d in zip(U, D)]\n    \n    # Find the minimum and maximum possible H values\n    min_sum = min(sums)\n    max_sum = max(sums)\n    \n    # Function to calculate cost for a given H\n    def cost(H):\n        total = 0\n        for s in sums:\n            if s < H:\n                total += H - s\n        return total\n    \n    # Binary search to find the optimal H that minimizes cost\n    left, right = min_sum, max_sum\n    answer = cost(left)\n    while left < right:\n        mid = (left + right) // 2\n        if cost(mid) < cost(mid + 1):\n            right = mid\n        else:\n            left = mid + 1\n    answer = cost(left)\n    \n    print(answer)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

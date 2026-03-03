@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772547596",
+  "question_index": 3,
+  "question_id": "6",
+  "split": "train",
+  "sample_id": 5,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 7.644309997558594,
+  "response": "### 分析\n这道题的关键在于判断给定三个整数的序列 $ A = (A_1, A_2, A_3) $ 是否可以通过重新排列成一个排列 $ B = (B_1, B_2, B_3) $，使得 $ B_1 \\times B_2 = B_3 $。\n\n#### 关键约束与问题类型\n- 输入为三个整数（范围为 1 到 100）。\n- 输出是判断是否可以满足 $ B_1 \\times B_2 = B_3 $。\n- 由于只有 3 个数，我们可以枚举所有可能的排列组合进行判断。\n- 算法复杂度：最多需要枚举 $ 3! = 6 $ 种排列，这是非常低的复杂度。因此直接暴力枚举即可解决问题。\n\n#### 数学推导\n设输入数组为 $ A = [a, b, c] $，我们需要从中选出两个数相乘等于第三个数。即：\n- $ a \\times b = c $\n- $ a \\times c = b $\n- $ b \\times c = a $\n\n对于这三个等式，只需检查哪一种成立即可。\n\n#### 算法设计\n我们可以使用 itertools.permutations 来生成 $ A $ 所有可能的排列（共 6 个），然后对每个排列判断是否满足条件。只要有一个排列满足条件，就输出 \"Yes\"，否则输出 \"No\"。\n\n由于数据量很小，这种暴力方法完全在时间限制内。\n\n### 代码\n```python\nfrom itertools import permutations\n\n# 读取输入\na, b, c = map(int, input().split())\n\n# 定义数组\narr = [a, b, c]\n\n# 枚举所有排列\nfor perm in permutations(arr):\n    if perm[0] * perm[1] == perm[2]:\n        print(\"Yes\")\n        break\nelse:\n    print(\"No\")\n```"
+}

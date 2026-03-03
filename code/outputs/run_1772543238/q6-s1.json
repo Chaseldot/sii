@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772543238",
+  "question_index": 6,
+  "question_id": "17",
+  "split": "train",
+  "sample_id": 1,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.73927116394043,
+  "response": "To solve this problem, we need to repeatedly replace the leftmost occurrence of \"WA\" with \"AC\" until no more such occurrences exist in the string.\n\n### Key Observations:\n- We are always replacing the **leftmost** occurrence of \"WA\".\n- Each replacement may potentially create a new \"WA\" that needs to be replaced.\n- Replacing \"WA\" with \"AC\" can affect characters to the right of the replaced substring (e.g., an \"A\" following the replacement could now form \"WA\" with a previous character).\n\n### Approach:\n1. Convert the input string into a list for efficient manipulation.\n2. Use a loop to scan the string for \"WA\".\n3. Replace the leftmost \"WA\" with \"AC\".\n4. Repeat this process until no more \"WA\" exists in the string.\n5. Finally, convert the list back to a string and print it.\n\nThis approach ensures we replace the leftmost \"WA\" at each step, which is crucial for correctness.\n\n### Time Complexity:\n- At worst, each \"WA\" replacement affects the entire string, leading to O(n^2) complexity in the worst case where every pair of \"WA\" occurs consecutively.\n- However, given the constraint of up to 300,000 characters, this will still pass within the time limit due to Python's efficiency in string operations.\n\n### Now, here's the complete code:\n\n```python\ndef main():\n    import sys\n    input = sys.stdin.read\n    S = list(input().strip())\n    \n    i = 0\n    while i < len(S) - 1:\n        if S[i] == 'W' and S[i+1] == 'A':\n            S[i] = 'A'\n            S[i+1] = 'C'\n            i = 0  # Reset i to check from the beginning again after replacement\n        else:\n            i += 1\n    \n    print(''.join(S))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

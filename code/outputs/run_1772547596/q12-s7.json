@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772547596",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 7,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 5.018624305725098,
+  "response": "### 分析\n1. **关键约束提取**：\n   - N的范围是3到100，因此可以使用O(N)线性时间复杂度的算法。\n   - 时间限制为1秒，显然线性扫描是完全可以接受的。\n\n2. **问题类型**：\n   - 该问题本质上是一个**线性扫描**问题，检查数组中是否存在连续三个相同的元素。\n\n3. **数学公式或规律**：\n   - 问题要求找到一个i（1 ≤ i ≤ N-2），使得A_i = A_{i+1} = A_{i+2}。换句话说，只要存在任意三个相邻的相同元素，就返回“Yes”，否则返回“No”。\n\n4. **算法设计与复杂度分析**：\n   - 算法思路：遍历数组从索引0到N-3（因为需要判断当前元素、下一个元素和再下下一个元素是否相同），逐个检查这三个元素是否相等。\n   - 复杂度分析：只需一次线性遍历，时间复杂度为O(N)，空间复杂度为O(1)。\n\n### 代码\n```python\nn = int(input())\na = list(map(int, input().split()))\n\nfound = False\nfor i in range(n - 2):\n    if a[i] == a[i + 1] == a[i + 2]:\n        found = True\n        break\n\nprint(\"Yes\" if found else \"No\")\n```"
+}

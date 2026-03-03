@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772551042",
+  "question_index": 0,
+  "question_id": "0",
+  "split": "train",
+  "sample_id": 9,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 73.07684373855591,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    idx = 0\n    N = int(data[idx])\n    idx += 1\n    W = int(data[idx])\n    idx += 1\n    \n    blocks = []\n    for _ in range(N):\n        X = int(data[idx])\n        idx += 1\n        Y = int(data[idx])\n        idx += 1\n        blocks.append((X, Y))\n    \n    Q = int(data[idx])\n    idx += 1\n    queries = []\n    for _ in range(Q):\n        T = int(data[idx])\n        idx += 1\n        A = int(data[idx]) - 1\n        idx += 1\n        queries.append((T, A))\n    \n    # Sort blocks by Y coordinate\n    blocks.sort(key=lambda x: x[1])\n    \n    # For each block, track current Y and a list of sorted unique Y positions\n    current_Y = [y for x, y in blocks]\n    from collections import defaultdict\n    row_counts = defaultdict(int)\n    for y in current_Y:\n        row_counts[y] += 1\n    \n    max_T = max(t for t, _ in queries)\n    \n    removed = [False] * N\n    \n    for t in range(1, max_T + 1):\n        # Check if the bottom row is filled\n        if 1 in row_counts and row_counts[1] == W:\n            # Mark blocks in the bottom row as removed\n            for i in range(N):\n                if not removed[i] and current_Y[i] == 1:\n                    removed[i] = True\n            del row_counts[1]\n        \n        # Prepare new_current_Y by moving blocks down\n        new_current_Y = []\n        for i in range(N):\n            if removed[i]:\n                continue\n            y = current_Y[i]\n            if y + 1 in row_counts and row_counts[y + 1] < W:\n                new_current_Y.append(y + 1)\n            else:\n                new_current_Y.append(y)\n        \n        # Update row counts\n        row_counts.clear()\n        for y in new_current_Y:\n            row_counts[y] += 1\n        \n        current_Y = new_current_Y\n    \n    # Answer queries\n    for t, a in queries:\n        if removed[a]:\n            print(\"No\")\n        else:\n            print(\"Yes\")\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772547596",
+  "question_index": 14,
+  "question_id": "53",
+  "split": "train",
+  "sample_id": 11,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 16.167982578277588,
+  "response": "### 分析\n#### 关键约束\n- $ N \\leq 2 \\times 10^5 $\n- $ K \\leq 10 $\n- 模数为 $ 998244353 $\n\n#### 问题类型\n这是一个**数学+组合计算**的问题。需要遍历所有连续子数组，并对它们的和进行 $ K $ 次幂运算，最后将这些值相加，取模。\n\n#### 数学推导\n我们希望计算：\n\n$$\n\\sum_{1 \\leq l \\leq r \\leq N} \\left( \\sum_{l \\leq i \\leq r} A_i \\right)^K\n$$\n\n直接枚举所有子数组并计算其和的 $ K $ 次方是不可行的，因为子数组数量为 $ O(N^2) $，无法在时间限制内完成。\n\n我们注意到：\n- 对于长度为 $ N $ 的数组，总共有 $ O(N^2) $ 个可能的区间。\n- $ K $ 最大为 10，因此我们可以考虑使用多项式展开和卷积技巧来优化计算。\n\n为了优化，我们需要找到每个可能的连续子数组之和的值（记为 $ S $），然后对 $ S^K $ 做求和。由于 $ K \\leq 10 $，可以利用牛顿二项式公式或动态规划技巧来快速处理多个幂次。\n\n另外，我们观察到：\n- 设 $ S = \\text{sum}(A_l \\dots A_r) $，我们可以通过累加方式得到 $ S $ 的所有可能出现的值，并记录它们出现的次数。\n\n#### 算法设计\n一种高效的方法是通过前缀和来计算所有子数组的和，并保存这些和的频率。具体步骤如下：\n\n1. 计算前缀和 $ P $。\n2. 遍历所有子数组 $(l, r)$，计算子数组的和 $ s = P[r] - P[l-1] $。\n3. 将所有 $ s $ 保存在一个频率数组中。\n4. 使用这个频率数组对所有可能的 $ s^K $ 进行求和。\n\n但由于 $ s $ 可能很大，我们需要在模 $ 998244353 $ 下进行计算，并利用快速幂以减少 $ K $ 的计算次数。\n\n考虑到 $ K \\leq 10 $，这允许我们直接暴力计算 $ s^K $，因为对于每个 $ s $，最多只涉及 $ 10 $ 次乘法操作。\n\n#### 复杂度分析\n- 遍历所有子数组：$ O(N^2) $\n- 每个子数组的求和：$ O(1) $\n- 所有 $ s^K $ 的求解：$ O(K) $ 操作\n\n最坏情况下复杂度是 $ O(N^2 \\cdot K) $，但在实际实现中，我们还可以采用更高效的结构，如滑动窗口 + 二进制指数法来减少一些重复计算。\n\n---\n\n### 代码\n```python\nimport sys\ninput = sys.stdin.read\n\nMOD = 998244353\n\ndef main():\n    data = input().split()\n    N = int(data[0])\n    K = int(data[1])\n    A = list(map(int, data[2:2+N]))\n    \n    prefix_sum = [0] * (N + 1)\n    for i in range(N):\n        prefix_sum[i+1] = (prefix_sum[i] + A[i]) % MOD\n\n    sum_freq = {}\n    \n    for l in range(1, N+1):\n        current_sum = 0\n        for r in range(l, N+1):\n            current_sum = (current_sum + A[r-1]) % MOD\n            if current_sum in sum_freq:\n                sum_freq[current_sum] += 1\n            else:\n                sum_freq[current_sum] = 1\n\n    result = 0\n    for s in sum_freq:\n        count = sum_freq[s]\n        power = pow(s, K, MOD)\n        result = (result + count * power) % MOD\n\n    print(result)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

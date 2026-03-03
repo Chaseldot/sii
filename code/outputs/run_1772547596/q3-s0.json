@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772547596",
+  "question_index": 3,
+  "question_id": "6",
+  "split": "train",
+  "sample_id": 0,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.956933498382568,
+  "response": "### 分析\n这道题的关键在于判断是否存在一种排列方式，使得排列后的序列 $ B = (B_1, B_2, B_3) $ 满足 $ B_1 \\times B_2 = B_3 $。\n\n#### 关键约束\n- 输入是一个包含 3 个整数的序列 $ A = (A_1, A_2, A_3) $。\n- 所有输入值的范围是 $ 1 \\leq A_i \\leq 100 $。\n- 时间限制为 1 秒，因此暴力解法（如遍历所有排列）是可接受的，因为总共有 $ 3! = 6 $ 种排列方式。\n\n#### 问题类型与算法设计\n本题属于 **模拟 类型的问题**，我们需要枚举所有可能的排列，并检查是否存在一种排列满足条件 $ B_1 \\times B_2 = B_3 $。\n\n我们可以通过以下步骤解决：\n1. 生成数组 $ A $ 的所有排列。\n2. 对于每一个排列 $ (B_1, B_2, B_3) $，检查是否满足 $ B_1 \\times B_2 = B_3 $。\n3. 如果存在一个排列满足条件，输出 \"Yes\"；否则，输出 \"No\"。\n\n#### 数学推导与规律\n由于只有一个条件 $ B_1 \\times B_2 = B_3 $，我们不需要任何复杂的数学计算。通过穷举所有可能的排列即可解决问题。\n\n#### 算法复杂度\n- 排列数量为 $ 3! = 6 $，因此时间复杂度为 $ O(1) $，非常高效。\n\n综上所述，我们可以使用 Python 中的 `itertools.permutations` 来生成所有排列，并逐一检查条件。\n\n---\n\n### 代码\n```python\nfrom itertools import permutations\n\n# Read input\nA = list(map(int, input().split()))\n\n# Check all permutations of A to see if any satisfies B1 * B2 == B3\nfound = False\nfor perm in permutations(A):\n    if perm[0] * perm[1] == perm[2]:\n        found = True\n        break\n\n# Output the result\nprint(\"Yes\" if found else \"No\")\n```"
+}

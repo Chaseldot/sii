@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772551042",
+  "question_index": 8,
+  "question_id": "25",
+  "split": "train",
+  "sample_id": 6,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 38.917299032211304,
+  "response": "```python\nimport sys\n\ndef solve():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    X = int(data[1])\n    U = []\n    D = []\n    for i in range(N):\n        u = int(data[2 + 2*i])\n        d = int(data[3 + 2*i])\n        U.append(u)\n        D.append(d)\n    \n    # For each pair, compute the possible H values that can be formed by adjusting U and D\n    # We will consider all unique H values from the original pairs as candidates\n    \n    H_candidates = set()\n    for i in range(N):\n        H_candidates.add(U[i] + D[i])\n    \n    min_cost = float('inf')\n    \n    # Try each candidate H\n    for H in H_candidates:\n        cost = 0\n        prev_u = U[0] - (U[0] - (H - D[0]))\n        cost += (U[0] - (H - D[0])) + (D[0] - (H - U[0]))\n        \n        valid = True\n        for i in range(1, N):\n            needed_u = H - D[i]\n            needed_d = H - U[i]\n            current_u = max(0, U[i] - max(0, U[i] - needed_u))\n            current_d = max(0, D[i] - max(0, D[i] - needed_d))\n            \n            if abs(current_u - prev_u) > X:\n                valid = False\n                break\n            \n            cost += (U[i] - needed_u) + (D[i] - needed_d)\n            prev_u = current_u\n        \n        if valid:\n            min_cost = min(min_cost, cost)\n    \n    print(min_cost)\n\nsolve()\n```"
+}

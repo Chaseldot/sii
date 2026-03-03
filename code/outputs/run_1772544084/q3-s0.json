@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772544084",
+  "question_index": 3,
+  "question_id": "6",
+  "split": "train",
+  "sample_id": 0,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 5.548016786575317,
+  "response": "```python\n# 思路解析：\n\n# 问题要求我们判断是否存在一个排列B，使得B_1 × B_2 = B_3。由于数组A只有三个元素，我们可以穷举所有可能的排列方式，并检查是否满足条件。\n\n# 所有可能的排列有3! = 6种：\n# 1. B = (A1, A2, A3)\n# 2. B = (A1, A3, A2)\n# 3. B = (A2, A1, A3)\n# 4. B = (A2, A3, A1)\n# 5. B = (A3, A1, A2)\n# 6. B = (A3, A2, A1)\n\n# 对于每一种排列，我们只需检查B_1 × B_2 == B_3是否成立即可。\n# 时间复杂度为O(1)，因为固定只有3个元素，所以枚举是可行的。\n\n# 高效实现：\n# 直接生成所有可能的排列，然后进行判断。\n\nimport sys\nfrom itertools import permutations\n\ndef main():\n    A = list(map(int, sys.stdin.readline().split()))\n    \n    # 生成所有排列\n    for perm in permutations(A):\n        if perm[0] * perm[1] == perm[2]:\n            print(\"Yes\")\n            return\n    \n    print(\"No\")\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

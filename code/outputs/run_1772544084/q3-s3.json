@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772544084",
+  "question_index": 3,
+  "question_id": "6",
+  "split": "train",
+  "sample_id": 3,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.4693498611450195,
+  "response": "```python\nimport sys\n\ndef main():\n    # Read input\n    A = list(map(int, sys.stdin.readline().split()))\n    \n    # Check all permutations of A\n    # Since there are only 3 elements, we can check all 6 permutations\n    from itertools import permutations\n    \n    for perm in permutations(A):\n        if perm[0] * perm[1] == perm[2]:\n            print(\"Yes\")\n            return\n    \n    print(\"No\")\n\nif __name__ == \"__main__\":\n    main()\n```\n\n### 思路说明：\n\n#### 1. 深度解析：\n- **约束条件**：输入是三个整数，范围在 [1, 100]。\n- **理论时间复杂度**：虽然有三种数字，但我们需要检查所有可能排列。由于只有 6 种排列，计算时间为 O(1)。\n\n#### 2. 逻辑推演:\n- 本题需要判断是否有一个排列方式使得两个数的乘积等于第三个数。\n- 对于给定的三个数，共有 6 种可能的排列组合（$3! = 6$）。\n- 我们可以生成这些排列，并逐一检查是否有满足条件的排列 ($B_1 \\times B_2 = B_3$)。\n- 一旦发现符合条件的排列，立即输出 \"Yes\" 并退出程序；如果所有排列都未满足条件，则输出 \"No\"。\n\n#### 3. 高效实现:\n- 使用 `itertools.permutations` 来生成所有排列。\n- 在 Python 中，对于小规模输入，这种方法是高效且直接的。\n- 使用 `sys.stdin.readline()` 以提高输入处理速度，避免 I/O 瓶颈。"
+}

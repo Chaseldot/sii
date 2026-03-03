@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772551042",
+  "question_index": 1,
+  "question_id": "3",
+  "split": "train",
+  "sample_id": 5,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 57.861172914505005,
+  "response": "```python\nimport sys\n\ndef solve():\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    A = data[1]\n    \n    length = 3 ** N\n    \n    def apply_operation(s):\n        new_str = []\n        for i in range(0, len(s), 3):\n            group = s[i:i+3]\n            count0 = group.count('0')\n            count1 = 3 - count0\n            majority = '0' if count0 > count1 else '1'\n            new_str.append(majority)\n        return ''.join(new_str)\n    \n    current = A\n    for _ in range(N):\n        current = apply_operation(current)\n    \n    # To flip the final bit, we need to flip the majority in the first level\n    # We work backward to determine how many bits need to be flipped at each level\n    # to change the final result\n    changes = 0\n    target = '0' if current[0] == '1' else '1'\n    \n    for level in range(N, 0, -1):\n        size = 3 ** (level - 1)\n        new_str = []\n        for i in range(size):\n            group = ['0', '0', '0']\n            # We need at least two of the same bit to make the majority\n            # So we calculate the cost to get two of the target bit in this group\n            count = 0\n            for j in range(i * 3, i * 3 + 3):\n                if A[j] == target:\n                    count += 1\n            if count < 2:\n                changes += (2 - count)\n            new_str.extend(group)\n        A = ''.join(new_str)\n    \n    print(changes)\n\nsolve()\n```"
+}

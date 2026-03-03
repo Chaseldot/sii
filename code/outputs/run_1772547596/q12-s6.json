@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772547596",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 6,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 13.192484617233276,
+  "response": "### 错误分析及改进方案\n1. **错误定位**：`sys.exit()` 在某些情况下可能引发异常，特别是在某些编程环境中（如一些在线判题系统）不支持直接调用 `sys.exit()`。因此，更好的做法是在找到符合条件的三元组后直接输出 \"Yes\" 并结束程序，而不是使用 `sys.exit()`。\n2. **边界情况检查**：当 N=3 时，数组刚好有 3 个元素，此时只需判断这一个三元组即可。\n3. **修复方案**：\n   - 使用 `break` 或直接返回，避免使用 `sys.exit()`。\n   - 在发现符合条件的三元组后，立即打印 \"Yes\" 并退出循环。\n\n---\n\n### 代码\n```python\nn = int(input())\na = list(map(int, input().split()))\n\nfor i in range(n - 2):\n    if a[i] == a[i + 1] == a[i + 2]:\n        print(\"Yes\")\n        break\nelse:\n    print(\"No\")\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772553091",
+  "question_index": 2,
+  "question_id": "4",
+  "split": "train",
+  "sample_id": 0,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 37.87919044494629,
+  "response": "### 分析\n\n在你之前的代码中出现了 `NameError: name 'defaultdict' is not defined`，这是因为我们使用了 `collections.defaultdict` 但没有在代码中导入它。\n\n此外，我们还需要考虑如何高效地处理 DP 状态转换。当前的 DP 定义和转移逻辑较为复杂，为了减少冗余操作并提高可读性，我们可以优化结构。\n\n---\n\n### 修正代码\n```python\nimport sys\nfrom collections import defaultdict\n\nMOD = 998244353\n\ndef main():\n    input = sys.stdin.read().split()\n    N = int(input[0])\n    M = int(input[1])\n    S = input[2]\n\n    # dp[i][j] 表示长度为 i 的字符串与 S 的前 j 个字符的 LCS 长度是 k 的计数\n    # 我们将其定义为一个数组，每个元素是字典：dp[i][j][k] = count\n    # 初始化为 -1，表示无状态；之后用字典来记录可能的 LCS 长度\n    dp = [[defaultdict(int) for _ in range(N + 1)] for _ in range(M + 1)]\n    dp[0][0][0] = 1  # 空字符串与任何前缀的 LCS 是 0\n\n    for i in range(1, M + 1):\n        for j in range(N + 1):\n            for lcs_len, count in dp[i-1][j].items():\n                # 尝试添加任意一个字符 c（a-z）\n                for c in 'abcdefghijklmnopqrstuvwxyz':\n                    # 情况一：c 不匹配当前 S[j]\n                    new_lcs_not_match = lcs_len\n                    dp[i][j][new_lcs_not_match] = (dp[i][j][new_lcs_not_match] + count) % MOD\n\n                    # 情况二：c 匹配 S[j]\n                    if j < N and c == S[j]:\n                        new_lcs_match = lcs_len + 1\n                        dp[i][j+1][new_lcs_match] = (dp[i][j+1][new_lcs_match] + count) % MOD\n\n    # 最终统计所有长度为 M 的字符串中，LCS 长度为 k 的数量\n    ans = [0] * (N + 1)\n    for k in range(N + 1):\n        total = 0\n        for j in range(N + 1):\n            total = (total + dp[M][j].get(k, 0)) % MOD\n        ans[k] = total\n\n    print(' '.join(map(str, ans)))\n\nif __name__ == '__main__':\n    main()\n```"
+}

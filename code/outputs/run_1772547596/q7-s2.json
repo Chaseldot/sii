@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772547596",
+  "question_index": 7,
+  "question_id": "20",
+  "split": "train",
+  "sample_id": 2,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.447845220565796,
+  "response": "### 分析  \n这道题的目的是从输入的字符串中仅保留数字 `2`，然后按照原来的顺序拼接这些字符，形成新的字符串输出。\n\n**关键约束：**\n- 输入字符串 `S` 的长度为 1 到 100。\n- 输入字符串中至少包含一个 `2`。\n- 输出是所有 `2` 按原顺序排列的新字符串。\n\n**问题类型：**  \n这是一道简单的字符串处理问题。不需要复杂的算法，只需遍历字符串，并筛选出所有 `2` 的字符即可。\n\n**算法思路：**  \n1. 遍历输入字符串 `S` 中的每一个字符。\n2. 如果该字符是 `'2'`，则将其添加到结果字符串中。\n3. 最终输出由这些 `'2'` 字符组成的字符串。\n\n**时间复杂度分析：**  \n- 时间复杂度为 O(N)，其中 N 是字符串 `S` 的长度。因为每个字符只需检查一次。\n- 空间复杂度为 O(N)（最坏情况下，字符串全为 `'2'`，结果字符串与原字符串长度相同）。\n\n---\n\n### 代码\n```python\n# Read input\nS = input().strip()\n\n# Filter out all characters except '2'\nresult = ''.join([c for c in S if c == '2'])\n\n# Print the result\nprint(result)\n```"
+}

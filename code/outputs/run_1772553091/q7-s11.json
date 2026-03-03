@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772553091",
+  "question_index": 7,
+  "question_id": "20",
+  "split": "train",
+  "sample_id": 11,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 4.1898393630981445,
+  "response": "### 分析\n本题要求我们处理一个由数字组成的字符串 `S`，并删除其中所有不是 `'2'` 的字符。然后将剩下的 `'2'` 按照原顺序拼接成一个新的字符串输出。\n\n**关键步骤：**\n1. 输入一个字符串 `S`。\n2. 遍历字符串中的每个字符。\n3. 如果字符是 `'2'`，则保留下来；否则舍弃。\n4. 所有保留的 `'2'` 按原顺序拼接成新的字符串。\n5. 输出结果。\n\n由于题目给出的约束中说明 `S` 至少包含一个 `'2'`，所以不需要考虑空结果的情况。\n\n该操作可以通过 Python 中的列表推导式或 `filter()` 函数实现。最终的字符串可以用 `''.join()` 方法拼接。\n\n---\n\n### 代码\n```python\n# Read input from standard input\nS = input().strip()\n\n# Filter the string to keep only '2's\nresult = ''.join([c for c in S if c == '2'])\n\n# Print the result\nprint(result)\n```"
+}

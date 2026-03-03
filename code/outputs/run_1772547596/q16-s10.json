@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772547596",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 10,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 12.084882020950317,
+  "response": "### 错误分析及改进方案\n1. **错误定位**：\n   - 错误提示是 `NameError: name 'exit' is not defined`，说明我们使用了 `exit()` 函数而未导入或定义它。\n   - 在 Python 中，`exit()` 函数属于 `sys` 模块，因此需要通过 `import sys` 引入，并使用 `sys.exit()` 来代替。\n\n2. **边界情况检查**：\n   - 当 `A` 为 0 时，会引发错误，但根据题目约束，`A` 是一个正整数（1 ≤ A ≤ 400），所以不需要特别处理这种情况。\n   - 遍历范围应确保不超出范围，并且能判断是否存在有效的 `B`。\n\n3. **改进方案**：\n   - 使用 `sys.exit()` 替代 `exit()`。\n   - 增加对 `A` 是否可以整除 400 的判断，提高效率和准确性。\n\n---\n\n### 代码\n```python\nimport sys\n\nA = int(input())\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```"
+}

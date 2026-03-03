@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772544084",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 7,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 4.081318616867065,
+  "response": "```python\nimport sys\n\n# Read input\ndef main():\n    # 1. Depth Analysis\n    # - N ranges from 3 to 100, so a O(N) solution is acceptable.\n    # - The problem is straightforward and does not require any complex algorithms.\n    # - We check if there are three consecutive equal elements in the array.\n\n    # 2. Logic Deduction\n    # - Iterate through the array with index i from 0 to N-3 (inclusive)\n    #   and check whether A[i] == A[i+1] == A[i+2]\n    # - If found, return \"Yes\"\n    # - If after checking all possibilities, no such sequence is found, return \"No\"\n\n    # Read input\n    N = int(sys.stdin.readline())\n    A = list(map(int, sys.stdin.readline().split()))\n\n    # 3. Efficient Implementation\n    for i in range(len(A) - 2):\n        if A[i] == A[i+1] == A[i+2]:\n            print(\"Yes\")\n            return\n    print(\"No\")\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

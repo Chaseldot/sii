@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772553091",
+  "question_index": 9,
+  "question_id": "27",
+  "split": "train",
+  "sample_id": 11,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 7.118691682815552,
+  "response": "### 分析\n我们需要判断一个整数序列是否严格递增。严格递增的定义是：对于所有 $1 \\leq i < N$，必须满足 $A_i < A_{i+1}$。\n\n**输入格式**：\n- 第一行是一个整数 $N$，表示数组长度。\n- 第二行是 $N$ 个整数，表示数组 $A$。\n\n**输出格式**：\n- 如果数组是严格递增的，输出 `Yes`；否则，输出 `No`。\n\n**边界情况**：\n- 数组长度为 2 的情况（最容易判断）。\n- 数组中存在相同元素（严格递增要求不能相等，因此只要发现某一项等于前一项就判断失败）。\n\n考虑到约束条件中 $N$ 的最大值为 100，时间复杂度可以接受线性遍历。我们可以从前往后遍历数组，逐个比较当前元素和下一个元素，只要有任何一项不满足严格递增的条件，就立即返回 `No`；若全部满足，则返回 `Yes`。\n\n---\n\n### 代码\n```python\n# 读取输入\nn = int(input())\na = list(map(int, input().split()))\n\n# 判断是否严格递增\nis_strictly_increasing = True\nfor i in range(n - 1):\n    if a[i] >= a[i + 1]:\n        is_strictly_increasing = False\n        break\n\n# 输出结果\nprint(\"Yes\" if is_strictly_increasing else \"No\")\n```"
+}

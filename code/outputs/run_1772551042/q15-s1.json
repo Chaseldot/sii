@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772551042",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 1,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 21.797221422195435,
+  "response": "```python\nimport sys\nimport heapq\n\ndef solve():\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    P = list(map(int, data[1:]))\n\n    # Create a list of tuples (-score, index) to simulate a max-heap\n    heap = [(-P[i], i) for i in range(N)]\n    heapq.heapify(heap)\n\n    ranks = [0] * N\n    current_rank = 1\n    determined = [False] * N\n\n    while heap:\n        score_neg, idx = heapq.heappop(heap)\n        score = -score_neg\n        if determined[idx]:\n            continue\n        # Find all people with the same score\n        count = 1\n        temp_heap = []\n        while heap and -heap[0][0] == score:\n            temp_heap.append(heapq.heappop(heap))\n        # Check if any of the temp_heap elements are already determined\n        for i in range(len(temp_heap)):\n            _, idx2 = temp_heap[i]\n            if not determined[idx2]:\n                count += 1\n                determined[idx2] = True\n        # Assign rank to these people\n        for i in range(len(temp_heap)):\n            _, idx2 = temp_heap[i]\n            ranks[idx2] = current_rank\n        # Put back the elements with the same score into the heap (if not determined)\n        for i in range(len(temp_heap)):\n            _, idx2 = temp_heap[i]\n            if not determined[idx2]:\n                heapq.heappush(heap, temp_heap[i])\n        # Update current_rank\n        current_rank += count\n\n    for rank in ranks:\n        print(rank)\n\nif __name__ == \"__main__\":\n    solve()\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772544084",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 10,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 13.280862808227539,
+  "response": "### 1. 深度解析\n\n#### 约束条件分析：\n- `N` 的范围是 1 ≤ N ≤ 100。这表明我们不必担心时间复杂度问题，即使是 O(N^2) 的算法也适用。\n\n#### 时间复杂度：\n由于 N 最大为 100，即使使用 O(N^2) 的算法也能在时间限制内运行。\n\n#### 特殊性分析：\n这个问题是一个典型的排序和排名计算问题，没有明显的数学规律或组合模型，但可以使用排序和遍历来解决。\n\n### 2. 逻辑推演（必须！）\n\n```python\n# 我们的目标是根据分数 P_i 来给每个人的排名。\n# 排名规则：每次找出当前未确定排名的最高分数，并将所有该分数的人的排名设为当前 r，然后 r += k (k 是该分数的人数)\n\n# 将每个人及其得分记录下来\npeople = list(enumerate(P))  # (索引, 分数)\n# 创建一个字典来存储每个分数对应的索引列表\nscore_to_people = {}\nfor i, p in enumerate(P):\n    if p not in score_to_people:\n        score_to_people[p] = []\n    score_to_people[p].append(i)\n\n# 初始变量 r\nr = 1\n\n# 创建一个数组来存储每个人的排名\nrank = [0] * N\n\n# 遍历所有可能的分数（从高到低）\nsorted_scores = sorted(set(P), reverse=True)\n\n# 处理每个分数\nfor score in sorted_scores:\n    # 获取当前分数对应的所有人\n    indices = score_to_people[score]\n    # 给这些人分配当前的 rank r\n    for index in indices:\n        rank[index] = r\n    # 更新 r\n    r += len(indices)\n```\n\n### 3. 高效实现\n\n```python\nimport sys\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:N+1]))\n    \n    # 创建一个字典来存储每个分数对应的索引列表\n    score_to_people = {}\n    for i, p in enumerate(P):\n        if p not in score_to_people:\n            score_to_people[p] = []\n        score_to_people[p].append(i)\n    \n    # 初始变量 r\n    r = 1\n    \n    # 创建一个数组来存储每个人的排名\n    rank = [0] * N\n    \n    # 遍历所有可能的分数（从高到低）\n    sorted_scores = sorted(score_to_people.keys(), reverse=True)\n    \n    # 处理每个分数\n    for score in sorted_scores:\n        # 获取当前分数对应的所有人\n        indices = score_to_people[score]\n        # 给这些人分配当前的 rank r\n        for index in indices:\n            rank[index] = r\n        # 更新 r\n        r += len(indices)\n    \n    # 打印每个人的排名\n    for i in range(N):\n        print(rank[i])\n\nif __name__ == \"__main__\":\n    main()\n```\n\n### 关键解释：\n- **字典 `score_to_people`** 存储了每个分数对应的索引列表。\n- **`sorted_scores`** 是从高到低排序的唯一分数列表，确保每次处理的是当前最高的分数。\n- **`rank` 数组** 存储每个人的排名。\n- **`r` 变量** 用于追踪当前的排名值，在每一步中被递增。\n\n这个方法高效且直观地处理了排名问题，适用于题目中的约束条件。"
+}

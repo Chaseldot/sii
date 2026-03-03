@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772547596",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 9,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 10.237790584564209,
+  "response": "### 分析\n这道题的核心是根据分数来确定每个人的排名，并且排名的规则是：具有相同最高分的人将获得相同的排名，然后下一个排名会跳过这些人的数量。例如，如果有两个人并列第一，则第二名的排名是3。\n\n#### 关键约束\n- $1 \\leq N \\leq 100$：表示参与人数。\n- 每个人的分数 $P_i$ 取值范围在 $1$ 到 $100$ 之间。\n- 时间限制为 $1$ 秒，因此可以处理 $N = 100$ 的数据规模。\n\n#### 问题类型\n这道题属于模拟和排序类问题。\n\n#### 数学公式与规律\n- 我们需要记录当前未被分配排名的参与者集合。\n- 在每一步中，找到所有未被分配排名的参与者中的最高分数 $x$ 和对应的个数 $k$。\n- 将这些人分配排名 $r$，并将 $r$ 更新为 $r + k$。\n- 重复这个过程，直到所有人都分配了排名。\n\n#### 算法设计\n1. 首先，根据每个人的得分将其排序。\n2. 使用一个数组 `rank` 来保存每个人的排名。\n3. 初始化变量 `r = 1` 作为当前的排名。\n4. 按照得分从高到低遍历每一个人：\n   - 如果某个人的得分与上一个人不同，那么它的排名等于当前的 `r`。\n   - 如果得分相同，那么它的排名就与上一个人相同。\n   - 最终，每个得分对应一个排名，其中排名是按顺序递增的。\n5. 这种方式可以避免频繁地遍历所有未分配排名的人群。\n\n#### 复杂度分析\n- 排序的时间复杂度为 $O(N \\log N)$。\n- 遍历每个人一次，时间复杂度为 $O(N)$。\n- 因此，总的时间复杂度为 $O(N \\log N)$，在 $N = 100$ 的范围内完全可以运行。\n\n### 代码\n```python\nn = int(input())\np = list(map(int, input().split()))\n\n# Create a list of tuples (score, index)\npeople = [(p[i], i + 1) for i in range(n)]\n# Sort people by score in descending order\npeople.sort(reverse=True)\n\nrank = [0] * n\ncurrent_rank = 1\nprev_score = None\n\nfor i in range(n):\n    score, idx = people[i]\n    if i == 0 or score != prev_score:\n        current_rank = i + 1\n    rank[idx - 1] = current_rank\n    prev_score = score\n\nfor r in rank:\n    print(r)\n```"
+}

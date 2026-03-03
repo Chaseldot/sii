@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772543238",
+  "question_index": 13,
+  "question_id": "43",
+  "split": "train",
+  "sample_id": 11,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 8.113282203674316,
+  "response": "To solve the problem of finding the **shortest palindrome** that has a given string `S` as its **prefix**, we need to find the longest palindromic suffix of the string. The idea is:\n\n1. Reverse the string `S` to get `rev_S`.\n2. Find the **largest prefix** of `rev_S` that is also a **suffix** of the original string `S`. This means we're looking for the **longest palindromic suffix** of `S`.\n3. Append the characters from `rev_S` that are not part of this palindromic suffix to the beginning of `S`.\n\nThis approach leverages the concept of **KMP (Knuth-Morris-Pratt)** algorithm’s failure function, which can be adapted to find the longest prefix of the reversed string that matches a suffix of the original string.\n\nHere's the complete Python code that efficiently solves the problem within the constraints:\n\n```python\ndef shortest_palindrome(s):\n    rev_s = s[::-1]\n    combined = s + '#' + rev_s\n    lps = [0] * len(combined)\n    \n    for i in range(1, len(combined)):\n        j = lps[i - 1]\n        while j > 0 and combined[i] != combined[j]:\n            j = lps[j - 1]\n        if combined[i] == combined[j]:\n            j += 1\n        lps[i] = j\n    \n    # lps[-1] gives the length of the longest prefix of rev_s that is also a suffix of s\n    return s[:len(s) - lps[-1]] + rev_s\n\n# Read input\nimport sys\ninput_str = sys.stdin.readline().strip()\n\n# Compute and print the result\nprint(shortest_palindrome(input_str))\n```\n\n### How it works:\n- We construct a combined string `s + '#' + rev_s` to avoid overlapping.\n- Use a dynamic programming array `lps` to compute the Longest Prefix Suffix (LPS) values.\n- Finally, the number of characters we need to add to make the string a palindrome is `len(s) - lps[-1]`, which are the first characters of the reversed string.\n\n### Time Complexity:\n- **O(n)** — We process the string once with KMP style logic.\n\n### Space Complexity:\n- **O(n)** — For storing the LPS array and the combined string.\n\nThis solution is efficient and handles long strings up to the maximum constraint (500000 characters)."
+}

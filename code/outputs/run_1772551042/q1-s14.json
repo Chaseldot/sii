@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772551042",
+  "question_index": 1,
+  "question_id": "3",
+  "split": "train",
+  "sample_id": 14,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 37.71678447723389,
+  "response": "```python\nimport sys\nfrom collections import deque\n\ndef solve():\n    input = sys.stdin.read().split()\n    N = int(input[0])\n    A = input[1]\n    \n    length = 3 ** N\n    \n    def get_majority(s):\n        count = [0, 0]\n        for c in s:\n            count[int(c)] += 1\n        return '1' if count[1] > count[0] else '0'\n    \n    def apply_operation(s):\n        result = []\n        for i in range(0, len(s), 3):\n            group = s[i:i+3]\n            majority = get_majority(group)\n            result.append(majority)\n        return ''.join(result)\n    \n    # Apply operation N times to get the final result\n    current = A\n    for _ in range(N):\n        current = apply_operation(current)\n    \n    # The final result is current[0]\n    # We need to find the minimum number of changes to make current[0] different\n    \n    target_result = '0' if current[0] == '1' else '1'\n    \n    # Use BFS to find the minimal number of changes\n    visited = set()\n    queue = deque()\n    queue.append((A, 0))\n    visited.add(A)\n    \n    while queue:\n        s, changes = queue.popleft()\n        \n        # Apply operations to s\n        temp = s\n        for _ in range(N):\n            temp = apply_operation(temp)\n        \n        if temp[0] == target_result:\n            print(changes)\n            return\n        \n        # Generate all possible next states by flipping one bit at a time\n        for i in range(len(s)):\n            new_s = list(s)\n            new_s[i] = '1' if new_s[i] == '0' else '0'\n            new_s = ''.join(new_s)\n            if new_s not in visited:\n                visited.add(new_s)\n                queue.append((new_s, changes + 1))\n    \n    print(-1)\n\nsolve()\n```"
+}

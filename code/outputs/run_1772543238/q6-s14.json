@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772543238",
+  "question_index": 6,
+  "question_id": "17",
+  "split": "train",
+  "sample_id": 14,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 6.153325080871582,
+  "response": "To solve this problem, we need to repeatedly replace the leftmost occurrence of \"WA\" with \"AC\" until no more such occurrences exist in the string. This can be efficiently handled using a stack-like approach.\n\n### Key Observations:\n- We process the string from left to right.\n- As we iterate through the string, we maintain a stack to build the resulting string.\n- When we encounter a \"W\", we push it onto the stack.\n- When we encounter an \"A\", we check if the top of the stack is \"W\". If so, and if the previous character (which would be the \"W\") forms the substring \"WA\", we pop the \"W\" from the stack and push \"AC\" instead of \"A\".\n- Otherwise, we simply push the current character (\"A\") onto the stack.\n- This way, we ensure that we always replace the leftmost occurrence of \"WA\" with \"AC\".\n\n### Time Complexity:\n- The algorithm runs in **O(N)** time where N is the length of the input string.\n- It uses **O(N)** space for the stack.\n\nNow, let's write the code:\n\n```python\ndef main():\n    import sys\n    input = sys.stdin.read\n    S = input().strip()\n    \n    stack = []\n    \n    for char in S:\n        if char == 'A':\n            if stack and stack[-1] == 'W':\n                # Found a WA, replace it with AC\n                stack.pop()\n                stack.append('C')\n            else:\n                stack.append('A')\n        else:\n            stack.append(char)\n    \n    print(''.join(stack))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

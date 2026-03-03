@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772550233",
+  "question_index": 13,
+  "question_id": "43",
+  "split": "train",
+  "sample_id": 14,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 7.56119441986084,
+  "response": "```python\nimport sys\n\ndef shortest_palindrome(s):\n    n = len(s)\n    if n == 0:\n        return \"\"\n    \n    # Find the longest palindromic prefix\n    max_len = 0\n    for i in range(n):\n        if s[:n-i] == s[:n-i][::-1]:\n            max_len = n - i\n            break\n    \n    # Add the reverse of the remaining suffix to the end\n    return s + s[:max_len-1][::-1]\n\ndef solve():\n    s = sys.stdin.read().strip()\n    print(shortest_palindrome(s))\n\nif __name__ == \"__main__\":\n    solve()\n```"
+}

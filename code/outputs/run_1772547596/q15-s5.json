@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772547596",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 5,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 25.115573167800903,
+  "response": "### 错误分析及改进方案\n#### 1. 当前复杂度是多少？是否有嵌套循环？\n当前算法的时间复杂度为 $ O(N^2) $，因为每次都要遍历所有未分配排名的学生来寻找最大值。对于 $ N = 100 $ 的数据量来说，这个复杂度是可以接受的，但是当输入规模变大时，这种做法会变得很慢。\n\n#### 2. 大规模数据必须用数学公式或O(N)解法？\n虽然本题中 $ N \\leq 100 $，但为了提升代码的可扩展性，我们应该使用更高效的数据结构，如优先队列（堆）来优化查找最大值的过程。\n\n#### 3. 思考：是否可以用堆或哈希表等结构进行优化？\n- **堆（优先队列）**：可以维护一个最大堆，每次弹出当前最大得分，并找到同分的所有人。\n- **哈希表（字典）**：用于统计相同得分的人的数量和其索引，帮助快速处理一组人。\n\n我们利用最大堆存储所有学生的得分，以保证每次可以快速获取当前最大值；同时采用哈希表记录每个分数下所有人的位置。这样能够避免每次都扫描整个数组找最大值，从而优化了时间复杂度。\n\n#### 4. 输出优化后的完整代码\n```python\nimport heapq\n\nn = int(input())\np = list(map(int, input().split()))\nrank = [0] * n\nassigned = [False] * n\ncurrent_rank = 1\n\n# 使用最大堆模拟，存储的是负数以实现最大堆\nheap = []\nfor i in range(n):\n    heapq.heappush(heap, (-p[i], i))\n\n# 哈希表存储分数到对应索引的映射\nscore_to_indices = {}\nfor i in range(n):\n    score_to_indices[p[i]] = score_to_indices.get(p[i], []) + [i]\n\nwhile heap:\n    neg_score, idx = heapq.heappop(heap)\n    score = -neg_score\n    if assigned[idx]:\n        continue  # 如果该学生已被分配排名，则跳过\n    \n    # 找到相同分数的所有索引\n    indices = score_to_indices[score]\n    for i in indices:\n        if not assigned[i]:\n            rank[i] = current_rank\n            assigned[i] = True\n    current_rank += len(indices)\n\nfor r in rank:\n    print(r)\n```"
+}

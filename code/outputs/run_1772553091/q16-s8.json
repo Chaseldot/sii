@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772553091",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 8,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 12.769675016403198,
+  "response": "### 分析\n\n之前的代码中在找到符合条件的 B 值后调用了 `sys.exit()`，而 Python 默认情况下会抛出 `SystemExit` 异常，这个异常在某些环境（如在线评测系统）中可能导致运行错误。为了避免这个问题，我们可以使用 `break` 语句跳出循环，并直接输出结果，这样就不会引发异常。\n\n---\n\n### 代码\n```python\nimport sys\n\n# Read input\nA = int(input())\n\n# Find B such that A * B = 400\nfor B in range(1, 401):\n    if A * B == 400:\n        print(B)\n        break\n\n# If no valid B found, print -1\nelse:\n    print(-1)\n```"
+}

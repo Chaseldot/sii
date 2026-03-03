@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772544084",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 14,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 13.154237747192383,
+  "response": "```python\nimport sys\n\n# 1. 深度解析\n# 约束条件\n# - N 的范围：3 <= N <= 100，这是一个小规模问题\n# - A_i 的范围：1 <= A_i <= 100，元素值不大\n# - 需要判断是否存在三个或更多连续相同元素的情况，即是否存在 i（1 <= i <= N-2）使得 A[i] = A[i+1] = A[i+2]\n\n# 理论时间复杂度上限\n# 可以使用O(N)的线性扫描算法\n# 特殊性分析\n# 这是一个简单序列检查问题，没有复杂的数学规律，只需线性遍历即可解决\n\n# 2. 逻辑推演\n# 数学推导过程：\n# 我们只需要从前往后依次检查每个可能的三元组。对于每个位置i (1 <= i <= N-2)，我们只需要检查A[i], A[i+1], A[i+2]是否相等。\n# 如果存在这样的i，则输出\"Yes\"，否则输出\"No\"\n\n# DP状态转移方程：\n# 不需要DP，因为问题可以通过简单的遍历解决\n\n# 边界情况处理方案：\n# - 当N=3时，只需要检查整个序列是否有三个相同元素\n# - 当N>3时，只需对每个长度为3的子序列进行检查\n\n# 3. 高效实现\n# 使用sys.stdin.readline防止I/O瓶颈\n# 遍历数组检查是否有连续三个相同的元素\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    A = list(map(int, data[1:]))\n\n    # 检查是否存在连续三个相同的元素\n    for i in range(N - 2):\n        if A[i] == A[i + 1] == A[i + 2]:\n            print(\"Yes\")\n            return\n    print(\"No\")\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

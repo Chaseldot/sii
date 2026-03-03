@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772552001",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 3,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.748410224914551,
+  "response": "### 解题思路：\n\n1. **输入格式**：\n   - 第一行是整数 `N`，表示序列的长度。\n   - 第二行是 `N` 个整数组成的列表。\n\n2. **输出格式**：\n   - 如果序列中存在连续三个相等的元素，则输出 `\"Yes\"`。\n   - 否则，输出 `\"No\"`。\n\n3. **约束条件**：\n   - `3 ≤ N ≤ 100`：序列长度从 3 到 100。\n   - `1 ≤ A_i ≤ 100`：每个元素是一个正整数。\n\n4. **算法思考**：\n   - 我们可以遍历数组，检查每三个相邻的元素是否完全相同，只需从索引 `0` 到 `N-3` 遍历即可。\n   - 若发现任意一个三元组满足条件，立即返回 `\"Yes\"`；否则，遍历结束后返回 `\"No\"`。\n\n5. **复杂度分析**：\n   - 时间复杂度：O(N)，遍历数组只需要一次。\n   - 空间复杂度：O(1)，不需要额外存储结构。\n\n---\n\n### 最终 Python 实现：\n\n```python\n# Read input\nn = int(input())\na = list(map(int, input().split()))\n\n# Check for three consecutive equal elements\nfound = False\nfor i in range(n - 2):\n    if a[i] == a[i+1] == a[i+2]:\n        found = True\n        break\n\n# Output the result\nprint(\"Yes\" if found else \"No\")\n```"
+}

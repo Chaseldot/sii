@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772550233",
+  "question_index": 0,
+  "question_id": "0",
+  "split": "train",
+  "sample_id": 9,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 23.729713439941406,
+  "response": "```python\nimport sys\nimport bisect\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    idx = 0\n    N = int(data[idx])\n    idx += 1\n    W = int(data[idx])\n    idx += 1\n    \n    positions = []\n    for _ in range(N):\n        x = int(data[idx])\n        idx += 1\n        y = int(data[idx])\n        idx += 1\n        positions.append((x, y))\n    \n    Q = int(data[idx])\n    idx += 1\n    \n    queries = []\n    for _ in range(Q):\n        T = int(data[idx])\n        idx += 1\n        A = int(data[idx]) - 1  # convert to 0-based index\n        idx += 1\n        queries.append((T, A))\n    \n    # Group blocks by column\n    from collections import defaultdict\n    cols = defaultdict(list)\n    for i in range(N):\n        x, y = positions[i]\n        cols[x].append((y, i))\n    \n    # Sort each column's blocks by y-coordinate\n    for x in cols:\n        cols[x].sort()\n    \n    # For each block, determine when it would be removed\n    remove_time = [0] * N\n    for x in cols:\n        sorted_blocks = cols[x]\n        num_blocks = len(sorted_blocks)\n        for i in range(num_blocks):\n            _, idx_block = sorted_blocks[i]\n            # The time when the block is removed depends on how many blocks fall below it\n            # If there are k blocks in the column, then the bottom block is removed at time k,\n            # and the next one at time k+1, etc.\n            remove_time[idx_block] = num_blocks + i\n    \n    # Process queries\n    output = []\n    for T, A in queries:\n        if T >= remove_time[A]:\n            output.append(\"No\")\n        else:\n            output.append(\"Yes\")\n    \n    print('\\n'.join(output))\n\nif __name__ == '__main__':\n    main()\n```"
+}

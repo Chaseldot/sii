@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772552001",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 11,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 7.43424916267395,
+  "response": "要解决这个问题，我们需要找到一个正整数 $ B $，使得 $ A \\times B = 400 $。换句话说，我们要求 $ B = \\frac{400}{A} $，并且 $ B $ 必须是正整数。\n\n### 分析问题：\n- 输入是一个正整数 $ A $。\n- 需要输出一个正整数 $ B $，使其满足 $ A \\times B = 400 $。\n- 如果不存在这样的 $ B $（即 400 **不能被** $ A $ 整除），则输出 -1。\n\n### 解法思路：\n1. 判断 $ A $ 是否可以整除 400。\n2. 如果可以，则 $ B = \\frac{400}{A} $，否则输出 -1。\n\n### 时间/空间复杂度：\n- 时间复杂度为 $ O(1) $，因为只进行了一次除法判断。\n- 空间复杂度为 $ O(1) $，没有使用额外数据结构。\n\n### 边界情况处理：\n- 当 $ A = 1 $ 时，$ B = 400 $。\n- 当 $ A = 400 $ 时，$ B = 1 $。\n- 当 $ A = 2 $ 时，$ B = 200 $。\n- 当 $ A = 11 $ 时，400 **不能被** 11 整除，返回 -1。\n\n### Python代码如下：\n\n```python\n# Read the input\nA = int(input())\n\n# Check if 400 is divisible by A\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```"
+}

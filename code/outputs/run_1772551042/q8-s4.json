@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772551042",
+  "question_index": 8,
+  "question_id": "25",
+  "split": "train",
+  "sample_id": 4,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 38.80059504508972,
+  "response": "```python\nimport sys\n\ndef solve():\n    import sys\n    input = sys.stdin.readline\n    N, X = map(int, input().split())\n    U = []\n    D = []\n    for _ in range(N):\n        u, d = map(int, input().split())\n        U.append(u)\n        D.append(d)\n    \n    # Calculate initial H for each position and find the possible H values\n    H_candidates = set()\n    for i in range(N):\n        H_candidates.add(U[i] + D[i])\n    \n    # Sort H_candidates for binary search\n    H_list = sorted(H_candidates)\n    \n    min_cost = float('inf')\n    \n    # Precompute for all possible H values\n    for H in H_list:\n        cost = 0\n        prev_u = U[0]\n        for i in range(N):\n            current_d = D[i]\n            required_u = H - current_d\n            if required_u < 0:\n                required_u = 0\n            cost += U[i] - required_u\n            prev_u = required_u\n            if i > 0:\n                diff = abs(prev_u - required_u)\n                if diff > X:\n                    break\n        else:\n            min_cost = min(min_cost, cost)\n    \n    print(min_cost)\n\nsolve()\n```"
+}

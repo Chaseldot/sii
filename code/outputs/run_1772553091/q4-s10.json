@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772553091",
+  "question_index": 4,
+  "question_id": "11",
+  "split": "train",
+  "sample_id": 10,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 9.021164894104004,
+  "response": "### 分析\n\n题目要求我们根据每个人的注视方向，求出每个人所注视的人的 bib 号。我们可以从以下几个方面进行分析：\n\n- 每个人 `i` 戴着 bib 号为 `Q_i` 的标签；\n- 他盯的是编号为 `P_i` 的人；\n- 要找出对于每个 bib 号为 `i` 的人（即找到某个 `j`，使得 `Q_j = i`），这个人盯着的 bib 是谁的，即 `Q_{P_j}`。\n\n所以我们需要做以下几步：\n1. 建立一个映射关系：bib 号到人编号（因为 Q_i 是唯一的）；\n2. 对于每个 bib 号 `i`，找出对应的那个人 `j`（即 `j` 是满足 `Q_j = i` 的那个）；\n3. 这个人 `j` 所看向的是 `P_j`，而那个人的 bib 是 `Q_{P_j}`；\n4. 所以答案中第 `i` 项是 `Q[P_j]`，其中 `j` 是唯一满足 `Q_j = i` 的索引。\n\n由于数据量很大（最多可以达到 $3 \\times 10^5$），我们需要用 O(N) 算法，使用哈希表（Python 中的字典）来做映射，确保时间复杂度在允许范围内。\n\n---\n\n### 代码\n```python\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:N+1]))\n    Q = list(map(int, data[N+1:2*N+1]))\n    \n    # 构建 bib 到人的映射\n    q_to_index = {q: i for i, q in enumerate(Q)}\n    \n    # 构造结果数组 S\n    result = [0] * N\n    for i in range(N):\n        j = q_to_index[i + 1]  # i+1 是当前 bib 号\n        result[i] = Q[P[j] - 1]  # P[j] 是该人盯着的位置，Q[P[j]-1] 是 bib 号\n    \n    print(' '.join(map(str, result)))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772551042",
+  "question_index": 0,
+  "question_id": "0",
+  "split": "train",
+  "sample_id": 11,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 59.9173800945282,
+  "response": "```python\nimport sys\nimport bisect\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    idx = 0\n    N = int(data[idx])\n    idx += 1\n    W = int(data[idx])\n    idx += 1\n    \n    blocks = []\n    for _ in range(N):\n        x = int(data[idx])\n        idx += 1\n        y = int(data[idx])\n        idx += 1\n        blocks.append((x, y))\n    \n    Q = int(data[idx])\n    idx += 1\n    \n    queries = []\n    for _ in range(Q):\n        T = int(data[idx])\n        idx += 1\n        A = int(data[idx]) - 1  # Convert to 0-based index\n        idx += 1\n        queries.append((T, A))\n    \n    # Sort blocks by Y (row) and then X (column)\n    blocks.sort(key=lambda b: (b[1], b[0]))\n    \n    # For each block, determine the time when it is removed\n    time_removed = [0] * N\n    \n    # Track the number of blocks in each row\n    from collections import defaultdict\n    row_count = defaultdict(int)\n    for x, y in blocks:\n        row_count[y] += 1\n    \n    # Sort rows by Y\n    sorted_rows = sorted(row_count.keys())\n    \n    # Precompute prefix sums for row counts\n    prefix_sum = [0] * (len(sorted_rows) + 1)\n    for i in range(len(sorted_rows)):\n        prefix_sum[i + 1] = prefix_sum[i] + row_count[sorted_rows[i]]\n    \n    # For each block, simulate how many times it falls\n    for i in range(N):\n        x_i, y_i = blocks[i]\n        cnt = 0\n        current_y = y_i\n        \n        # Find the index of the current row in sorted_rows\n        row_idx = bisect.bisect_left(sorted_rows, current_y)\n        \n        # Number of blocks below current row\n        num_blocks_below = prefix_sum[row_idx]\n        \n        # The time at which this block is removed is equal to the number of blocks below it\n        time_removed[i] = num_blocks_below\n    \n    # Answer queries\n    results = []\n    for T, A in queries:\n        if T < time_removed[A]:\n            results.append(\"Yes\")\n        else:\n            results.append(\"No\")\n    \n    print(\"\\n\".join(results))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

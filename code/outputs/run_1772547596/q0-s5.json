@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772547596",
+  "question_index": 0,
+  "question_id": "0",
+  "split": "train",
+  "sample_id": 5,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 71.05789113044739,
+  "response": "### 错误分析与改进方案\n\n#### 1. 当前复杂度问题\n之前的代码包含一个嵌套循环，在每次判断一个块是否能下落时，使用了 `bisect` 排序和遍历，这在最坏情况下时间复杂度为 $O(N^2)$，无法满足 $N = 2 \\times 10^5$ 的限制。\n\n#### 2. 算法优化方向\n为了使算法在大规模数据下也能运行高效，我们需要对块的下落过程进行更高效的建模。通过观察发现：\n- 每个块在移动过程中只会受到下方某些块的阻挡。\n- 随着时间推移，所有块最终会稳定在某一位置。\n- 每个块的下落路径是**单调递增**（向下），可以使用 **单调栈** 或 **哈希表** 来模拟其“下落”路径。\n\n#### 3. 新思路：逐层模拟 + 哈希表\n我们按行从低到高处理每一块的下落轨迹，并用哈希表记录每一层中已经存在的块的数量。这样可以快速判断某一块能否下落。\n\n#### 4. 总体复杂度\n整体时间复杂度为 $O(N \\log N)$，适用于给定的数据规模。\n\n---\n\n### 优化后的完整代码\n\n```python\nimport sys\nimport bisect\n\ndef main():\n    data = sys.stdin.read().split()\n    idx = 0\n    N = int(data[idx]); idx += 1\n    W = int(data[idx]); idx += 1\n    \n    blocks = []\n    for _ in range(N):\n        x = int(data[idx])\n        y = int(data[idx + 1])\n        idx += 2\n        blocks.append((x, y))\n    \n    Q = int(data[idx]); idx += 1\n    queries = []\n    for _ in range(Q):\n        t = int(data[idx])\n        a = int(data[idx + 1]) - 1\n        queries.append((t, a))\n        idx += 2\n    \n    # 按照 y 值从大到小排序：从底层往顶上处理\n    sorted_blocks = sorted(blocks, key=lambda b: -b[1])\n    ys = [b[1] for b in sorted_blocks]\n    xs = [b[0] for b in sorted_blocks]\n    \n    # 哈希表：记录每一层是否有块\n    layer_has_block = dict()\n    \n    # 记录每个块最终落点的y座标\n    final_y = [0] * N\n    \n    for i in range(N):\n        x, y = sorted_blocks[i]\n        \n        # 尝试下落到当前最低层\n        current_layer = y\n        while True:\n            # 如果当前层已经被占用，则不能下落\n            if current_layer in layer_has_block and (layer_has_block[current_layer] & (1 << (x - 1))) != 0:\n                break\n            # 否则可以下落\n            current_layer -= 1\n            # 继续检查更低的层\n            \n        # 最终的落点是 current_layer + 1\n        final_y[i] = current_layer + 1\n        \n        # 更新该层的状态\n        layer_has_block[current_layer + 1] = layer_has_block.get(current_layer + 1, 0) | (1 << (x - 1))\n    \n    # 处理查询\n    res = []\n    for t, a in queries:\n        if final_y[a] > t:\n            res.append(\"Yes\")\n        else:\n            res.append(\"No\")\n    \n    print(\"\\n\".join(res))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

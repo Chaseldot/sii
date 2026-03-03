@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772553091",
+  "question_index": 9,
+  "question_id": "27",
+  "split": "train",
+  "sample_id": 7,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 5.961284637451172,
+  "response": "### 分析\n我们需要判断给定的整数序列是否是**严格递增**的。这意味着对于每一个位置 $ i $，都必须满足 $ A_i < A_{i+1} $。\n\n**步骤：**\n1. 读取输入的整数 $ N $ 和列表 $ A $。\n2. 遍历列表，比较相邻元素。\n3. 如果发现任意一个 $ A_i \\geq A_{i+1} $，就说明不是严格递增序列，立即返回 `No`。\n4. 如果所有相邻元素都满足 $ A_i < A_{i+1} $，则返回 `Yes`。\n\n**边界情况：**\n- 当 $ N = 2 $ 时，只需要比较两个元素即可。\n- 如果序列中存在相同的元素，也应返回 `No`。\n\n由于 $ N $ 的最大值为 100，因此使用简单的线性遍历就足够了，时间复杂度为 $ O(N) $，完全符合时间限制要求。\n\n---\n\n### 代码\n```python\n# 读取输入\nN = int(input())\nA = list(map(int, input().split()))\n\n# 检查是否严格递增\nis_strictly_increasing = True\nfor i in range(N - 1):\n    if A[i] >= A[i + 1]:\n        is_strictly_increasing = False\n        break\n\n# 输出结果\nprint(\"Yes\" if is_strictly_increasing else \"No\")\n```"
+}

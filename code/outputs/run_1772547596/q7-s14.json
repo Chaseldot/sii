@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772547596",
+  "question_index": 7,
+  "question_id": "20",
+  "split": "train",
+  "sample_id": 14,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 5.099754095077515,
+  "response": "### 分析\n这道题的目标是将一个由数字组成的字符串 `S` 中的所有非 '2' 的字符移除，只保留 '2'，并输出结果。\n\n#### 关键约束\n- 输入 `S` 是一个由数字组成的字符串，长度在 1 到 100 之间。\n- 输出仅包含 '2' 的字符串，且 `S` 至少包含一个 '2'。\n\n#### 问题类型\n这是一道**模拟**类的问题。我们需要遍历字符串中的每个字符，判断是否为 '2'，并按顺序保留这些字符，其余字符则被移除。\n\n#### 算法思路\n1. 遍历输入字符串 `S` 的每个字符。\n2. 如果某个字符等于 '2'，则将其加入结果字符串中。\n3. 最终，将所有符合条件的字符拼接成一个新的字符串并输出。\n\n#### 时间复杂度分析\n- 时间复杂度为 **O(n)**，其中 `n` 是输入字符串的长度。\n- 因为只需要遍历一次字符串，且每一步操作都是常数时间内的。\n\n综上，我们可以直接遍历字符串，收集所有的 '2' 字符并构造最终结果。\n\n### 代码\n```python\n# Read input\nS = input().strip()\n\n# Filter out all characters except '2'\nresult = ''.join(char for char in S if char == '2')\n\n# Print the result\nprint(result)\n```"
+}

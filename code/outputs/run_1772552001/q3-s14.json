@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772552001",
+  "question_index": 3,
+  "question_id": "6",
+  "split": "train",
+  "sample_id": 14,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 8.886800050735474,
+  "response": "```python\nimport sys\nfrom itertools import permutations\n\n# Read input values as a list of integers\nA = list(map(int, sys.stdin.readline().split()))\n\n# Check all possible permutations of the array A\nfor perm in permutations(A):\n    B1, B2, B3 = perm\n    if B1 * B2 == B3:\n        print(\"Yes\")\n        # Use sys.exit() to exit the program immediately\n        sys.exit()\n\n# If no permutation satisfies the condition\nprint(\"No\")\n```"
+}

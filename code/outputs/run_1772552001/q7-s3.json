@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772552001",
+  "question_index": 7,
+  "question_id": "20",
+  "split": "train",
+  "sample_id": 3,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 4.122016429901123,
+  "response": "### 思路分析\n\n#### 问题描述\n我们被给定一个仅由数字组成的字符串 `S`，我们需要将其中所有非 '2' 的字符移除，并将剩余的字符按原顺序连接成一个新的字符串。\n\n#### 分析\n- **输入处理**：从标准输入读取一个字符串。\n- **操作过程**：\n  - 遍历字符串 `S`，保留所有为 `'2'` 的字符。\n  - 将这些保留的字符按顺序拼接为新的字符串。\n- **输出**：打印新形成的字符串。\n\n#### 处理细节\n- 因为字符串长度最多为 100，所以我们无需担心时间效率。\n- 字符串中至少包含一个 `'2'`，所以最终结果不会是空字符串。\n\n---\n\n### Python代码实现\n\n```python\n# Read input from standard input\nS = input().strip()\n\n# Filter out all characters except '2'\nresult = ''.join([char for char in S if char == '2'])\n\n# Print the result\nprint(result)\n```"
+}

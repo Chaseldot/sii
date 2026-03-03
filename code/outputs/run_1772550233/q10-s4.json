@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772550233",
+  "question_index": 10,
+  "question_id": "28",
+  "split": "train",
+  "sample_id": 4,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 8.12149691581726,
+  "response": "```python\nimport sys\nimport heapq\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    M = int(data[1])\n    X = int(data[2])\n    \n    edges = [[] for _ in range(N + 1)]\n    reverse_edges = [[] for _ in range(N + 1)]\n    \n    idx = 3\n    for _ in range(M):\n        u = int(data[idx])\n        v = int(data[idx + 1])\n        edges[u].append(v)\n        reverse_edges[v].append(u)\n        idx += 2\n    \n    INF = float('inf')\n    dist = [INF] * (N + 1)\n    dist[1] = 0\n    dist_rev = [INF] * (N + 1)\n    dist_rev[1] = 0\n    \n    # Dijkstra's algorithm for original graph\n    heap = [(0, 1)]\n    while heap:\n        cost, u = heapq.heappop(heap)\n        if cost > dist[u]:\n            continue\n        for v in edges[u]:\n            if dist[v] > cost + 1:\n                dist[v] = cost + 1\n                heapq.heappush(heap, (dist[v], v))\n    \n    # Dijkstra's algorithm for reversed graph with cost X\n    heap_rev = [(0, 1)]\n    while heap_rev:\n        cost, u = heapq.heappop(heap_rev)\n        if cost > dist_rev[u]:\n            continue\n        for v in reverse_edges[u]:\n            if dist_rev[v] > cost + 1:\n                dist_rev[v] = cost + 1\n                heapq.heappush(heap_rev, (dist_rev[v], v))\n    \n    # The minimum cost is the minimum between the two paths\n    print(min(dist[N], dist_rev[N] + X))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

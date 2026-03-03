@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772547596",
+  "question_index": 11,
+  "question_id": "29",
+  "split": "train",
+  "sample_id": 3,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 47.10837173461914,
+  "response": "### 错误分析及改进方案\n\n#### 1. 当前复杂度分析：\n- 现在的算法时间复杂度为 $ O(2^W \\times H \\times W) $。\n- 由于 $ W = 15 $，$ 2^{15} = 32768 $，当 $ H = 2 \\times 10^5 $，总操作次数约为 $ 32768 \\times 200000 \\times 15 = 9.83 \\times 10^{10} $，远远超过了时间限制（1秒只能处理约 $ 10^8 $ 次操作）。\n\n#### 2. 优化思路：\n- 为了优化性能，我们需要减少每种列翻转状态下的计算量。可以通过**预计算每行在不同列翻转情况下的值**，并利用位运算快速得到每个掩码对应的目标总和。\n\n#### 3. 数学优化策略：\n- 预处理每一行在所有可能的列翻转掩码下的“价值”，即对于每一行和每一个列掩码，预先计算出该行在该掩码下的总1数量。\n- 这样可以将原本每次都要重新计算每行的所有列的耗时，转换为仅需对掩码中的列进行快速判断。\n\n#### 4. 实现细节：\n- 对于每一行，我们遍历所有可能的列掩码（共 $ 2^W $ 种），并记录该行在该掩码下对应的1的数量。这个过程可以用二进制掩码来加速。\n- 在后续步骤中，只需根据每个掩码统计所有行的总和即可。\n\n---\n\n### 代码\n```python\nimport sys\n\ndef main():\n    input = sys.stdin.read().split()\n    \n    H = int(input[0])\n    W = int(input[1])\n    grid = input[2:2+H]\n    \n    # Precompute for each row and mask the number of 1's after column flips\n    row_values = []\n    for row in grid:\n        # For each row, compute all possible values after flipping columns\n        row_val = [0] * (1 << W)\n        for mask in range(1 << W):\n            cnt = 0\n            for j in range(W):\n                if (mask >> j) & 1:\n                    cnt += 1 - int(row[j])  # flip\n                else:\n                    cnt += int(row[j])\n            row_val[mask] = cnt\n        row_values.append(row_val)\n    \n    min_total = float('inf')\n    for mask in range(1 << W):\n        total = 0\n        for row_val in row_values:\n            total += row_val[mask]\n        if total < min_total:\n            min_total = total\n    \n    print(min_total)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

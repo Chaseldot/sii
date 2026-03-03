@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772543238",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 9,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 7.233388185501099,
+  "response": "To solve the problem, we simulate the ranking process as described. Here's the step-by-step plan:\n\n1. **Read Input:** We read the number of participants `N` and their scores.\n2. **Track Undetermined Ranks:** Use a boolean list to keep track of which participants still have undetermined ranks.\n3. **Simulate Ranking Process:**\n   - Start with `r = 1`.\n   - In each iteration, find the maximum score among undetermined participants.\n   - Count how many participants have this maximum score.\n   - Assign rank `r` to all those participants.\n   - Update `r` by adding the count of those participants.\n4. **Output the Result:** After processing all participants, print the rank of each participant.\n\nHere is the complete code:\n\n```python\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:N+1]))\n    \n    # Initialize variables\n    ranks = [0] * N\n    undetermined = [True] * N\n    r = 1\n    \n    while True:\n        # Find the maximum score among undetermined people\n        max_score = -1\n        for i in range(N):\n            if undetermined[i] and P[i] > max_score:\n                max_score = P[i]\n        \n        # If no undetermined people left, break\n        if max_score == -1:\n            break\n        \n        # Count how many people have max_score and are undetermined\n        count = 0\n        for i in range(N):\n            if undetermined[i] and P[i] == max_score:\n                count += 1\n        \n        # Assign rank to these people\n        for i in range(N):\n            if undetermined[i] and P[i] == max_score:\n                ranks[i] = r\n                undetermined[i] = False\n        \n        # Update rank counter\n        r += count\n    \n    # Print the ranks\n    for rank in ranks:\n        print(rank)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

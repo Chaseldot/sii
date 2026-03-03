@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772543238",
+  "question_index": 6,
+  "question_id": "17",
+  "split": "train",
+  "sample_id": 4,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 7.889923095703125,
+  "response": "To solve this problem, we need to repeatedly replace the **leftmost occurrence** of \"WA\" with \"AC\" in the string `S` until there are no more \"WA\" substrings left.\n\n### Key Observations:\n- The operation must replace the **leftmost** occurrence of \"WA\".\n- Replacing \"WA\" with \"AC\" might create new \"WA\" substrings. For example, replacing \"WA\" in \"WWA\" gives \"WAC\", and then \"WA\" appears again starting from the 1st character.\n- We can simulate this process by scanning the string from left to right, looking for \"WA\".\n\n### Efficient Approach:\n- We can iterate through the string using a pointer or index.\n- At each step, check if the current position and next position form \"WA\".\n- If found, replace it with \"AC\", and reset the index back by one (because the replacement may have created a new \"WA\" before the current index).\n- This is efficient because we only scan the string once, and each replacement takes constant time.\n\nHere's the complete Python code:\n\n```python\ndef main():\n    import sys\n    input = sys.stdin.read\n    S = input().strip()\n    \n    s = list(S)\n    i = 0\n    n = len(s)\n    \n    while i < n - 1:\n        if s[i] == 'W' and s[i+1] == 'A':\n            s[i] = 'A'\n            s[i+1] = 'C'\n            i = max(i - 1, 0)  # Reset to recheck the previous characters due to possible new WA\n        else:\n            i += 1\n    \n    print(''.join(s))\n\nif __name__ == \"__main__\":\n    main()\n```\n\n### Explanation:\n- `s = list(S)` converts the string into a list for easy modification.\n- We use a loop that scans each character.\n- When an occurrence of \"WA\" is found, we replace it with \"AC\" and reset the index to possibly catch new \"WA\" substrings formed due to the replacement.\n- This ensures we always replace the **leftmost** occurrence first.\n\nThe algorithm runs in linear time $O(n)$, making it efficient for large strings up to $3 \\times 10^5$ in length."
+}

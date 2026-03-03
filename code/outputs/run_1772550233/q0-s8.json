@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772550233",
+  "question_index": 0,
+  "question_id": "0",
+  "split": "train",
+  "sample_id": 8,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 45.189637422561646,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    idx = 0\n    N = int(data[idx])\n    idx += 1\n    W = int(data[idx])\n    idx += 1\n    \n    blocks = []\n    for _ in range(N):\n        x = int(data[idx])\n        idx += 1\n        y = int(data[idx])\n        idx += 1\n        blocks.append((x, y))\n    \n    Q = int(data[idx])\n    idx += 1\n    \n    queries = []\n    for _ in range(Q):\n        t = int(data[idx])\n        idx += 1\n        a = int(data[idx]) - 1\n        idx += 1\n        queries.append((t, a))\n    \n    # Group blocks by column and sort Y values\n    col_to_ys = {}\n    for i, (x, y) in enumerate(blocks):\n        if x not in col_to_ys:\n            col_to_ys[x] = []\n        col_to_ys[x].append((y, i))\n    \n    # Sort each column's Y values\n    for x in col_to_ys:\n        col_to_ys[x].sort()\n    \n    # Precompute fall time for each block\n    fall_time = [0] * N\n    for x in col_to_ys:\n        ys, indices = zip(*col_to_ys[x])\n        for i, (y, idx_block) in enumerate(zip(ys, indices)):\n            # Number of blocks below this one is i\n            fall_time[idx_block] = i\n    \n    results = []\n    for t, a in queries:\n        if t < fall_time[a]:\n            results.append(\"Yes\")\n        else:\n            results.append(\"No\")\n    \n    print(\"\\n\".join(results))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

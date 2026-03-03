@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772550233",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 15,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 32.467567443847656,
+  "response": "```python\nimport sys\n\ndef solve():\n    input = sys.stdin.read().split()\n    N = int(input[0])\n    P = list(map(int, input[1:]))\n    \n    ranks = [0] * N\n    used = [False] * N\n    r = 1\n    \n    while True:\n        max_score = -1\n        indices = []\n        for i in range(N):\n            if not used[i] and P[i] > max_score:\n                max_score = P[i]\n                indices = [i]\n            elif not used[i] and P[i] == max_score:\n                indices.append(i)\n        if not indices:\n            break\n        for i in indices:\n            ranks[i] = r\n        r += len(indices)\n    \n    for rank in ranks:\n        print(rank)\n\nif __name__ == \"__main__\":\n    solve()\n```"
+}

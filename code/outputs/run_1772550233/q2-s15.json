@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772550233",
+  "question_index": 2,
+  "question_id": "4",
+  "split": "train",
+  "sample_id": 15,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 22.85456395149231,
+  "response": "```python\nimport sys\n\nMOD = 998244353\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    M = int(data[1])\n    S = data[2]\n    \n    # dp[i][j]: number of ways to have a subsequence of length j using first i characters of S\n    dp = [[0] * (M + 1) for _ in range(N + 1)]\n    dp[0][0] = 1\n    \n    for i in range(1, N + 1):\n        for j in range(M + 1):\n            dp[i][j] = dp[i - 1][j]\n            if j > 0:\n                dp[i][j] += dp[i - 1][j - 1]\n                dp[i][j] %= MOD\n    \n    # dp_lcs[k][j]: number of strings of length k with LCS of length j with S\n    dp_lcs = [[0] * (N + 1) for _ in range(M + 1)]\n    dp_lcs[0][0] = 1\n    \n    for k in range(1, M + 1):\n        for j in range(N + 1):\n            new_dp = [0] * (N + 1)\n            for l in range(N + 1):\n                new_dp[l] = (new_dp[l] + dp_lcs[k - 1][l]) % MOD\n                if l < N:\n                    new_dp[l] = (new_dp[l] + dp_lcs[k - 1][l + 1]) % MOD\n            dp_lcs[k][j] = new_dp[j] % MOD\n    \n    # Compute the counts for each k from 0 to N\n    ans = [0] * (N + 1)\n    for j in range(N + 1):\n        cnt = 0\n        for k in range(M + 1):\n            cnt = (cnt + dp_lcs[k][j]) % MOD\n        ans[j] = cnt\n    \n    print(' '.join(map(str, ans)))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

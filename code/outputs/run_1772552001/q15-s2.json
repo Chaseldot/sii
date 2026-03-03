@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772552001",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 2,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 17.443223476409912,
+  "response": "下面是修复后的完整代码，解决了原始代码中的问题（特别是 `heapq` 使用中的一些逻辑错误）。\n\n### 修正说明：\n1. 原始代码中在处理最大分数时的逻辑错误导致了 `IndexError`。\n2. 应该确保在找到当前最大值后，正确地找出所有具有相同最大值的参与者。\n3. 我们使用一个优先队列来模拟最大堆并跟踪未确定排名的参与者。\n4. 使用一个集合来保存目前尚未确定排名的参与者编号。\n5. 每次取出当前最大得分，找出所有具有相同得分的人，并为他们分配当前的 rank，然后更新 `r`。\n\n---\n\n```python\nimport heapq\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:N+1]))\n    \n    # Initialize rank list\n    ranks = [0] * N\n    \n    # Priority queue to keep track of (score, index) of participants with undetermined ranks\n    # We use negative scores to simulate a max heap\n    heap = [(-P[i], i) for i in range(N)]\n    heapq.heapify(heap)\n    \n    # Set to track participants with undetermined ranks\n    undetermined = set(range(N))\n    \n    # Current rank\n    r = 1\n    \n    while undetermined:\n        # Get the maximum score (-P[i]) and its index\n        max_score_neg, idx = heapq.heappop(heap)\n        max_score = -max_score_neg\n        \n        # Collect all participants with the same max score\n        temp = []\n        while heap and -heap[0][0] == max_score:\n            score_neg, i = heapq.heappop(heap)\n            temp.append(i)\n        \n        # Add current index to the list\n        temp.append(idx)\n        \n        # Assign rank r to these participants\n        for i in temp:\n            ranks[i] = r\n            undetermined.remove(i)\n        \n        # Increment r by the number of participants assigned this rank\n        r += len(temp)\n    \n    # Print the ranks\n    for rank in ranks:\n        print(rank)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

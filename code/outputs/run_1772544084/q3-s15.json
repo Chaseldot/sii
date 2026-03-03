@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772544084",
+  "question_index": 3,
+  "question_id": "6",
+  "split": "train",
+  "sample_id": 15,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 7.568814516067505,
+  "response": "```python\nimport sys\n\n# Read input\nA = list(map(int, sys.stdin.readline().split()))\n\n# Check all permutations of A\nfrom itertools import permutations\n\nfor perm in permutations(A):\n    if perm[0] * perm[1] == perm[2]:\n        print(\"Yes\")\n        break\nelse:\n    print(\"No\")\n```\n\n### 解题思路\n\n#### 1. 深度解析\n- **约束条件**: 输入是一个长度为3的整数序列，每个元素都在1到100之间。\n- **理论时间复杂度**: 对于长度为3的数组，我们只需要检查全部6种排列方式即可，因此时间复杂度是O(1)（常数时间内）。\n- **特殊性分析**: 由于数组长度非常小且排列数量有限，我们可以直接穷举所有可能性。无需寻找数学规律。\n\n#### 2. 逻辑推演\n- **数学推导过程**: 题目要求找到一种排列B，使得 $ B_1 \\times B_2 = B_3 $。考虑到所有可能的排列组合只有6种，直接遍历所有情况是最有效的方法。\n- **DP状态转移方程**: 此问题不涉及动态规划，因为它不需要存储子问题解来构建最终解。\n- **边界情况处理方案**: 对于所有可能的排列，都进行逐一验证；如果找到一个满足条件的排列，立即输出“`Yes`”。\n\n#### 3. 高效实现\n- **内置高效函数**: 使用了`itertools.permutations`来生成所有排列。\n- **大数计算确保逻辑正确**: 因为数值范围很小（最大值100），运算不会溢出。\n- **I/O优化**: 使用`sys.stdin.readline()`来防止输入瓶颈。\n\n通过上述步骤，我们可以确保代码既正确又高效，符合问题的时间限制。"
+}

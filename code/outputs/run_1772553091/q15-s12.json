@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772553091",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 12,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 8.291669368743896,
+  "response": "### 分析  \n我们需要根据每个人的比赛得分，按照题目所描述的规则来计算每个人的排名。规则如下：\n\n1. 初始时，所有人都未确定排名。\n2. 维护一个变量 $ r $ 表示当前的排名，初始值为 1。\n3. 每次找出所有未确定排名的人中得分最高的分数 $ x $，以及有多少人得分等于 $ x $（记为 $ k $）。\n4. 将这 $ k $ 个人的排名设为当前的 $ r $，然后将 $ r $ 更新为 $ r + k $。\n\n为了实现上述逻辑，我们可以使用以下思路：\n- 首先，将每个选手的得分与其索引存入一个列表。\n- 然后，通过不断遍历未处理的人，找到当前最大得分及其出现次数。\n- 基于此，为这些人的排名赋值，并从列表中移除处理过的人。\n- 重复这个过程直到所有人被处理完。\n\n注意：在每次迭代中，我们需要保留当前未处理的人的得分和原始索引，以便最终能输出对应人的排名。\n\n---\n\n### 代码\n```python\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:]))\n    \n    ranks = [0] * N\n    \n    # 用于保存未处理人员的得分和其索引\n    people = [(P[i], i) for i in range(N)]\n    \n    r = 1  # 当前排名\n    \n    while people:\n        # 找出当前最高分\n        max_score = max(p[0] for p in people)\n        # 统计该最高分的出现次数及对应的索引\n        max_people = [i for (score, i) in people if score == max_score]\n        k = len(max_people)\n        \n        # 为这些人分配当前排名\n        for idx in max_people:\n            ranks[idx] = r\n        \n        # 更新排名\n        r += k\n        \n        # 移除已处理的人\n        people = [(score, i) for (score, i) in people if i not in max_people]\n    \n    for rank in ranks:\n        print(rank)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

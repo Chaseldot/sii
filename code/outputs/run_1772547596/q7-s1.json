@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772547596",
+  "question_index": 7,
+  "question_id": "20",
+  "split": "train",
+  "sample_id": 1,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 5.737324953079224,
+  "response": "### 分析\n这道题的要求是：从给定的字符串中移除所有不是'2'的字符，然后将剩下的字符按原顺序拼接成一个新的字符串。\n\n#### 1. 关键约束\n- 输入字符串 $ S $ 是一个由数字组成的字符串。\n- 长度在 $ 1 $ 到 $ 100 $ 之间。\n- $ S $ 至少包含一个 '2'。\n- 输出为新字符串，其中只保留原来的 '2' 字符。\n\n#### 2. 问题类型\n这是一个**字符串处理**类问题。我们需要遍历输入字符串并筛选出字符为 '2' 的部分。\n\n#### 3. 算法思路\n- 遍历输入字符串中的每个字符。\n- 如果当前字符是 '2'，将其添加到结果字符串中。\n- 最终输出结果字符串。\n\n#### 4. 可行性与复杂度分析\n- 时间复杂度：$ O(n) $，其中 $ n $ 是字符串的长度。\n  - 遍历字符串一次，对每个字符进行常数时间操作（检查是否为 '2' 并添加）。\n- 空间复杂度：$ O(n) $，用于存储结果字符串。\n  - 这在题目所给的约束范围内是完全可行的。\n\n---\n\n### 代码\n```python\n# Read the input string\nS = input().strip()\n\n# Filter and concatenate all '2's\nresult = ''.join([c for c in S if c == '2'])\n\n# Print the result\nprint(result)\n```"
+}

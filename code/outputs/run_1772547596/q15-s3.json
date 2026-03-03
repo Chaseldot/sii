@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772547596",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 3,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 10.73897385597229,
+  "response": "### 分析\n1. **关键约束**:\n   - N的范围是1 ≤ N ≤ 100，这表示数据规模非常小，可以接受较高的时间复杂度。\n   - P_i的范围是1 ≤ P_i ≤ 100。\n\n2. **问题类型**: \n   - 此题属于模拟类问题，涉及按分数排名的过程，并处理相同分数的情况。\n\n3. **数学推导与规律分析**:\n   - 排名规则基于最大分数的确定和分组。每一轮选出当前所有未确定排名的人中分数最高的群体，将他们的排名设为当前r值并更新r为r + k（k是该分数对应的成员数量）。\n   - 我们需要维护一个结构来记录哪些人已经确定了排名，以及当前最大的分数是多少。\n\n4. **算法设计**:\n   - 首先，我们将所有人的分数和索引保存下来。\n   - 使用优先队列（堆）或排序方式来找到当前的最大分数。\n   - 在每一步中，找出当前最大分数，统计有多少人具有这个分数，并给这些人分配当前r值、然后更新r值。\n\n5. **复杂度估算**:\n   - 由于N最多是100，整个过程的时间复杂度是非常低的，对于每个步骤都可接受。\n   - 时间复杂度主要取决于操作次数（最多为N次），每次操作可能需要遍历所有元素，总时间复杂度约为O(N²)。\n\n综上所述，可以按以下步骤实现：\n- 找出当前最大分数。\n- 确定具有该分数的人。\n- 给他们分配当前的rank，并更新rank。\n- 将这些人的状态标记为已确定。\n- 重复直到所有人都被处理。\n\n### 代码\n```python\nimport sys\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    scores = list(map(int, data[1:]))\n\n    # 用于保存每个人的排名\n    rank = [0] * N\n    # 用于跟踪哪些人尚未确定排名\n    undetermined = [True] * N\n    r = 1  # 当前的排名值\n\n    while True:\n        # 找到当前最大分数\n        max_score = -1\n        for i in range(N):\n            if undetermined[i] and scores[i] > max_score:\n                max_score = scores[i]\n\n        if max_score == -1:\n            break  # 所有人已经被确定了\n\n        # 计算具有max_score的人的数量\n        count = 0\n        for i in range(N):\n            if undetermined[i] and scores[i] == max_score:\n                count += 1\n\n        # 为这些人分配当前的r值\n        for i in range(N):\n            if undetermined[i] and scores[i] == max_score:\n                rank[i] = r\n                undetermined[i] = False\n\n        r += count\n\n    for r_val in rank:\n        print(r_val)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

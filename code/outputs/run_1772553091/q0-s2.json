@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772553091",
+  "question_index": 0,
+  "question_id": "0",
+  "split": "train",
+  "sample_id": 2,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 50.915154457092285,
+  "response": "### 分析\n\n通过分析测试失败的用例，我们发现问题出在 **“块掉落次数”与“存活时间”模型的不正确理解**。我们的逻辑并没有考虑所有影响块掉落的条件：\n\n- 块会随着下方有其他块而被“推”下去，但不是简单地加时间。\n- 每次操作中，如果该列底部已经满了，那么整列都会被清除（包括当前块）。\n\n---\n\n关键修正点在于：\n- 一个块只有在它所在列的**底部没有填满**时才会继续向下掉。\n- 如果它所在的列已填满，则它的下落层数受限于整个列能容纳的层数。\n- 所以我们需要知道，在给定时间 `T`，它最多可以掉落多少层。\n\n---\n\n因此，我们应使用以下策略：\n\n1. 将每个列的 Y 值排序后，预处理每列中总共有多少个方块。\n2. 对于每一个块 `(x, y)`，找出它在这一列中的位置（从上到下），并计算该块能掉的最大层数，即：\n   - `total_blocks_in_col`：该列总共有多少块（包括自己）\n   - 它位于第 k 位，所以它最多可以掉 `k` 层。\n3. 根据这个最大层数判断是否能存活到时间 T + 0.5。\n\n---\n\n注意：此方法为线性预处理 + 对数查询，完全满足大数据规模要求。\n\n---\n\n### 修正代码\n\n```python\nimport sys\nimport bisect\nfrom collections import defaultdict\n\ndef main():\n    input = sys.stdin.read().split()\n    idx = 0\n    N = int(input[idx])\n    idx += 1\n    W = int(input[idx])\n    idx += 1\n\n    columns = defaultdict(list)  # 存储每个列的Y值\n    blocks = []\n\n    for i in range(N):\n        x = int(input[idx])\n        idx += 1\n        y = int(input[idx])\n        idx += 1\n        blocks.append((x, y, i))  # 存储原始坐标和索引\n        columns[x].append(y)\n\n    # 对每个列的Y进行排序\n    for x in columns:\n        columns[x].sort()\n\n    Q = int(input[idx])\n    idx += 1\n\n    queries = []\n    for _ in range(Q):\n        T = int(input[idx])\n        idx += 1\n        A = int(input[idx]) - 1  # 转为0-based索引\n        idx += 1\n        queries.append((T, A))\n\n    results = []\n\n    for t, a in queries:\n        x, y, _ = blocks[a]\n        ys = columns[x]\n        k = bisect.bisect_left(ys, y)  # 找到该块的位置\n\n        if k >= len(ys):  # 如果找不到该块（不可能发生）\n            results.append(\"No\")\n            continue\n\n        total_blocks = len(ys)  # 该列总共有多少块\n        max_fall_height = k  # 该块最多可下落到第k层\n        if max_fall_height >= t:\n            results.append(\"Yes\")\n        else:\n            results.append(\"No\")\n\n    print(\"\\n\".join(results))\n\nif __name__ == \"__main__\":\n    main()\n```\n\n---\n\n### 说明\n\n- 如果某个块处于其所在列的第 `k` 位，则最多可以下落 `k` 次，即它能承受的时间最多为 `k`。\n- 如果时间 `t <= k`，则它还存在；否则，已被移除。\n- 块不会因为某列满了就删除，而是因为其自身不能移动再往下（当下面没有空位或该列满了）。\n\n此算法满足题目要求，且能在最坏情况下高效运行。"
+}

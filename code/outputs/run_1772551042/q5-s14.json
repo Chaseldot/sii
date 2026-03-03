@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772551042",
+  "question_index": 5,
+  "question_id": "13",
+  "split": "train",
+  "sample_id": 14,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 39.114054918289185,
+  "response": "```python\nimport sys\nimport bisect\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    Q = int(data[1])\n    A = list(map(int, data[2:2+N]))\n    \n    # Preprocess sorted lists of elements up to each index\n    sorted_lists = []\n    current_list = []\n    for i in range(N):\n        current_list.append(A[i])\n        current_list.sort()\n        sorted_lists.append(current_list)\n    \n    output = []\n    idx = 2 + N\n    for _ in range(Q):\n        R = int(data[idx])\n        X = int(data[idx+1])\n        idx += 2\n        \n        # Get the subarray up to R and filter elements <= X\n        filtered = []\n        for i in range(R):\n            if A[i] <= X:\n                filtered.append(A[i])\n        \n        # Compute LIS length using binary search\n        lis = []\n        for num in filtered:\n            idx_lis = bisect.bisect_left(lis, num)\n            if idx_lis == len(lis):\n                lis.append(num)\n            else:\n                lis[idx_lis] = num\n        output.append(str(len(lis)))\n    \n    print('\\n'.join(output))\n\nif __name__ == '__main__':\n    main()\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772550233",
+  "question_index": 0,
+  "question_id": "0",
+  "split": "train",
+  "sample_id": 4,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 29.520357370376587,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    idx = 0\n    N = int(data[idx])\n    idx += 1\n    W = int(data[idx])\n    idx += 1\n    \n    blocks = []\n    for i in range(N):\n        x = int(data[idx])\n        idx += 1\n        y = int(data[idx])\n        idx += 1\n        blocks.append((x, y, i))  # (x, y, index)\n    \n    Q = int(data[idx])\n    idx += 1\n    \n    queries = []\n    for _ in range(Q):\n        T = int(data[idx])\n        idx += 1\n        A = int(data[idx])\n        idx += 1\n        queries.append((T, A - 1))  # 0-based index for blocks\n\n    # Sort blocks by their initial y coordinate and then x\n    blocks.sort(key=lambda b: (b[1], b[0]))\n    \n    # For each block, determine the time it will be removed\n    remove_time = [0] * N\n    col_dict = dict()\n\n    # Create a list of events for each column\n    for i in range(N):\n        x, y, idx_block = blocks[i]\n        if x not in col_dict:\n            col_dict[x] = []\n        col_dict[x].append((y, i))  # Store (y, index) for each column\n    \n    # Process each column separately\n    for x in col_dict:\n        events = col_dict[x]\n        # Sort events by y in ascending order (earlier y first)\n        events.sort()\n        # Now, process in ascending order of y\n        # For each block, calculate how many blocks are below it (i.e., have lower y)\n        # This gives the number of times the block can fall\n        cnt = 0\n        for y, i in events:\n            # The block will be removed at time equal to the number of blocks in the column that are above it\n            # because each time, the bottom row is cleared, and blocks fall down\n            remove_time[i] = cnt\n            cnt += 1\n    \n    # Preprocess remove_time for each query\n    # Answer queries\n    output = []\n    for T, A in queries:\n        if T < remove_time[A]:\n            output.append(\"Yes\")\n        else:\n            output.append(\"No\")\n\n    print('\\n'.join(output))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

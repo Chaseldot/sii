@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772551042",
+  "question_index": 8,
+  "question_id": "25",
+  "split": "train",
+  "sample_id": 1,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 51.10175681114197,
+  "response": "```python\nimport sys\n\ndef solve():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    X = int(data[1])\n    U = []\n    D = []\n    for i in range(N):\n        U.append(int(data[2 + 2 * i]))\n        D.append(int(data[3 + 2 * i]))\n    \n    # For each tooth, the required H is U[i] + D[i], but we need a common H\n    # So we find all possible H values that could be achieved by adjusting the teeth\n    # The minimal cost can be found by trying all possible H in the range of the initial sums\n    \n    # Calculate the minimum and maximum possible H values based on the existing values\n    min_H = min(U[i] + D[i] for i in range(N))\n    max_H = max(U[i] + D[i] for i in range(N))\n    \n    # Precompute the possible H values and find the minimum cost\n    min_cost = float('inf')\n    \n    # Try each possible H between min_H and max_H\n    for H in range(min_H, max_H + 1):\n        cost = 0\n        prev_upper = None\n        valid = True\n        \n        for i in range(N):\n            # Calculate required upper and lower lengths to achieve H\n            required_upper = H - D[i]\n            required_lower = H - U[i]\n            \n            # Ensure both required values are non-negative (can't have negative teeth)\n            if required_upper < 0 or required_lower < 0:\n                valid = False\n                break\n            \n            # Check if the upper sequence meets the smoothness condition\n            if prev_upper is not None:\n                diff = abs(required_upper - prev_upper)\n                if diff > X:\n                    valid = False\n                    break\n            prev_upper = required_upper\n            \n            # Add the cost to grind the teeth to required lengths\n            cost += abs(required_upper - U[i]) + abs(required_lower - D[i])\n        \n        if valid:\n            min_cost = min(min_cost, cost)\n    \n    print(min_cost)\n\nsolve()\n```"
+}

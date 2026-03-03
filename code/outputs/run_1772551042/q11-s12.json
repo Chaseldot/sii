@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772551042",
+  "question_index": 11,
+  "question_id": "29",
+  "split": "train",
+  "sample_id": 12,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 15.016206502914429,
+  "response": "```python\nimport sys\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    \n    H = int(data[0])\n    W = int(data[1])\n    grid = data[2:2+H]\n    \n    # Convert each row to a list of integers\n    grid = [[int(c) for c in row] for row in grid]\n    \n    # Precompute the sum of each row\n    row_sums = [sum(row) for row in grid]\n    \n    # Since W is small (<=18), we can use bitmasking to try all possible column flips\n    min_total = float('inf')\n    \n    for mask in range(1 << W):\n        current_sum = 0\n        \n        # For each row, compute the number of 1s after flipping columns corresponding to the mask\n        for i in range(H):\n            row_sum = row_sums[i]\n            flip_count = bin(mask).count('1')\n            \n            # If the number of 1s in the row is less than half of W, it's better to flip the columns\n            if row_sum <= W // 2:\n                current_sum += (W - row_sum)\n            else:\n                current_sum += row_sum\n        \n        min_total = min(min_total, current_sum)\n    \n    print(min_total)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

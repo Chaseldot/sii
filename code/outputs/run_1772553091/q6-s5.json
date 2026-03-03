@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772553091",
+  "question_index": 6,
+  "question_id": "17",
+  "split": "train",
+  "sample_id": 5,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 9.859731674194336,
+  "response": "### 分析\n\n这道题要求我们对给定的字符串 `S` 进行多次操作，每次操作找到最左边的 `\"WA\"` 子串，将其替换为 `\"AC\"`。这个过程需要重复进行，直到字符串中不再包含 `\"WA\"`。\n\n**关键点：**\n\n1. **操作规则：**\n   - 每次操作都只处理最左侧出现的 `\"WA\"` 子串。\n   - 替换后，字符串可能产生新的 `\"WA\"` 子串。\n2. **边界情况：**\n   - 输入长度为 0 的字符串（但题目保证 S 由大写字母组成，因此可忽略）。\n   - 可能存在大量的 `\"WA\"` 子串，比如像 `\"WWWWW\"` 之类的字符串不会有任何替换。\n3. **效率：**\n   - 由于每一步操作可能改变字符串内容，因此不能简单使用字符串查找和替换函数（如 `replace()`），因为它会同时替换所有出现的 `\"WA\"`，而不是按照“从左到右”的顺序逐个替换。\n   - 所以我们需要一个高效的方式逐个处理每一个 `\"WA\"`。\n\n**算法思路：**\n- 使用一个指针 `i = 0` 遍历字符串。\n- 每次检查当前位置 `i` 和 `i+1` 是否为 `\"WA\"`，如果是，则将它们替换成 `\"AC\"`，并移动指针 `i` 到当前索引 + 2（跳过刚替换的两个字符）。\n- 如果不是 `\"WA\"`，则 `i += 1`。\n- 重复上述过程，直到 `i` 超出字符串长度或没有更进一步的 `\"WA\"`。\n\n这种贪心方式保证每次替换的是最先出现的 `\"WA\"`，从而满足题目要求，并且时间复杂度为 `O(n)`。\n\n---\n\n### 代码\n```python\ndef main():\n    import sys\n    input = sys.stdin.read\n    S = input().strip()\n    i = 0\n    while i < len(S) - 1:\n        if S[i] == 'W' and S[i+1] == 'A':\n            # Replace \"WA\" with \"AC\"\n            S = S[:i] + 'AC' + S[i+2:]\n            # After replacement, move back to the start of the string\n            # because previous characters may form new \"WA\"\n            i = 0\n        else:\n            i += 1\n    print(S)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

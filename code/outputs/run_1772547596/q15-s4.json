@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772547596",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 4,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 13.521157026290894,
+  "response": "### 分析\n1. **关键约束**\n   - N的范围是1到100，属于中等规模数据。\n   - 时间限制为1秒，这允许使用O(N^2)或更优的算法。\n   - 每个P_i的取值是1到100。\n\n2. **问题类型**\n   - 题目要求我们根据给定的分数数组P，确定每个人的排名。这是一个模拟排序和计数问题，核心是处理相同分数的人的排名。\n\n3. **数学公式或规律推导**\n   - 从描述可以看出，排名是按照分数从高到低分配的，并且相同分数的人得到相同的排名，而他们的排名之后的每个人名次会跳过相同分数的人数。\n   - 具体来说，对于当前未确定排名的群体，每次选择最高分，并将所有该分值的人赋予当前r值（即排名），然后将r加上该分值的人数。\n   - 例如，在样本输入1中，最高分是12，只有一个人，所以他的排名是1；接下来最高分是9，有两人，所以他们的排名是2，同时r变为4；最后仅剩一个3分的人，他的排名是4，r变为5。\n\n4. **算法设计思路**\n   - 我们可以使用一个优先队列（最大堆）来管理当前还没有被分配排名的分数。\n   - 将每个分数和它出现的次数一起保存，这样我们可以按分数从高到低进行处理。\n   - 使用一个数组来存储最终的排名结果。\n   - 每次从队列中取出当前最大分数，并将对应的人数分配相同的排名r，之后将r增加该人数。\n   - 只要存在未被分配排名的人，重复上述过程。\n   - 对于相同分数的人，我们记录他们出现的次数，并直接赋予相同的排名。\n\n5. **复杂度分析**\n   - 使用最大堆进行操作，时间复杂度为O(N log N)（因为每个元素最多进堆一次，出堆一次）。\n   - 此外，我们需要遍历整个数组以统计各分数的出现次数，这部分的时间复杂度为O(N)。\n   - 因此总的时间复杂度是O(N log N)，在N=100的情况下可以轻松满足时间限制。\n\n### 代码\n```python\nimport heapq\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:]))\n    \n    # 统计每个分数出现的次数\n    score_count = {}\n    for score in P:\n        if score in score_count:\n            score_count[score] += 1\n        else:\n            score_count[score] = 1\n    \n    # 构建最大堆（使用负数模拟）\n    max_heap = []\n    for score in score_count:\n        heapq.heappush(max_heap, -score)\n    \n    # 初始化排名 r 和结果数组\n    rank = 1\n    result = [0] * N\n    \n    # 处理每种分数\n    while max_heap:\n        current_score = -heapq.heappop(max_heap)\n        count = score_count[current_score]\n        # 找出所有具有当前分数的人的索引并分配排名\n        for i in range(N):\n            if P[i] == current_score and result[i] == 0:\n                result[i] = rank\n        rank += count\n    \n    # 输出结果\n    for r in result:\n        print(r)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772552001",
+  "question_index": 7,
+  "question_id": "20",
+  "split": "train",
+  "sample_id": 4,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 5.4809489250183105,
+  "response": "### 思路分析：\n\n- 题目要求我们从一个由数字组成的字符串中删除所有非 `2` 的字符，然后按照原顺序拼接剩下的字符，形成新的字符串。\n- 输入格式是一个仅包含数字的字符串 `S`。\n- 输出是处理后的字符串。\n- 根据约束条件：\n  - 输入长度为1到100之间。\n  - 输入至少有一个 `2`。\n- 因此我们可以直接遍历输入字符串，过滤出所有 `2` 字符，然后拼接起来即可。\n\n### 代码实现：\n\n下面是一个简单、直接且高效的实现方式：\n\n```python\n# Read input from standard input\nS = input().strip()\n\n# Filter the string to keep only '2's and concatenate them\nresult = ''.join([char for char in S if char == '2'])\n\n# Print the result\nprint(result)\n```\n\n### 示例验证：\n\n- **Sample Input 1**  \n  `20250222`  \n  Output: `22222`\n\n- **Sample Input 2**  \n  `2`  \n  Output: `2`\n\n- **Sample Input 3**  \n  `22222000111222222`  \n  Output: `22222222222`\n\n该程序能够高效处理所有符合条件的输入，并满足时间限制（1秒）。"
+}

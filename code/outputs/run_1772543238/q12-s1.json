@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772543238",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 1,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 3.8694891929626465,
+  "response": "To solve this problem, we need to check if there exists a subsequence of three or more consecutive elements that are the same in the given integer array.\n\n### Thought Process:\n- We will iterate through the array and compare each element with the next two elements.\n- If all three are equal, we immediately return `\"Yes\"`.\n- If we finish checking all possible triplets without finding such a sequence, we return `\"No\"`.\n\nThis solution is efficient since it only requires a single pass through the array, which ensures an O(N) time complexity. Since the constraints are small (N ≤ 100), even a brute-force approach is acceptable.\n\nNow, here is the complete Python code:\n\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three consecutive equal elements\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        print(\"Yes\")\n        exit()\n\n# If no triple found\nprint(\"No\")\n```"
+}

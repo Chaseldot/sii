@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772544084",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 15,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.809698820114136,
+  "response": "```python\n# 1. 深度解析\n# - 约束条件：N的范围是3到100，因此O(N)时间复杂度完全足够。\n# - 理论时间复杂度上限为O(N)，因为我们需要遍历整个序列一次。\n# - 特殊性分析：这问题不是经典的博弈论或组合数学问题，而是一个简单的线性扫描问题。我们可以直接检查每个元素是否与其后两个元素相同。\n\n# 2. 逻辑推演\n# - 数学推导过程：我们只需要依次检查数组中的每一个元素A[i]（i从0到N-3），看它是否等于A[i+1]且等于A[i+2]。\n# - DP状态转移方程：不需要DP，因为无需保存子问题解。我们只需逐个检查相邻三个元素。\n# - 边界情况处理方案：当N<3时不可能出现三个连续元素，但根据约束条件N≥3，所以无需处理该情况。对于N=3，只需比较所有三个元素。\n\n# 3. 高效实现\n# Python代码开始\nimport sys\n\ndef main():\n    # 读取输入\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    A = list(map(int, data[1:N+1]))\n    \n    # 遍历数组检查是否有三个连续相同的元素\n    for i in range(N - 2):\n        if A[i] == A[i + 1] and A[i + 1] == A[i + 2]:\n            print(\"Yes\")\n            return\n    \n    print(\"No\")\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

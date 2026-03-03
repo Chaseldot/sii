@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772553091",
+  "question_index": 6,
+  "question_id": "17",
+  "split": "train",
+  "sample_id": 10,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.603215932846069,
+  "response": "### 分析\n\n这道题要求我们处理一个由大写字母组成的字符串，并执行特定的操作：只要字符串中含有子串\"WA\"，就需要从最左边的\"WA\"开始替换为\"AC\"，直到没有\"WA\"为止。\n\n**关键点：**\n1. 每次操作必须替换左起第一个出现的\"WA\"。\n2. 由于每次替换后可能会影响后面的字符组合，我们需要逐个处理。\n3. 直到字符串中不再含有\"WA\"为止。\n4. 时间复杂度需要注意，因为字符串长度可以达到 $3 \\times 10^5$，因此不能使用暴力搜索每次都在原字符串中查找并替换，而是要采用更高效的方法。\n\n**算法思路：**\n- 使用一个指针从左到右扫描整个字符串。\n- 当发现当前字符和下一个字符是\"W\"和\"A\"时，则替换这两个字符为\"AC\"。\n- 替换之后，将指针回退一位，防止漏掉新产生或受影响的\"WA\"。\n- 这样，我们可以在一次遍历中完成所有替换操作，时间复杂度为 $O(n)$。\n\n### 代码\n```python\ndef main():\n    import sys\n    S = sys.stdin.readline().strip()\n    chars = list(S)\n    i = 0\n    while i < len(chars) - 1:\n        if chars[i] == 'W' and chars[i+1] == 'A':\n            chars[i] = 'A'\n            chars[i+1] = 'C'\n            i = max(i - 1, 0)  # 回退一位，避免漏掉新的 WA 或受影响的位置\n        else:\n            i += 1\n    print(''.join(chars))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

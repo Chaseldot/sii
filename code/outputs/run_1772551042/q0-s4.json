@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772551042",
+  "question_index": 0,
+  "question_id": "0",
+  "split": "train",
+  "sample_id": 4,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 26.620644330978394,
+  "response": "```python\nimport sys\nimport bisect\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    idx = 0\n    N = int(data[idx])\n    idx += 1\n    W = int(data[idx])\n    idx += 1\n    \n    pos = []\n    for _ in range(N):\n        x = int(data[idx])\n        idx += 1\n        y = int(data[idx])\n        idx += 1\n        pos.append((x, y))\n    \n    Q = int(data[idx])\n    idx += 1\n    \n    queries = []\n    for _ in range(Q):\n        t = int(data[idx])\n        idx += 1\n        a = int(data[idx])\n        idx += 1\n        queries.append((t, a - 1))\n    \n    # Group blocks by column\n    from collections import defaultdict\n    col_map = defaultdict(list)\n    for x, y in pos:\n        col_map[x].append(y)\n    \n    # Sort each column's y values\n    for x in col_map:\n        col_map[x].sort()\n    \n    # For each query, determine if the block survives\n    result = []\n    for t, a in queries:\n        x, y = pos[a]\n        ys = col_map[x]\n        # Number of blocks in this column with y < current y (i.e. blocks that are below it)\n        cnt = bisect.bisect_left(ys, y)\n        # If the number of blocks below is less than or equal to t, then the block is removed\n        if cnt <= t:\n            result.append(\"No\")\n        else:\n            result.append(\"Yes\")\n    \n    print(\"\\n\".join(result))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

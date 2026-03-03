@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772551042",
+  "question_index": 0,
+  "question_id": "0",
+  "split": "train",
+  "sample_id": 7,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 38.37089657783508,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    idx = 0\n    N = int(data[idx])\n    idx += 1\n    W = int(data[idx])\n    idx += 1\n    \n    blocks = []\n    for _ in range(N):\n        X = int(data[idx])\n        idx += 1\n        Y = int(data[idx])\n        idx += 1\n        blocks.append((X, Y))\n    \n    Q = int(data[idx])\n    idx += 1\n    \n    queries = []\n    for _ in range(Q):\n        T = int(data[idx])\n        idx += 1\n        A = int(data[idx]) - 1  # Convert to 0-based index\n        idx += 1\n        queries.append((T, A))\n    \n    # Sort blocks based on their initial Y position (bottom to top)\n    blocks.sort(key=lambda x: x[1])\n    \n    # For each block, determine if it exists at time T+0.5\n    results = []\n    for T, A in queries:\n        X, Y = blocks[A]\n        \n        # The total displacement is T steps downward\n        # Number of full rows cleared = floor((Y + T) / W)\n        # Final Y coordinate after falling\n        final_y = Y + T\n        final_y -= (final_y // W) * W\n        \n        # If final Y > 0, the block still exists at T+0.5\n        if final_y > 0:\n            results.append(\"Yes\")\n        else:\n            results.append(\"No\")\n    \n    print('\\n'.join(results))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

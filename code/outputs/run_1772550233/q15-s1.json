@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772550233",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 1,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 9.941296577453613,
+  "response": "```python\nimport sys\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    P = list(map(int, data[1:]))\n\n    # Create a list of tuples (-score, index, original index)\n    # Using negative score to simulate max-heap\n    heap = [(-P[i], i) for i in range(N)]\n    heapq.heapify(heap)\n\n    rank = [0] * N\n    current_rank = 1\n    determined = [False] * N\n\n    while heap:\n        neg_score, idx = heapq.heappop(heap)\n        score = -neg_score\n        if determined[idx]:\n            continue\n        # Find all people with the same score\n        group = []\n        while heap and -heap[0][0] == score:\n            neg_s, i = heapq.heappop(heap)\n            if not determined[i]:\n                group.append(i)\n        # Add the current idx to the group\n        group.append(idx)\n        # Assign rank to the group\n        for i in group:\n            rank[i] = current_rank\n        current_rank += len(group)\n        # Mark them as determined\n        for i in group:\n            determined[i] = True\n\n    for r in rank:\n        print(r)\n\nif __name__ == \"__main__\":\n    import heapq\n    main()\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772551042",
+  "question_index": 18,
+  "question_id": "64",
+  "split": "train",
+  "sample_id": 11,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 23.982109308242798,
+  "response": "```python\nimport sys\n\ndef solve():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    A = list(map(int, data[1:]))\n    \n    if all(x == 1 for x in A):\n        print(\"Yes\")\n        return\n    \n    # We need to find a string S such that we can perform operations to turn all A's into 1s.\n    # The operations allow us to change A_i and A_{i+1} to 1 by certain patterns.\n    # Let's greedily try to find positions where the operations can be applied.\n    # For each position i, check both possible operation patterns.\n    \n    i = 0\n    while i < N:\n        # Check first operation: S_i = 'A', S_{i+1} = 'R', S_{i+2} = 'C'\n        # This corresponds to A[i] = 0, A[i+1] = 1, A[i+2] = 1\n        if i + 2 < N:\n            if A[i] == 0 and A[i+1] == 1 and A[i+2] == 1:\n                A[i] = 1\n                A[i+1] = 1\n                i += 3\n                continue\n        \n        # Check second operation: S_{i+2} = 'A', S_{i+1} = 'R', S_i = 'C'\n        # This corresponds to A[i] = 1, A[i+1] = 1, A[i+2] = 0\n        if i + 2 < N:\n            if A[i] == 1 and A[i+1] == 1 and A[i+2] == 0:\n                A[i] = 1\n                A[i+1] = 1\n                i += 3\n                continue\n        \n        # Move to next position\n        i += 1\n    \n    if all(x == 1 for x in A):\n        print(\"Yes\")\n    else:\n        print(\"No\")\n\nsolve()\n```"
+}

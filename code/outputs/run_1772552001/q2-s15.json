@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772552001",
+  "question_index": 2,
+  "question_id": "4",
+  "split": "train",
+  "sample_id": 15,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 28.642115116119385,
+  "response": "```python\nMOD = 998244353\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    if len(data) < 3:\n        print(\"0\")\n        return\n    \n    N = int(data[0])\n    M = int(data[1])\n    S = data[2]\n    \n    # We'll use dp[i][j] to represent the number of strings of length i with LCS of length j\n    # We need to consider up to LCS length N\n    dp = [[0] * (N + 1) for _ in range(M + 1)]\n    dp[0][0] = 1\n    \n    for i in range(M):\n        for lcs_len in range(N + 1):\n            if dp[i][lcs_len] == 0:\n                continue\n            # Try adding each lowercase character 'a' to 'z'\n            for c in range(26):\n                new_lcs_len = lcs_len\n                # Try to match the current character with S to possibly increase LCS length\n                for pos in range(N):\n                    if S[pos] == chr(ord('a') + c):\n                        # If this character can extend the LCS, update the length\n                        new_lcs_len = max(new_lcs_len, lcs_len + 1)\n                        break\n                # Update dp[i+1][new_lcs_len]\n                dp[i+1][new_lcs_len] = (dp[i+1][new_lcs_len] + dp[i][lcs_len]) % MOD\n    \n    print(' '.join(map(str, dp[M])))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772543238",
+  "question_index": 3,
+  "question_id": "6",
+  "split": "train",
+  "sample_id": 1,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 4.700206279754639,
+  "response": "To solve this problem, we need to determine if any permutation of the given sequence of integers `A` can satisfy the condition `B_1 * B_2 = B_3`.\n\n### Approach:\n- Since the input is three integers, we can generate all permutations of these three integers.\n- For each permutation `(B_1, B_2, B_3)`, check if `B_1 * B_2 == B_3`.\n- If any permutation satisfies this condition, print \"Yes\"; otherwise, print \"No\".\n\n### Edge Cases to Consider:\n- All three numbers are 1: `1*1=1` → valid.\n- One of the numbers is zero: The product will be zero, so check if zero is in the list and can be represented as `B_3`.\n\n### Time Complexity:\n- There are only 6 possible permutations of 3 elements, so the time complexity is constant.\n\nHere is the complete Python code:\n\n```python\nfrom itertools import permutations\n\n# Read the input\nA = list(map(int, input().split()))\n\n# Generate all permutations of A\nfor perm in permutations(A):\n    B1, B2, B3 = perm\n    if B1 * B2 == B3:\n        print(\"Yes\")\n        exit()\n\nprint(\"No\")\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772552001",
+  "question_index": 7,
+  "question_id": "20",
+  "split": "train",
+  "sample_id": 2,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 4.611519813537598,
+  "response": "### 思路分析\n\n1. **输入输出格式**：\n   - 输入是一个包含数字字符的字符串 `S`。\n   - 输出是将字符串 `S` 中所有不是 `2` 的字符删除后，剩下的字符按原顺序拼接而成的字符串。\n\n2. **约束条件**：\n   - 字符串长度介于 1 到 100 之间。\n   - 字符串中至少包含一个 `2`，因此不需要处理空结果的情况。\n\n3. **解法思路**：\n   - 遍历字符串中的每个字符。\n   - 如果字符是 `'2'`，则保留该字符。\n   - 最终将所有保留的字符连接成一个新的字符串。\n\n4. **时间/空间复杂度**：\n   - 时间复杂度为 $O(n)$，其中 $n$ 是字符串 `S` 的长度。因为只需遍历一次字符串。\n   - 空间复杂度也是 $O(n)$，用于存储结果字符串。\n\n---\n\n### 完整代码\n\n```python\n# Read the input string\nS = input().strip()\n\n# Filter out characters that are not '2'\nresult = ''.join([char for char in S if char == '2'])\n\n# Print the result\nprint(result)\n```"
+}

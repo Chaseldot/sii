@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772553091",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 14,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 10.212805271148682,
+  "response": "### 分析\n\n我们需要根据每个人的得分来确定他们的排名。题目中定义的排名规则是：每次找到当前未被分配排名的人中得分最高的分数，并将所有得分等于该最高分的人设置为当前的排名值 `r`，然后将 `r` 增加这些人的数量。\n\n#### 关键点：\n- 每个人都有一个初始排名为“未确定”。\n- 从当前未确定排名的人员中找出最大分数。\n- 找到所有得分等于最大分数的人。\n- 将他们设置为当前的排名 `r`，然后 `r += k`（其中 `k` 是这些人的数量）。\n- 重复上述步骤直到所有人都有排名。\n\n#### 数据结构选择：\n- 使用一个数组或列表来存储每个人当前的排名状态（初始化为0表示未确定）。\n- 可以使用优先队列或者直接遍历的方式来管理当前的未定排名对象。\n- 因为 N 的最大值是100，所以即使使用简单的方法也可以高效完成。\n\n#### 步骤：\n1. 输入读取 N 和 P 列表。\n2. 初始化一个结果数组 rank，长度为 N，初始值为0。\n3. 维护一个集合或布尔数组来记录哪些人尚未被分配排名。\n4. 对于每一次迭代：\n   - 在未分配排名的人员中找出最高分数。\n   - 找出所有得分等于该最高分的人。\n   - 将这些人的 rank 设置为当前 r。\n   - 更新 r 的值为 `r + k`。\n5. 直到所有人获得排名。\n\n### 代码\n```python\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:N+1]))\n    \n    rank = [0] * N  # 存储每个人的排名，初始为0表示未确定\n    undetermined = [True] * N  # 标记是否未确定排名\n    \n    r = 1  # 当前排名\n    \n    while sum(undetermined) > 0:\n        max_score = -1\n        candidates = []\n        \n        # 找出所有未确定排名且分数最大的人的索引\n        for i in range(N):\n            if undetermined[i] and P[i] > max_score:\n                max_score = P[i]\n                candidates = [i]\n            elif undetermined[i] and P[i] == max_score:\n                candidates.append(i)\n        \n        # 分配排名\n        for idx in candidates:\n            rank[idx] = r\n            undetermined[idx] = False\n        \n        r += len(candidates)\n    \n    for i in range(N):\n        print(rank[i])\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

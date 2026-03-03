@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772550233",
+  "question_index": 11,
+  "question_id": "29",
+  "split": "train",
+  "sample_id": 10,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 40.23327040672302,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    H = int(data[0])\n    W = int(data[1])\n    grid = data[2:2+H]\n    \n    # Convert each row to a list of integers\n    for i in range(H):\n        grid[i] = [int(c) for c in grid[i]]\n    \n    # Precompute the sum for each row\n    row_sums = [sum(row) for row in grid]\n    \n    # Since W is small (up to 18), we can try all possible combinations of Y operations\n    # For each combination, calculate the optimal X operations\n    \n    min_total = float('inf')\n    \n    # Try all subsets of columns for Y operations (bitmask approach)\n    for mask in range(1 << W):\n        # Calculate the modified row sums efficiently\n        total = 0\n        for row in grid:\n            rs = 0\n            for j in range(W):\n                if (mask >> j) & 1:\n                    rs += 1 - row[j]\n                else:\n                    rs += row[j]\n            total += min(rs, H - rs)\n        \n        min_total = min(min_total, total)\n    \n    print(min_total)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

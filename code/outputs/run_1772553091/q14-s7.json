@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772553091",
+  "question_index": 14,
+  "question_id": "53",
+  "split": "train",
+  "sample_id": 7,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 10.964211702346802,
+  "response": "### 分析\n这个问题要求我们计算所有子数组的和的 K 次方之和，对一个大质数取模。给定 N 和 K 的范围（N 可达 2*1e5，K 最大为 10），直接暴力枚举所有子数组并计算其总和的 K 次方是不可行的，因为这样的复杂度是 O(N^2 * K)，对于 N=2e5 来说是完全无法通过的。\n\n因此我们需要一种更高效的策略：\n\n1. **观察子数组的特征**：\n   - 子数组 [l, r] 的总和可以表示为 `sum_{i=l}^{r} A[i]`\n   - 我们需要高效地遍历所有子数组，并快速得到其总和。\n\n2. **前缀和优化**：\n   - 使用前缀和数组 P，其中 $P[0] = 0$，$ P[i] = A_1 + A_2 + \\cdots + A_i $\n   - 那么子数组 [l, r] 的总和是 $P[r] - P[l-1]$\n\n3. **优化 K 次幂数的计算**：\n   - K 最大是 10，这使得我们可以利用动态规划或组合数学的方法来高效计算 $(a)^K$ 的值。\n   - 然后对所有可能的 (l, r) 对进行枚举，计算对应的 $sum^K$ 并累加。\n\n4. **时间复杂度控制**：\n   - 枚举所有可能的子数组是 O(N^2) 的。\n   - K 是很小的常数，因此每项的幂运算是可接受的。\n\n综上所述，我们可以使用前缀和数组快速得到任意子数组的和，然后遍历所有 (l, r) 数对，计算对应的 $sum^K$ 并累加到结果中。\n\n---\n\n### 代码\n```python\nMOD = 998244353\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    K = int(data[1])\n    A = list(map(int, data[2:2+N]))\n    \n    prefix_sum = [0] * (N + 1)\n    for i in range(1, N+1):\n        prefix_sum[i] = (prefix_sum[i-1] + A[i-1]) % MOD\n    \n    result = 0\n    for l in range(N):\n        current_sum = 0\n        for r in range(l, N):\n            current_sum = (current_sum + A[r]) % MOD\n            power = pow(current_sum, K, MOD)\n            result = (result + power) % MOD\n    \n    print(result)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

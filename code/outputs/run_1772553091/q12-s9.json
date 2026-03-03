@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772553091",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 9,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 8.819709062576294,
+  "response": "### 分析  \n之前的代码在输入读取部分出现了问题，导致 `rest` 列表可能不够长，从而在访问 `rest[:n]` 时引发 `IndexError`。此错误是因为输入格式不正确或解析方式有误。\n\n#### 输入格式说明：\n输入由两行组成：\n- 第一行是整数 `N`。\n- 第二行是 `N` 个整数的列表。\n\n因此，正确的做法是：\n1. 首先读取第一行作为整数 `N`。\n2. 然后读取第二行，并将其拆分成整数列表。\n3. 确保该列表的长度为 `N`，然后进行后续处理。\n\n我们重新编写代码以保证读取输入正确，避免索引越界错误。\n\n---\n\n### 代码\n```python\n# Read input\nn = int(input())\na = list(map(int, input().split()))\n\n# Check for three consecutive equal elements\nfound = False\nfor i in range(n - 2):\n    if a[i] == a[i + 1] == a[i + 2]:\n        found = True\n        break\n\nprint(\"Yes\" if found else \"No\")\n```"
+}

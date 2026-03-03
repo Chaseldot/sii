@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772544084",
+  "question_index": 3,
+  "question_id": "6",
+  "split": "train",
+  "sample_id": 10,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 5.276339769363403,
+  "response": "```python\n# Thought process:\n# 1. Depth Analysis:\n#    The constraints state that the input values are integers between 1 and 100, with N=3.\n#    This is a small problem, so even an O(N!) approach would be feasible.\n\n#    Since the input size is small, we can generate all permutations of A and check if any permutation satisfies B_1 * B_2 = B_3.\n\n# 2. Logic Deduction:\n#    We need to check all possible permutations of the given array A. There are 3! = 6 permutations.\n#    For each permutation, we check whether the first two elements multiplied together equal the third element.\n#    If any permutation satisfies this condition, we output \"Yes\"; otherwise, we output \"No\".\n\n# 3. Efficient Implementation:\n#    Use itertools.permutations to generate all possible permutations of A.\n#    Iterate through each permutation and check the condition. If found, print \"Yes\" and exit; else, after checking all permutations, print \"No\".\n\nimport sys\nfrom itertools import permutations\n\ndef main():\n    # Read input from stdin\n    A = list(map(int, sys.stdin.readline().split()))\n    \n    # Check all permutations\n    for perm in permutations(A):\n        if perm[0] * perm[1] == perm[2]:\n            print(\"Yes\")\n            return\n    \n    # If no permutation satisfies the condition\n    print(\"No\")\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772552001",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 15,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 8.018579721450806,
+  "response": "### Step 1: Understand the Problem\nWe are given a positive integer `A` and need to find a positive integer `B` such that the product of `A` and `B` is exactly 400. If no such `B` exists, we return `-1`.\n\n- **Constraints**:\n  - `A` is between 1 and 400 (inclusive).\n- **Goal**:\n  - Find `B` such that `A * B = 400`, and if it exists, output `B`. Otherwise, output `-1`.\n\n---\n\n### Step 2: Think about the Solution\nThis problem can be solved by checking which divisors of 400 are equal to `A`. So:\n\n1. We can iterate over all possible values of `B` such that `B` divides 400.\n2. For each such `B`, check whether `A * B = 400`.\n3. If such a `B` exists, return it, else return `-1`.\n\nAlternatively, we can directly compute `B = 400 // A` and check if `A * B == 400`.\n\n---\n\n### Step 3: Write the Code\n\n```python\n# Read input\nA = int(input())\n\n# Calculate B using division\nB = 400 // A\n\n# Check if A * B equals 400\nif A * B == 400:\n    print(B)\nelse:\n    print(-1)\n```\n\n---\n\n### Explanation\n- We calculate `B = 400 // A` since this gives us the value of `B` such that `A * B = 400` when divisible.\n- If it is actually divisible (i.e., if `A` is a divisor of 400), then we print `B`, otherwise, we print `-1`.\n\nThis solution has a time complexity of **O(1)** as it requires only one calculation, and space complexity is also **O(1)**.\n\nThis code should work for all valid inputs within the constraints."
+}

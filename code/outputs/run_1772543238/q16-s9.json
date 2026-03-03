@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772543238",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 9,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.114380121231079,
+  "response": "To solve this problem, we need to find a positive integer `B` such that the product of `A` (rows) and `B` (columns) equals 400. This means that `B` must be a divisor of 400.\n\n### Approach:\n1. **Understand the Problem**: We are given an integer `A`, and we need to determine if there exists a positive integer `B` such that `A * B = 400`. If such a `B` exists, we print it; otherwise, we print `-1`.\n2. **Divisors of 400**: To find `B`, we check if `400 % A == 0`. If so, then `B = 400 // A`. If not, then there is no such `B`.\n3. **Edge Cases**: \n   - If `A` is 0 (but according to constraints, `A` is between 1 and 400), so we don't need to handle this.\n   - If `A` is 400, then `B = 1`.\n\n### Solution Code:\n```python\n# Read input\nA = int(input())\n\n# Check if A divides 400 evenly\nif 400 % A == 0:\n    B = 400 // A\n    print(B)\nelse:\n    print(-1)\n```\n\n### Explanation:\n- We first read the value of `A` from standard input.\n- Then, we check whether `A` divides 400 exactly. If it does, we calculate `B` as `400 // A` and print it.\n- If it does not divide evenly, we print `-1`.\n\nThis solution is efficient with constant time complexity $O(1)$ and handles all edge cases within the constraints."
+}

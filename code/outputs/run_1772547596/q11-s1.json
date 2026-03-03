@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772547596",
+  "question_index": 11,
+  "question_id": "29",
+  "split": "train",
+  "sample_id": 1,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 52.380475997924805,
+  "response": "### 错误分析及改进方案\n在之前的代码中，出现了一个 `NameError: name 'bin' is not defined` 的错误。这是因为我们在使用 `bin()` 函数时，忘记导入相应的模块或是在某些环境中该函数不可用。\n\n实际上，`bin` 是 Python 内置函数，在所有标准 Python 环境中都可以直接使用。因此，这个错误可能是由于某些特定环境下的问题（比如某些在线评测系统可能限制了某些功能）所致。\n\n为确保代码的健壮性和兼容性，我们可以通过将整数转换为二进制字符串的方式进行替代处理，或是确认 `bin()` 是否可用。\n\n此外，考虑到性能优化，我们可以采用位运算操作来统计每一位是否为 1，而不使用 `bin()`。\n\n---\n\n### 代码\n```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    H = int(data[0])\n    W = int(data[1])\n    \n    grid = []\n    for i in range(H):\n        row = data[2 + i]\n        grid.append([int(c) for c in row])\n    \n    min_sum = float('inf')\n    \n    # Convert each row to an integer bitmask for fast operations\n    row_bits = []\n    for i in range(H):\n        mask = 0\n        for j in range(W):\n            mask = (mask << 1) | grid[i][j]\n        row_bits.append(mask)\n    \n    # Try all possible column flip patterns (using bitmasks for efficiency)\n    for col_mask in range(1 << W):\n        total = 0\n        for row_bit in row_bits:\n            # Compute the current row after applying column flips\n            flipped_row = row_bit ^ col_mask\n            \n            # Count number of 1s in the flipped row\n            ones = 0\n            tmp = flipped_row\n            for _ in range(W):\n                ones += tmp & 1\n                tmp >>= 1\n            \n            # Decide whether to flip the row to minimize sum\n            if ones > (W - ones):\n                total += (W - ones)\n            else:\n                total += ones\n        \n        min_sum = min(min_sum, total)\n    \n    print(min_sum)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

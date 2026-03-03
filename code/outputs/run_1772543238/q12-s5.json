@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772543238",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 5,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 3.684875011444092,
+  "response": "To solve this problem, we need to check whether there is a place in the sequence where the same element appears **three or more times consecutively**. \n\n### Approach:\n1. Iterate through the list from index `0` to `N-3` (since we are checking triples).\n2. For each index `i`, compare `A[i]`, `A[i+1]`, and `A[i+2]`.\n3. If all three elements are equal, print \"Yes\" and terminate the program.\n4. If no such triple is found by the end of the loop, print \"No\".\n\nThis approach runs in O(N) time complexity, which is efficient given the constraints (N ≤ 100).\n\nHere is the complete code:\n\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three consecutive equal elements\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        print(\"Yes\")\n        exit()\n\nprint(\"No\")\n```"
+}

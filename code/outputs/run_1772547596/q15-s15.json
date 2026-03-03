@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772547596",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 15,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 11.442235469818115,
+  "response": "### 分析\n这道题的核心在于模拟排名的确定过程。题目中描述了一种特别的排名规则：每次找出当前未确定排名的所有人中得分最高的一组，这些人的排名是当前的 `r` 值，然后将 `r` 增加这个组的人数。\n\n**关键约束分析：**\n- N 的范围是 1 到 100，表明数据规模较小。\n- 每个 P_i 的范围是 1 到 100，也可以通过常规遍历处理。\n\n**问题类型分析：**\n本题属于模拟类问题，需要按照题目中的步骤逐步处理每个人的排名，直到所有人的排名都确定。\n\n**规律推导：**\n- 初始化变量 `r = 1`。\n- 每一次操作：\n  - 找出当前未确定排名的人中最大得分值。\n  - 统计有多少人的得分等于该最大值。\n  - 这些人的排名是当前的 `r`。\n  - 随后，`r` 增大这个人数（即 $ r += k $）。\n- 重复此操作，直到所有人获得排名。\n\n**算法设计：**\n- 使用一个数组或者字典来保存每个人是否已经获得排名。\n- 用优先队列或排序方法找出当前未确定的最高分组。\n- 每次找到一组具有相同最大分数的人，设定他们的排名为当前的 `r`。\n- 将 `r` 累加该组的人数更新为下一个组的起始排名。\n\n**复杂度分析：**\n- 最坏情况下，每次都要扫描所有 N 个人来确定最大值和其出现次数。\n- 总共有最多 N 次这样的操作。\n- 故总的时间复杂度为 $ O(N^2) $，对于 N=100 是完全可以接受的。\n\n### 代码\n```python\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    scores = list(map(int, data[1:N+1]))\n    \n    # Initialize the rank for each person\n    ranks = [0] * N\n    \n    # Track which people have been assigned a rank\n    assigned = [False] * N\n    \n    r = 1\n    \n    while True:\n        # Find the maximum score among unassigned people\n        max_score = -1\n        for i in range(N):\n            if not assigned[i] and scores[i] > max_score:\n                max_score = scores[i]\n        \n        if max_score == -1:\n            break  # All people have been assigned a rank\n        \n        # Find all people with this max score and are unassigned\n        count = 0\n        for i in range(N):\n            if not assigned[i] and scores[i] == max_score:\n                count += 1\n        \n        # Assign rank r to all these people\n        for i in range(N):\n            if not assigned[i] and scores[i] == max_score:\n                ranks[i] = r\n                assigned[i] = True\n        \n        r += count\n    \n    # Print the ranks\n    for rank in ranks:\n        print(rank)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

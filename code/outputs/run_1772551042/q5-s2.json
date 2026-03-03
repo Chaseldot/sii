@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772551042",
+  "question_index": 5,
+  "question_id": "13",
+  "split": "train",
+  "sample_id": 2,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 18.95253276824951,
+  "response": "```python\nimport sys\nimport bisect\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    Q = int(data[1])\n    A = list(map(int, data[2:2+N]))\n    \n    # Preprocess the minimum values up to each index\n    min_vals = [0] * (N + 1)\n    min_val = float('inf')\n    for i in range(1, N + 1):\n        min_val = min(min_val, A[i - 1])\n        min_vals[i] = min_val\n    \n    # Precompute for each position the length of LIS ending at that position\n    # using a binary search approach\n    # We will build a list for each prefix of the array\n    lis_prefix = [[] for _ in range(N+1)]\n    for i in range(1, N+1):\n        current_lis = lis_prefix[i-1].copy()\n        num = A[i-1]\n        idx = bisect.bisect_left(current_lis, num)\n        if idx == len(current_lis):\n            current_lis.append(num)\n        else:\n            current_lis[idx] = num\n        lis_prefix[i] = current_lis\n    \n    # For each query, we need to find the maximum length of strictly increasing subsequence\n    # with elements <= X_i in the first R_i elements\n    output = []\n    for i in range(Q):\n        R = int(data[2 + N + 2*i])\n        X = int(data[3 + N + 2*i])\n        # Get the LIS list for the first R elements\n        lis_list = lis_prefix[R]\n        # Find the maximum length such that the last element is <= X\n        max_len = 0\n        left, right = 0, len(lis_list) - 1\n        while left <= right:\n            mid = (left + right) // 2\n            if lis_list[mid] <= X:\n                max_len = mid + 1\n                left = mid + 1\n            else:\n                right = mid - 1\n        output.append(str(max_len))\n    \n    print('\\n'.join(output))\n\nif __name__ == '__main__':\n    main()\n```"
+}

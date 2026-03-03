@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772550233",
+  "question_index": 18,
+  "question_id": "64",
+  "split": "train",
+  "sample_id": 4,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 39.89867353439331,
+  "response": "```python\nimport sys\n\ndef solve():\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    A = list(map(int, data[1:]))\n    \n    if all(a == 1 for a in A):\n        print(\"Yes\")\n        return\n    \n    # The key is to find a string S such that it allows us to perform the operations\n    # to convert all A[i] to 1. We need to simulate this process.\n    \n    # Try constructing S with alternating characters (e.g., 'R' and 'C') and check if it works.\n    # This strategy aims to create the patterns needed for the two operations.\n    S = []\n    for i in range(N):\n        if i % 2 == 0:\n            S.append('R')\n        else:\n            S.append('C')\n    \n    # Create a copy of A to modify during simulation\n    A = A[:]\n    \n    # Perform the operations as per the rules\n    for i in range(N):\n        # First operation: Look for pattern A R C\n        if S[i] == 'A' and S[(i + 1) % N] == 'R' and S[(i + 2) % N] == 'C':\n            if A[i] == 0 and A[(i + 1) % N] == 0:\n                A[i] = 1\n                A[(i + 1) % N] = 1\n        \n        # Second operation: Look for pattern C R A\n        if S[i] == 'C' and S[(i + 1) % N] == 'R' and S[(i + 2) % N] == 'A':\n            if A[i] == 0 and A[(i + 1) % N] == 0:\n                A[i] = 1\n                A[(i + 1) % N] = 1\n    \n    if all(a == 1 for a in A):\n        print(\"Yes\")\n    else:\n        print(\"No\")\n\nsolve()\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772553091",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 2,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 4.5224668979644775,
+  "response": "### 分析\n我们需要判断一个整数序列是否包含连续三个或更多相同元素的情况。根据题目条件，我们可以遍历数组，检查每一个元素及其后两个元素是否相等。\n\n具体步骤如下：\n1. 遍历数组，从第一个元素到倒数第三个元素。\n2. 对于每个位置i，比较A[i]、A[i+1]和A[i+2]是否相等。\n3. 如果有任意一组满足条件，则输出\"**Yes**\"。\n4. 如果遍历完都没有找到符合条件的三连元素，则输出\"**No**\"。\n\n该算法的时间复杂度是O(N)，其中N是序列长度。在给定的约束条件下（N最大为100），这种时间复杂度完全可以满足要求。\n\n### 代码\n```python\n# Read the input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three consecutive equal elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        found = True\n        break\n\n# Output the result\nprint(\"Yes\" if found else \"No\")\n```"
+}

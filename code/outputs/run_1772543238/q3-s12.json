@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772543238",
+  "question_index": 3,
+  "question_id": "6",
+  "split": "train",
+  "sample_id": 12,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 4.8780858516693115,
+  "response": "To solve this problem, we need to check if any permutation of the given sequence `A = (A_1, A_2, A_3)` can satisfy the condition:\n\n$$ B_1 \\times B_2 = B_3 $$\n\nWhere $ B $ is a permutation of $ A $.\n\n### Thought Process:\n- Since there are only 3 elements in the list and we're checking permutations, there are only $ 3! = 6 $ possible permutations.\n- For each permutation, we can check whether the product of the first two elements equals the third.\n- We can generate all permutations using the itertools.permutations function.\n- If any permutation satisfies the condition, we print \"Yes\", otherwise we print \"No\".\n\n### Edge Cases Considered:\n- All inputs are positive integers within the range [1, 100].\n- Some combinations might have zero or negative products which would not match any other element in the list, but since the input constraints ensure all values are between 1 and 100, we don't need to handle such cases here.\n\n### Final Python Code:\n\n```python\nimport sys\nfrom itertools import permutations\n\n# Read input\nA = list(map(int, sys.stdin.readline().split()))\n\n# Check if any permutation of A satisfies B1 * B2 == B3\nfor perm in permutations(A):\n    if perm[0] * perm[1] == perm[2]:\n        print(\"Yes\")\n        exit()\n\nprint(\"No\")\n```"
+}

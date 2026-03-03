@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772543238",
+  "question_index": 6,
+  "question_id": "17",
+  "split": "train",
+  "sample_id": 8,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 7.630658864974976,
+  "response": "To solve this problem, we need to repeatedly replace the leftmost occurrence of `\"WA\"` with `\"AC\"` in the input string until there are no more `\"WA\"` substrings left.\n\n### Key Points:\n1. The replacement must always target the **leftmost** occurrence of `\"WA\"`.\n2. After replacing a substring, the resulting string may have new `\"WA\"` substrings formed due to the replacement.\n3. For efficiency, especially considering the constraints (string can be up to $3 \\times 10^5$ characters), we must avoid scanning the entire string from scratch after each replacement.\n\n### Efficient Approach:\nWe can simulate the process using a `StringBuilder`-like approach with a list and pointers:\n- Traverse the string character by character.\n- When we find a `\"WA\"` at positions `i` and `i+1`, replace both with `\"AC\"`.\n- Move the index forward by 2 since we've processed those two characters.\n- If `\"WA\"` is not found at the current position, just move the index forward by 1.\n\nThis ensures that we always replace the **leftmost** occurrence of `\"WA\"` in one pass.\n\nHere’s the complete code:\n\n```python\ndef main():\n    import sys\n    input = sys.stdin.read\n    S = input().strip()\n    \n    chars = list(S)\n    i = 0\n    n = len(chars)\n    \n    while i < n - 1:\n        if chars[i] == 'W' and chars[i + 1] == 'A':\n            # Replace \"WA\" with \"AC\"\n            chars[i] = 'A'\n            chars[i + 1] = 'C'\n            i += 2\n        else:\n            i += 1\n    \n    print(''.join(chars))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

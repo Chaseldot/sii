@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772553091",
+  "question_index": 10,
+  "question_id": "28",
+  "split": "train",
+  "sample_id": 12,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 28.076590538024902,
+  "response": "### 修正分析\n\n错误提示指出：\n> `TypeError: 'float' object does not support item assignment`\n\n原因是：在 Python 中使用了 `dist = [INF] * (N + 1) * 2`，这实际上是将一个列表（长度为 $2 \\times (N+1)$）初始化为浮点数 `INF`，而我们尝试将其作为二维数组来访问（比如 `dist[state][u]`），但实际上它是一个一维数组。\n\n因此，我们应该用一个二维数组来存储状态（0、1）下每个节点的最短距离。\n\n---\n\n### 修正代码\n\n```python\nimport sys\nimport heapq\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    M = int(data[1])\n    X = int(data[2])\n    \n    # Build original and reversed adjacency lists\n    edges = [[] for _ in range(N + 1)]\n    reversed_edges = [[] for _ in range(N + 1)]\n    \n    index = 3\n    for _ in range(M):\n        u = int(data[index])\n        v = int(data[index + 1])\n        edges[u].append(v)\n        reversed_edges[v].append(u)\n        index += 2\n    \n    INF = float('inf')\n    # dist[state][u]: state=0 means no reverse, state=1 means after reversing\n    dist = [[INF] * (N + 1) for _ in range(2)]\n    \n    # Start at node 1 with state 0 (no reverse)\n    dist[0][1] = 0\n    heap = [(0, 1, 0)]  # (cost, node, state)\n    \n    while heap:\n        cost, u, state = heapq.heappop(heap)\n        \n        if dist[state][u] < cost:\n            continue\n        \n        # Move along the current edges\n        for v in edges[u] if state == 0 else reversed_edges[u]:\n            if dist[state][v] > cost + 1:\n                dist[state][v] = cost + 1\n                heapq.heappush(heap, (dist[state][v], v, state))\n        \n        # Reverse edges (change state)\n        if dist[1 - state][u] > cost + X:\n            dist[1 - state][u] = cost + X\n            heapq.heappush(heap, (dist[1 - state][u], u, 1 - state))\n    \n    print(min(dist[0][N], dist[1][N]))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772547596",
+  "question_index": 3,
+  "question_id": "6",
+  "split": "train",
+  "sample_id": 1,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 6.7433977127075195,
+  "response": "### 分析\n这道题要求我们判断是否存在一个排列 $ B = (B_1, B_2, B_3) $，使得 $ B_1 \\times B_2 = B_3 $，其中 $ B $ 是给定数组 $ A = (A_1, A_2, A_3) $ 的任意排列。\n\n#### 问题类型与关键约束\n- **问题类型**：组合数学 + 枚举检查。\n- **关键约束**：\n  - 输入的三个数均为 $ 1 \\leq x \\leq 100 $。\n  - 只需要枚举所有可能的排列，判断是否存在满足条件的一个即可。\n\n由于输入只有三个元素，总的排列数为 $ 3! = 6 $，所以直接暴力枚举是完全可行的，时间复杂度非常低。\n\n#### 算法设计\n为了检查所有可能的排列是否满足 $ B_1 \\times B_2 = B_3 $，可以：\n1. 生成所有可能的排列（共 6 种）。\n2. 对每个排列，检查是否满足等式 $ B_1 \\times B_2 = B_3 $。\n3. 如果至少存在一种排列满足，则输出 \"Yes\"；否则输出 \"No\"。\n\n#### 复杂度分析\n- 时间复杂度：每个排列判断只需常数时间，且总共有 6 种排列，因此总时间复杂度为 $ O(1) $。\n- 空间复杂度：使用额外变量存储排列和值，复杂度也为 $ O(1) $。\n\n综上所述，算法简单直接，可以高效地解决问题。\n\n---\n\n### 代码\n```python\nfrom itertools import permutations\n\n# Read input\nA = list(map(int, input().split()))\n\n# Check all permutations of A\nfor perm in permutations(A):\n    if perm[0] * perm[1] == perm[2]:\n        print(\"Yes\")\n        break\nelse:\n    print(\"No\")\n```"
+}

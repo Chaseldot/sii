@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772543238",
+  "question_index": 12,
+  "question_id": "35",
+  "split": "train",
+  "sample_id": 9,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 4.977054595947266,
+  "response": "To solve this problem, we need to check if there are three or more consecutive equal elements in the given list. We can iterate through the list and compare each element with the next two elements to see if they are all the same.\n\n### Steps:\n1. Read the input values.\n2. Iterate from the start of the list up to the third last element.\n3. For each index `i`, check if the element at `i`, `i+1`, and `i+2` are the same.\n4. If such a triplet is found, print `\"Yes\"` and exit.\n5. If no such triplet is found after checking all possible triplets, print `\"No\"`.\n\nThis approach ensures that we efficiently check all triplets in linear time, which is well within the constraints of the problem.\n\nHere's the complete code:\n\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check for three consecutive equal elements\nfound = False\nfor i in range(N - 2):\n    if A[i] == A[i + 1] == A[i + 2]:\n        found = True\n        break\n\n# Output the result\nprint(\"Yes\" if found else \"No\")\n```"
+}

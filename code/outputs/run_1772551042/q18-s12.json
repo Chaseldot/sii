@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772551042",
+  "question_index": 18,
+  "question_id": "64",
+  "split": "train",
+  "sample_id": 12,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 30.340134382247925,
+  "response": "```python\nimport sys\n\ndef solve():\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    A = list(map(int, data[1:N+1]))\n    \n    if all(a == 1 for a in A):\n        print(\"Yes\")\n        return\n    \n    # Check if it's possible to convert all 0s to 1s using the operations\n    # We can try all possible combinations of characters for the first three positions\n    # and simulate whether we can eliminate all 0s.\n    \n    from itertools import product\n    \n    # Try all possible combinations for the first three characters\n    for first_three in product('ABCDEFGHIJKLMNOPQRSTUVWXYZ', repeat=3):\n        # Build the string by repeating the pattern as needed\n        S = ''.join(first_three) * (N // 3 + 1)\n        S = S[:N]\n        \n        # Simulate applying operations until no more changes are possible\n        A_copy = A[:]\n        changed = True\n        while changed:\n            changed = False\n            for i in range(N):\n                # First operation: S_i = A, S_{i+1} = R, S_{i+2} = C\n                if i + 2 < N and S[i] == 'A' and S[i+1] == 'R' and S[i+2] == 'C':\n                    if A_copy[i] == 0 and A_copy[i+1] == 0:\n                        A_copy[i] = 1\n                        A_copy[i+1] = 1\n                        changed = True\n                # Second operation: S_{i+2} = A, S_{i+1} = R, S_i = C\n                if i - 2 >= 0 and S[i-2] == 'A' and S[i-1] == 'R' and S[i] == 'C':\n                    if A_copy[i-2] == 0 and A_copy[i-1] == 0:\n                        A_copy[i-2] = 1\n                        A_copy[i-1] = 1\n                        changed = True\n        \n        if all(a == 1 for a in A_copy):\n            print(\"Yes\")\n            return\n    \n    print(\"No\")\n\nif __name__ == \"__main__\":\n    solve()\n```"
+}

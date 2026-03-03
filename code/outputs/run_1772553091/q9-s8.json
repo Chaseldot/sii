@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772553091",
+  "question_index": 9,
+  "question_id": "27",
+  "split": "train",
+  "sample_id": 8,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 7.896463632583618,
+  "response": "### 分析\n我们需要判断一个整数序列是否是**严格递增**的，即对于所有的 $ i $，满足 $ A_i < A_{i+1} $。这可以通过遍历数组并比较每一对相邻元素来实现。\n\n- **输入格式**：第一行是整数 $ N $，第二行是 $ N $ 个整数构成的序列。\n- **输出格式**：如果序列是严格递增的则输出 \"Yes\"，否则输出 \"No\"。\n- **约束条件**：\n  - $ 2 \\leq N \\leq 100 $\n  - 每个 $ A_i $ 在 $ 1 $ 到 $ 1000 $ 之间。\n- **时间复杂度**：我们只需要一次遍历即可判断，时间复杂度为 $ O(N) $，这在题目给定的限制下是完全可行的。\n\n处理步骤如下：\n1. 读取输入，解析出 $ N $ 和数组 $ A $。\n2. 遍历数组，检查每一对相邻元素是否满足 $ A[i] < A[i+1] $。\n3. 如果所有相邻对都满足，则输出 \"Yes\"；否则输出 \"No\"。\n\n---\n\n### 代码\n```python\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Check if the sequence is strictly increasing\nis_strictly_increasing = True\nfor i in range(N - 1):\n    if A[i] >= A[i + 1]:\n        is_strictly_increasing = False\n        break\n\n# Output the result\nprint(\"Yes\" if is_strictly_increasing else \"No\")\n```"
+}

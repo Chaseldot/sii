@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772552001",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 3,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 8.999958753585815,
+  "response": "### 思路分析\n\n这道题要求根据每个人的成绩为每位参赛者分配一个等级。等级的分配规则如下：\n\n- 初始化变量 `r = 1` 表示当前的等级。\n- 每次找出所有未被分配等级的人中最大的成绩及其出现次数 `k`。\n- 将拥有该最大成绩的人的等级设置为当前的 `r`，并且将 `r` 增加 `k`。\n\n关键点是每次处理时都要从剩余的人中找出最大的成绩，并记录哪些人具有这个成绩。然后将其全部设置相同的等级，并更新 `r`。这一过程需要重复，直到所有人都被分配了等级。\n\n我们可以通过以下步骤实现：\n1. **读取输入**：获取人数 `N` 和每个人的得分数组。\n2. **初始化数据结构**：使用一个数组 `rank` 来存储每个人对应的等级。\n3. **主循环**：\n   - 找出所有未被分配等级的人中的最高分。\n   - 找到所有得分等于最高分的人（这些人的等级尚未确定）。\n   - 将他们的等级设为当前的 `r`，并将 `r` 更新。\n4. **输出结果**：打印每个人对应的等级。\n\n### 代码实现\n\n```python\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:]))\n    rank = [0] * N\n    \n    # 创建一个数组表示是否已被分配等级\n    assigned = [False] * N\n    \n    r = 1\n    while sum(assigned) < N:\n        max_score = -1\n        indices = []\n        # 找出当前未分配等级的人中的最高分\n        for i in range(N):\n            if not assigned[i] and P[i] > max_score:\n                max_score = P[i]\n                indices = [i]\n            elif not assigned[i] and P[i] == max_score:\n                indices.append(i)\n        \n        # 分配等级\n        for idx in indices:\n            rank[idx] = r\n        r += len(indices)\n        # 标记这些人为已分配等级\n        for idx in indices:\n            assigned[idx] = True\n    \n    # 输出每个人的等级\n    for i in range(N):\n        print(rank[i])\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

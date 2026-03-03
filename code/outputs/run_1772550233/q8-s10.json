@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772550233",
+  "question_index": 8,
+  "question_id": "25",
+  "split": "train",
+  "sample_id": 10,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 47.43052554130554,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    X = int(data[1])\n    \n    U = []\n    D = []\n    for i in range(N):\n        U_i = int(data[2 + 2*i])\n        D_i = int(data[2 + 2*i + 1])\n        U.append(U_i)\n        D.append(D_i)\n    \n    U.sort()\n    D.sort()\n    \n    min_cost = float('inf')\n    \n    # Try each possible H based on the sorted U and D array\n    for i in range(N):\n        H = U[i] + D[N - 1 - i]\n        cost = 0\n        for j in range(N):\n            target_U = H - D[j]\n            if U[j] > target_U:\n                cost += U[j] - target_U\n            target_D = H - U[j]\n            if D[j] > target_D:\n                cost += D[j] - target_D\n        min_cost = min(min_cost, cost)\n    \n    print(min_cost)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

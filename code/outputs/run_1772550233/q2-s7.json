@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772550233",
+  "question_index": 2,
+  "question_id": "4",
+  "split": "train",
+  "sample_id": 7,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 20.723686456680298,
+  "response": "```python\nimport sys\n\nMOD = 998244353\n\ndef main():\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    M = int(data[1])\n    S = data[2]\n    \n    # dp[i][j]: number of ways to form a string of length j with LCS length i\n    dp = [[0] * (M + 1) for _ in range(N + 1)]\n    dp[0][0] = 1  # Base case: empty string has LCS 0 with empty string\n    \n    for c in S:\n        new_dp = [[0] * (M + 1) for _ in range(N + 1)]\n        for i in range(N + 1):\n            for j in range(M + 1):\n                # Case 1: current character is not c\n                # We can add any other character, and the LCS remains the same\n                new_dp[i][j] = (new_dp[i][j] + dp[i][j] * 25) % MOD\n                # Case 2: current character is c\n                # We can add this character and try to extend LCS\n                if i < N:\n                    new_dp[i + 1][j + 1] = (new_dp[i + 1][j + 1] + dp[i][j]) % MOD\n        dp = new_dp\n    \n    # Calculate answers for k=0 to N\n    ans = [0] * (N + 1)\n    for k in range(N + 1):\n        total = 0\n        for j in range(k, M + 1):\n            total = (total + dp[k][j]) % MOD\n        ans[k] = total\n    \n    print(' '.join(map(str, ans)))\n\nif __name__ == '__main__':\n    main()\n```"
+}

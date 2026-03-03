@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772553091",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 6,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 9.285214185714722,
+  "response": "### 分析\n\n根据题目描述，我们需要确定每个参赛者的排名。排名规则是：依次找到当前未被确定排名的人中最高分的那些人，并将它们的排名设为当前的 `r`，然后 `r` 增加该组人数。\n\n具体步骤如下：\n1. 初始时所有人的排名都是未知的，变量 r 初始化为 1。\n2. 每次找出当前未被确定排名的人中最高的分数 x，统计有多少人取得这个分数（记为 k）。\n3. 将这 k 个人的排名设置为 r，然后更新 r = r + k。\n4. 直到所有的排名都被确定为止。\n\n为了实现这一算法，我们可以使用一个优先队列（堆）来管理当前可排序的人，并同时记录哪些人已经被排序。我们也可以用一个列表来保存每个人的排名，初始化为 None 或 0。\n\n由于 N 的范围比较小（最大 100），时间复杂度不是问题，完全可以用 O(N^2) 的方法实现。\n\n---\n\n### 代码\n```python\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:]))\n    \n    ranks = [0] * N  # 存储每个人对应的排名\n    used = [False] * N  # 标记是否已经确定排名\n    \n    r = 1  # 当前排名\n    \n    while True:\n        max_score = -1\n        count = 0\n        indices = []\n        \n        # 找出当前未确定排名中最大的分数和对应的索引\n        for i in range(N):\n            if not used[i] and P[i] > max_score:\n                max_score = P[i]\n                count = 1\n                indices = [i]\n            elif not used[i] and P[i] == max_score:\n                count += 1\n                indices.append(i)\n        \n        # 如果没有人未被处理，则跳出循环\n        if not indices:\n            break\n        \n        # 分配排名并标记已分配\n        for i in indices:\n            ranks[i] = r\n            used[i] = True\n        \n        r += count  # 更新排名变量\n    \n    # 打印结果\n    for rank in ranks:\n        print(rank)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

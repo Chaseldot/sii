@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772550233",
+  "question_index": 11,
+  "question_id": "29",
+  "split": "train",
+  "sample_id": 11,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 37.8350465297699,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    H = int(data[0])\n    W = int(data[1])\n    grid = data[2:H+2]\n    \n    # Convert each row to a list of integers\n    grid = [list(map(int, row)) for row in grid]\n    \n    # Precompute the sum of each row\n    row_sums = [sum(row) for row in grid]\n    \n    # Precompute the column values for all rows\n    col_values = [[grid[i][j] for i in range(H)] for j in range(W)]\n    \n    min_total = float('inf')\n    for mask in range(1 << W):\n        total = 0\n        for j in range(W):\n            if (mask >> j) & 1:\n                # Flip column j, so subtract 2 * sum of column j\n                total -= 2 * sum(col_values[j])\n        # Calculate the total sum after flipping columns\n        total += sum(row_sums)\n        min_total = min(min_total, total)\n    \n    # The minimum possible sum cannot be negative, as all values are 0 or 1\n    print(max(0, min_total))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

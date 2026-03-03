@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772547596",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 11,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 8.789888620376587,
+  "response": "### 分析\n1. **关键约束**：\n   - N的范围为1 ≤ N ≤ 100。\n   - 每个人的分数P_i为1 ≤ P_i ≤ 100。\n   - 时间限制为1秒，对算法的时间复杂度没有特别严格的限制。\n\n2. **问题类型**：\n   - 这是一个模拟问题，我们需要按照特定流程为每个人分配等级。\n\n3. **数学推导与规律**：\n   - 等级分配过程是按从高到低处理得分，对于相同得分的人，统一给相同的等级，并将等级增加对应人数。\n   - 例如：如果有k人得分相同且是最大的未分配等级的得分，这些人的等级都是当前r值，然后r += k。\n\n4. **算法设计与复杂度分析**：\n   - 我们可以使用堆（优先队列）来高效地获取最大得分。\n   - 同时需要记录每个得分对应的剩余未分配人数。\n   - 此外，我们还需要维护一个数组来记录每个人的最终等级。\n   - 时间复杂度为O(N log N)，因为每次堆操作是O(log N)的。\n\n### 代码\n```python\nimport heapq\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    P = list(map(int, data[1:]))\n    \n    # 维护剩余的人数和对应的得分\n    score_count = {}\n    for score in P:\n        if score not in score_count:\n            score_count[score] = 0\n        score_count[score] += 1\n    \n    # 创建最大堆\n    max_heap = []\n    for score in score_count:\n        heapq.heappush(max_heap, -score)\n    \n    # 初始化排名\n    rank = 1\n    result = [0] * N\n    \n    while max_heap:\n        current_score = -heapq.heappop(max_heap)\n        count = score_count[current_score]\n        \n        # 找出所有得分等于current_score的人并分配rank\n        for i in range(N):\n            if P[i] == current_score and result[i] == 0:\n                result[i] = rank\n        \n        # 更新rank\n        rank += count\n    \n    for r in result:\n        print(r)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772551042",
+  "question_index": 11,
+  "question_id": "29",
+  "split": "train",
+  "sample_id": 1,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 16.41235613822937,
+  "response": "```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    H = int(data[0])\n    W = int(data[1])\n    grid = data[2:H+2]\n    \n    # Convert each row to a list of integers\n    for i in range(H):\n        grid[i] = [int(c) for c in grid[i]]\n    \n    # For each column, calculate the number of 1s\n    col_counts = [0] * W\n    for i in range(H):\n        for j in range(W):\n            col_counts[j] += grid[i][j]\n    \n    # For each row, calculate the number of 1s\n    row_counts = [0] * H\n    for i in range(H):\n        for j in range(W):\n            row_counts[i] += grid[i][j]\n    \n    # The minimum value is the sum of the minimum of each row or column count\n    min_sum = 0\n    for j in range(W):\n        min_sum += min(col_counts[j], H - col_counts[j])\n    \n    # Consider flipping all rows and then columns\n    min_sum = min(min_sum, sum(min(row_counts[i], W - row_counts[i]) for i in range(H)))\n    \n    print(min_sum)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

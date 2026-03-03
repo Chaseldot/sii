@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772544084",
+  "question_index": 7,
+  "question_id": "20",
+  "split": "train",
+  "sample_id": 8,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 3.72463321685791,
+  "response": "```python\n# 1. 深度解析\n# - 约束条件：S 是由数字组成的字符串，长度为1到100；S 中至少包含一个'2'\n# - 时间复杂度上限：O(N)（因为只需遍历一次字符串）\n\n# 2. 逻辑推演\n# - 数学规律：只需要保留所有'2'字符并按原顺序连接即可\n# - DP状态转移方程：无需DP，直接拼接即可\n# - 边界情况处理：确保字符串中至少有一个'2'（题目保证）\n\n# 3. 高效实现\nimport sys\n\ndef main():\n    S = sys.stdin.readline().strip()\n    result = ''.join([c for c in S if c == '2'])\n    print(result)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

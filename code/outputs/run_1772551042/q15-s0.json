@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772551042",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 0,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 20.137778759002686,
+  "response": "```python\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    P = list(map(int, data[1:]))\n\n    # Create a list of tuples (-score, index) to simulate max-heap\n    heap = [(-P[i], i) for i in range(N)]\n    import heapq\n    heapq.heapify(heap)\n\n    rank = [0] * N\n    current_rank = 1\n    determined = [False] * N\n\n    while heap:\n        score_neg, idx = heapq.heappop(heap)\n        score = -score_neg\n        if determined[idx]:\n            continue\n        # Find all people with the same score\n        temp = []\n        temp.append(idx)\n        determined[idx] = True\n        while heap and -heap[0][0] == score and not determined[heap[0][1]]:\n            _, next_idx = heapq.heappop(heap)\n            temp.append(next_idx)\n            determined[next_idx] = True\n        # Assign rank to these people\n        for i in temp:\n            rank[i] = current_rank\n        current_rank += len(temp)\n\n    for r in rank:\n        print(r)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

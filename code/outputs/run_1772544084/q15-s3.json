@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772544084",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 3,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 12.09883975982666,
+  "response": "```python\nimport sys\nfrom collections import defaultdict\n\ndef main():\n    # Read input\n    N = int(sys.stdin.readline())\n    P = list(map(int, sys.stdin.readline().split()))\n    \n    # Initialize rank array\n    rank = [0] * N\n    \n    # Create a dictionary to group people by their scores\n    score_to_people = defaultdict(list)\n    for i in range(N):\n        score_to_people[P[i]].append(i)\n    \n    # Sort the unique scores in descending order\n    sorted_scores = sorted(score_to_people.keys(), reverse=True)\n    \n    # Initialize current rank and a set to track determined people\n    current_rank = 1\n    determined = [False] * N\n    \n    # Process each score group from highest to lowest\n    for score in sorted_scores:\n        people_with_score = score_to_people[score]\n        # Determine the rank for all people with this score\n        for person in people_with_score:\n            if not determined[person]:\n                rank[person] = current_rank\n                determined[person] = True\n        # Update the current rank\n        current_rank += len(people_with_score)\n    \n    # Output the ranks\n    for r in rank:\n        print(r)\n\nif __name__ == '__main__':\n    main()\n```\n\n### 思路解析及代码说明：\n\n1. **深度解析**：\n   - **约束条件**：N的范围是1到100，这允许我们使用O(N^2)的算法。\n   - **时间复杂度**：我们使用一个字典来分组得分相同的人，并按降序处理每个得分组，因此这个算法的时间复杂度为O(N log N)。对于N=100来说，这是可行的。\n   - **特殊性分析**：这是一个排名问题，其中相同得分的人共享相同的排名。这个问题可以通过对得分进行排序，并根据得分从高到低处理每个人来解决。\n\n2. **逻辑推演**：\n   - **数学推导**：我们需要将所有人的得分进行分类，然后按照降序处理每个得分组。每次处理完一组后，当前排名增加该组的人数（因为这些人的排名相同）。\n   - **DP状态转移方程**：实际上，此问题不需要动态规划，而是通过遍历和分组解决。\n   - **边界情况处理方案**：如果所有人的得分都相同（如样例3），所有人的排名都将是1。\n\n3. **高效实现**：\n   - 使用了`defaultdict`来进行得分分类。\n   - 对得分进行排序，按从高到低的顺序处理每个得分组。\n   - 使用布尔数组`determined`来跟踪哪些人已经分配了排名。\n   - 这种方法在时间和空间上都非常高效，可以轻松处理题目中的约束条件。\n\n通过这种方法，我们可以准确地按照比赛规则确定每个人的排名。"
+}

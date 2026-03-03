@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772550233",
+  "question_index": 10,
+  "question_id": "28",
+  "split": "train",
+  "sample_id": 0,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 8.509702682495117,
+  "response": "```python\nimport sys\nimport heapq\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    M = int(data[1])\n    X = int(data[2])\n    \n    edges = [[] for _ in range(N + 1)]\n    reverse_edges = [[] for _ in range(N + 1)]\n    \n    index = 3\n    for _ in range(M):\n        u = int(data[index])\n        v = int(data[index + 1])\n        edges[u].append(v)\n        reverse_edges[v].append(u)\n        index += 2\n    \n    # Dijkstra's algorithm with two states: (current node, reversed or not)\n    INF = float('inf')\n    dist = [[INF] * 2 for _ in range(N + 1)]\n    dist[1][0] = 0\n    dist[1][1] = 0  # Initially, edges are not reversed\n    \n    heap = [(0, 1, 0)]  # (cost, node, reversed)\n    \n    while heap:\n        cost, u, rev = heapq.heappop(heap)\n        \n        if u == N:\n            break\n        \n        if cost > dist[u][rev]:\n            continue\n        \n        # Move along original edges\n        for v in edges[u]:\n            if cost + 1 < dist[v][rev]:\n                dist[v][rev] = cost + 1\n                heapq.heappush(heap, (dist[v][rev], v, rev))\n        \n        # Reverse edges and move along reversed edges\n        if rev == 0:\n            # Reverse the edges\n            new_rev = 1\n            # Cost to reverse is X\n            if cost + X < dist[u][new_rev]:\n                dist[u][new_rev] = cost + X\n                heapq.heappush(heap, (dist[u][new_rev], u, new_rev))\n        \n        # If edges are reversed, move along reversed edges\n        if rev == 1:\n            for v in reverse_edges[u]:\n                if cost + 1 < dist[v][rev]:\n                    dist[v][rev] = cost + 1\n                    heapq.heappush(heap, (dist[v][rev], v, rev))\n    \n    print(min(dist[N][0], dist[N][1]))\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

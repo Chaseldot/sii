@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772547596",
+  "question_index": 11,
+  "question_id": "29",
+  "split": "train",
+  "sample_id": 2,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 18.494489192962646,
+  "response": "### 分析\n这道题的关键在于理解如何利用操作 X 和 Y 来最小化整个网格中 1 的数量。由于 W 范围较小（最大为 18），我们可以通过枚举所有可能的列翻转策略，然后对于每一行基于该策略计算出最优的行翻转策略。\n\n#### 关键点分析\n- **操作X**：翻转某一行的所有元素。\n- **操作Y**：翻转某一列的所有元素。\n\n我们的目标是通过任意数量次操作 X 和 Y，使得最终的总和（即 1 的总数）尽可能小。\n\n由于 W 最大值为 18，我们可以考虑对每一列是否翻转（即选择一个二进制状态，0 表示不翻转，1 表示翻转）。这样，总共会有 $2^W$ 种不同的列翻转组合。\n\n对于每一种列翻转组合，我们可以通过以下步骤得到每个行的最优状态：\n1. 对于每一行，根据当前列的状态决定是否翻转该行（为了最小化该行中 1 的个数）。\n2. 计算最终的总和并更新最小值。\n\n#### 算法设计\n1. 预处理输入二维数组为整数格式。\n2. 枚举所有 $2^W$ 种列翻转状态（用位掩码表示）。\n3. 对于每一种列翻转状态：\n   - 模拟列翻转（将对应列的值取反）。\n   - 对每一行应用操作 X，使得该行中的 1 的数量最小。\n   - 计算最终的总和，并记录最小值。\n4. 返回最小值作为答案。\n\n#### 时间复杂度分析\n- 枚举列翻转状态：$O(2^W)$。\n- 对每一列翻转状态处理全行：$O(H \\times W)$。\n- 总时间复杂度为 $O(2^W \\times H \\times W)$。\n\n当 $W = 18$ 时，$2^{18} = 262144$，因此总时间复杂度大约为 $O(262144 \\times H \\times W)$，这在本题的时间限制下是可以接受的。\n\n---\n\n### 代码\n```python\nimport sys\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    H = int(data[0])\n    W = int(data[1])\n    grid = []\n    index = 2\n    for _ in range(H):\n        row_str = data[index]\n        row = [int(c) for c in row_str]\n        grid.append(row)\n        index += 1\n\n    min_total = float('inf')\n\n    # 枚举所有可能的列翻转组合（最多 2^18 = 262144 种）\n    for mask in range(1 << W):\n        # 拷贝原始数据\n        temp_grid = [row[:] for row in grid]\n\n        # 应用列翻转\n        for col in range(W):\n            if (mask >> col) & 1:\n                for row in range(H):\n                    temp_grid[row][col] = 1 - temp_grid[row][col]\n\n        # 对每一行进行最优翻转（X操作）\n        total = 0\n        for row in temp_grid:\n            count_ones = sum(row)\n            count_zeros = W - count_ones\n            total += min(count_ones, count_zeros)\n\n        min_total = min(min_total, total)\n\n    print(min_total)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

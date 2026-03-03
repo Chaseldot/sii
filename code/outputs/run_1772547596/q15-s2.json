@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772547596",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 2,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 9.880138874053955,
+  "response": "### 分析\n这道题的关键点在于理解排名的分配逻辑。每个人按照他们的分数从高到低进行排序，相同分数的人获得相同的排名，并且后续人的排名在相同分数的人数基础上递增。这是一个典型的模拟问题。\n\n#### 1. 关键约束\n- N 的范围是 1 ≤ N ≤ 100，因此可以用 O(N^2) 的算法。\n- 每个人的 P_i 范围为 1 ≤ P_i ≤ 100，可以使用数组存储或哈希表统计频率。\n\n#### 2. 问题类型\n此问题是一种模拟题，涉及到按分数排序、统计相同分数人数，然后计算当前的排名。\n\n#### 3. 数学规律与推导\n- 首先将所有人的得分及其对应的索引记录下来。\n- 对这些数据进行降序排序。\n- 然后依次遍历排序后的列表，对于每组具有相同得分的人，赋予他们相同的排名 r，并让 r 增加该组人数。\n- 在这个过程中，记录每个人的排名即可。\n\n#### 4. 算法设计\n- 将每个得分与其索引配对。\n- 按照得分从高到低对这些配对进行排序。\n- 使用一个数组来保存每个人的排名。\n- 初始化 `r = 1` 表示当前排名。\n- 遍历排序后的列表，在遇到新的最高分时更新 `r` 的值并为其所有匹配项赋值。\n\n#### 5. 复杂度分析\n- 排序的时间复杂度是 O(N log N)，因为我们需要排序所有 N 个元素。\n- 遍历排序列表的时间是 O(N)。\n- 整体时间复杂度为 O(N log N)，这在本题给定的 N 约束下完全可行。\n\n### 代码\n```python\nn = int(input())\np = list(map(int, input().split()))\nscores = [(p[i], i + 1) for i in range(n)]\nscores.sort(reverse=True)\n\nrank = [0] * (n + 1)  # 1-based index for people\ncurrent_rank = 1\n\ni = 0\nwhile i < n:\n    current_score = scores[i][0]\n    count = 0\n    # Count the number of people with the same score\n    while i < n and scores[i][0] == current_score:\n        count += 1\n        i += 1\n    # Assign the same rank to all people with this score\n    for j in range(i - count, i):\n        rank[scores[j][1]] = current_rank\n    current_rank += count\n\n# Output the rank of each person from 1 to N\nfor i in range(1, n + 1):\n    print(rank[i])\n```"
+}

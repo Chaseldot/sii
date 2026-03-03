@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772550233",
+  "question_index": 8,
+  "question_id": "25",
+  "split": "train",
+  "sample_id": 1,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 43.25743842124939,
+  "response": "```python\nimport sys\n\ndef solve():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    X = int(data[1])\n    \n    U = []\n    D = []\n    for i in range(N):\n        u = int(data[2 + 2*i])\n        d = int(data[3 + 2*i])\n        U.append(u)\n        D.append(d)\n    \n    # Calculate the difference between upper and lower teeth\n    diff = [U[i] - D[i] for i in range(N)]\n    \n    # Sort the differences to find possible H values\n    diff.sort()\n    \n    min_cost = float('inf')\n    # Try each possible H based on the sorted differences\n    for i in range(N):\n        H = diff[i] + D[i]\n        cost = 0\n        prevU = H - D[0]\n        for j in range(N):\n            currU = H - D[j]\n            cost += abs(currU - prevU)\n            prevU = currU\n        \n        # Check if the upper teeth satisfy the consecutive condition\n        valid = True\n        prev = H - D[0]\n        for j in range(1, N):\n            curr = H - D[j]\n            if abs(curr - prev) > X:\n                valid = False\n                break\n            prev = curr\n        \n        if valid:\n            min_cost = min(min_cost, cost)\n    \n    print(min_cost)\n\nif __name__ == \"__main__\":\n    solve()\n```"
+}

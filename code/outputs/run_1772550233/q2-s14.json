@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772550233",
+  "question_index": 2,
+  "question_id": "4",
+  "split": "train",
+  "sample_id": 14,
+  "final_reward": 0.0,
+  "passed": false,
+  "elapsed_seconds": 18.05020523071289,
+  "response": "```python\nimport sys\n\nMOD = 998244353\n\ndef solve():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    N = int(data[0])\n    M = int(data[1])\n    S = data[2]\n    \n    # dp[i][j]: number of ways to have a LCS length of j with the first i characters of S\n    dp = [[0] * (N + 1) for _ in range(M + 1)]\n    dp[0][0] = 1\n    \n    for i in range(1, M + 1):\n        for j in range(N + 1):\n            # Case 1: current character is not used in LCS\n            dp[i][j] = (dp[i][j] + dp[i-1][j]) % MOD\n            # Case 2: current character is used in LCS\n            if j > 0:\n                for k in range(N):\n                    if S[k] == chr(ord('a') + (i - 1) % 26):\n                        dp[i][j] = (dp[i][j] + dp[i-1][j-1]) % MOD\n            # Case 3: add a new character that doesn't match any in S\n            dp[i][j] = (dp[i][j] + dp[i-1][j] * 25) % MOD\n    \n    result = [0] * (N + 1)\n    for k in range(N + 1):\n        result[k] = dp[M][k]\n    \n    print(' '.join(map(str, result)))\n\nsolve()\n```"
+}

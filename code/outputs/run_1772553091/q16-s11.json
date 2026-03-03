@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772553091",
+  "question_index": 16,
+  "question_id": "57",
+  "split": "train",
+  "sample_id": 11,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 3.898768663406372,
+  "response": "### 分析\n本题要求我们根据输入的整数 A，找出一个正整数 B，使得 A × B = 400。如果找不到这样的 B，则输出 -1。\n\n- 这是一个因数分解的问题，即寻找 A 的一个因数 B，使得 A * B = 400。\n- 遍历从 1 到 400 的所有可能的 B 值，找到满足条件的第一个 B。\n- 若没有符合条件的 B，则返回 -1。\n\n在编写代码时需要注意：\n- 输入范围是 [1, 400]，因此可以循环检查所有可能的因数。\n- 在发现满足条件的 B 后立即返回，以提高效率。\n\n---\n\n### 代码\n```python\n# Read input\nA = int(input())\n\n# Find B such that A * B = 400\nfor B in range(1, 401):\n    if A * B == 400:\n        print(B)\n        break\nelse:\n    print(-1)\n```"
+}

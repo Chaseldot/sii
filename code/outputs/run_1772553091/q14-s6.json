@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772553091",
+  "question_index": 14,
+  "question_id": "53",
+  "split": "train",
+  "sample_id": 6,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 8.87693476676941,
+  "response": "### 分析\n\n我们需要计算所有子数组的和的 $K$ 次方之和，并对结果取模 998244353。由于 N 可以达到 200,000，直接枚举所有子数组并进行计算不可行，因为这样的复杂度是 $O(N^2)$，会超出时间限制。\n\n我们观察到以下几点：\n\n1. **子数组和的性质**：我们可以用前缀和 $S$ 来快速计算任意子数组 $[l, r]$ 的和为 $S[r] - S[l-1]$。\n2. **快速幂与模运算**：由于 $K \\leq 10$，可以利用快速幂算法在 $O(\\log K)$ 时间内得到幂值。\n3. **优化思路**：对于每个右端点 $r$，维护当前的前缀和 $s = S[r]$，然后从左往右枚举左端点 $l$，每一步更新子数组和为 $s - S[l-1]$，并计算其 $K$ 次方，并将这些值累加。这样时间复杂度为 $O(NK)$。\n\n综上所述，该问题可以通过前缀和和枚举子数组的方式高效求解。\n\n---\n\n### 代码\n```python\nMOD = 998244353\n\ndef pow_mod(x, y, mod):\n    result = 1\n    x %= mod\n    while y > 0:\n        if y % 2 == 1:\n            result = (result * x) % mod\n        x = (x * x) % mod\n        y //= 2\n    return result\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    K = int(data[1])\n    A = list(map(int, data[2:2+N]))\n    \n    prefix_sum = [0] * (N + 1)\n    for i in range(N):\n        prefix_sum[i+1] = (prefix_sum[i] + A[i]) % MOD\n    \n    total = 0\n    for r in range(1, N+1):\n        s = prefix_sum[r]\n        for l in range(r):\n            current_sum = (s - prefix_sum[l]) % MOD\n            total = (total + pow_mod(current_sum, K, MOD)) % MOD\n    \n    print(total)\n\nif __name__ == \"__main__\":\n    main()\n```"
+}

@@ -1,0 +1,11 @@
+{
+  "run_name": "run_1772552001",
+  "question_index": 15,
+  "question_id": "54",
+  "split": "train",
+  "sample_id": 8,
+  "final_reward": 1.0,
+  "passed": true,
+  "elapsed_seconds": 8.664242506027222,
+  "response": "### 思路分析\n\n**问题理解：**  \n我们需要为每个参与者的分数分配排名。排名规则如下：\n- 初始时所有人的排名都未确定。\n- 每次找出当前未确定排名的人中最高分的值 x，记录有多少人得分等于 x（记作 k）。\n- 这些得分为 x 的人的排名设为 r，然后 r 加上 k。\n\n**目标：**  \n输出每个人的最终排名。\n\n**算法：**\n- 使用一个列表或字典来记录每个人的初始状态（是否已确定排名）。\n- 使用优先队列（Max Heap）每次找出当前最大 score。这样可以快速获取最高分。\n- 对于相同分数的多个参与者，在一次循环中同时处理并设置它们的排名。\n- 在处理完一组后，更新 r 值。\n- 重复上述过程直到所有人都有排名。\n\n**数据结构选择：**\n- 用 Max Heap 来维护当前待处理得分。\n- 同时记录每个人的状态（是否已被处理、当前得分等）。\n\n---\n\n### Python代码实现\n\n```python\nimport heapq\n\ndef main():\n    import sys\n    input = sys.stdin.read\n    data = input().split()\n    \n    N = int(data[0])\n    P = list(map(int, data[1:N+1]))\n    \n    # 记录每个人的初始状态 (whether determined, rank)\n    rank = [0] * N\n    # 创建最大堆，形式为负值以便使用Python的heapq模块（默认最小堆）\n    heap = []\n    for i in range(N):\n        heapq.heappush(heap, (-P[i], i))\n    \n    current_r = 1\n    while heap:\n        # 获取当前最大得分\n        max_score_neg, idx = heapq.heappop(heap)\n        max_score = -max_score_neg\n        \n        # 找到所有与max_score相同的元素\n        same_scores = []\n        while heap and -heap[0][0] == max_score:\n            score_neg, i = heapq.heappop(heap)\n            same_scores.append(i)\n        \n        # 添加当前idx到same_scores（因为可能被误删）\n        same_scores.append(idx)\n        \n        # 设置这些人的rank\n        for i in same_scores:\n            rank[i] = current_r\n        \n        # 更新r\n        current_r += len(same_scores)\n    \n    # 输出结果\n    for r in rank:\n        print(r)\n\nif __name__ == '__main__':\n    main()\n```"
+}
